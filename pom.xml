@@ -19,5 +19,6 @@
 		<module>jmsDemo</module>
 		<module>springIntegration</module>
 		<module>ejbIntegration</module>
-	</modules>
+    <module>todos</module>
+  </modules>
 </project>
