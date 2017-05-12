@@ -34,4 +34,13 @@ public class JerseyEntryPoint {
 		
 		 return Response.ok(obj).build();
     }
+	
+	@GET
+    @Path("/get123")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response jms() {
+		System.out.println("JerseyEntryPoint");
+		ServiceData outData = JavaAgent.getAgent("100", null).serve("jmsConsumer", null);		
+		 return Response.ok(outData.getPayLoad()).build();
+    }
 }
