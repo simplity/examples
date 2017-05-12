@@ -3,5 +3,10 @@
 			applicationId="HelloWorld"
 			autoLoginUserId="100"
 			loggingFramework="log4j"
+			queueConnectionFactory="ConnectionFactory"
 			>
+			<jmsProperties>
+				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
+				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
+			</jmsProperties>
 </application>
