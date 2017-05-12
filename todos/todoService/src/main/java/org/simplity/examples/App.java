@@ -23,7 +23,7 @@ import org.simplity.kernel.Application;
 public class App {
 	public static void main(String[] args) {
 		try {
-			Server server = new Server(8082);
+			Server server = new Server(8083);
 			File jarPath = new File(App.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
 			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
 			

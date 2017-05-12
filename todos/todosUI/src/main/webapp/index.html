@@ -2,44 +2,69 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Simplity Hello World</title>
+
+<style>
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+
+/* Style the header */
+.header {
+    background-color: #5DADE2;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+</style>
 </head>
-<body>
-<div id="hellotag"></div>
+<body ng-app="mainApp" ng-controller="formCtrl" ng-init="getTodos()">
+<div class="container">
+<div id="myDIV" class="header">
+  <h2>My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title..." style="width: 50%;padding: 10px;float: left;font-size: 16px;">
+  <span ng-click="insertTodo()" class="addBtn">Add</span>
+</div>
 <br>
-<button onclick="invokeTodoServiceRest()">Invoke TodoService Rest</button>
 <br>
-<button onclick="invokeTodoServicePost()">Invoke TodoService POST</button>
+<table class="table" ng-if="todosList.length > 0">
+			<tbody ng-repeat="x in todosList">
+				<td class="col-xs-1"><input type="checkbox" ng-model="x.status" ng-click="updateTodo(x)"/></td>
+				<td class="col-xs-2" style="font-size: 20px;">{{x.task}}</td>
+				<td class="col-xs-2"><img src="img/delete.png" ng-click="deleteTodo(x.id)" style="width: 20;float: ridht;"></td>
+			</tbody>
+</table>
+</div>
 </body>
 <script src="js/simplity-min.js"></script>
-<script type="text/javascript">
-Simplity.getResponse("helloworld",null,onSuccess,onError);
-function onSuccess(response){
-	document.getElementById("hellotag").innerHTML = response.hello;
-}
-function onError(response){
-	console.log(response);
-}
-
-function invokeTodoServiceRest(){
-	var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	     document.getElementById("hellotag").innerHTML = this.responseText;
-	    }
-	  };
-	  xhttp.open("GET", "http://localhost:8082/entry-point/get", true);
-	  xhttp.send();
-}
-
-function invokeTodoServicePost(){
-	var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	     document.getElementById("hellotag").innerHTML = this.responseText;
-	    }
-	  };
-	  xhttp.open("POST", "http://localhost:8082/entry-point/post", true);
-	  xhttp.send(JSON.stringify({name:'john',id:3}));
-}
-</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </html>

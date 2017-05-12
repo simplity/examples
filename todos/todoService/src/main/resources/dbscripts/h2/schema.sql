@@ -1,0 +1,15 @@
+DROP TABLE TODOS IF EXISTS;
+
+
+CREATE TABLE  "TODOS" 
+   (	
+    "ID" INT AUTO_INCREMENT PRIMARY KEY, 
+	"TASK" VARCHAR2(200), 
+	"STATUS" BOOLEAN DEFAULT false
+	 );
+  
+   
+INSERT INTO TODOS(TASK) VALUES ('base module creation');
+INSERT INTO TODOS(TASK) VALUES ('functionality implemantation');
+INSERT INTO TODOS(TASK) VALUES ('testing');
+   
