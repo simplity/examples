@@ -8,13 +8,7 @@
 		<artifactId>todos</artifactId>
 		<version>1.2.1-SNAPSHOT</version>
 	</parent>
-<<<<<<< HEAD
 	<artifactId>todoService</artifactId>
-=======
-	<groupId>org.simplity.examples</groupId>
-	<artifactId>todoService</artifactId>
-	<version>1.2.1-SNAPSHOT</version>
->>>>>>> 94aadb48ef36c6a432194bf84b27bfe9bf8834bc
 	<name>todoService</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -82,7 +76,6 @@
 			<artifactId>jersey-media-moxy</artifactId>
 			<version>2.7</version>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>javax.jms</groupId>
 			<artifactId>javax.jms-api</artifactId>
@@ -93,8 +86,6 @@
 			<artifactId>activemq-core</artifactId>
 			<version>5.7.0</version>
 		</dependency>
-=======
->>>>>>> 94aadb48ef36c6a432194bf84b27bfe9bf8834bc
 	</dependencies>
 	<build>
 		<resources>
@@ -104,13 +95,10 @@
 					<exclude>comp/**</exclude>
 				</excludes>
 			</resource>
-<<<<<<< HEAD
-=======
 			<resource>
 				<directory>${project.basedir}/src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
->>>>>>> 94aadb48ef36c6a432194bf84b27bfe9bf8834bc
 		</resources>
 		<plugins>
 			<plugin>
