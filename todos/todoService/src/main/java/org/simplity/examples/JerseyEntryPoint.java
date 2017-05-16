@@ -11,8 +11,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.simplity.examples.entity.ToDo;
-import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
 
