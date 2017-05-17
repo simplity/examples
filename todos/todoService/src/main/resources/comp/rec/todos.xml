@@ -12,10 +12,10 @@
 			dataType="_number"
 			name="id"/>
 		<field
-			name="task"		
+			name="title"		
 			dataType="_text"/>
 		<field
-			name="status"
+			name="completed"
 			dataType="_boolean"/>
 		</fields>
 </record>
