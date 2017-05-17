@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <record
 	name="todos"
-	recordType="storage"
-	tableName="TODOS"
+	recordType="structure"
 	xmlns="http://www.simplity.org/schema"
-	okToSelectAll="true" 
 >
 	<fields>
 		<field
-			columnName="ID"
-			dataType="_number"
-			name="id"
-			isNullable="true"
-			fieldType="primaryKey"/>
-		<field
-			columnName="TASK"
 			dataType="_text"
-			fieldType="data"
-			name="task"/>
+			name="action"/>
 		<field
-			columnName="STATUS"
-			dataType="_boolean"
-			fieldType="data"
+			dataType="_number"
+			name="id"/>
+		<field
+			name="task"		
+			dataType="_text"/>
+		<field
 			name="status"
-			isNullable="true"/>
+			dataType="_boolean"/>
 		</fields>
 </record>
