@@ -1,57 +1,32 @@
-var app = angular.module('mainApp',[]);
+/*global angular */
 
-app.controller('formCtrl', function ($scope,$http) {
-	$scope.todosList = [];
-	
-	$scope.getTodos = function(){
-		var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		    	$scope.todosList = JSON.parse(this.responseText).todos;
-		    	$scope.$apply();
-		    }
-		  };
-		  xhttp.open("GET", "http://localhost:8083/todos/todo", true);
-		  xhttp.send();
-	}
-	
-	$scope.insertTodo = function(){
-		var title = document.getElementById("myInput").value;
-		if(title){
-		var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		    	$scope.getTodos();
-		    	document.getElementById("myInput").value = null;
-		    }
-		  };
-		  xhttp.open("POST", "http://localhost:8083/todos/todo", true);
-		  xhttp.send(JSON.stringify({task:document.getElementById("myInput").value}));
-		}else{
-			alert("please add title")
-		}
-	}
+/**
+ * The main TodoMVC app module
+ *
+ * @type {angular.Module}
+ */
+angular.module('todomvc', ['ngRoute'])
+	.config(function ($routeProvider) {
+		'use strict';
 
-	$scope.updateTodo = function(todo){
-		var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		    	$scope.getTodos();
-		    }
-		  };
-		  todo.status = !(todo.status);
-		  xhttp.open("PUT", "http://localhost:8083/todos/todo", true);
-		  xhttp.send(JSON.stringify(todo));
-	}
+		var routeConfig = {
+			controller: 'TodoCtrl',
+			templateUrl: 'todomvc-index.html',
+			resolve: {
+				store: function (todoStorage) {
+					// Get the correct module (API or localStorage).
+					return todoStorage.then(function (module) {
+						module.get(); // Fetch the todo records in the background.
+						return module;
+					});
+				}
+			}
+		};
 
-	$scope.deleteTodo = function(id){
-		var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		    	$scope.getTodos();
-		    }
-		  };
-		  xhttp.open("DELETE", "http://localhost:8083/todos/todo/"+id, true);
-		  xhttp.send();
-	}
-});
+		$routeProvider
+			.when('/', routeConfig)
+			.when('/:status', routeConfig)
+			.otherwise({
+				redirectTo: '/'
+			});
+	});

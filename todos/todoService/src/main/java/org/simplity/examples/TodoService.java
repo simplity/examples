@@ -15,19 +15,11 @@ import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
 
 @Path("/todos")
-public class JerseyEntryPoint {
+public class TodoService {
 	
-	@GET
-    @Path("/todo")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
-    public Response get() {
-		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("filter_todos", null);
-		return Response.ok(outData.getResponseJson()).build();
-    }
-	
+
 	@POST
-    @Path("/todo")
+    @Path("/")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response add(String data) {
@@ -37,7 +29,7 @@ public class JerseyEntryPoint {
     }
 	
 	@PUT
-    @Path("/todo")
+    @Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response update(String data) {
@@ -47,7 +39,7 @@ public class JerseyEntryPoint {
     }
 	
 	@DELETE
-    @Path("/todo/{id}")
+    @Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public Response delete(@PathParam("id") int id) {
 		System.out.println("JerseyEntryPoint");

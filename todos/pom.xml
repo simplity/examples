@@ -6,9 +6,7 @@
     <groupId>org.simplity.examples</groupId>
     <version>1.2.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.simplity.examples</groupId>
   <artifactId>todos</artifactId>
-  <version>1.2.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>todos</name>
   <modules>

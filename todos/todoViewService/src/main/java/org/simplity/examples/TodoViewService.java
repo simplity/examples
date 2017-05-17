@@ -13,11 +13,11 @@ import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceData;
 
-@Path("/entry-point")
-public class JerseyEntryPoint {
+@Path("/todos")
+public class TodoViewService {
 	
 	@GET
-    @Path("/get")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public Response test() {
 		System.out.println("JerseyEntryPoint");
