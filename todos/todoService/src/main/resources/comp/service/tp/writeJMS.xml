@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <service
 	xmlns="http://www.simplity.org/schema"
-	name="jmsProducerUpdate"
+	name="writeJMS"
 	dbAccessType="none"
 	jmsUsage="notManaged">
 	 
@@ -14,8 +14,7 @@
 	<actions>
 		<jmsProducer>
 			<requestQueue
-				queueName="dynamicQueues/Queue01"
-				fieldNames="test" messageBodyType="text"/>
+				queueName="dynamicQueues/Queue01" recordName="todos"/>
 		</jmsProducer>
 	</actions>
 </service>

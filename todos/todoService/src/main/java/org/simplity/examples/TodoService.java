@@ -19,12 +19,12 @@ public class TodoService {
 	
 
 	@POST
-    @Path("/")
+    @Path("/")	
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response add(String data) {
-		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("addTask", data);
+		
+		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }
 	
@@ -33,8 +33,7 @@ public class TodoService {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response update(String data) {
-		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("updateTask", data);
+		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }
 	
@@ -42,17 +41,9 @@ public class TodoService {
     @Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public Response delete(@PathParam("id") int id) {
-		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("deleteTask","{'id':"+id+"}");
+		String data = "{'id':"+id+"}";
+		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }
 	
-	@GET
-    @Path("/get123")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response jms() {
-		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("jmsConsumer", null);		
-		 return Response.ok(outData.getPayLoad()).build();
-    }
 }

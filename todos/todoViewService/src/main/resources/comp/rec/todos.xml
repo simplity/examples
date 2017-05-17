@@ -14,15 +14,15 @@
 			isNullable="true"
 			fieldType="primaryKey"/>
 		<field
-			columnName="TASK"
+			columnName="TITLE"
 			dataType="_text"
 			fieldType="data"
-			name="task"/>
+			name="title"/>
 		<field
-			columnName="STATUS"
+			columnName="COMPLETED"
 			dataType="_boolean"
 			fieldType="data"
-			name="status"
+			name="completed"
 			isNullable="true"/>
 		</fields>
 </record>

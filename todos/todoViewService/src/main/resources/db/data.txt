@@ -1,0 +1,2 @@
+1,Create a Maven Project,false
+2,Include the required dependencies,false
