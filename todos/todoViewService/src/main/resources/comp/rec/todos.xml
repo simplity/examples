@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record
+	name="todos"
+	recordType="storage"
+	tableName="TODOS"
+	xmlns="http://www.simplity.org/schema"
+	okToSelectAll="true" 
+>
+	<fields>
+		<field
+			columnName="ID"
+			dataType="_number"
+			name="id"
+			isNullable="true"
+			fieldType="primaryKey"/>
+		<field
+			columnName="TASK"
+			dataType="_text"
+			fieldType="data"
+			name="task"/>
+		<field
+			columnName="STATUS"
+			dataType="_boolean"
+			fieldType="data"
+			name="status"
+			isNullable="true"/>
+		</fields>
+</record>

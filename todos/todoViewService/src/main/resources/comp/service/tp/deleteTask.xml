@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="deleteTask"
+	dbAccessType="readWrite">
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="id"/>
+		</inputFields>
+	</inputData>
+	<actions>
+		<save saveAction="delete" recordName="todos"></save>
+	</actions>
+</service>
