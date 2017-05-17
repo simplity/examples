@@ -7,7 +7,10 @@
 	 
 	<inputData>
 		<inputFields>
-			<inputField dataType="_text" name="test"/>
+			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_text" name="title"/>
+			<inputField dataType="_text" name="action"/>
+			<inputField dataType="_boolean" name="completed"/>
 		</inputFields>
 	</inputData>
 	

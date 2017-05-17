@@ -21,7 +21,7 @@ public class TodoViewService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response test() {
 		System.out.println("JerseyEntryPoint");
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("filter_todos", null);		
+		ServiceData outData = JavaAgent.getAgent("100", null).serve("filter_todosDBTable", null);		
 		 return Response.ok(outData.getPayLoad()).build();
     }
 

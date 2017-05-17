@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <record
-	name="todos"
-	recordType="structure"
+	name="todosDBTable"
+	recordType="storage" 
+	tableName="TODOS" 
+	okToSelectAll="true" 
 	xmlns="http://www.simplity.org/schema"
 >
 	<fields>
 		<field
-			dataType="_text"
-			name="action"/>
-		<field
 			dataType="_number"
-			name="id"/>
+			name="id"
+			fieldType="primaryKey"
+			isNullable="true"/>
 		<field
 			name="title"		
 			dataType="_text"/>

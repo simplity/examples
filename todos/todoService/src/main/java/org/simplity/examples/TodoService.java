@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
 
@@ -23,7 +24,9 @@ public class TodoService {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response add(String data) {
-		
+		JSONObject jSONObject = new JSONObject(data);
+		jSONObject.put("action", "post");
+		data = jSONObject.toString();
 		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }
@@ -32,7 +35,11 @@ public class TodoService {
     @Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN})
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
-    public Response update(String data) {
+    public Response update(@PathParam("id") int id, String data) {
+		JSONObject jSONObject = new JSONObject(data);
+		jSONObject.put("id", id);
+		jSONObject.put("action", "put");
+		data = jSONObject.toString();
 		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }
@@ -41,7 +48,7 @@ public class TodoService {
     @Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public Response delete(@PathParam("id") int id) {
-		String data = "{'id':"+id+"}";
+		String data = "{'id':"+id+",'action':'delete'}";
 		ServiceData outData = JavaAgent.getAgent("100", null).serve("writeJMS", data);
 		return Response.ok(outData.getResponseJson()).build();
     }

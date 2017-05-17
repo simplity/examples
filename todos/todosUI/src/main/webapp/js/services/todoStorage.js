@@ -68,7 +68,7 @@ angular.module('todomvc')
 			get: function () {
 				return $http.get('http://localhost:8081/todos')
 					.then(function (resp) {
-						angular.copy(resp.data.todos, store.todos);
+						angular.copy(resp.data.todosDBTable, store.todos);
 						return store.todos;
 					});
 			},
