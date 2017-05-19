@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<jobs>
 		<job 
-			name="jmsListener" runInterval="1"
-			serviceName="jmsWrapper" />
+			name="jmsListener" nbrDedicatedThreads="1"
+			serviceName="jmsConsumer" />
 	</jobs>
 </batch>
