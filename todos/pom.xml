@@ -13,5 +13,6 @@
     <module>todoService</module>
     <module>todoViewService</module>
     <module>todosUI</module>
+    <module>activeMQ</module>
   </modules>
 </project>

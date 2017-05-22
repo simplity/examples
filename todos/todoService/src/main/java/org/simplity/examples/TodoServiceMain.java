@@ -11,7 +11,7 @@ import com.sun.jersey.api.core.PackagesResourceConfig;
  * Hello world!
  *
  */
-public class App {
+public class TodoServiceMain {
 		public static void main(String[] args) {
 		HttpServer server = null;
 		try {
@@ -21,7 +21,7 @@ public class App {
 			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8083", rc);	 
 	
 			
-			File jarPath = new File(App.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
+			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
 			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
 			
 			try {

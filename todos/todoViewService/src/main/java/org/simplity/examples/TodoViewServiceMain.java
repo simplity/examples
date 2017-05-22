@@ -19,11 +19,11 @@ import org.simplity.kernel.Application;
  * Hello world!
  *
  */
-public class App {
+public class TodoViewServiceMain {
 	public static void main(String[] args) {
 		try {
 			Server server = new Server(8081);
-			File jarPath = new File(App.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
+			File jarPath = new File(TodoViewServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
 			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
 			
 			try {
