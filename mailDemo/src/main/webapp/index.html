@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Simplity Hello World</title>
+</head>
+<body>
+	<br>
+	<input type="text" id="message"></input>
+	<button onclick="sendMail()">Send Mail</button>
+	<br>
+	<br>
+	<div id="tag"></div>
+</body>
+<script src="js/simplity-min.js"></script>
+<script type="text/javascript">
+	function sendMail() {
+		var value = document.getElementById("message").value
+		var data = "{'fromId':'" + value 
+			+ ", 'toIds':'" + value
+			+ ", 'content':'" + value
+			+ ", 'subject':'" + value
+			+ "'}"
+		Simplity.getResponse("sendMail", null, onSendMailSuccess, onSendMailError);
+	}
+	
+	function onSendMailSuccess(response) {
+		document.getElementById("tag").innerHTML = JSON.stringify(response);
+	}
+	
+	function onSendMailError(response) {
+		console.log(response);
+	}
+</script>
+</html>
