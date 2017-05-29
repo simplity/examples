@@ -7,18 +7,16 @@ import org.simplity.kernel.Application;
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 
-/**
- * Hello world!
- *
- */
+
 public class TodoServiceMain {
+		public static HttpServer server;
 		public static void main(String[] args) {
-		HttpServer server = null;
+
 		try {
 			
 			PackagesResourceConfig rc = new  PackagesResourceConfig("org.simplity.examples");
 			rc.getContainerResponseFilters().add(new CorsFilter());
-			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8083", rc);	 
+			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8686", rc);	 
 	
 			
 			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			

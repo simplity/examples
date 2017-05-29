@@ -22,7 +22,8 @@
 			actionName="authenticate"
 			credentials="$_userToken"
 			principal="$_userId" executeOnCondition="~isAutoLogin"/>
+<log names="_userId,_userToken,_isAutoLogin"/>				
 	</actions>
-	<outputData sessionFields="_userId">
+	<outputData fieldNames="_userId">		
 	</outputData>
 </service>

@@ -136,7 +136,7 @@
 						<argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
 						<argument>-classpath</argument>
                 		<classpath />
-						<argument>org.simplity.examples.App</argument>
+						<argument>org.simplity.examples.TodoServiceMain</argument>
 					</arguments>
 				</configuration>
 			</plugin>

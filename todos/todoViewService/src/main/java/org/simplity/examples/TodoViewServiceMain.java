@@ -15,14 +15,12 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.simplity.kernel.Application;
 
-/**
- * Hello world!
- *
- */
+
 public class TodoViewServiceMain {
+	public static Server server;
 	public static void main(String[] args) {
 		try {
-			Server server = new Server(8081);
+			server = new Server(8081);
 			File jarPath = new File(TodoViewServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
 			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
 			
