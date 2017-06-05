@@ -13,7 +13,8 @@ angular.module('todomvc')
 
 		// Detect if an API backend is present. If so, return the API module, else
 		// hand off the localStorage adapter
-		return $http.get('http://localhost:8081/todos')
+		//return $http.get('http://localhost:8081/todos')
+		return $http.get('http://localhost:8086/todos')
 			.then(function () {
 				return $injector.get('api');
 			}, function () {
@@ -56,7 +57,8 @@ angular.module('todomvc')
 
 				store.todos.splice(store.todos.indexOf(todo), 1);
 
-				return $http.delete('http://localhost:8083/todos/' + todo.id)
+				//return $http.delete('http://localhost:8083/todos/' + todo.id)
+				return $http.delete('http://localhost:8086/todos/delete/' + todo.id)
 					.then(function success() {
 						return store.todos;
 					}, function error() {
@@ -66,7 +68,8 @@ angular.module('todomvc')
 			},
 
 			get: function () {
-				return $http.get('http://localhost:8081/todos')
+				//return $http.get('http://localhost:8081/todos')
+				return $http.get('http://localhost:8086/todos/')
 					.then(function (resp) {
 						angular.copy(resp.data.todosDBTable, store.todos);
 						return store.todos;
@@ -76,7 +79,8 @@ angular.module('todomvc')
 			insert: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.post('http://localhost:8083/todos/', todo)
+				//return $http.post('http://localhost:8083/todos/', todo)
+				return $http.post('http://localhost:8086/todos/add/', todo)
 					.then(function success(resp) {
 						todo.id = resp.data.id;
 						store.todos.push(todo);
@@ -90,7 +94,8 @@ angular.module('todomvc')
 			put: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.put('http://localhost:8083/todos/' + todo.id, todo)
+				//return $http.put('http://localhost:8083/todos/' + todo.id, todo)
+				return $http.put('http://localhost:8086/todos/update/' + todo.id, todo)
 					.then(function success() {
 						return store.todos;
 					}, function error() {
