@@ -20,7 +20,7 @@ public class TodosUIMain {
 		resourceHandler.setResourceBase(basePath);
 		resourceHandler.setWelcomeFiles(new String[]{ "index.html" });
 		
-		final Server server = new Server();
+		final Server server = new Server(8083);
 		server.setHandler(resourceHandler);
 		try {
 			server.start();

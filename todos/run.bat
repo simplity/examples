@@ -1,10 +1,8 @@
 cd activeMQ
-start mvn activemq:run
-start mvn exec:exec
+start activeMQ.bat
 cd ../todoService
-start mvn exec:exec
+start todoService.bat
 cd ../todoViewService
-call mvn install
-start mvn exec:exec
+start todoViewService.bat
 cd ../todosUI
-start mvn exec:exec
+mvn exec:exec
