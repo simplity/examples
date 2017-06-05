@@ -16,7 +16,7 @@ public class TodoServiceMain {
 			
 			PackagesResourceConfig rc = new  PackagesResourceConfig("org.simplity.examples");
 			rc.getContainerResponseFilters().add(new CorsFilter());
-			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8686", rc);	 
+			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8082", rc);	 
 	
 			
 			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
