@@ -1,11 +1,14 @@
 package org.simplity.examples;
 
 import java.io.File;
+import java.net.URI;
+
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.kernel.Application;
 
-import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
-import com.sun.jersey.api.core.PackagesResourceConfig;
+
 
 /**
  * Hello world!
@@ -15,12 +18,10 @@ public class TodoServiceMain {
 		public static void main(String[] args) {
 		HttpServer server = null;
 		try {
-			
-			PackagesResourceConfig rc = new  PackagesResourceConfig("org.simplity.examples");
-			rc.getContainerResponseFilters().add(new CorsFilter());
-			server =  GrizzlyServerFactory.createHttpServer("http://localhost:8083", rc);	 
-	
-			
+	        ResourceConfig rc = new TodoServiceConfig();
+	        //rc.register(CorsFilter.class);
+	        
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8083"),rc);
 			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
 			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
 			
@@ -36,8 +37,8 @@ public class TodoServiceMain {
 			server.start();
 	        Thread.currentThread().join();	
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			server.stop();
+			e.printStackTrace();
+			server.shutdown();
 		}
 	}
 }
