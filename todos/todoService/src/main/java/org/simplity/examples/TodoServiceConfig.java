@@ -37,6 +37,8 @@ public class TodoServiceConfig extends ResourceConfig {
 							JSONObject jSONObject;
 							switch (localSwitch) {
 							case 1:
+								id = Integer.parseInt(containerRequestContext.getUriInfo().getPathParameters().get("id").toArray()[0].toString());
+								System.out.println("id: "+id);
 								outData = JavaAgent.getAgent("100", null).serve("writeJMS", null);
 								return outData.getResponseJson();
 							case 2:
