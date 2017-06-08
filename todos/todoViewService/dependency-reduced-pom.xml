@@ -116,12 +116,20 @@
             <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
             <argument>-classpath</argument>
             <classpath />
-            <argument>org.simplity.examples.App</argument>
+            <argument>org.simplity.examples.TodoViewServiceMain</argument>
           </arguments>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

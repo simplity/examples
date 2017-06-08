@@ -10,13 +10,11 @@ import org.simplity.kernel.Application;
 
 
 
-/**
- * Hello world!
- *
- */
+
 public class TodoServiceMain {
+		public static HttpServer server;
 		public static void main(String[] args) {
-		HttpServer server = null;
+
 		try {
 	        ResourceConfig rc = new TodoServiceConfig();
 	        //rc.register(CorsFilter.class);

@@ -34,6 +34,7 @@ import org.simplity.kernel.ApplicationError;
 import org.simplity.kernel.FormattedMessage;
 import org.simplity.kernel.db.DbDriver;
 import org.simplity.service.AbstractService;
+import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceData;
 
 /**
@@ -54,7 +55,7 @@ public class FilterOwners extends AbstractService {
 	 * ServiceData)
 	 */
 	@Override
-	public ServiceData respond(ServiceData inputData) {
+	public ServiceData respond(ServiceData inputData, PayloadType payloadType) {
 		Connection con = null;
 		try {
 			ServiceData outData = new ServiceData();

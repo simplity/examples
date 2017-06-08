@@ -56,7 +56,7 @@ angular.module('todomvc')
 
 				store.todos.splice(store.todos.indexOf(todo), 1);
 
-				return $http.delete('http://localhost:8083/todos/' + todo.id)
+				return $http.delete('http://localhost:8082/todos/' + todo.id)
 					.then(function success() {
 						return store.todos;
 					}, function error() {
@@ -76,7 +76,7 @@ angular.module('todomvc')
 			insert: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.post('http://localhost:8083/todos/', todo)
+				return $http.post('http://localhost:8082/todos/', todo)
 					.then(function success(resp) {
 						todo.id = resp.data.id;
 						store.todos.push(todo);
@@ -90,7 +90,7 @@ angular.module('todomvc')
 			put: function (todo) {
 				var originalTodos = store.todos.slice(0);
 
-				return $http.put('http://localhost:8083/todos/' + todo.id, todo)
+				return $http.put('http://localhost:8082/todos/' + todo.id, todo)
 					.then(function success() {
 						return store.todos;
 					}, function error() {

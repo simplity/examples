@@ -13,12 +13,11 @@
 	<modules>
 		<module>helloworld</module>
 		<module>mcHelloWorld</module>
-		<module>wbBatch</module>
 		<module>wbFileAgent</module>
 		<module>petclinic</module>
 		<module>jmsDemo</module>
 		<module>springIntegration</module>
 		<module>ejbIntegration</module>
-    <module>todos</module>
+		<module>todos</module>
   </modules>
 </project>
