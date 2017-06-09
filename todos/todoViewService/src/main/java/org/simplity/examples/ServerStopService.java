@@ -11,7 +11,7 @@ public class ServerStopService {
 	
 
 	@GET
-    @Path("/")	
+    @Path("/stop")	
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML,MediaType.TEXT_PLAIN })
     public Response stop() {
 		try {

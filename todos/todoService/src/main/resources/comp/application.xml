@@ -2,9 +2,9 @@
 <application xmlns="http://www.simplity.org/schema" 
 			applicationId="HelloWorld"
 			autoLoginUserId="100"
-			loggingFramework="log4j"
-			queueConnectionFactory="ConnectionFactory"
-			logSqls="true">
+			loggingFramework="log4j"	
+			queueConnectionFactory="ConnectionFactory"		
+			logSqls="true">		 
 			<jmsProperties>
 				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
 			</jmsProperties>

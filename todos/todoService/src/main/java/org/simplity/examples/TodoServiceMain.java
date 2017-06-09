@@ -17,7 +17,7 @@ public class TodoServiceMain {
 
 		try {
 	        ResourceConfig rc = new TodoServiceConfig();
-	        //rc.register(CorsFilter.class);
+	        rc.register(CorsFilter.class);
 	        
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8082"),rc);
 			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
