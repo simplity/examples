@@ -37,6 +37,7 @@
         "summary": "View the list of todos",
         "description": "",
         "operationId": "viewTodos",
+        "x-serviceName": "filter_todosDBTable",
         "consumes": [
           "application/json"
         ],

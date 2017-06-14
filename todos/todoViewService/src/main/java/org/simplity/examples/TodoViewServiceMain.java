@@ -14,21 +14,24 @@ public class TodoViewServiceMain {
 	public static void main(String[] args) {
 
 		try {
-			ResourceConfig rc = new TodoViewServiceConfig();
-			rc.register(CorsFilter.class);
-
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8081"), rc);
 			File jarPath = new File(
 					TodoViewServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 			String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
 
 			try {
 				Application.bootStrap(folder);
+				TodoViewServiceConfig.setApiPath(folder+"openapi"+File.separator+"todos.json");
 			} catch (Exception e) {
 				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
-			}
+			}			
+			
+			ResourceConfig rc = new TodoViewServiceConfig();
+			rc.register(CorsFilter.class);
+
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8081"), rc);
+			
 
 			server.start();
 			Thread.currentThread().join();
