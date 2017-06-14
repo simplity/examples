@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="ticket" recordType="storage" tableName="TICKET" xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="ID" fieldType="primaryKey" name="id" sqlTypeName="INTEGER"/>
+<field columnName="HREF" dataType="_text" fieldType="data" name="href" sqlTypeName="VARCHAR"/>
+<field columnName="CORRELATIONID" dataType="_text" fieldType="data" name="correlationid" sqlTypeName="VARCHAR"/>
+<field columnName="DESCRIPTION" dataType="_text" fieldType="data" name="description" sqlTypeName="VARCHAR"/>
+<field columnName="SEVERITY" dataType="_text" fieldType="data" name="severity" sqlTypeName="VARCHAR"/>
+<field columnName="TYPE" dataType="_text" fieldType="data" name="type" sqlTypeName="VARCHAR"/>
+<field columnName="CREATIONDATE" dataType="_timestamp" fieldType="data" name="creationdate" sqlTypeName="TIMESTAMP"/>
+<field columnName="TARGETRESOLUTIONDATE" dataType="_timestamp" fieldType="data" name="targetresolutiondate" sqlTypeName="TIMESTAMP"/>
+<field columnName="STATUS" dataType="_text" fieldType="data" name="status" sqlTypeName="VARCHAR"/>
+<field columnName="SUBSTATUS" dataType="_text" fieldType="data" name="substatus" sqlTypeName="VARCHAR"/>
+<field columnName="STATUSCHANGEREASON" dataType="_text" fieldType="data" name="statuschangereason" sqlTypeName="VARCHAR"/>
+<field columnName="STATUSCHANGEDATE" dataType="_timestamp" fieldType="data" name="statuschangedate" sqlTypeName="TIMESTAMP"/>
+<field columnName="RESOLUTIONDATE" dataType="_timestamp" fieldType="data" name="resolutiondate" sqlTypeName="TIMESTAMP"/>
+</fields>
+</record>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://www.simplity.org/schema" 
+			applicationId="HelloWorld"
+			autoLoginUserId="100"
+			loggingFramework="log4j"
+			queueConnectionFactory="ConnectionFactory" 
+			jobsToRunOnStartup="jmsListener" 
+			dbVendor="h2"
+			dbDriverClassName="org.h2.Driver"
+			connectionString="jdbc:h2:file:${project.build.directory}\ticket;user=sa;" 
+			logSqls="true">
+			<jmsProperties>
+				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
+			</jmsProperties>
+</application>
