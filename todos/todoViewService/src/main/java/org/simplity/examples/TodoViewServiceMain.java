@@ -20,14 +20,14 @@ public class TodoViewServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				TodoViewServiceConfig.setApiPath(folder+"openapi"+File.separator+"todos.json");
+				OpenApiServiceConfig.setApiPath(folder+"openapi"+File.separator+"todos.json");
 			} catch (Exception e) {
 				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
 			}			
 			
-			ResourceConfig rc = new TodoViewServiceConfig();
+			ResourceConfig rc = new OpenApiServiceConfig();
 			rc.register(CorsFilter.class);
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8081"), rc);

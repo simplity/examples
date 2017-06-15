@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="viewTodos"
+	dbAccessType="readWrite">
+	<actions>
+		<filter filterRecordName="todosDBTable" outputSheetName="todosDBTable"></filter>
+	</actions>
+	<outputData dataSheets="todosDBTable"></outputData>
+</service>

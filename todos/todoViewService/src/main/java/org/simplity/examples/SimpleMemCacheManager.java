@@ -7,7 +7,6 @@ import org.simplity.service.ServiceData;
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
 
-
 /**
  * this is a singleton by design. An instance is cached by HttpAgent and reused.
  *
@@ -17,10 +16,10 @@ import com.whalin.MemCached.SockIOPool;
 public class SimpleMemCacheManager implements ServiceCacheManager {
 	SockIOPool pool;
 	MemCachedClient mcc;
-	
+
 	public SimpleMemCacheManager() {
 		pool = SockIOPool.getInstance("default");
-		String[] servers = {"localhost:11211"};
+		String[] servers = { "localhost:11211" };
 		pool.setServers(servers);
 		pool.setFailover(true);
 		pool.setInitConn(10);
@@ -31,9 +30,9 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		pool.setSocketTO(3000);
 		pool.setAliveCheck(true);
 		pool.initialize();
-		
+
 		mcc = new MemCachedClient("default");
-		
+
 	}
 
 	@Override
@@ -54,8 +53,8 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 
 	@Override
 	public void invalidate(String serviceName) {
-		Tracer.trace("Invalidate entry for " + serviceName);
-		System.out.println(mcc.delete("filter_todosDBTable"));
+		Tracer.trace("Invalidate entry for viewTodos");
+		System.out.println(mcc.delete("viewTodos"));
 	}
 
 }

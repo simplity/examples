@@ -36,7 +36,7 @@
         ],
         "summary": "Create a todo",
         "description": "",
-        "operationId": "addTodos",
+        "operationId": "addTodo",
         "x-serviceName": "writeJMS",
         "consumes": [
           "application/json"
@@ -69,95 +69,103 @@
           }
         ]
       }
-    }
-  },
-  "/{id}": {
-    "put": {
-      "tags": [
-        "todos"
-      ],
-      "summary": "Update an existing todo",
-      "description": "",
-      "operationId": "updatePet",
-      "consumes": [
-        "application/json"
-      ],
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [
-        {
-          "in": "body",
-          "name": "body",
-          "description": "Update the Todos",
-          "required": true,
-          "schema": {
-            "$ref": "#/definitions/Todos"
-          }
-        }
-      ],
-      "responses": {
-        "400": {
-          "description": "Invalid ID supplied"
-        },
-        "404": {
-          "description": "Todos not found"
-        },
-        "405": {
-          "description": "Validation exception"
-        }
-      },
-      "security": [
-        {
-          "todos_auth": [
-            "write:todos",
-            "read:todos"
-          ]
-        }
-      ]
     },
-    "delete": {
-      "tags": [
-        "todos"
-      ],
-      "summary": "Deletes a todo",
-      "description": "",
-      "operationId": "deleteTodo",
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [
-        {
-          "name": "api_key",
-          "in": "header",
-          "required": false,
-          "type": "string"
+    "/{id}": {
+      "put": {
+        "tags": [
+          "todos"
+        ],
+        "summary": "Update an existing todo",
+        "description": "",
+        "operationId": "updateTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Todo",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Update the Todos",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Todos"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Todos not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
         },
-        {
-          "name": "id",
-          "in": "path",
-          "description": "Todo id to delete",
-          "required": true,
-          "type": "integer",
-          "format": "int64"
-        }
-      ],
-      "responses": {
-        "400": {
-          "description": "Invalid ID supplied"
-        },
-        "404": {
-          "description": "Todo not found"
-        }
+        "security": [
+          {
+            "todos_auth": [
+              "write:todos",
+              "read:todos"
+            ]
+          }
+        ]
       },
-      "security": [
-        {
-          "todos_auth": [
-            "write:todos",
-            "read:todos"
-          ]
-        }
-      ]
+      "delete": {
+        "tags": [
+          "todos"
+        ],
+        "summary": "Deletes a todo",
+        "description": "",
+        "operationId": "deleteTodo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Todo id to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Todo not found"
+          }
+        },
+        "security": [
+          {
+            "todos_auth": [
+              "write:todos",
+              "read:todos"
+            ]
+          }
+        ]
+      }
     }
   },
   "securityDefinitions": {

@@ -4,6 +4,13 @@
 	name="crudAction"
 	dbAccessType="readWrite"
 	jmsUsage="notManaged">
+<inputData>
+	<inputFields>
+		<inputField dataType="_number" name="id"/>
+		<inputField dataType="_text" name="title"/>
+		<inputField dataType="_boolean" name="completed"/>
+	</inputFields>
+</inputData>	
 	<actions>
 		<logic className="org.simplity.examples.LogicClasses.InvalidateCache"/>
 		<save saveAction="add" recordName="todosDBTable" executeOnCondition="action == 'post'"></save>
