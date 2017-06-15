@@ -5,12 +5,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.simplity.examples</groupId>
-		<artifactId>TroubleTicketAPI</artifactId>
+		<groupId>org.simplity.examples.troubleTicketDemo</groupId>
+		<artifactId>troubleTicketAPI</artifactId>
 		<version>1.2.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>TTactiveMQ</artifactId>
-	<name>TTactiveMQ</name>
+	<artifactId>ttactiveMQ</artifactId>
+	<name>ttactiveMQ</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

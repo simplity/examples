@@ -6,12 +6,13 @@
     <groupId>org.simplity.examples</groupId>
     <version>1.2.1-SNAPSHOT</version>
   </parent>
-  <artifactId>TroubleTicketDemo</artifactId>
+  <groupId>org.simplity.examples.troubleTicketDemo</groupId>
+  <artifactId>troubleTicketDemo</artifactId>
   <packaging>pom</packaging>
-  <name>TroubleTicketDemo</name>
+  <name>troubleTicketDemo</name>
   <modules>
-    <module>TroubleTicketAPI</module>
-    <module>CSP</module>
-    <module>CarManufacturer</module>
+    <module>troubleTicketAPI</module>
+    <module>cspService</module>
+    <module>carManufacturerService</module>
    </modules>
 </project>
