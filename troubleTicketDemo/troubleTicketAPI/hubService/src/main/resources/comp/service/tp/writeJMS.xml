@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="writeJMS"
+	dbAccessType="none"
+	jmsUsage="notManaged">
+	 
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_text" name="title"/>
+			<inputField dataType="_text" name="action"/>
+			<inputField dataType="_boolean" name="completed"/>
+		</inputFields>
+	</inputData>
+	
+	<actions>
+		<jmsProducer>
+			<requestQueue
+				queueName="dynamicQueues/Queue01" recordName="todos"/>
+		</jmsProducer>
+	</actions>
+</service>
