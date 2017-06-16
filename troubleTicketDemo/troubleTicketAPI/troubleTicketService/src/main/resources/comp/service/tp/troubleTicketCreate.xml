@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="troubleTicketCreate"
+	dbAccessType="readWrite">
+	<inputData>
+		<inputFields>
+			<inputField dataType="_text" name="id" />
+			<inputField dataType="_text" name="href" />
+			<inputField dataType="_text" name="correlationid" />
+			<inputField dataType="_text" name="description" />
+			<inputField dataType="_text" name="severity" />
+			<inputField dataType="_text" name="type" />
+			<inputField dataType="_text" name="creationdate" />
+			<inputField dataType="_text" name="targetresolutiondate" />
+			<inputField dataType="_text" name="status" />
+			<inputField dataType="_text" name="substatus" />
+			<inputField dataType="_text" name="statuschangereason" />
+			<inputField dataType="_text" name="statuschangedate" />
+			<inputField dataType="_text" name="resolutiondate" />
+		</inputFields>
+		<inputRecords>
+			<inputRecord recordName="relatedobject" sheetName="relatedobject"/>
+			<inputRecord recordName="relatedpartyref" sheetName="relatedpartyref"/>
+			<inputRecord recordName="note" sheetName="note"/>
+		</inputRecords>
+	</inputData>
+	<actions>
+		<save saveAction="add" recordName="ticket">
+			<childRecords>
+				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
+				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
+				<relatedRecord sheetName="note" recordName="note"/>
+			</childRecords>
+		</save>
+	</actions>
+</service>

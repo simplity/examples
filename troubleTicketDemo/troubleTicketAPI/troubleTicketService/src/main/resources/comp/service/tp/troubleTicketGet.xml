@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="troubleTicketGet"
+	dbAccessType="readWrite">
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="id"/>
+		</inputFields>
+	</inputData>
+	<actions>
+		<createSheet sheetName="filterSheet" data="id;$id"/>
+		<filter filterRecordName="ticket" outputSheetName="tickets" inputSheetName="filterSheet">
+			<childRecords>
+				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
+				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
+				<relatedRecord sheetName="note" recordName="note"/>
+			</childRecords>
+		</filter>
+	</actions>
+</service>

@@ -76,7 +76,7 @@ public class OpenApiServiceConfig extends ResourceConfig {
 							e.printStackTrace();
 						}
 						JSONObject jObj = new JSONObject();
-						if (sb.length()!=0 && containerRequestContext.getMediaType().equals(MediaType.APPLICATION_JSON_TYPE)) {
+						if (sb.length()!=0 && containerRequestContext.getMediaType().isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
 							jObj = new JSONObject(sb.toString());
 						}
 						MultivaluedMap<String, String> pathParams = containerRequestContext.getUriInfo()

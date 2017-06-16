@@ -7,7 +7,7 @@
     "title": "API TroubleTicket"
   },
   "host": "env-0693795.jelastic.servint.net",
-  "basePath":	"/DSTroubleTicket/api/troubleTicketManagement/v2",
+  "basePath":	"/",
   "schemes": [
       "http"
   ],
