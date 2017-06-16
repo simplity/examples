@@ -12,6 +12,12 @@
 			</childRecords>
 		</filter>
 	</actions>
-	<outputData dataSheets="tickets">
+	<outputData>
+		<outputRecords>
+			<outputRecord sheetName="tickets"/>
+			<outputRecord sheetName="relatedobject" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="relatedpartyref" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="note" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+		</outputRecords>
 	</outputData>
 </service>

@@ -9,16 +9,16 @@
 <fields>
 <field columnName="ID" dataType="_number" fieldType="primaryKey" name="id" sqlTypeName="INTEGER" isNullable="true"/>
 <field columnName="HREF" dataType="_text" fieldType="data" name="href" sqlTypeName="VARCHAR" isNullable="true"/>
-<field columnName="CORRELATIONID" dataType="_text" fieldType="data" name="correlationid" sqlTypeName="VARCHAR" isNullable="true"/>
+<field columnName="CORRELATIONID" dataType="_text" fieldType="data" name="correlationId" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="DESCRIPTION" dataType="_text" fieldType="data" name="description" sqlTypeName="VARCHAR" isNullable="false"/>
 <field columnName="SEVERITY" dataType="_text" fieldType="data" name="severity" sqlTypeName="VARCHAR" isNullable="false"/>
 <field columnName="TYPE" dataType="_text" fieldType="data" name="type" sqlTypeName="VARCHAR" isNullable="false"/>
-<field columnName="CREATIONDATE" dataType="_dateTime" fieldType="data" name="creationdate" sqlTypeName="TIMESTAMP" isNullable="true"/>
-<field columnName="TARGETRESOLUTIONDATE" dataType="_dateTime" fieldType="data" name="targetresolutiondate" sqlTypeName="TIMESTAMP" isNullable="true"/>
+<field columnName="CREATIONDATE" dataType="_dateTime" fieldType="data" name="creationDate" sqlTypeName="TIMESTAMP" isNullable="true"/>
+<field columnName="TARGETRESOLUTIONDATE" dataType="_dateTime" fieldType="data" name="targetResolutionDate" sqlTypeName="TIMESTAMP" isNullable="true"/>
 <field columnName="STATUS" dataType="_text" fieldType="data" name="status" sqlTypeName="VARCHAR" isNullable="true"/>
-<field columnName="SUBSTATUS" dataType="_text" fieldType="data" name="substatus" sqlTypeName="VARCHAR" isNullable="true"/>
-<field columnName="STATUSCHANGEREASON" dataType="_text" fieldType="data" name="statuschangereason" sqlTypeName="VARCHAR" isNullable="true"/>
-<field columnName="STATUSCHANGEDATE" dataType="_dateTime" fieldType="data" name="statuschangedate" sqlTypeName="TIMESTAMP" isNullable="true"/>
-<field columnName="RESOLUTIONDATE" dataType="_dateTime" fieldType="data" name="resolutiondate" sqlTypeName="TIMESTAMP" isNullable="true"/>
+<field columnName="SUBSTATUS" dataType="_text" fieldType="data" name="subStatus" sqlTypeName="VARCHAR" isNullable="true"/>
+<field columnName="STATUSCHANGEREASON" dataType="_text" fieldType="data" name="statusChangeReason" sqlTypeName="VARCHAR" isNullable="true"/>
+<field columnName="STATUSCHANGEDATE" dataType="_dateTime" fieldType="data" name="statusChangeDate" sqlTypeName="TIMESTAMP" isNullable="true"/>
+<field columnName="RESOLUTIONDATE" dataType="_dateTime" fieldType="data" name="resolutionDate" sqlTypeName="TIMESTAMP" isNullable="true"/>
 </fields>
 </record>

@@ -24,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="ticket in myData.ticketList | filter:filterText">
+      <tr ng-repeat="ticket in tickets | filter:filterText">
         <td class="text-center"><a ng-click="setCurrentTicket(ticket.id)">{{ticket.id}}</a></td>
         <td class="text-center">{{ticket.description}}</td>
         <td class="text-center">{{ticket.severity}}</td>
