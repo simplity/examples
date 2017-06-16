@@ -9,13 +9,18 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.simplity.json.JSONArray;
 import org.simplity.json.JSONObject;
 
 public class LoadDB {
-	final static String filePath = "D:\\Workspace\\simplity\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\src\\main\\resources\\content.json";
+	final static String filePath = "D:\\Workspace\\simplity\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\src\\main\\resources\\db\\troubleTicket.json";
 	static {
 		try {
 			Class.forName("org.h2.Driver");
@@ -35,7 +40,7 @@ public class LoadDB {
 
 		int counter = 0;
 		for (Object rec : js) {
-			if (counter >= 2) {
+			if (counter >= 100) {
 				break;
 			}
 			String id = null;
@@ -44,16 +49,17 @@ public class LoadDB {
 			String description = wrap(((JSONObject) rec).optString("description", ""));
 			String severity = wrap(((JSONObject) rec).optString("severity", null));
 			String type = wrap(((JSONObject) rec).optString("type", ""));
-			Date creationDate = wrapDate(((JSONObject) rec).optDate("creationDate"));
-			Date targetResolutionDate = wrapDate(((JSONObject) rec).optDate("targetResolutionDate"));
+			String creationDate = wrapDate(((JSONObject) rec).optString("creationDate"));
+			String targetResolutionDate = wrapDate(((JSONObject) rec).optString("targetResolutionDate"));
 			String status = wrap(((JSONObject) rec).optString("status", null));
 			String substatus = null;
 			String statusChangeReason = wrap(((JSONObject) rec).optString("statusChangeReason", null));
-			Date statusChangeDate = wrapDate(((JSONObject) rec).optDate("statusChangeDate"));
+			String statusChangeDate = wrapDate(((JSONObject) rec).optString("statusChangeDate"));
 			String resolution = null;
 			String sqlQuery = "INSERT INTO PUBLIC.TICKET VALUES (" + id + "," + href + "," + correlationId + "," + description
 					+ "," + severity + "," + type + "," + creationDate + "," + targetResolutionDate + "," + status + ","
 					+ substatus + "," + statusChangeReason + "," + statusChangeDate + "," + resolution + ")";
+			System.out.println(sqlQuery);
 			statement.execute(sqlQuery);
 			
 			counter++;
@@ -66,9 +72,16 @@ public class LoadDB {
 		conn.close();
 	}
 
-	private static Date wrapDate(Date optDate) {
-		if(optDate!=null){			
-			return new java.sql.Date(optDate.getTime());
+	private static String wrapDate(String stringDate) {
+		if(stringDate!=null){	
+			SimpleDateFormat sf = new SimpleDateFormat("YYYY-MM-DD'T'HH:MM:SSZ");
+			//sf.setTimeZone(TimeZone.getTimeZone("UTC"));
+			try {
+				Timestamp out = new java.sql.Timestamp(sf.parse(stringDate).getTime());
+				return wrap(out.toString()) ;
+			} catch (ParseException e) {
+				return null;
+			}
 		}
 		return null;
 	}
