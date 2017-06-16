@@ -4,6 +4,8 @@ import java.io.File;
 import java.net.URI;
 import java.util.EnumSet;
 
+import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
+import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -20,7 +22,7 @@ public class TTServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "todos.json");
+				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
 			} catch (Exception e) {
 				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
@@ -30,8 +32,10 @@ public class TTServiceMain {
 			ResourceConfig rc = new OpenApiServiceConfig();
 			rc.register(CorsFilter.class);
 
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8081"), rc);
-
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8081/api"), rc);
+			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
+			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
+			
 			server.start();
 			Thread.currentThread().join();
 		} catch (Exception e) {

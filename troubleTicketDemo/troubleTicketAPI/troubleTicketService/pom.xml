@@ -92,7 +92,7 @@
 				<excludes>
 					<exclude>comp/**</exclude>
 				</excludes>
-			</resource>
+			</resource>	
 		</resources>
 		<plugins>
 			<plugin>
@@ -165,7 +165,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>org.simplity.examples.TTViewServiceMain</mainClass>
+									<mainClass>org.simplity.examples.TTServiceMain</mainClass>
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
@@ -193,7 +193,7 @@
 						<argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
 						<argument>-classpath</argument>
 						<classpath />
-						<argument>org.simplity.examples.TTViewServiceMain</argument>
+						<argument>org.simplity.examples.TTServiceMain</argument>
 					</arguments>
 				</configuration>
 			</plugin>

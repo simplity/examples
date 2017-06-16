@@ -44,12 +44,12 @@ public class LoadDB {
 			String description = wrap(((JSONObject) rec).optString("description", ""));
 			String severity = wrap(((JSONObject) rec).optString("severity", null));
 			String type = wrap(((JSONObject) rec).optString("type", ""));
-			Date creationDate = wrapDate(((JSONObject) rec).optDate("creationDate", null));
-			Date targetResolutionDate = wrapDate(((JSONObject) rec).optDate("targetResolutionDate", null));
+			Date creationDate = wrapDate(((JSONObject) rec).optDate("creationDate"));
+			Date targetResolutionDate = wrapDate(((JSONObject) rec).optDate("targetResolutionDate"));
 			String status = wrap(((JSONObject) rec).optString("status", null));
 			String substatus = null;
 			String statusChangeReason = wrap(((JSONObject) rec).optString("statusChangeReason", null));
-			Date statusChangeDate = wrapDate(((JSONObject) rec).optDate("statusChangeDate", null));
+			Date statusChangeDate = wrapDate(((JSONObject) rec).optDate("statusChangeDate"));
 			String resolution = null;
 			String sqlQuery = "INSERT INTO PUBLIC.TICKET VALUES (" + id + "," + href + "," + correlationId + "," + description
 					+ "," + severity + "," + type + "," + creationDate + "," + targetResolutionDate + "," + status + ","
