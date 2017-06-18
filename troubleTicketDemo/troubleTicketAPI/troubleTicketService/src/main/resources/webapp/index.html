@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <title>TM Forum Trouble Ticket API Demo</title>
@@ -8,9 +8,7 @@
 </head>
 
 <body>
-<div ng-app="myApp" ng-controller="TroubleTicketCtrl">
   <div><b>TM Forum Trouble Ticket API Demo v<span app-version></span></b><br><br></div>
-  <button ng-click="loadDB()">Load Data</button>
   <ul class="menu">
     <li><a href="#/view1">Trouble Tickets List and Details</a></li>
   </ul>
@@ -18,7 +16,7 @@
   <div ng-view></div>
 
   <div><b>TM Forum Trouble Ticket API Demo v<span app-version></span></b></div>
-</div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->

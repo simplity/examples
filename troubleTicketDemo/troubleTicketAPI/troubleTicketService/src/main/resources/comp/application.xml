@@ -6,6 +6,6 @@
 			dbVendor="h2"
 			dbDriverClassName="org.h2.Driver"
 			connectionString="jdbc:h2:file:${project.build.directory}\troubleTicket;user=sa;" 
-			logSqls="true"
-			serviceCacheManager="org.simplity.examples.SimpleMemCacheManager">
+			logSqls="true">
 </application>
+<!-- 			serviceCacheManager="org.simplity.examples.SimpleMemCacheManager" -->

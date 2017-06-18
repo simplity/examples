@@ -5,12 +5,12 @@
 	dbAccessType="readWrite">
 	<inputData>
 		<inputFields>
-			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_number" name="troubleTicketId"/>
 		</inputFields>
 	</inputData>
 	<actions>
-		<createSheet sheetName="filterSheet" data="id;$id"/>
-		<filter filterRecordName="ticket" outputSheetName="tickets" inputSheetName="filterSheet">
+		<createSheet sheetName="filterSheet" data="id;$troubleTicketId"/>
+		<filter filterRecordName="ticket" outputSheetName="ticket" inputSheetName="filterSheet">
 			<childRecords>
 				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
 				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
@@ -18,4 +18,5 @@
 			</childRecords>
 		</filter>
 	</actions>
+	<outputData dataSheets="ticket"></outputData>
 </service>

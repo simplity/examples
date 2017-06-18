@@ -1,5 +1,4 @@
 <div class="well" ng-show="myData.currentTicket == null">
-
 <h1 class="lead">Trouble Tickets List</h1>
   <form class="form-search pull-center">
     <div class="input-append">
@@ -24,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="ticket in tickets | filter:filterText">
+      <tr ng-repeat="ticket in myData.ticketList | filter:filterText">
         <td class="text-center"><a ng-click="setCurrentTicket(ticket.id)">{{ticket.id}}</a></td>
         <td class="text-center">{{ticket.description}}</td>
         <td class="text-center">{{ticket.severity}}</td>
