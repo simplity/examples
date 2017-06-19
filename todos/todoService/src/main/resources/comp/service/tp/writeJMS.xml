@@ -16,7 +16,7 @@
 	
 	<actions>
 		<jmsProducer>
-			<requestQueue
+			<requestJmsObject
 				queueName="dynamicQueues/Queue01" recordName="todos"/>
 		</jmsProducer>
 	</actions>
