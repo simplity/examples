@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="hubCreate"
+	dbAccessType="readWrite">	 
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_text" name="callback"/>
+			<inputField dataType="_text" name="query"/>
+		</inputFields>
+	</inputData>	
+	<actions>
+		<save saveAction="add" recordName="hub"></save>
+	</actions>
+</service>

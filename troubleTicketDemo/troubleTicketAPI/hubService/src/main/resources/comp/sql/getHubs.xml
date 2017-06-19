@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql
+	name="getHubs"
+	sqlType="multiSelect"
+	xmlns="http://www.simplity.org/schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<preparedStatement>Select * from HUBS</preparedStatement>
+<outputParameters>
+	<sqlParameter dataType="_number" name="id"/>
+	<sqlParameter dataType="_text" name="callback"/>
+	<sqlParameter dataType="_text" name="query"/>
+</outputParameters>	
+</sql>

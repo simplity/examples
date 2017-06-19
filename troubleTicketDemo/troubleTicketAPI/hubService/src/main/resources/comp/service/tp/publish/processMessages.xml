@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="processMessages"
+	moduleName="publish"
+	dbAccessType="readOnly">
+	<actions>
+		<batchProcessor dbAccessType="readOnly">
+			<batchRowProcessor inputSql="getHubs">
+				<actionBeforeChildren>
+					<subService serviceName="publish.publishMessages"/>
+				</actionBeforeChildren> 
+			</batchRowProcessor>
+		</batchProcessor>
+	</actions>
+</service>

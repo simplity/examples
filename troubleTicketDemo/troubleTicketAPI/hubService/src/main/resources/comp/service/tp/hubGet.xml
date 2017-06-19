@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="hubGet"
+	dbAccessType="readOnly">
+	 
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="hubId"/>
+		</inputFields>
+	</inputData>
+	
+	<actions>
+		<createSheet sheetName="filterSheet" data="id;$hubId"/>
+		<filter filterRecordName="hub" inputSheetName="filterSheet" outputSheetName="hub"></filter>
+	</actions>
+	<outputData dataSheets="hub"></outputData>
+</service>

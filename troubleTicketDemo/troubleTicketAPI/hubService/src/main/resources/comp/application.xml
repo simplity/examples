@@ -4,8 +4,8 @@
 			autoLoginUserId="100"
 			loggingFramework="log4j"	
 			queueConnectionFactory="ConnectionFactory"		
-			logSqls="true">		 
-			<jmsProperties>
-				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
-			</jmsProperties>
+			logSqls="true"
+			dbVendor="h2"
+			dbDriverClassName="org.h2.Driver"
+			connectionString="jdbc:h2:file:${project.build.directory}\hub;user=sa;">		 
 </application>

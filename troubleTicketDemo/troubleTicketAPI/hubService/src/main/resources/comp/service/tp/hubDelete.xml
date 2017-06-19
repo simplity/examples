@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="hubDelete"
+	dbAccessType="readWrite">
+	 
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="hubId"/>
+		</inputFields>
+	</inputData>
+	
+	<actions>
+		<setValue fieldName="id" fieldValue="$hubId"></setValue>
+		<save saveAction="delete" recordName="hub"></save>		
+	</actions>
+</service>

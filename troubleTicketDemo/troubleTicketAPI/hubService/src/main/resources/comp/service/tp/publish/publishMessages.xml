@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="publishMessages"
+	moduleName="publish">
+	<actions>
+		<httpClient httpMethod="POST" urlString="$callback" contentType="application/json">
+			<requestData>
+				<outputRecords>
+					<outputRecord sheetName="troubleticket"/>
+				</outputRecords>
+			</requestData>			
+		</httpClient>
+	</actions>
+</service>
