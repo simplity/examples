@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="troubleTicketFind"
+	dbAccessType="readOnly">
+	<actions>
+		<filter filterRecordName="ticket" outputSheetName="tickets">
+			<childRecords>
+				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
+				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
+				<relatedRecord sheetName="note" recordName="note"/>
+			</childRecords>
+		</filter>
+	</actions>
+	<outputData>
+		<outputRecords>
+			<outputRecord sheetName="tickets"/>
+			<outputRecord sheetName="relatedobject" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="relatedpartyref" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="note" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+		</outputRecords>
+	</outputData>
+</service>

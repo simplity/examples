@@ -8,32 +8,31 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.kernel.Application;
 
-
-
-
 public class TodoServiceMain {
-		public static HttpServer server;
-		public static void main(String[] args) {
+	public static HttpServer server;
 
+	public static void main(String[] args) {
 		try {
-	        ResourceConfig rc = new TodoServiceConfig();
-	        rc.register(CorsFilter.class);
-	        
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8082"),rc);
-			File jarPath = new File(TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());			
-			String folder = jarPath.getParent()+File.separator+"comp"+File.separator;
-			
+			File jarPath = new File(
+			TodoServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+			String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
 			try {
+
 				Application.bootStrap(folder);
+				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "todos.json");
 			} catch (Exception e) {
-				System.err.println(
-						"error while bootstrapping with compFolder=" + folder);
+				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
 			}
-			
+
+			ResourceConfig rc = new OpenApiServiceConfig();
+			rc.register(CorsFilter.class);
+
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8082"), rc);
+
 			server.start();
-	        Thread.currentThread().join();	
+			Thread.currentThread().join();
 		} catch (Exception e) {
 			e.printStackTrace();
 			server.shutdown();

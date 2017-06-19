@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="relatedobject" recordType="storage" 
+		tableName="RELATEDOBJECT" xmlns="http://www.simplity.org/schema"
+		keyToBeGenerated="true">
+<fields>
+<field columnName="OBJECTID" dataType="_number" fieldType="primaryKey" name="objectId" sqlTypeName="INTEGER"/>
+<field columnName="TICKETID" dataType="_number" fieldType="parentKey" name="ticketId" referredField="id" referredRecord="ticket" sqlTypeName="INTEGER"/>
+<field columnName="INVOLVEMENT" dataType="_text" fieldType="data" name="involvement" sqlTypeName="VARCHAR" isNullable="false"/>
+<field columnName="REFERENCE" dataType="_text" fieldType="data" name="reference" sqlTypeName="VARCHAR" isNullable="false"/>
+</fields>
+</record>

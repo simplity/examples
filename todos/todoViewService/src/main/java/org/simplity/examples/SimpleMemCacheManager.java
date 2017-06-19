@@ -36,46 +36,48 @@ import com.whalin.MemCached.SockIOPool;
  *
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
-	private SockIOPool sockIOPool;
-	private MemCachedClient memCachedClient;
+
+	SockIOPool pool;
+	MemCachedClient mcc;
 
 	public SimpleMemCacheManager() {
-		init();
+		pool = SockIOPool.getInstance("default");
+		String[] servers = { "localhost:11211" };
+		pool.setServers(servers);
+		pool.setFailover(true);
+		pool.setInitConn(10);
+		pool.setMinConn(5);
+		pool.setMaxConn(250);
+		pool.setMaintSleep(30);
+		pool.setNagle(false);
+		pool.setSocketTO(3000);
+		pool.setAliveCheck(true);
+		pool.initialize();
+
+		mcc = new MemCachedClient("default");
+
 	}
-	
+
 	@Override
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
+		ServiceData outData = (ServiceData) mcc.get(serviceName);
 		Tracer.trace("Responding from cache");
-		ServiceData outData = (ServiceData) memCachedClient.get(serviceName);
 		return outData;
-	}
-
-	private void init() {
-		sockIOPool = SockIOPool.getInstance("default");
-		String[] servers = {"127.0.0.1:11211"};
-		sockIOPool.setServers( servers );
-		sockIOPool.setFailover( true );
-		sockIOPool.setInitConn( 10 );
-		sockIOPool.setMinConn( 5 );
-		sockIOPool.setMaxConn( 250 );
-		sockIOPool.setMaintSleep( 30 );
-		sockIOPool.setNagle( false );
-		sockIOPool.setSocketTO( 3000 );
-		sockIOPool.setAliveCheck( true );
-		sockIOPool.initialize();
-		memCachedClient = new MemCachedClient("default");
 	}
 
 	@Override
 	public void cache(ServiceData inData, ServiceData outData) {
-		memCachedClient.add(inData.getServiceName(), outData);
+		// Get the Memcached Client from SockIOPool named Test1
+		Tracer.trace("Added to trace");
+		mcc.add(inData.getServiceName(), outData);
+
 	}
 
 	@Override
 	public void invalidate(String serviceName) {
-		
+		Tracer.trace("Invalidate entry for viewTodos");
+		System.out.println(mcc.delete("viewTodos"));
 	}
 
 }
-

@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the Todos View service  For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "version": "1.0.0",
+    "title": "Swagger Todos View service",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "todos.swagger.io",
+  "basePath": "/todos",
+  "tags": [
+    {
+      "name": "todos",
+      "description": "List of todos",
+      "externalDocs": {
+        "description": "List of todos",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "todo"
+        ],
+        "summary": "Create a todo",
+        "description": "",
+        "operationId": "addTodo",
+        "x-serviceName": "writeJMS",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create a Todo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Todos"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "todos_auth": [
+              "write:todos",
+              "read:todos"
+            ]
+          }
+        ]
+      }
+    },
+    "/{id}": {
+      "put": {
+        "tags": [
+          "todos"
+        ],
+        "summary": "Update an existing todo",
+        "description": "",
+        "operationId": "updateTodo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Todo",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Update the Todos",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Todos"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Todos not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "todos_auth": [
+              "write:todos",
+              "read:todos"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "todos"
+        ],
+        "summary": "Deletes a todo",
+        "description": "",
+        "operationId": "deleteTodo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Todo id to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Todo not found"
+          }
+        },
+        "security": [
+          {
+            "todos_auth": [
+              "write:todos",
+              "read:todos"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "todos_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://todos.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "read:todos": "view the todos",
+        "write:todos": "maintain todos"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Todos": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

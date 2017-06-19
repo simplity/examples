@@ -19,5 +19,6 @@
 		<module>springIntegration</module>
 		<module>ejbIntegration</module>
 		<module>todos</module>
+		<module>troubleTicketDemo</module>		
   </modules>
 </project>

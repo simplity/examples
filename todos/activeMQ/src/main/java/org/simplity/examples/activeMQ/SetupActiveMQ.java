@@ -23,7 +23,7 @@ public class SetupActiveMQ {
 					javax.jms.Session.DUPS_OK_ACKNOWLEDGE);
 			queueConnection.start();
 			Destination destination = queueSession.createQueue("jms/Queue01");
-			System.out.println("Hello");
+			queueConnection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} catch (NamingException e) {

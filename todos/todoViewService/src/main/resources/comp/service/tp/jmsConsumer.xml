@@ -7,7 +7,7 @@
 	<actions>
 		
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestQueue queueName="dynamicQueues/Queue01" recordName="todos" />
+			<requestJmsObject queueName="dynamicQueues/Queue01" recordName="todos" />
 			<actions>
 				<log names="action"/>
 				<log names="title"/>

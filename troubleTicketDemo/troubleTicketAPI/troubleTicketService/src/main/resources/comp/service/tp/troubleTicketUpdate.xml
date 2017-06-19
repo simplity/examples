@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="troubleTicketUpdate"
+	dbAccessType="readWrite">
+	<inputData>
+		<inputFields>
+			<inputField dataType="_number" name="id"/>
+		</inputFields>
+	</inputData>
+	<actions>
+		<save saveAction="modify" recordName="ticket">
+			<childRecords>
+				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
+				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
+				<relatedRecord sheetName="note" recordName="note"/>
+			</childRecords>
+		</save>
+	</actions>
+</service>
