@@ -12,11 +12,18 @@
 		<createSheet sheetName="filterSheet" data="id;$troubleTicketId"/>
 		<filter filterRecordName="ticket" outputSheetName="ticket" inputSheetName="filterSheet">
 			<childRecords>
-				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
-				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
-				<relatedRecord sheetName="note" recordName="note"/>
+				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
+				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
+				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
 		</filter>
 	</actions>
-	<outputData dataSheets="ticket"></outputData>
+	<outputData>
+		<outputRecords>
+			<outputRecord sheetName="ticket"/>
+			<outputRecord sheetName="relatedObjects" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="relatedParties" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="notes" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+		</outputRecords>
+	</outputData>
 </service>

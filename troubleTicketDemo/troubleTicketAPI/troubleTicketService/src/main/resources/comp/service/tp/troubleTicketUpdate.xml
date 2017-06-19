@@ -6,7 +6,6 @@
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
-			<inputField dataType="_text" name="href" />
 			<inputField dataType="_text" name="correlationId" />
 			<inputField dataType="_text" name="description" />
 			<inputField dataType="_text" name="severity" />
@@ -19,13 +18,18 @@
 			<inputField dataType="_text" name="statusChangeDate" />
 			<inputField dataType="_text" name="resolutionDate" />
 		</inputFields>
+		<inputRecords>
+			<inputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
+			<inputRecord recordName="relatedParties" sheetName="relatedParties"/>
+			<inputRecord recordName="notes" sheetName="notes"/>
+		</inputRecords>
 	</inputData>
 	<actions>
 		<save saveAction="modify" recordName="ticket">
 			<childRecords>
-				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
-				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
-				<relatedRecord sheetName="note" recordName="note"/>
+				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
+				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
+				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
 		</save>
 	</actions>

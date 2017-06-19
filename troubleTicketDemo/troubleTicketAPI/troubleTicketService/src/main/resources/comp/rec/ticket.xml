@@ -3,12 +3,11 @@
 		tableName="TICKET" 
 		okToSelectAll="true"
 		keyToBeGenerated="true"
-		childrenToBeSaved="note,relatedobject,relatedpartyref"
-		childrenToBeRead="note,relatedobject,relatedpartyref"
+		childrenToBeSaved="notes,relatedObjects,relatedParties"
+		childrenToBeRead="notes,relatedObjects,relatedParties"
 		xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="ID" dataType="_number" fieldType="primaryKey" name="id" sqlTypeName="INTEGER" isNullable="true"/>
-<field columnName="HREF" dataType="_text" fieldType="data" name="href" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="CORRELATIONID" dataType="_text" fieldType="data" name="correlationId" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="DESCRIPTION" dataType="_text" fieldType="data" name="description" sqlTypeName="VARCHAR" isNullable="false"/>
 <field columnName="SEVERITY" dataType="_text" fieldType="data" name="severity" sqlTypeName="VARCHAR" isNullable="false"/>

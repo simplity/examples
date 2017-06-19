@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="note" 
+<record name="notes" 
 		recordType="storage" 
-		tableName="NOTE" 	
+		tableName="NOTES" 	
 		keyToBeGenerated="true"			
 		xmlns="http://www.simplity.org/schema">
 <fields>

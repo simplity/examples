@@ -4,20 +4,20 @@
 	name="troubleTicketFind"
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="ticket" outputSheetName="tickets">
+		<filter filterRecordName="ticket" outputSheetName="ticket">
 			<childRecords>
-				<relatedRecord sheetName="relatedobject" recordName="relatedobject"/>
-				<relatedRecord sheetName="relatedpartyref" recordName="relatedpartyref"/>
-				<relatedRecord sheetName="note" recordName="note"/>
+				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
+				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
+				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
 		</filter>
 	</actions>
 	<outputData>
 		<outputRecords>
-			<outputRecord sheetName="tickets"/>
-			<outputRecord sheetName="relatedobject" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
-			<outputRecord sheetName="relatedpartyref" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
-			<outputRecord sheetName="note" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="ticket"/>
+			<outputRecord sheetName="relatedObjects" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="relatedParties" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="notes" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
 		</outputRecords>
 	</outputData>
 </service>
