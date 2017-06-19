@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="hubFind"
+	dbAccessType="readOnly">
+	
+	<actions>
+		<filter filterRecordName="hub" outputSheetName="hubs"></filter>
+		<log names="hubs"/>
+	</actions>
+	<outputData dataSheets="hubs"></outputData>
+</service>

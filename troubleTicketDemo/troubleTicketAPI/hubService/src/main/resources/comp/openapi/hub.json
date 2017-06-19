@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "2.0",
+    "title": "API Hub"
+  },
+  "host": "env-0693795.jelastic.servint.net",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/hub": {
+      "post": {
+        "tags": [
+          "hub"
+        ],
+        "operationId": "hubCreate",
+        "summary": "hubCreate",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "hub",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Hub"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Hub",
+            "schema": {
+              "$ref": "#/definitions/Hub"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "hub"
+        ],
+        "operationId": "hubFind",
+        "summary": "hubFind",
+        "description": "",
+        "deprecated": false,
+        "responses": {
+          "200": {
+            "description": "List of Hub",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Hub"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hub/{hubId}": {
+      "delete": {
+        "tags": [
+          "hub"
+        ],
+        "operationId": "hubDelete",
+        "summary": "hubDelete",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "hubId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "hub"
+        ],
+        "operationId": "hubGet",
+        "summary": "hubGet",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "hubId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hub",
+            "schema": {
+              "$ref": "#/definitions/Hub"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Hub": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "callback": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
