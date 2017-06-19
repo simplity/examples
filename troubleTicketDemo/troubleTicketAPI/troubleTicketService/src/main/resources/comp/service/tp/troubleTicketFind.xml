@@ -4,7 +4,7 @@
 	name="troubleTicketFind"
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="ticket" outputSheetName="ticket">
+		<filter filterRecordName="ticket" outputSheetName="tickets">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
 				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
@@ -14,10 +14,10 @@
 	</actions>
 	<outputData>
 		<outputRecords>
-			<outputRecord sheetName="ticket"/>
-			<outputRecord sheetName="relatedObjects" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
-			<outputRecord sheetName="relatedParties" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
-			<outputRecord sheetName="notes" parentSheetName="ticket" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="tickets"/>
+			<outputRecord sheetName="relatedObjects" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="relatedParties" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
+			<outputRecord sheetName="notes" parentSheetName="tickets" linkColumnInParentSheet="id" linkColumnInThisSheet="ticketId"/>
 		</outputRecords>
 	</outputData>
 </service>

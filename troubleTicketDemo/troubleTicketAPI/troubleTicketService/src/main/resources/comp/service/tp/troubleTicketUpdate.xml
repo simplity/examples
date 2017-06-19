@@ -25,7 +25,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
-		<save saveAction="modify" recordName="ticket">
+		<save saveAction="save" recordName="ticket">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
 				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
