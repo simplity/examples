@@ -5,7 +5,19 @@
 	dbAccessType="readWrite">
 	<inputData>
 		<inputFields>
-			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_text" name="id" />
+			<inputField dataType="_text" name="href" />
+			<inputField dataType="_text" name="correlationId" />
+			<inputField dataType="_text" name="description" />
+			<inputField dataType="_text" name="severity" />
+			<inputField dataType="_text" name="type" />
+			<inputField dataType="_text" name="creationDate" />
+			<inputField dataType="_text" name="targetResolutionDate" />
+			<inputField dataType="_text" name="status" />
+			<inputField dataType="_text" name="subStatus" />
+			<inputField dataType="_text" name="statusChangeReason" />
+			<inputField dataType="_text" name="statusChangeDate" />
+			<inputField dataType="_text" name="resolutionDate" />
 		</inputFields>
 	</inputData>
 	<actions>
