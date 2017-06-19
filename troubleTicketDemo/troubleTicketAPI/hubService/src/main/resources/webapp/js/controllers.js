@@ -26,7 +26,6 @@ angular.module('myApp.controllers')
      	 $http.delete("api/hub/"+id)
      	    .then(function(response) {
      	    	$scope.hubData.action = "view";
-     	        $scope.hubData.hubList.splice(index,1); 
      	    });    	  
        };      
        

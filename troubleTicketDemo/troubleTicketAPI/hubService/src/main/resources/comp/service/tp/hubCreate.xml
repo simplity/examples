@@ -2,8 +2,7 @@
 <service
 	xmlns="http://www.simplity.org/schema"
 	name="hubCreate"
-	dbAccessType="readWrite">
-	 
+	dbAccessType="readWrite">	 
 	<inputData>
 		<inputFields>
 			<inputField dataType="_number" name="id"/>

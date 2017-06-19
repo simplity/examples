@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="jmsListener"
+	moduleName="jms"
+	dbAccessType="none"
+	jmsUsage="notManaged">
+	<inputData>
+		<inputRecords>
+			<inputRecord recordName="troubleTicket" />
+		</inputRecords>
+	</inputData>
+	<actions>
+		<jmsConsumer waitForMessage="true" consumeAll="true">
+			<responseQueue queueName="" recordName="" bodyFieldName="troubleTicket"/>
+			<actions>
+				<subService serviceName="publish.processMessages"/>
+			</actions>
+		</jmsConsumer>
+	</actions>
+</service>
