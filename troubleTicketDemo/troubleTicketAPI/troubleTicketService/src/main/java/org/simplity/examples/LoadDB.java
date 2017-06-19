@@ -16,60 +16,30 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import javax.json.JsonObject;
+
 import org.simplity.json.JSONArray;
 import org.simplity.json.JSONObject;
+import org.simplity.kernel.Application;
+import org.simplity.service.JavaAgent;
 
 public class LoadDB {
-	final static String filePath = "D:\\Workspace\\simplity\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\src\\main\\resources\\db\\troubleTicket.json";
-	static {
-		try {
-			Class.forName("org.h2.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+	final static String filePath = "D:\\simplity\\github\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\src\\main\\resources\\db\\troubleTicket.json";
 
-	public static void main(String[] args) throws SQLException, IOException {
+	public static void main(String[] args) throws Exception {
 		JSONArray js = loadArray();
-
-		Connection conn = null;
-		conn = DriverManager.getConnection(
-				"jdbc:h2:file:D:\\Workspace\\simplity\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\target\\troubleTicket",
-				"sa", "");
-		Statement statement = conn.createStatement();
+		File jarPath = new File(TTServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+		String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
+		Application.bootStrap(folder);
 
 		int counter = 0;
 		for (Object rec : js) {
 			if (counter >= 100) {
 				break;
 			}
-			String id = null;
-			String href = null;
-			String correlationId = wrap(((JSONObject) rec).optString("correlationId", null));
-			String description = wrap(((JSONObject) rec).optString("description", ""));
-			String severity = wrap(((JSONObject) rec).optString("severity", null));
-			String type = wrap(((JSONObject) rec).optString("type", ""));
-			String creationDate = wrapDate(((JSONObject) rec).optString("creationDate"));
-			String targetResolutionDate = wrapDate(((JSONObject) rec).optString("targetResolutionDate"));
-			String status = wrap(((JSONObject) rec).optString("status", null));
-			String substatus = null;
-			String statusChangeReason = wrap(((JSONObject) rec).optString("statusChangeReason", null));
-			String statusChangeDate = wrapDate(((JSONObject) rec).optString("statusChangeDate"));
-			String resolution = null;
-			String sqlQuery = "INSERT INTO PUBLIC.TICKET VALUES (" + id + "," + href + "," + correlationId + "," + description
-					+ "," + severity + "," + type + "," + creationDate + "," + targetResolutionDate + "," + status + ","
-					+ substatus + "," + statusChangeReason + "," + statusChangeDate + "," + resolution + ")";
-			System.out.println(sqlQuery);
-			statement.execute(sqlQuery);
-			
+			JavaAgent.getAgent("100", null).serve("troubleTicketCreate", rec.toString());
 			counter++;
-			// JSONArray relatedParty =
-			// ((JSONObject)rec).getJSONArray("relatedParty");
-			// JSONArray relatedObject =
-			// ((JSONObject)rec).getJSONArray("relatedObject");
-			// JSONArray note = ((JSONObject)rec).getJSONArray("note");
 		}
-		conn.close();
 	}
 
 	private static String wrapDate(String stringDate) {

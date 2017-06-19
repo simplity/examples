@@ -19,12 +19,13 @@
 			maxDaysIntoFuture="730000"
 			maxDaysIntoPast="3650000" />
 		<dateDataType
-			name="_dateTime"
+			name="_dateTime" 
 			description="Date with time"
 			maxDaysIntoFuture="730000"
 			maxDaysIntoPast="3650000"
 			hasTime="true" />
-
+		<timestampDataType 
+			name="_timestamp"/>
 		<numericDataType
 			name="_number"
 			maxValue="99999999999999"
