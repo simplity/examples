@@ -28,7 +28,7 @@ public class HubMainService {
 			ResourceConfig rc = new OpenApiServiceConfig();
 			rc.register(CorsFilter.class);
 
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8083/api"), rc);
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8088/api"), rc);
 			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
 			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
 			

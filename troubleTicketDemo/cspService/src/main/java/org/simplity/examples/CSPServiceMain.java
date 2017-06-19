@@ -11,13 +11,13 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.kernel.Application;
 
-public class TTServiceMain {
+public class CSPServiceMain {
 	public static HttpServer server;
 
 	public static void main(String[] args) {
 
 		try {
-			File jarPath = new File(TTServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+			File jarPath = new File(CSPServiceMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 			String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
 
 			try {
@@ -32,7 +32,7 @@ public class TTServiceMain {
 			ResourceConfig rc = new OpenApiServiceConfig();
 			rc.register(CorsFilter.class);
 
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085/api"), rc);
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8087/api"), rc);
 			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
 			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
 			

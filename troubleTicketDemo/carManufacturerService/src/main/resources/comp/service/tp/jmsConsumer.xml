@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="jmsConsumer"
+	dbAccessType="subService"
+	jmsUsage="notManaged">
+	<actions>
+		
+		<jmsConsumer waitForMessage="true" consumeAll="true">
+			<requestQueue queueName="dynamicQueues/Queue01" recordName="todos" />
+			<actions>
+				<log names="action"/>
+				<log names="title"/>
+				<log names="completed"/>
+				<log names="id"/>
+				<subService serviceName="crudAction"/>
+			</actions>
+		</jmsConsumer>
+	</actions>
+</service>
