@@ -1,4 +1,4 @@
-package org.simplity.examples.activeMQ;
+package org.simplity.examples.ttactiveMQ;
 
 import javax.jms.Destination;
 import javax.jms.JMSException;
@@ -22,8 +22,9 @@ public class SetupActiveMQ {
 			QueueSession queueSession = queueConnection.createQueueSession(false,
 					javax.jms.Session.DUPS_OK_ACKNOWLEDGE);
 			queueConnection.start();
-			Destination destination = queueSession.createQueue("jms/Queue01");
-			System.out.println("Hello");
+			Destination destination = queueSession.createQueue("jms/TTWriteQQ");
+			Destination source = queueSession.createQueue("jms/TTReadQQ");
+			queueConnection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} catch (NamingException e) {

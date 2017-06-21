@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <service xmlns="http://www.simplity.org/schema" name="troubleTicketCreate"
-	dbAccessType="readWrite">
+	dbAccessType="readWrite" jmsUsage="notManaged">
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
@@ -29,6 +29,9 @@
 				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
 				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
-		</save>
+		</save>		
+		<jmsProducer actionName="write2Q">
+			<requestQueue queueName="dynamicQueues/TTWriteQQ" recordName="ticket"/>
+		</jmsProducer>
 	</actions>
 </service>

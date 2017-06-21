@@ -83,7 +83,7 @@
 						<argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
 						<argument>-classpath</argument>
 						<classpath />
-						<argument>org.simplity.examples.activeMQ.SetupActiveMQ</argument>
+						<argument>org.simplity.examples.ttactiveMQ.SetupActiveMQ</argument>
 					</arguments>
 				</configuration>
 			</plugin>

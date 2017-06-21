@@ -142,18 +142,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>java</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
 				<dependencies>
 					<dependency>
@@ -203,7 +191,7 @@
 						<argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
 						<argument>-classpath</argument>
 						<classpath />
-						<argument>org.simplity.examples.HubServiceMain</argument>
+						<argument>org.simplity.examples.HubMainService</argument>
 					</arguments>
 				</configuration>
 			</plugin>			
