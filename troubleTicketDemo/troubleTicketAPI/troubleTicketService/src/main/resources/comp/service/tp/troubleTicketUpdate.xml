@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<service
-	xmlns="http://www.simplity.org/schema"
-	name="troubleTicketUpdate"
-	dbAccessType="readWrite"
-	jmsUsage="notManaged">
+<service xmlns="http://www.simplity.org/schema" name="troubleTicketUpdate"
+	dbAccessType="readWrite" jmsUsage="notManaged">
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
@@ -20,22 +17,31 @@
 			<inputField dataType="_text" name="resolutionDate" />
 		</inputFields>
 		<inputRecords>
-			<inputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
-			<inputRecord recordName="relatedParties" sheetName="relatedParties"/>
-			<inputRecord recordName="notes" sheetName="notes"/>
+			<inputRecord recordName="relatedObjects" sheetName="relatedObjects" />
+			<inputRecord recordName="relatedParties" sheetName="relatedParties" />
+			<inputRecord recordName="notes" sheetName="notes" />
 		</inputRecords>
 	</inputData>
 	<actions>
 		<setValue fieldName="action" fieldValue="update"></setValue>
 		<save saveAction="modify" recordName="ticket">
 			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
-				<relatedRecord sheetName="notes" recordName="notes"/>
+				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects" />
+				<relatedRecord sheetName="relatedParties" recordName="relatedParties" />
+				<relatedRecord sheetName="notes" recordName="notes" />
 			</childRecords>
 		</save>
 		<jmsProducer actionName="write2Q">
-			<requestDestination name="dynamicQueues/TTWriteQQ" recordName="jmsTicket"/>
+			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
+				<outputRequestData>
+					<outputRecords>
+						<outputRecord recordName="jmsTicket" />
+						<outputRecord recordName="relatedObjects" />
+						<outputRecord recordName="relatedParties" />
+						<outputRecord recordName="notes" />
+					</outputRecords>
+				</outputRequestData>
+			</requestDestination>
 		</jmsProducer>
 	</actions>
 </service>

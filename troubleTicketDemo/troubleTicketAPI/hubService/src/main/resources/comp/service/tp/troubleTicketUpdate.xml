@@ -28,7 +28,16 @@
 	<actions>
 		<setValue fieldName="action" fieldValue="update"></setValue>
 		<jmsProducer actionName="write2Q">
-			<requestDestination name="dynamicQueues/TTReadQQ" recordName="jmsTicket"/>
+			<requestDestination name="dynamicQueues/TTReadQQ" messageBodyType="text">
+				<outputRequestData>
+					<outputRecords>
+						<outputRecord recordName="ticket" />
+						<outputRecord recordName="relatedObjects" />
+						<outputRecord recordName="relatedParties" />
+						<outputRecord recordName="notes" />
+					</outputRecords>
+				</outputRequestData>			
+			</requestDestination>
 		</jmsProducer>
 	</actions>
 </service>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<service
-	xmlns="http://www.simplity.org/schema"
-	name="jmsListener"
-	moduleName="jms"
-	dbAccessType="none"
-	jmsUsage="notManaged">
-	<inputData>
-		<inputRecords>
-			<inputRecord recordName="jmsTicket" />
-		</inputRecords>
-	</inputData>
+<service xmlns="http://www.simplity.org/schema" name="jmsListener"
+	moduleName="jms" dbAccessType="none" jmsUsage="notManaged">
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestDestination name="dynamicQueues/TTWriteQQ"  recordName="jmsTicket"/>
+			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
+				<inputRequestData>
+					<inputRecords>
+						<inputRecord recordName="jmsTicket" />
+						<inputRecord recordName="relatedObjects" />
+						<inputRecord recordName="relatedParties" />
+						<inputRecord recordName="notes" />
+					</inputRecords>
+				</inputRequestData>
+			</requestDestination>
 			<actions>
-				<subService serviceName="publish.processMessages"/>
+				<subService serviceName="publish.processMessages" />
 			</actions>
 		</jmsConsumer>
 	</actions>
