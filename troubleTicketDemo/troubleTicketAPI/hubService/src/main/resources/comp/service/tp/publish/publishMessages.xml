@@ -5,7 +5,12 @@
 	moduleName="publish">
 	<actions>
 	<log names="description,type"/>
-		<httpClient httpMethod="POST" urlString="$callback" contentType="application/json">
+		<httpClient httpMethod="POST" urlString="$callback" contentType="application/json" executeOnCondition="action=='add'">
+			<requestData fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate">			
+			</requestData>			
+		</httpClient>
+		<setValue fieldName="url" expression="concat(callback,'/',id)" executeOnCondition="action=='update'"></setValue>
+		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json" executeOnCondition="action=='update'">
 			<requestData fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate">			
 			</requestData>			
 		</httpClient>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<service xmlns="http://www.simplity.org/schema" name="troubleTicketCreate"
-	dbAccessType="readWrite" jmsUsage="notManaged">
+<service xmlns="http://www.simplity.org/schema" 
+		 name="troubleTicketCreate"
+		 dbAccessType="readWrite" 
+		 jmsUsage="notManaged">
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
@@ -23,15 +25,17 @@
 		</inputRecords>
 	</inputData>
 	<actions>
+		<setValue fieldName="action" fieldValue="add"></setValue>
 		<save saveAction="add" recordName="ticket">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
 				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
 				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
-		</save>		
+		</save>	
+		<log names="id"/>	
 		<jmsProducer actionName="write2Q">
-			<requestDestination name="dynamicQueues/TTWriteQQ" recordName="ticket"/>
-		</jmsProducer>
+			<requestDestination name="dynamicQueues/TTWriteQQ" recordName="jmsTicket"/>
+		</jmsProducer> 
 	</actions>
 </service>

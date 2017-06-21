@@ -7,12 +7,12 @@
 	jmsUsage="notManaged">
 	<inputData>
 		<inputRecords>
-			<inputRecord recordName="ticket" />
+			<inputRecord recordName="jmsTicket" />
 		</inputRecords>
 	</inputData>
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestDestination name="dynamicQueues/TTWriteQQ"  recordName="ticket"/>
+			<requestDestination name="dynamicQueues/TTWriteQQ"  recordName="jmsTicket"/>
 			<actions>
 				<subService serviceName="publish.processMessages"/>
 			</actions>

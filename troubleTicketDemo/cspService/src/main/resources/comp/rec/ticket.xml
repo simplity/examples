@@ -2,7 +2,6 @@
 <record name="ticket" recordType="storage" 
 		tableName="TICKET" 
 		okToSelectAll="true"
-		keyToBeGenerated="true"
 		childrenToBeSaved="notes,relatedObjects,relatedParties"
 		childrenToBeRead="notes,relatedObjects,relatedParties"
 		xmlns="http://www.simplity.org/schema">

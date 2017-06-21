@@ -27,15 +27,8 @@
 	</inputData>
 	<actions>
 		<setValue fieldName="action" fieldValue="update"></setValue>
-		<save saveAction="modify" recordName="ticket">
-			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
-				<relatedRecord sheetName="notes" recordName="notes"/>
-			</childRecords>
-		</save>
 		<jmsProducer actionName="write2Q">
-			<requestDestination name="dynamicQueues/TTWriteQQ" recordName="jmsTicket"/>
+			<requestDestination name="dynamicQueues/TTReadQQ" recordName="jmsTicket"/>
 		</jmsProducer>
 	</actions>
 </service>

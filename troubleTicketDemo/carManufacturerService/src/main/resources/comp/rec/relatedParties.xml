@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="relatedParties" recordType="storage" 
-		keyToBeGenerated="true"
-		tableName="RELATEDPARTIES" xmlns="http://www.simplity.org/schema">
+<record name="relatedParties" 
+		recordType="storage" 
+		tableName="RELATEDPARTIES" 
+		xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="PARTYID" dataType="_number" fieldType="primaryKey" name="partyId" sqlTypeName="INTEGER"/>
 <field columnName="TICKETID" dataType="_number" fieldType="parentKey" name="ticketId" referredField="id" referredRecord="ticket" sqlTypeName="INTEGER"/>

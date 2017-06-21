@@ -6,7 +6,7 @@
 		keyToBeGenerated="true"			
 		okToSelectAll="true">
 <fields>
-<field columnName="ID" dataType="_number" fieldType="primaryKey" name="id" sqlTypeName="INTEGER"/>
+<field columnName="ID" dataType="_number" fieldType="primaryKey" name="hubId" sqlTypeName="INTEGER"/>
 <field columnName="CALLBACK" dataType="_text" fieldType="data" name="callback" sqlTypeName="VARCHAR"/>
 <field columnName="QUERY" dataType="_text" fieldType="data" name="query" sqlTypeName="VARCHAR" />
 </fields>

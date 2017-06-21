@@ -2,7 +2,6 @@
 <record name="notes" 
 		recordType="storage" 
 		tableName="NOTES" 	
-		keyToBeGenerated="true"			
 		xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="NOTEID" dataType="_number" fieldType="primaryKey" name="noteId" sqlTypeName="INTEGER"/>

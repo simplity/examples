@@ -11,7 +11,7 @@
 	</inputData>
 	
 	<actions>
-		<createSheet sheetName="filterSheet" data="id;$hubId"/>
+		<createSheet sheetName="filterSheet" data="hubId;$hubId"/>
 		<filter filterRecordName="hub" inputSheetName="filterSheet" outputSheetName="hub"></filter>
 	</actions>
 	<outputData dataSheets="hub"></outputData>

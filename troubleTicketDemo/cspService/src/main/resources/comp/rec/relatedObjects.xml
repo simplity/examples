@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="relatedObjects" recordType="storage" 
-		tableName="RELATEDOBJECTS" xmlns="http://www.simplity.org/schema"
-		keyToBeGenerated="true">
+<record name="relatedObjects" 
+		recordType="storage" 
+		tableName="RELATEDOBJECTS" 
+		xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="OBJECTID" dataType="_number" fieldType="primaryKey" name="objectId" sqlTypeName="INTEGER"/>
 <field columnName="TICKETID" dataType="_number" fieldType="parentKey" name="ticketId" referredField="id" referredRecord="ticket" sqlTypeName="INTEGER"/>

@@ -5,7 +5,7 @@
 	dbAccessType="readWrite">	 
 	<inputData>
 		<inputFields>
-			<inputField dataType="_number" name="id"/>
+			<inputField dataType="_number" name="hubId"/>
 			<inputField dataType="_text" name="callback"/>
 			<inputField dataType="_text" name="query"/>
 		</inputFields>

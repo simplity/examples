@@ -5,16 +5,12 @@
 	moduleName="jms"
 	dbAccessType="none"
 	jmsUsage="notManaged">
-	<inputData>
-		<inputRecords>
-			<inputRecord recordName="ticket" />
-		</inputRecords>
-	</inputData>
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
 			<requestDestination name="dynamicQueues/TTReadQQ" recordName="ticket"/>
 			<actions>
 				<log names="id"></log>
+				<subService serviceName="troubleTicketUpdate"/>
 			</actions>
 		</jmsConsumer>
 	</actions>
