@@ -4,12 +4,9 @@
 	name="publishMessages"
 	moduleName="publish">
 	<actions>
-	<log names="callback"/>
+	<log names="description,type"/>
 		<httpClient httpMethod="POST" urlString="$callback" contentType="application/json">
-			<requestData>
-				<outputRecords>
-					<outputRecord recordName="ticket" sheetName="troubleTicket"/>
-				</outputRecords>
+			<requestData fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate">			
 			</requestData>			
 		</httpClient>
 	</actions>

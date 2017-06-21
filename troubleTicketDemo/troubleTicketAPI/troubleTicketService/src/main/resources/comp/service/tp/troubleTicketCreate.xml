@@ -31,7 +31,7 @@
 			</childRecords>
 		</save>		
 		<jmsProducer actionName="write2Q">
-			<requestQueue queueName="dynamicQueues/TTWriteQQ" recordName="ticket"/>
+			<requestDestination name="dynamicQueues/TTWriteQQ" recordName="ticket"/>
 		</jmsProducer>
 	</actions>
 </service>

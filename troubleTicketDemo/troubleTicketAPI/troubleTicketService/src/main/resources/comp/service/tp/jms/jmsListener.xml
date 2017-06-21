@@ -12,7 +12,7 @@
 	</inputData>
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestQueue queueName="dynamicQueues/TTReadQQ" recordName="ticket"/>
+			<requestDestination name="dynamicQueues/TTReadQQ" recordName="ticket"/>
 			<actions>
 				<log names="id"></log>
 			</actions>

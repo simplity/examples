@@ -23,6 +23,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
+		<log names="description,type"/>
 		<save saveAction="add" recordName="ticket">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>

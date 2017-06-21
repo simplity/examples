@@ -12,7 +12,7 @@
 	</inputData>
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestQueue queueName="dynamicQueues/TTWriteQQ" recordName="ticket"/>
+			<requestDestination name="dynamicQueues/TTWriteQQ"  recordName="ticket"/>
 			<actions>
 				<subService serviceName="publish.processMessages"/>
 			</actions>

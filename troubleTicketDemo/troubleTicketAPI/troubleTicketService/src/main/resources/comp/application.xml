@@ -2,7 +2,7 @@
 <application xmlns="http://www.simplity.org/schema" 
 			applicationId="HelloWorld"
 			autoLoginUserId="100"
-			queueConnectionFactory="ConnectionFactory"
+			jmsConnectionFactory="ConnectionFactory"
 			loggingFramework="log4j"
 			dbVendor="h2"
 			dbDriverClassName="org.h2.Driver"
