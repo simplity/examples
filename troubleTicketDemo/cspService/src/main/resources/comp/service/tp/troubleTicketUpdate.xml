@@ -32,10 +32,5 @@
 				<relatedRecord sheetName="notes" recordName="notes"/>
 			</childRecords>
 		</save>
-		<setValue fieldName="url" expression="concat('http://localhost:8088/api/troubleTicket/',id)"></setValue>
-		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json">
-			<requestData fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate">			
-			</requestData>			
-		</httpClient>
 	</actions>
 </service>

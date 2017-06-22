@@ -196,8 +196,8 @@
           <tbody>
             <tr>
             <tr ng-repeat="object in myData.currentTicket.relatedObjects">
-              <td class="text-center">{{object.involvement}}</td>
-              <td class="text-center">{{object.reference}}</td>
+              <td class="text-center"><input type="text" value={{object.involvement}} ng-model="object.involvement"></td>
+              <td class="text-center"><input type="text" value={{object.reference}} ng-model="object.reference"></td>
             </tr>
           </tbody>
         </table>
@@ -214,9 +214,9 @@
           <tbody>
             <tr>
             <tr ng-repeat="note in myData.currentTicket.notes">
-              <td class="text-center">{{note.date}}</td>
-              <td class="text-center">{{note.author}}</td>
-              <td class="text-center">{{note.text}}</td> 
+              <td class="text-center"><input type="text" value={{note.date}} ng-model="note.date"></td>
+              <td class="text-center"><input type="text" value={{note.author}} ng-model="note.author"></td>
+              <td class="text-center"><input type="text" value={{note.text}} ng-model="note.text"></td>              
            </tr>
           </tbody>
         </table>
@@ -232,8 +232,8 @@
           <tbody>
             <tr>
             <tr ng-repeat="party in myData.currentTicket.relatedParties">
-              <td class="text-center">{{party.role}}</td>
-              <td class="text-center">{{party.reference}}</td>
+              <td class="text-center"><input type="text" value={{party.role}} ng-model="party.role"></td>
+              <td class="text-center"><input type="text" value={{party.reference}} ng-model="party.reference"></td>
             </tr>
           </tbody>
         </table>

@@ -7,15 +7,15 @@
 	jmsUsage="notManaged">
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestDestination name="dynamicQueues/TTReadQQ" recordName="ticket">
-				<inputRequestData>				
+			<requestDestination name="dynamicQueues/TTReadQQ" messageBodyType="text">
+				<inputData>				
 					<inputRecords>
 						<inputRecord recordName="ticket" />
 						<inputRecord recordName="relatedObjects" />
 						<inputRecord recordName="relatedParties" />
 						<inputRecord recordName="notes" />
 					</inputRecords>
-				</inputRequestData>			
+				</inputData>			
 			</requestDestination>
 			<actions>
 				<subService serviceName="troubleTicketUpdate"/>

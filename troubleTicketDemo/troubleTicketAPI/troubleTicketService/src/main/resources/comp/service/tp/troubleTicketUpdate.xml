@@ -24,7 +24,7 @@
 	</inputData>
 	<actions>
 		<setValue fieldName="action" fieldValue="update"></setValue>
-		<save saveAction="modify" recordName="ticket">
+		<save saveAction="save" recordName="ticket">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects" />
 				<relatedRecord sheetName="relatedParties" recordName="relatedParties" />
@@ -33,14 +33,14 @@
 		</save>
 		<jmsProducer actionName="write2Q">
 			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
-				<outputRequestData>
+				<outputData>
 					<outputRecords>
 						<outputRecord recordName="jmsTicket" />
-						<outputRecord recordName="relatedObjects" />
-						<outputRecord recordName="relatedParties" />
-						<outputRecord recordName="notes" />
+						<outputRecord recordName="relatedObjects" sheetName="relatedObjects" />
+						<outputRecord recordName="relatedParties" sheetName="relatedParties"/>
+						<outputRecord recordName="notes" sheetName="notes" />
 					</outputRecords>
-				</outputRequestData>
+				</outputData>
 			</requestDestination>
 		</jmsProducer>
 	</actions>

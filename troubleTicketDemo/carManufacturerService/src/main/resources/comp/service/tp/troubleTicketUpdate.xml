@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<service
-	xmlns="http://www.simplity.org/schema"
-	name="troubleTicketUpdate"
+<service xmlns="http://www.simplity.org/schema" name="troubleTicketUpdate"
 	dbAccessType="readWrite">
 	<inputData>
 		<inputFields>
@@ -17,25 +15,36 @@
 			<inputField dataType="_text" name="statusChangeReason" />
 			<inputField dataType="_text" name="statusChangeDate" />
 			<inputField dataType="_text" name="resolutionDate" />
+			<inputField dataType="_text" name="source"/> 
 		</inputFields>
 		<inputRecords>
-			<inputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
-			<inputRecord recordName="relatedParties" sheetName="relatedParties"/>
-			<inputRecord recordName="notes" sheetName="notes"/>
+			<inputRecord recordName="relatedObjects" sheetName="relatedObjects" />
+			<inputRecord recordName="relatedParties" sheetName="relatedParties" />
+			<inputRecord recordName="notes" sheetName="notes" />
 		</inputRecords>
 	</inputData>
 	<actions>
 		<save saveAction="save" recordName="ticket">
 			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
-				<relatedRecord sheetName="notes" recordName="notes"/>
+				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects" />
+				<relatedRecord sheetName="relatedParties" recordName="relatedParties" />
+				<relatedRecord sheetName="notes" recordName="notes" />
 			</childRecords>
 		</save>
-		<setValue fieldName="url" expression="concat('http://localhost:8088/api/troubleTicket/',id)"></setValue>
-		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json">
-			<requestData fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate">			
-			</requestData>			
+		<setValue fieldName="callback" fieldValue="http://localhost:8088/api/troubleTicket"></setValue>
+		<setValue fieldName="url" expression="concat(callback,'/',id)"
+			executeOnCondition="source=='self'"></setValue>
+		<log names="source"/>	
+		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"
+			executeOnCondition="source=='self'">
+			<requestData>
+				<outputRecords>
+					<outputRecord recordName="ticket" />
+					<outputRecord recordName="relatedObjects" sheetName="relatedObjects" />
+					<outputRecord recordName="relatedParties" sheetName="relatedParties" />
+					<outputRecord recordName="notes" sheetName="notes" />
+				</outputRecords>
+			</requestData>
 		</httpClient>
 	</actions>
 </service>

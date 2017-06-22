@@ -4,14 +4,14 @@
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
 			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
-				<inputRequestData>
+				<inputData>
 					<inputRecords>
-						<inputRecord recordName="jmsTicket" />
-						<inputRecord recordName="relatedObjects" />
-						<inputRecord recordName="relatedParties" />
-						<inputRecord recordName="notes" />
+						<inputRecord recordName="jmsTicket"/>
+						<inputRecord recordName="relatedObjects"  sheetName="relatedObjects" />
+						<inputRecord recordName="relatedParties" sheetName="relatedParties" />
+						<inputRecord recordName="notes" sheetName="notes" />
 					</inputRecords>
-				</inputRequestData>
+				</inputData>
 			</requestDestination>
 			<actions>
 				<subService serviceName="publish.processMessages" />

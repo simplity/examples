@@ -34,14 +34,14 @@
 		<log names="id" />
 		<jmsProducer actionName="write2Q">
 			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
-				<outputRequestData>
+				<outputData>
 					<outputRecords>
 						<outputRecord recordName="jmsTicket" />
 						<outputRecord recordName="relatedObjects" />
 						<outputRecord recordName="relatedParties" />
 						<outputRecord recordName="notes" />
 					</outputRecords>
-				</outputRequestData>
+				</outputData>
 			</requestDestination>
 		</jmsProducer>
 	</actions>

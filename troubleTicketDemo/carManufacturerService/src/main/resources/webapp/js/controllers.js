@@ -23,7 +23,7 @@ angular.module('myApp.controllers')
     	    });    	  
       };
     
-      $scope.setCurrentTicketEdit = function(id) {
+      $scope.setCurrentTicketEdit = function(id) {    	  
      	 $http.get("api/troubleTicket/"+id)
      	    .then(function(response) {
      	    	$scope.myData.action = "edit";
@@ -40,12 +40,14 @@ angular.module('myApp.controllers')
        
        $scope.updateTicket = function(ticket){     
     	   if($scope.ticketAction == "update"){
+    		 ticket.source = "self";  
          	 $http.put("api/troubleTicket/"+ticket.id,ticket) 
     	    .then(function(response) {
     	    	console.log(response);
     	    }); 
     	   }
     	   else if($scope.ticketAction == "add"){
+    		ticket.source = "self";    		   
     		$http.post("api/troubleTicket",ticket) 
     	    .then(function(response) {
     	    	console.log(response);

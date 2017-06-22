@@ -2,28 +2,25 @@
 <service xmlns="http://www.simplity.org/schema" name="publishMessages"
 	moduleName="publish">
 	<actions>
-		<log names="action" />
+		<log names="relatedObjects" />
 		<httpClient httpMethod="POST" urlString="$callback"
 			contentType="application/json" executeOnCondition="action=='add'">
-			<requestData>
+			<requestData dataSheets="relatedObjects,relatedParties,notes">
 				<outputRecords>
 					<outputRecord recordName="ticket" />
-					<outputRecord recordName="relatedObjects" />
-					<outputRecord recordName="relatedParties" />
-					<outputRecord recordName="notes" />
 				</outputRecords>
 			</requestData>
 		</httpClient>
 		<setValue fieldName="url" expression="concat(callback,'/',id)"
 			executeOnCondition="action=='update'"></setValue>
 		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"
-			executeOnCondition="action=='update'">
-			<requestData>
+			executeOnCondition="action=='update'">			
+			<requestData fieldNames="source">
 				<outputRecords>
 					<outputRecord recordName="ticket" />
-					<outputRecord recordName="relatedObjects" />
-					<outputRecord recordName="relatedParties" />
-					<outputRecord recordName="notes" />
+					<outputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
+					<outputRecord recordName="relatedParties" sheetName="relatedParties"/>
+					<outputRecord recordName="notes" sheetName="notes"/>
 				</outputRecords>
 			</requestData>
 		</httpClient>
