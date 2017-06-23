@@ -39,13 +39,20 @@ angular.module('myApp.controllers')
        };
        
        $scope.updateTicket = function(ticket){     
+    	   for (var p in ticket) {
+   		    if( ticket.hasOwnProperty(p) ) {
+   		      if (!ticket[p]){
+   		    	  delete ticket[p];
+   		      }
+   		    } 
+   		  }     	   
     	   if($scope.ticketAction == "update"){
          	 $http.put("api/troubleTicket/"+ticket.id,ticket) 
     	    .then(function(response) {
     	    	console.log(response);
     	    }); 
     	   }
-    	   else if($scope.ticketAction == "add"){
+    	   else if($scope.ticketAction == "add"){ 
     		$http.post("api/troubleTicket",ticket) 
     	    .then(function(response) {
     	    	console.log(response);
@@ -57,4 +64,29 @@ angular.module('myApp.controllers')
     	  $scope.myData.currentTicket = null;
     	  $scope.myData.action = "list";  
       };
+      $scope.createRelatedInformation = function(){
+    	  if(!$scope.myData.currentTicket)
+    		  $scope.myData.currentTicket = {};
+    	  if(!$scope.myData.currentTicket.relatedObjects){
+    		  $scope.myData.currentTicket.relatedObjects = [];
+    	  }
+    	  $scope.myData.currentTicket.relatedObjects.push({});
+      };
+      $scope.createNotes = function(){
+    	  if(!$scope.myData.currentTicket)
+    		  $scope.myData.currentTicket = {};
+    	  if(!$scope.myData.currentTicket.notes){
+    		  $scope.myData.currentTicket.notes = [];
+    	  }    	  
+    	  $scope.myData.currentTicket.notes.push({});
+      };
+      $scope.createRelatedParties = function(){
+    	  if(!$scope.myData.currentTicket)
+    		  $scope.myData.currentTicket = {};
+    	  if(!$scope.myData.currentTicket.relatedParties){
+    		  $scope.myData.currentTicket.relatedParties = [];
+    	  }    	  
+    	  $scope.myData.currentTicket.relatedParties.push({});
+      };      
+      
   }])

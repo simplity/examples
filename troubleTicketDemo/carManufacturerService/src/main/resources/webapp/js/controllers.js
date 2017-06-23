@@ -39,7 +39,14 @@ angular.module('myApp.controllers')
        };
        
        $scope.updateTicket = function(ticket){     
-    	   if($scope.ticketAction == "update"){
+    	   for (var p in ticket) {
+    		    if( ticket.hasOwnProperty(p) ) {
+    		      if (!ticket[p]){
+    		    	  delete ticket[p];
+    		      }
+    		    } 
+    		  } 	   
+    	   if($scope.ticketAction == "update"){  
     		 ticket.source = "self";  
          	 $http.put("api/troubleTicket/"+ticket.id,ticket) 
     	    .then(function(response) {

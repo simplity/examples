@@ -5,8 +5,8 @@ import javax.ws.rs.core.Response;
 import org.simplity.kernel.value.Value;
 import org.simplity.service.ServiceContext;
 import org.simplity.tp.HttpClient;
-import org.simplity.tp.InputData;
-import org.simplity.tp.OutputData;
+import org.simplity.kernel.data.InputData;
+import org.simplity.kernel.data.OutputData;
 
 import org.simplity.examples.service.TodosServiceClient;
 

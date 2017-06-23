@@ -5,8 +5,8 @@ import javax.ws.rs.core.Response;
 import org.simplity.kernel.value.Value;
 import org.simplity.service.ServiceContext;
 import org.simplity.tp.HttpClient;
-import org.simplity.tp.InputData;
-import org.simplity.tp.OutputData;
+import org.simplity.kernel.data.InputData;
+import org.simplity.kernel.data.OutputData;
 
 import org.simplity.examples.service.TodosViewServiceClient;
 
@@ -34,14 +34,6 @@ public class TodosViewServiceClientImpl implements TodosViewServiceClient {
 		
 		Response response =  Response.ok(ctx.getTextValue("outputData")).build();
 		return response;
-		
-		/*
-		String urlString = "http://localhost:8081/todos";
-		String requestMethod = "GET";
-		String jsonString = new HttpUtility().getHttpResponse(urlString, requestMethod, null);
-		Response response = Response.ok(jsonString).build();
-		return response;
-		*/
 	}
 	
 }

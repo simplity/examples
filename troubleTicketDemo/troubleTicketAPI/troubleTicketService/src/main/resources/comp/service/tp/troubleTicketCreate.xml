@@ -37,9 +37,9 @@
 				<outputData>
 					<outputRecords>
 						<outputRecord recordName="jmsTicket" />
-						<outputRecord recordName="relatedObjects" />
-						<outputRecord recordName="relatedParties" />
-						<outputRecord recordName="notes" />
+						<outputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
+						<outputRecord recordName="relatedParties" sheetName="relatedParties"/>
+						<outputRecord recordName="notes" sheetName="notes"/>
 					</outputRecords>
 				</outputData>
 			</requestDestination>
