@@ -22,9 +22,12 @@
 
 package org.simplity.examples;
 
+import java.util.Arrays;
+
 import org.simplity.kernel.Tracer;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
+import org.simplity.service.ServiceProtocol;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
@@ -42,7 +45,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 
 	public SimpleMemCacheManager() {
 		pool = SockIOPool.getInstance("default");
-		String[] servers = { "localhost:11211" };
+		String[] servers = { "localhost:11213" };
 		pool.setServers(servers);
 		pool.setFailover(true);
 		pool.setInitConn(10);
@@ -61,16 +64,44 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	@Override
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
-		ServiceData outData = (ServiceData) mcc.get(serviceName);
+		String fieldsForHash = inData.getCacheForInput();		
+		ServiceData outData = (ServiceData) mcc.get(this.getHash(serviceName,inData,fieldsForHash));
 		Tracer.trace("Responding from cache");
 		return outData;
+	}
+
+	private String getHash(String serviceName, ServiceData inData, String fieldsForHash) {
+		int hashKey = serviceName.hashCode();
+		String[] fields = null;
+		if (fieldsForHash.length() > 0) {
+			fields = fieldsForHash.split(",");
+			if (fields[0].equals(ServiceProtocol.USER_ID)) {
+				hashKey += inData.getUserId().hashCode();
+				int n = fields.length;
+				if (n > 0) {
+					n--;
+					String[] newFields = new String[n];
+					for (int i = 0; i < newFields.length; i++) {
+						newFields[i] = fields[i + 1];
+					}
+					fields = newFields;
+				}
+			}
+			for(String field:fields){
+				hashKey += inData.get(field).hashCode();
+			}
+		}
+		hashKey += Arrays.hashCode(fields);
+		return Integer.toString(hashKey);
 	}
 
 	@Override
 	public void cache(ServiceData inData, ServiceData outData) {
 		// Get the Memcached Client from SockIOPool named Test1
+		String serviceName = inData.getServiceName();
+		String fieldsForHash = inData.getCacheForInput();		
 		Tracer.trace("Added to trace");
-		mcc.add(inData.getServiceName(), outData);
+		mcc.add(this.getHash(serviceName,inData,fieldsForHash), outData);
 
 	}
 
