@@ -8,7 +8,8 @@
 			dbDriverClassName="org.h2.Driver"
 			connectionString="jdbc:h2:file:${project.build.directory}\troubleTicket;user=sa;"
 			jobsToRunOnStartup="listenerJob"			 
-			logSqls="true">
+			logSqls="true"
+			serviceCacheManager="org.simplity.examples.SimpleMemCacheManager">
 			<jmsProperties>
 				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
 				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
