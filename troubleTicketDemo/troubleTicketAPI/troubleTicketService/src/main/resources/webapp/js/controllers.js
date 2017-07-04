@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers')
+angular.module('tmfforum.controllers')
 
   .controller('TroubleTicketCtrl', ['$scope', '$http', function($scope, $http) {
 
@@ -89,4 +89,19 @@ angular.module('myApp.controllers')
     	  $scope.myData.currentTicket.relatedParties.push({});
       };      
       
+  }])
+  
+  .controller('LoginCtrl',['$scope','$http',function($scope,$http){
+	  $scope.login = {};
+	  $scope.callLogin = function(){
+		  var config = {
+				  headers:{
+					  'authorization' : $scope.login.username +':'+ $scope.login.password
+				  }
+		  }
+		  $http.post('api/login',null,config)
+		  	   .then(function(response){
+		  		   console.log(response)
+		  	   })
+	  }
   }])

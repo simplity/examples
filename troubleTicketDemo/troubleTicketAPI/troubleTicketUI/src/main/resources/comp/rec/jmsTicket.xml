@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="jmsTicket" recordType="structure"
+	xmlns="http://www.simplity.org/schema">
+	<fields>
+		<field dataType="_number" name="id" />
+		<field dataType="_text" name="correlationId" />
+		<field dataType="_text" name="description" />
+		<field dataType="_text" name="severity" />
+		<field dataType="_text" name="type" />
+		<field dataType="_dateTime" name="creationDate" />
+		<field dataType="_dateTime" name="targetResolutionDate" />
+		<field dataType="_text" name="status" />
+		<field dataType="_text" name="subStatus" />
+		<field dataType="_text" name="statusChangeReason" />
+		<field dataType="_dateTime" name="statusChangeDate" />
+		<field dataType="_dateTime" name="resolutionDate" />
+		<field name="action" dataType="_text" />
+	</fields>
+</record>

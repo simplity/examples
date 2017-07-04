@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="OAUTH_REFRESH_TOKEN" recordType="storage" tableName="OAUTH_REFRESH_TOKEN" xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="TOKEN_ID" dataType="_text" fieldType="data" isNullable="true" name="token_id" sqlTypeName="VARCHAR"/>
+<field columnName="TOKEN" dataType="VARBINARY" fieldType="data" isNullable="true" name="token" sqlTypeName="VARBINARY"/>
+<field columnName="AUTHENTICATION" dataType="VARBINARY" fieldType="data" isNullable="true" name="authentication" sqlTypeName="VARBINARY"/>
+</fields>
+</record>

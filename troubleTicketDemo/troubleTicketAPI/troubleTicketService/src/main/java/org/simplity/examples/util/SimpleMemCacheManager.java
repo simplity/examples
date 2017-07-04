@@ -1,4 +1,4 @@
-package org.simplity.examples;
+package org.simplity.examples.util;
 
 import org.simplity.kernel.Tracer;
 import org.simplity.service.ServiceCacheManager;
