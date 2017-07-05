@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testRun
+	testName="todoviewtestrun"
+	xmlns="http://www.simplity.org/schema">
+	<testCases>
+		<testCase
+			serviceName="viewTodos"
+			testCaseName="viewTodostest">
+			<outputJson><![CDATA[ {"todosDBTable":[{"id":2,"title":"Task 02","completed":false},{"id":3,"title":"Task 03","completed":false}],"_messages":[]}]]></outputJson>
+		</testCase>
+	</testCases>
+</testRun>

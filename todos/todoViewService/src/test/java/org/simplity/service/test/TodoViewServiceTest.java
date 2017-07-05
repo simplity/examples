@@ -1,14 +1,5 @@
 package org.simplity.service.test;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
@@ -28,10 +19,7 @@ public class TodoViewServiceTest extends SimpliTestCase {
 
 	
 	public void testTodoViewService() {
-		ServiceData outData = JavaAgent.getAgent("100", null).serve("viewTodos", null, PayloadType.JSON);
-		JSONObject obj = new JSONObject(outData.getPayLoad());
-		assertNotNull(obj.get("todosDBTable"));
-		System.out.println(obj.toString());
+		servicetest = "todoviewtestrun";	
 	}
 
 }
