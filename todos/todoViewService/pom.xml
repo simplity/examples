@@ -153,7 +153,7 @@
 				<executions>
 					<execution>
 						<id>create-db</id>
-						<phase>install</phase>
+						<phase>generate-resources</phase>
 						<goals>
 							<goal>execute</goal>
 						</goals>
