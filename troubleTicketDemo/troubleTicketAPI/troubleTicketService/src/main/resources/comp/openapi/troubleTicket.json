@@ -79,7 +79,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth": [
+              "read_troubleTicket"
+            ]
+          }
+        ]
       }
     },
     "/troubleTicket/{troubleTicketId}": {

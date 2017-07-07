@@ -1,4 +1,4 @@
-package org.simplity.examples.troubleTicketUI.filter;
+package org.simplity.examples.troubleTicketDemo.OAuthServer.filters;
 
 import java.io.IOException;
 
@@ -22,6 +22,7 @@ public class CorsFilter implements ContainerResponseFilter {
 		response.getHeaders().add("Access-Control-Allow-Origin", "*");
 		response.getHeaders().add("Access-Control-Allow-Headers", HEADERS);
 		response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
+		response.getHeaders().add("correlationId", MDC.get("correlationId"));
 
 	}
 }

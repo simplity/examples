@@ -32,6 +32,9 @@ import org.apache.oltu.oauth2.common.utils.OAuthUtils;
 import org.apache.oltu.oauth2.rs.response.OAuthRSResponse;
 import org.simplity.examples.troubleTicketDemo.OAuthServer.OAuthServerMain;
 import org.simplity.kernel.comp.ComponentManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -41,12 +44,12 @@ import io.swagger.models.auth.SecuritySchemeDefinition;
 
 @Path("/login")
 public class LoginEndpoint {
+	final static Logger logger = LoggerFactory.getLogger(LoginEndpoint.class);
 	private static String[][] UserPwd = {{"Jack","Bentley"},{"Aaron","Srinivas"},{"Vidya","Krishnamurthy"}}; 
 	
 	@GET
 	public String scope(@QueryParam("scope") String scope ){
-		String[] scopes = scope.split(",");
-		
+		String[] scopes = scope.split(",");		
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
 		List<Scope> scopeList = new ArrayList<Scope>();
@@ -55,6 +58,7 @@ public class LoginEndpoint {
 			scopeList.add(new Scope(lscope,((OAuth2Definition)lscopeDef).getScopes().get(lscope)));
 		}	
 		try {
+			logger.info("sending the scope details");
 			return mapper.writeValueAsString(scopeList);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
@@ -90,7 +94,7 @@ public class LoginEndpoint {
                     .setRealm(TestContent.RESOURCE_SERVER_NAME)
                     .setError(OAuthError.ResourceResponse.EXPIRED_TOKEN)
                     .buildHeaderMessage();
-                
+    			logger.info("authorization failed");
             	return Response.status(Response.Status.UNAUTHORIZED)
                         .header(OAuth.HeaderType.WWW_AUTHENTICATE,
                             oauthResponse.getHeader(OAuth.HeaderType.WWW_AUTHENTICATE))
@@ -116,9 +120,9 @@ public class LoginEndpoint {
             String redirectURI = oauthRequest.getParam(OAuth.OAUTH_REDIRECT_URI);
 
             final OAuthResponse response = builder.location(redirectURI).buildQueryMessage();
-            URI url = new URI(response.getLocationUri());
-
-            return Response.ok(response.getLocationUri()).build();
+            
+            logger.info("authorization succeeded");
+            return Response.ok(response.getLocationUri()+"&correlation_Id="+MDC.get("correlationId")).build();
 
         } catch (OAuthProblemException e) {
 
@@ -127,13 +131,14 @@ public class LoginEndpoint {
             String redirectUri = e.getRedirectUri();
 
             if (OAuthUtils.isEmpty(redirectUri)) {
+            	logger.info("OAuth callback url needs to be provided by client!!!");
                 throw new WebApplicationException(
                     responseBuilder.entity("OAuth callback url needs to be provided by client!!!").build());
             }
             final OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_FOUND)
                 .error(e)
                 .location(redirectUri).buildQueryMessage();
-            final URI location = new URI(response.getLocationUri());
+            final URI location = new URI(response.getLocationUri()+"&correlation_Id="+ MDC.get("correlationId"));
             return responseBuilder.location(location).build();
         }
     }

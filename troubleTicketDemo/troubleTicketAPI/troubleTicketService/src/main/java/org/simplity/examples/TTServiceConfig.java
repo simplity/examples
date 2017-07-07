@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,7 @@ import org.simplity.json.JSONObject;
 import org.simplity.kernel.ApplicationError;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
+import org.slf4j.MDC;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,12 +37,12 @@ import io.swagger.models.Swagger;
 import io.swagger.models.auth.SecuritySchemeDefinition;
 import io.swagger.parser.SwaggerParser;
 
-public class OpenApiServiceConfig extends ResourceConfig {
+public class TTServiceConfig extends ResourceConfig {
 	private static String api_path;
 	public static Map<String, SecuritySchemeDefinition> secDefs;
 	private static String AuthService = "http://localhost:8090";
 
-	public OpenApiServiceConfig() {
+	public TTServiceConfig() {
 		final Swagger swagger = new SwaggerParser().read(api_path);
 
 		final Resource.Builder resourceBuilder = Resource.builder();
@@ -81,12 +83,14 @@ public class OpenApiServiceConfig extends ResourceConfig {
 						try {
 							if (containerRequestContext.getUriInfo().getQueryParameters().containsKey("access_token")) {
 								// verify if token issued is correct
-								String url = AuthService + "/auth/token/valid" + "?";
-								url += "access_token=";
-								url += containerRequestContext.getUriInfo().getQueryParameters()
-										.getFirst("access_token");
+								String url = AuthService 
+										+ "/auth/token/valid" 
+										+ "?access_token="
+										+ containerRequestContext.getUriInfo().getQueryParameters()
+										.getFirst("access_token")
+										+ "&correlation_Id="
+										+ MDC.get("correlationId");
 								String output = getHttpResponse(url, containerRequestContext);
-								System.out.println(output);
 							}
 
 							BufferedReader reader = new BufferedReader(
@@ -221,5 +225,6 @@ public class OpenApiServiceConfig extends ResourceConfig {
 				}
 			}
 		}
+
 	}
 }

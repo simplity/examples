@@ -51,8 +51,9 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 
 	}
 
+
 	@Override
-	public void invalidate(String serviceName) {
+	public void invalidate(String serviceName, ServiceData inData) {
 		Tracer.trace("Invalidate entry for viewTodos");
 		System.out.println(mcc.delete("viewTodos"));
 	}
