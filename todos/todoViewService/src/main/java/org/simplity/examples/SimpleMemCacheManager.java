@@ -24,10 +24,17 @@ package org.simplity.examples;
 
 import java.util.Arrays;
 
+import org.omg.IOP.ServiceContext;
 import org.simplity.kernel.Tracer;
+import org.simplity.kernel.comp.ComponentManager;
+import org.simplity.kernel.value.Value;
+import org.simplity.service.JavaAgent;
+import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
+import org.simplity.service.ServiceInterface;
 import org.simplity.service.ServiceProtocol;
+import org.simplity.tp.Service;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
@@ -40,24 +47,24 @@ import com.whalin.MemCached.SockIOPool;
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
 
-	SockIOPool pool;
-	MemCachedClient mcc;
+	private SockIOPool sockIOPool;
+	private MemCachedClient memCachedClient;
 
 	public SimpleMemCacheManager() {
-		pool = SockIOPool.getInstance("default");
-		String[] servers = { "localhost:11213" };
-		pool.setServers(servers);
-		pool.setFailover(true);
-		pool.setInitConn(10);
-		pool.setMinConn(5);
-		pool.setMaxConn(250);
-		pool.setMaintSleep(30);
-		pool.setNagle(false);
-		pool.setSocketTO(3000);
-		pool.setAliveCheck(true);
-		pool.initialize();
+		sockIOPool = SockIOPool.getInstance("default");
+		String[] servers = { "localhost:11211" };
+		sockIOPool.setServers(servers);
+		sockIOPool.setFailover(true);
+		sockIOPool.setInitConn(10);
+		sockIOPool.setMinConn(5);
+		sockIOPool.setMaxConn(250);
+		sockIOPool.setMaintSleep(30);
+		sockIOPool.setNagle(false);
+		sockIOPool.setSocketTO(3000);
+		sockIOPool.setAliveCheck(true);
+		sockIOPool.initialize();
 
-		mcc = new MemCachedClient("default");
+		memCachedClient = new MemCachedClient("default");
 
 	}
 
@@ -65,9 +72,13 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
 		String fieldsForHash = inData.getCacheForInput();		
-		ServiceData outData = (ServiceData) mcc.get(this.getHash(serviceName,inData,fieldsForHash));
-		Tracer.trace("Responding from cache");
-		return outData;
+		CacheValueObject cacheValueObject = (CacheValueObject) memCachedClient.get(this.getHash(serviceName,inData,fieldsForHash));
+		if(cacheValueObject != null) {
+			ServiceData outData = cacheValueObject.getOutData();
+			Tracer.trace("Responding from cache");
+			return outData;
+		}
+		return null;
 	}
 
 	private String getHash(String serviceName, ServiceData inData, String fieldsForHash) {
@@ -99,16 +110,38 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	public void cache(ServiceData inData, ServiceData outData) {
 		// Get the Memcached Client from SockIOPool named Test1
 		String serviceName = inData.getServiceName();
-		String fieldsForHash = inData.getCacheForInput();		
-		Tracer.trace("Added to trace");
-		mcc.add(this.getHash(serviceName,inData,fieldsForHash), outData);
-
+		String fieldsForHash = inData.getCacheForInput();
+		CacheValueObject cacheValueObject = new CacheValueObject();
+		cacheValueObject.setServiceName(serviceName);
+		cacheValueObject.setInData(inData);
+		cacheValueObject.setOutData(outData);
+		String cacheKey = this.getHash(serviceName, inData, fieldsForHash);
+		if(memCachedClient.add(cacheKey, cacheValueObject)) {
+			Tracer.trace("Added to cache");
+			
+			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
+			int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
+			String payLoad = "{'cacheKey':'" + cacheKey + "',"
+					+ "'refreshTimePeriod':" + cacheRefreshTime + ","
+					+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
+			ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad, PayloadType.JSON);
+			if(!outData1.hasErrors())
+				Tracer.trace("cache key added to the database");
+		} else {
+			Tracer.trace("Error in adding data to the cache");
+		}
 	}
 
 	@Override
-	public void invalidate(String serviceName) {
+	public void invalidate(String cacheKey, ServiceData inData) {
 		Tracer.trace("Invalidate entry for viewTodos");
-		System.out.println(mcc.delete("viewTodos"));
+		if(memCachedClient.delete(cacheKey))
+			Tracer.trace("viewTodos - key deleted");
+		else
+			Tracer.trace("viewTodos - unable to delete the key");
 	}
 
+	public Object readMemCacheData(String key) {
+		return this.memCachedClient.get(key);
+	}
 }

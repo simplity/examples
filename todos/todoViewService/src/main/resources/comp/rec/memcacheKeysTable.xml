@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record
+	name="memcacheKeysTable" 
+	recordType="storage" 
+	tableName="MEMCACHEKEYS" 
+	okToSelectAll="true" 
+	readOnly="false" 
+	keyToBeGenerated="true"
+	xmlns="http://www.simplity.org/schema"
+>
+	<fields>
+		<field
+			dataType="_number"
+			name="id"
+			fieldType="primaryKey" 
+			isNullable="true"/>
+		<field
+			name="cacheKey"		
+			dataType="_text"/>
+		<field
+			name="refreshTimePeriod"
+			dataType="_number"/>
+		<field
+			name="lastRefreshTime"
+			dataType="_number"/>
+	</fields>
+</record>
