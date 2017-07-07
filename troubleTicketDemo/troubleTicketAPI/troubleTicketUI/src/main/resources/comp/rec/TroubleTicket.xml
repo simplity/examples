@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="ticket" recordType="storage" 
-		tableName="TICKET" 
+<record name="TroubleTicket" recordType="storage" 
+		tableName="TroubleTicket" 
 		okToSelectAll="true"
-		childrenToBeSaved="notes,relatedObjects,relatedParties"
-		childrenToBeRead="notes,relatedObjects,relatedParties"
+		keyToBeGenerated="true"
+		childrenToBeSaved="Note,RelatedObject,RelatedParty"
+		childrenToBeRead="Note,RelatedObject,RelatedParty"
 		xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="ID" dataType="_number" fieldType="primaryKey" name="id" sqlTypeName="INTEGER" isNullable="true"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns="http://www.simplity.org/schema" 
-			applicationId="troubleTicketService"
+			applicationId="troubleTicketUI"
 			loginServiceName="login"
 			jmsConnectionFactory="ConnectionFactory"
 			loggingFramework="log4j"
@@ -14,4 +14,3 @@
 				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
 			</jmsProperties> 
 </application>
-<!-- 			serviceCacheManager="org.simplity.examples.util.SimpleMemCacheManager" -->

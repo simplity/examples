@@ -1,12 +1,17 @@
 package org.simplity.examples.util;
 
+import java.util.logging.Level;
+
 import org.simplity.examples.CacheObject;
+import org.simplity.http.HttpAgent;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.kernel.data.InputField;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
 import org.simplity.tp.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
@@ -18,6 +23,7 @@ import com.whalin.MemCached.SockIOPool;
  *
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
+	static final Logger logger = LoggerFactory.getLogger(SimpleMemCacheManager.class);
 	SockIOPool pool;
 	MemCachedClient mcc;
 	private String[] fieldNames;
@@ -42,7 +48,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
 		CacheObject object = (CacheObject) mcc.get(getInDataKey(serviceName,inData));
-		Tracer.trace("Responding from cache");
+		logger.info("Responding from cache");
 		if(object != null){
 			return object.getOutData();
 		}
@@ -52,7 +58,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	@Override
 	public void cache(ServiceData inData, ServiceData outData) {
 		// Get the Memcached Client from SockIOPool named Test1
-		Tracer.trace("Added to cache");
+		logger.info("Added to cache");
 		String serviceName = inData.getServiceName();
 		CacheObject object = new CacheObject(inData, outData, serviceName);
 		boolean added = mcc.add(getInDataKey(inData.getServiceName(),inData), object);
@@ -61,7 +67,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 
 	@Override
 	public void invalidate(String serviceName,ServiceData inData) {
-		Tracer.trace("Invalidate entry for "+serviceName);
+		logger.info("Invalidate entry for "+serviceName);
 		System.out.println(mcc.delete(getInDataKey(serviceName,inData)));
 	}
 

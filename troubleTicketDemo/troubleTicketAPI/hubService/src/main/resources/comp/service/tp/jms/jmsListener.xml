@@ -7,9 +7,9 @@
 				<inputData>
 					<inputRecords>
 						<inputRecord recordName="jmsTicket"/>
-						<inputRecord recordName="relatedObjects"  sheetName="relatedObjects" />
-						<inputRecord recordName="relatedParties" sheetName="relatedParties" />
-						<inputRecord recordName="notes" sheetName="notes" />
+						<inputRecord recordName="RelatedObject"  sheetName="relatedObjects" />
+						<inputRecord recordName="RelatedParty" sheetName="relatedParties" />
+						<inputRecord recordName="Note" sheetName="notes" />
 					</inputRecords>
 				</inputData>
 			</requestDestination>

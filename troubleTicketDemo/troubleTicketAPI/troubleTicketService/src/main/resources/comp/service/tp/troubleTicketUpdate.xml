@@ -17,18 +17,18 @@
 			<inputField dataType="_text" name="resolutionDate" />
 		</inputFields>
 		<inputRecords>
-			<inputRecord recordName="relatedObjects" sheetName="relatedObjects" />
-			<inputRecord recordName="relatedParties" sheetName="relatedParties" />
-			<inputRecord recordName="notes" sheetName="notes" />
+			<inputRecord recordName="RelatedObject" sheetName="relatedObjects" />
+			<inputRecord recordName="RelatedParty" sheetName="relatedParties" />
+			<inputRecord recordName="Note" sheetName="notes" />
 		</inputRecords>
 	</inputData>
 	<actions>
 		<setValue fieldName="action" fieldValue="update"></setValue>
-		<save saveAction="save" recordName="ticket">
+		<save saveAction="save" recordName="TroubleTicket">
 			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects" />
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties" />
-				<relatedRecord sheetName="notes" recordName="notes" />
+				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject" />
+				<relatedRecord sheetName="relatedParties" recordName="RelatedParty" />
+				<relatedRecord sheetName="notes" recordName="Note" />
 			</childRecords>
 		</save>
 		<jmsProducer actionName="write2Q">
@@ -36,9 +36,9 @@
 				<outputData>
 					<outputRecords>
 						<outputRecord recordName="jmsTicket" />
-						<outputRecord recordName="relatedObjects" sheetName="relatedObjects" />
-						<outputRecord recordName="relatedParties" sheetName="relatedParties"/>
-						<outputRecord recordName="notes" sheetName="notes" />
+						<outputRecord recordName="RelatedObject" sheetName="relatedObjects" />
+						<outputRecord recordName="RelatedParty" sheetName="relatedParties"/>
+						<outputRecord recordName="Note" sheetName="notes" />
 					</outputRecords>
 				</outputData>
 			</requestDestination>

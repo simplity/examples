@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <record xmlns="http://www.simplity.org/schema"
-		name="hub" 
+		name="Hub" 
 		recordType="storage"
 		tableName="HUB" 	
 		keyToBeGenerated="true"			

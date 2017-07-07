@@ -11,6 +11,6 @@
 		</inputFields>
 	</inputData>	
 	<actions>
-		<save saveAction="add" recordName="hub"></save>
+		<save saveAction="add" recordName="Hub"></save>
 	</actions>
 </service>
