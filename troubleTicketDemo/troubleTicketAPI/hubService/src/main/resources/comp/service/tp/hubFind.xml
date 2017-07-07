@@ -5,7 +5,7 @@
 	dbAccessType="readOnly">
 	
 	<actions>
-		<filter filterRecordName="hub" outputSheetName="hubs"></filter>
+		<filter filterRecordName="Hub" outputSheetName="hubs"></filter>
 		<log names="hubs"/>
 	</actions>
 	<outputData dataSheets="hubs"></outputData>

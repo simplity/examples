@@ -2,13 +2,14 @@
 <service
 	xmlns="http://www.simplity.org/schema"
 	name="troubleTicketFind"
+	canBeCachedByFields=""
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="ticket" outputSheetName="tickets">
+		<filter filterRecordName="TroubleTicket" outputSheetName="tickets">
 			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects"/>
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties"/>
-				<relatedRecord sheetName="notes" recordName="notes"/>
+				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject"/>
+				<relatedRecord sheetName="relatedParties" recordName="RelatedParty"/>
+				<relatedRecord sheetName="notes" recordName="Note"/>
 			</childRecords>
 		</filter>
 	</actions>

@@ -20,9 +20,9 @@
 			<inputField dataType="_text" name="resolutionDate" />
 		</inputFields>
 		<inputRecords>
-			<inputRecord recordName="relatedObjects" sheetName="relatedObjects"/>
-			<inputRecord recordName="relatedParties" sheetName="relatedParties"/>
-			<inputRecord recordName="notes" sheetName="notes"/>
+			<inputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
+			<inputRecord recordName="RelatedParty" sheetName="relatedParties"/>
+			<inputRecord recordName="Note" sheetName="notes"/>
 		</inputRecords>
 	</inputData>
 	<actions>
@@ -31,10 +31,10 @@
 			<requestDestination name="dynamicQueues/TTReadQQ" messageBodyType="text">
 				<outputData>
 					<outputRecords>
-						<outputRecord recordName="ticket" />
-						<outputRecord recordName="relatedObjects" />
-						<outputRecord recordName="relatedParties" />
-						<outputRecord recordName="notes" />
+						<outputRecord recordName="TroubleTicket" />
+						<outputRecord recordName="RelatedObject" />
+						<outputRecord recordName="RelatedParty" />
+						<outputRecord recordName="Note" />
 					</outputRecords>
 				</outputData>			
 			</requestDestination>

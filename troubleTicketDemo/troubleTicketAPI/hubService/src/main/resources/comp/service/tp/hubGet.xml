@@ -12,7 +12,7 @@
 	
 	<actions>
 		<createSheet sheetName="filterSheet" data="hubId;$hubId"/>
-		<filter filterRecordName="hub" inputSheetName="filterSheet" outputSheetName="hub"></filter>
+		<filter filterRecordName="Hub" inputSheetName="filterSheet" outputSheetName="hub"></filter>
 	</actions>
 	<outputData dataSheets="hub"></outputData>
 </service>
