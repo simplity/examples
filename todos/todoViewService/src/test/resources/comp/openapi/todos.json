@@ -1,0 +1,104 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the Todos View service  For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "version": "1.0.0",
+    "title": "Swagger Todos View service",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "todos.swagger.io",
+  "basePath": "/todos",
+  "tags": [
+    {
+      "name": "todos",
+      "description": "List of todos",
+      "externalDocs": {
+        "description": "List of todos",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "todo"
+        ],
+        "summary": "View the list of todos",
+        "description": "",
+        "operationId": "viewTodos",
+        "x-serviceName": "filter_todosDBTable",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/Todos"
+            }
+          }
+        },
+        "security": [
+          {
+            "todos_auth": [
+              "read:todos"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "todos_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://todos.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "read:todos": "view the todos"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Todos": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "completed": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

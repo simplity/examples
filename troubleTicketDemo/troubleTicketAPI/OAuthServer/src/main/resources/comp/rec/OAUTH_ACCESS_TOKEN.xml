@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="OAUTH_ACCESS_TOKEN" recordType="storage" tableName="OAUTH_ACCESS_TOKEN" xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="TOKEN_ID" dataType="_text" fieldType="data" isNullable="true" name="token_id" sqlTypeName="VARCHAR"/>
+<field columnName="TOKEN" dataType="VARBINARY" fieldType="data" isNullable="true" name="token" sqlTypeName="VARBINARY"/>
+<field columnName="AUTHENTICATION_ID" dataType="_text" fieldType="data" isNullable="true" name="authentication_id" sqlTypeName="VARCHAR"/>
+<field columnName="USER_NAME" dataType="_text" fieldType="data" isNullable="true" name="user_name" sqlTypeName="VARCHAR"/>
+<field columnName="CLIENT_ID" dataType="_text" fieldType="data" isNullable="true" name="client_id" sqlTypeName="VARCHAR"/>
+<field columnName="AUTHENTICATION" dataType="VARBINARY" fieldType="data" isNullable="true" name="authentication" sqlTypeName="VARBINARY"/>
+<field columnName="REFRESH_TOKEN" dataType="_text" fieldType="data" isNullable="true" name="refresh_token" sqlTypeName="VARCHAR"/>
+</fields>
+</record>

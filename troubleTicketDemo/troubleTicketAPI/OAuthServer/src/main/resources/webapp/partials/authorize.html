@@ -1,0 +1,36 @@
+
+<div id="page_title">OAuth for Services</div>
+
+<div id="content">
+	<h3 id="client-name">Trouble Ticket</h3>
+
+	<div ng-if="scopes">
+		<h4 id="permissions">Permissions</h4>
+		<div class="indent">
+			<p>The application is requesting the following permissions.</p> 
+			<dl id="scope-list" ng-repeat="authScope in scopes">
+				<dt>{{authScope.name}}</dt>
+				<dd>{{authScope.description}}</dd>
+			</dl>
+		</div>
+	</div>
+	<h4 id="authorization">Authorization</h4>
+	<div class="indent">
+		<p>Do you grant authorization to the application?</p>
+		<form id="authorization-form" method="POST" ng-submit="submit($event)">
+			<div id="login-fields" class="indent">
+				<div id="login-prompt">Input Login ID and password.</div>
+				<input type="text" id="loginId" name="loginId"
+					placeholder="Login ID" class="font-default" ng-model="loginId" required>
+				<input type="password" id="password" name="password"
+					placeholder="Password" ng-model="pwd" class="font-default" required>
+			</div>
+
+			<div id="authorization-form-buttons">
+				<input type="submit" name="authorized" id="authorize-button"
+					value="Authorize" class="font-default" /> <input type="submit"
+					name="denied" id="deny-button" value="Deny" class="font-default" />
+			</div>
+		</form>
+	</div>
+</div>

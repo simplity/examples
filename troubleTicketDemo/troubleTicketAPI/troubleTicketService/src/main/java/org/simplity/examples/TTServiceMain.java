@@ -2,13 +2,15 @@ package org.simplity.examples;
 
 import java.io.File;
 import java.net.URI;
-import java.util.EnumSet;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.simplity.examples.auth.oauth2.OAuth2AuthEndPoint;
+import org.simplity.examples.filter.AuthFilter;
+import org.simplity.examples.filter.CorsFilter;
 import org.simplity.kernel.Application;
 
 public class TTServiceMain {
@@ -28,13 +30,10 @@ public class TTServiceMain {
 				e.printStackTrace(System.err);
 				return;
 			}
-
 			ResourceConfig rc = new OpenApiServiceConfig();
-			rc.register(CorsFilter.class);
+			rc.register(CorsFilter.class);			
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085/api"), rc);
-			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
-			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
 			
 			server.start();
 			Thread.currentThread().join();

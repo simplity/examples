@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record
+	name="todos"
+	recordType="structure"
+	xmlns="http://www.simplity.org/schema"
+>
+	<fields>
+		<field
+			dataType="_text"
+			name="action"/>
+		<field
+			dataType="_number"
+			name="id"/>
+		<field
+			name="title"		
+			dataType="_text"/>
+		<field
+			name="completed"
+			dataType="_boolean"/>
+		</fields>
+</record>

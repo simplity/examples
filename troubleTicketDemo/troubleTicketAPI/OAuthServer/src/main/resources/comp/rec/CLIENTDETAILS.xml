@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="CLIENTDETAILS" recordType="storage" tableName="CLIENTDETAILS" xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="APPID" dataType="_text" fieldType="data" isNullable="true" name="appid" sqlTypeName="VARCHAR"/>
+<field columnName="RESOURCEIDS" dataType="_text" fieldType="data" isNullable="true" name="resourceids" sqlTypeName="VARCHAR"/>
+<field columnName="APPSECRET" dataType="_text" fieldType="data" isNullable="true" name="appsecret" sqlTypeName="VARCHAR"/>
+<field columnName="SCOPE" dataType="_text" fieldType="data" isNullable="true" name="scope" sqlTypeName="VARCHAR"/>
+<field columnName="GRANTTYPES" dataType="_text" fieldType="data" isNullable="true" name="granttypes" sqlTypeName="VARCHAR"/>
+<field columnName="REDIRECTURL" dataType="_text" fieldType="data" isNullable="true" name="redirecturl" sqlTypeName="VARCHAR"/>
+<field columnName="AUTHORITIES" dataType="_text" fieldType="data" isNullable="true" name="authorities" sqlTypeName="VARCHAR"/>
+<field columnName="ACCESS_TOKEN_VALIDITY" dataType="_number" fieldType="data" isNullable="true" name="access_token_validity" sqlTypeName="INTEGER"/>
+<field columnName="REFRESH_TOKEN_VALIDITY" dataType="_number" fieldType="data" isNullable="true" name="refresh_token_validity" sqlTypeName="INTEGER"/>
+<field columnName="ADDITIONALINFORMATION" dataType="_text" fieldType="data" isNullable="true" name="additionalinformation" sqlTypeName="VARCHAR"/>
+<field columnName="AUTOAPPROVESCOPES" dataType="_text" fieldType="data" isNullable="true" name="autoapprovescopes" sqlTypeName="VARCHAR"/>
+</fields>
+</record>

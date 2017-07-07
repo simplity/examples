@@ -1,7 +1,6 @@
-package org.simplity.examples;
+package org.simplity.examples.util;
 
-import java.util.Map;
-
+import org.simplity.examples.CacheObject;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.kernel.data.InputField;
@@ -36,14 +35,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		pool.setSocketTO(3000);
 		pool.setAliveCheck(true);
 		pool.initialize();
-
-		mcc = new MemCachedClient("default");
-		mcc.flushAll(servers);
-		Map<String, Map<String, String>> stats = mcc.stats();
-		for(Object stat:stats.keySet()){
-			
-		}
-
+		mcc = new MemCachedClient("default");		
 	}
 
 	@Override

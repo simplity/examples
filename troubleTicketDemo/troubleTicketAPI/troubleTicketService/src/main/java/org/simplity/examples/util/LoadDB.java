@@ -1,4 +1,4 @@
-package org.simplity.examples;
+package org.simplity.examples.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,13 +18,14 @@ import java.util.TimeZone;
 
 import javax.json.JsonObject;
 
+import org.simplity.examples.TTServiceMain;
 import org.simplity.json.JSONArray;
 import org.simplity.json.JSONObject;
 import org.simplity.kernel.Application;
 import org.simplity.service.JavaAgent;
 
 public class LoadDB {
-	final static String filePath = "D:\\simplity\\github\\examples\\troubleTicketDemo\\troubleTicketAPI\\troubleTicketService\\src\\main\\resources\\db\\troubleTicket.json";
+	final static String filePath = "D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/src/main/resources/db/troubleTicket.json";
 
 	public static void main(String[] args) throws Exception {
 		JSONArray js = loadArray();
@@ -37,7 +38,7 @@ public class LoadDB {
 			if (counter >= 100) {
 				break;
 			}
-			JavaAgent.getAgent("100", null).serve("troubleTicketCreate", rec.toString());
+			JavaAgent.getAgent("100", null).serve("troubleTicketLoad", rec.toString());
 			counter++;
 		}
 	}

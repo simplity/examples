@@ -5,6 +5,8 @@ import javax.jms.JMSException;
 import javax.jms.QueueConnection;
 import javax.jms.QueueConnectionFactory;
 import javax.jms.QueueSession;
+import javax.jms.TopicConnection;
+import javax.jms.TopicSession;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -18,12 +20,12 @@ public class SetupActiveMQ {
 			InitialContext ic = new InitialContext();
 			final QueueConnectionFactory connectionFactory = (QueueConnectionFactory) ic
 					.lookup("ConnectionFactory");
-			QueueConnection queueConnection = (QueueConnection) connectionFactory.createConnection();
-			QueueSession queueSession = queueConnection.createQueueSession(false,
+			TopicConnection queueConnection = (TopicConnection) connectionFactory.createConnection();
+			TopicSession queueSession = queueConnection.createTopicSession(false,
 					javax.jms.Session.DUPS_OK_ACKNOWLEDGE);
 			queueConnection.start();
-			Destination destination = queueSession.createQueue("jms/TTWriteQQ");
-			Destination source = queueSession.createQueue("jms/TTReadQQ");
+			Destination destination = queueSession.createTopic("jms/TTWriteQQ");
+			Destination source = queueSession.createTopic("jms/TTReadQQ");
 			queueConnection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
