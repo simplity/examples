@@ -2,6 +2,7 @@
 <service
 	xmlns="http://www.simplity.org/schema"
 	name="troubleTicketFind"
+	canBeCachedByFields=" "
 	dbAccessType="readOnly">
 	<actions>
 		<filter filterRecordName="ticket" outputSheetName="tickets">

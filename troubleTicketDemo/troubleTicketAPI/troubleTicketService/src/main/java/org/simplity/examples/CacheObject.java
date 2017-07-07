@@ -1,9 +1,15 @@
 package org.simplity.examples;
 
+import java.io.Serializable;
+
 import org.simplity.service.ServiceData;
 
-public class CacheObject {
+public class CacheObject implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ServiceData inData;
 	private ServiceData outData;
 	private String servicename;

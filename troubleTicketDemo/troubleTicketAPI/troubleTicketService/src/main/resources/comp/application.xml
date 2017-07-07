@@ -15,4 +15,3 @@
 				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
 			</jmsProperties> 
 </application>
-<!-- 			serviceCacheManager="org.simplity.examples.SimpleMemCacheManager" -->
