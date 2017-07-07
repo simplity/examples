@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="RelatedObject." recordType="storage" 
-		tableName="RelatedObject." xmlns="http://www.simplity.org/schema"
+<record name="RelatedObject" recordType="storage" 
+		tableName="RelatedObject" xmlns="http://www.simplity.org/schema"
 		keyToBeGenerated="true">
 <fields>
 <field columnName="OBJECTID" dataType="_number" fieldType="primaryKey" name="objectId" sqlTypeName="INTEGER"/>
