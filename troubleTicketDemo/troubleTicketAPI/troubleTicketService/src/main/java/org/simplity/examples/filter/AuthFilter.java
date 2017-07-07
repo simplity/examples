@@ -11,7 +11,7 @@ import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
-import org.simplity.examples.OpenApiServiceConfig;
+import org.simplity.examples.TTServiceConfig;
 import org.simplity.examples.auth.ApiKeySecurityContext;
 import org.simplity.examples.auth.BasicSecurityContext;
 import org.simplity.examples.auth.OAuth2SecurityContext;
@@ -26,7 +26,7 @@ import io.swagger.parser.SwaggerParser;
 @Provider
 @PreMatching
 public class AuthFilter implements ContainerRequestFilter  {
-	private static Map<String, SecuritySchemeDefinition> secDefs = OpenApiServiceConfig.secDefs;
+	private static Map<String, SecuritySchemeDefinition> secDefs = TTServiceConfig.secDefs;
 
 	@Override
 	public void filter(ContainerRequestContext request) throws IOException {

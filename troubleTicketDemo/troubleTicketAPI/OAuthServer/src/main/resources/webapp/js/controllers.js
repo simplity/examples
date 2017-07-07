@@ -10,33 +10,44 @@ angular.module('tmfforum.controllers', [])
 	var state = $routeParams.state;
 	var scope = $routeParams.scope;
 	var response_type = $routeParams.response_type;
-	var client_id= $routeParams.client_id; 
+	var client_id= $routeParams.client_id;
+	var correlation_Id= $routeParams.correlation_Id; 
 	var loginId= "";
 	var pwd= "";
-	$scope.submitUrl = "/auth/login?redirect_uri=" +
-						redirect_uri +
-						"&state=" +
-						state +
-						"&scope=" +
-						scope +
-						"&response_type=" +
-						response_type +
-						"&client_id=" +
-						client_id;
 	
-	$http.get('auth/login',{ params:{'scope': scope}}) 
-	.then(function(response){
+
+	
+	var req = {
+		 method: 'GET',
+		 url: 'auth/login',
+		 params: {'scope': scope,
+			 	  'correlation_Id':correlation_Id}
+		}
+
+	$http(req).then(function(response){
 			$scope.scopes  = response.data;
 	})
-	
+
+
 	 $scope.submit = function(e){
         e.preventDefault();
-        var url = $scope.submitUrl
-        var data = {
-            'loginId' : $scope.loginId,
-            'password': $scope.pwd
-        };
-        $http.post(url,data).then(function(response){
+    	var req = {
+    			 method: 'POST',
+    			 url: '/auth/login',
+    			 params: {'redirect_uri': redirect_uri,
+   			 	          'state':state,
+   			 	          'scope':scope,
+   			 	          'response_type':response_type,
+   			 	          'client_id':client_id,
+   			 	          'correlation_Id':correlation_Id},    			 
+    			 data: {
+    		            'loginId' : $scope.loginId,
+    		            'password': $scope.pwd
+    		        }
+    			}
+        
+
+    	$http(req).then(function(response){
         	if(response.data){
         		$window.location.href=decodeURIComponent(response.data);
         	}        

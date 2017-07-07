@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.UUID;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MediaType;
@@ -20,10 +21,12 @@ import org.glassfish.jersey.server.model.Resource;
 import org.glassfish.jersey.server.model.Resource.Builder;
 import org.glassfish.jersey.server.model.ResourceMethod;
 import org.simplity.kernel.ApplicationError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
@@ -34,6 +37,8 @@ import io.swagger.models.auth.SecuritySchemeDefinition;
 import io.swagger.parser.SwaggerParser;
 
 public class TTUIConfig extends ResourceConfig {
+	final static Logger logger = LoggerFactory.getLogger(TTUIConfig.class);
+
 	private static String api_path;
 	private static Map<String, SecuritySchemeDefinition> secDefs;
 	private static String TTService = "http://localhost:8085";
@@ -102,79 +107,81 @@ public class TTUIConfig extends ResourceConfig {
 				methodBuilder.handledBy(new Inflector<ContainerRequestContext, String>() {
 					@Override
 					public String apply(ContainerRequestContext request) {
-						String output = null;
 						try {
-							String accessCode = "";
-							if (requiresOAuth) {
-								if (!request.getUriInfo().getQueryParameters().containsKey("code")) {
-									String url = AuthService + "?";
-									url += "redirect_uri=";
-									url += TTUI;
-									url += "&state=";
-									url += "fixed";
-									url += "&scope=";
-									url += scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "");
-									url += "&response_type=";
-									url += "code";
-									url += "&client_id=";
-									url += "TTUIMain";
+							String output = null;
+							try {
+								String accessCode = "";
+								if (requiresOAuth) {
+									if (!request.getUriInfo().getQueryParameters().containsKey("code")) {
+										String url = AuthService + "?"
+											+ "redirect_uri="
+											+ TTUI
+											+ "&state="
+											+ "fixed"
+											+ "&scope="
+											+ scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "")
+											+ "&response_type="
+											+ "code"
+											+ "&client_id="
+											+ "TTUIMain"
+											+ "&correlation_Id="
+											+ MDC.get("correlationId");
+										logger.info("redirect to authorize request");
+										return "{\"url\":\"" + URLEncoder.encode(url, "UTF-8") + "\"}";
+									}
+									if (request.getUriInfo().getQueryParameters().containsKey("code")) {
+										// get Access token
+										String url = AuthService + "/auth/token" + "?"
+													+ "redirect_uri="
+													+ TTUI + "/api/" 
+													+ request.getUriInfo().getPath()
+													+ "&grant_type="
+													+ "authorization_code"
+													+ "&code="
+													+ request.getUriInfo().getQueryParameters().getFirst("code")
+													+ "&client_id="
+													+ "TTUIMain"
+													+ "&client_secret="
+													+ "TTUIMain"
+													+ "&correlation_Id="
+													+ MDC.get("correlationId");
 
-									return "{\"url\":\"" + URLEncoder.encode(url, "UTF-8") + "\"}";
-								} 
-								if (request.getUriInfo().getQueryParameters().containsKey("code")) {
-									//get Access token
-									String url = AuthService +"/auth/token" +"?";
-									url += "redirect_uri=";
-									url += TTUI +"/api/" +request.getUriInfo().getPath();
-									url += "&grant_type=";
-									url += "authorization_code";
-									url += "&code=";
-									url += request.getUriInfo().getQueryParameters().getFirst("code");
-									url += "&client_id=";
-									url += "TTUIMain";
-									url += "&client_secret=";
-									url += "TTUIMain";
-									
-									ObjectMapper mapper = new ObjectMapper();
-									JsonNode jsonData = mapper.readTree(getHttpResponse(url, request));
-									accessCode = jsonData.get("access_token").asText();
-									
-									
-									url = TTService + "/api/" + request.getUriInfo().getPath() + "?";
-									url += "access_token=";
-									url += accessCode;
-									output = getHttpResponse(url, request);
+										ObjectMapper mapper = new ObjectMapper();
+										JsonNode jsonData = mapper.readTree(getHttpResponse(url, request));
+										accessCode = jsonData.get("access_token").asText();
+
+										url = TTService
+												+ "/api/" 
+												+ request.getUriInfo().getPath() + "?"
+												+"access_token="
+												+ accessCode
+												+ "&correlation_Id="
+												+ MDC.get("correlationId");
+
+										logger.info("fetch the token");
+										output = getHttpResponse(url, request);
+									}
 								}
-							}
 
-							// access the service with the access Code, pass on
-							// the parameters
-							// receive response and pass it on the client
+								// access the service with the access Code, pass
+								// on
+								// the parameters
+								// receive response and pass it on the client
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							return output;
 
 						} catch (Exception e) {
 							e.printStackTrace();
-						}
-						return output;
+						} 
+						return null;
 					}
-
 				});
-
 			}
 		}
 		registerResources(resourceBuilder.build());
-	}
-
-	private static String[] getRoles(List<Map<String, List<String>>> secs) {
-		if (secs != null) {
-			List<String> roles = new ArrayList<String>();
-			for (Map<String, List<String>> sec : secs) {
-				for (String lsec : sec.keySet()) {
-					roles.add(secDefs.get(lsec).getType());
-				}
-			}
-			return roles.toArray(new String[roles.size()]);
-		}
-		return null;
 	}
 
 	public static void setApiPath(String apiPath) {

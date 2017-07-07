@@ -21,14 +21,17 @@ import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Path("/token")
 public class TokenEndpoint {
-
+	final static Logger logger = LoggerFactory.getLogger(TokenEndpoint.class);
 	@POST
 	@Consumes("application/x-www-form-urlencoded")
 	@Produces("application/json")
 	public Response authorize(@Context HttpServletRequest request) throws OAuthSystemException {
+
 
 		OAuthTokenRequest oauthRequest = null;
 
@@ -71,6 +74,7 @@ public class TokenEndpoint {
 			OAuthResponse response = OAuthASResponse.tokenResponse(HttpServletResponse.SC_OK)
 					.setAccessToken(oauthIssuerImpl.accessToken()).setExpiresIn("3600").buildJSONMessage();
 
+			logger.info("sending the access token");
 			return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 		} catch (OAuthProblemException e) {
 			OAuthResponse res = OAuthASResponse.errorResponse(HttpServletResponse.SC_BAD_REQUEST).error(e)
@@ -94,7 +98,6 @@ public class TokenEndpoint {
 	@GET
 	@Path("valid")
 	public Response checkValidToken(@Context HttpServletRequest request) throws OAuthSystemException {
-		System.out.println(request.getParameter(OAuth.OAUTH_BEARER_TOKEN));
 		return Response.ok().build();
 	}
 

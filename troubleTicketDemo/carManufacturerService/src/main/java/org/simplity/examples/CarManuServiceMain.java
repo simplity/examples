@@ -2,8 +2,6 @@ package org.simplity.examples;
 
 import java.io.File;
 import java.net.URI;
-import java.util.EnumSet;
-
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;

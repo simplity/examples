@@ -3,9 +3,9 @@
   "info": {
     "description": "",
     "version": "2.0",
-    "title": "API OAuthService"
+    "title": "API TroubleTicket"
   },
-  "host": "localhost:8090",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http"
@@ -17,7 +17,7 @@
     "application/json"
   ],
   "paths": {
-    "/auth": {
+    "/troubleTicket": {
       "post": {
         "tags": [
           "troubleTicket"
@@ -79,14 +79,7 @@
               }
             }
           }
-        },
-        "security": [
-          {
-            "oauth": [
-              "read_troubleTicket"
-            ]
-          }
-        ]
+        }
       }
     },
     "/troubleTicket/{troubleTicketId}": {

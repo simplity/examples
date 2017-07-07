@@ -9,6 +9,7 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.examples.troubleTicketUI.filter.CorsFilter;
+import org.simplity.examples.troubleTicketUI.filter.EntryFilter;
 
 public class TTUIMain {
 	public static HttpServer server;
@@ -27,6 +28,7 @@ public class TTUIMain {
 				return;
 			}
 			ResourceConfig rc = new TTUIConfig();
+			rc.register(EntryFilter.class);			
 			rc.register(CorsFilter.class);			
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8095/api"), rc);

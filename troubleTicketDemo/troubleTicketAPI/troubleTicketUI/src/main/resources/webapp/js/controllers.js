@@ -10,13 +10,27 @@ angular.module('tmfforum.controllers', [])
     $scope.ticketAction = "get";
     $scope.myData.action = "list";
     var code = $routeParams.code;
+    var correlation_Id= $routeParams.correlation_Id; 
+    
     if(code){
-        $http.get("api/troubleTicket?code="+code)
+    	var req = {
+    			 method: 'GET',
+    			 url: 'api/troubleTicket',
+    			 params: {'code': code,
+    				 	  'correlation_Id':correlation_Id}
+    			}
+    	
+        $http(req)
         .then(function(response) {
             $scope.myData.ticketList = response.data.tickets;  
         });    	
     }else{
-        $http.get("api/troubleTicket")
+    	var req = {
+   			 method: 'GET',
+   			 url: 'api/troubleTicket',
+   			}
+   	    	
+        $http(req)
         .then(function(response) {
         	if(response.data.url){
         		$window.location.href=decodeURIComponent(response.data.url);

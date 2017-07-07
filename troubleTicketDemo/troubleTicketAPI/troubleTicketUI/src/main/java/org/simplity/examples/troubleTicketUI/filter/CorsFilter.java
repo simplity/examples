@@ -8,6 +8,8 @@ import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.ext.Provider;
 
+import org.slf4j.MDC;
+
 @Provider
 @PreMatching
 public class CorsFilter implements ContainerResponseFilter {

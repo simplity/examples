@@ -11,6 +11,6 @@
 	</inputData>
 	
 	<actions>
-		<save saveAction="delete" recordName="hub"></save>		
+		<save saveAction="delete" recordName="Hub"></save>		
 	</actions>
 </service>

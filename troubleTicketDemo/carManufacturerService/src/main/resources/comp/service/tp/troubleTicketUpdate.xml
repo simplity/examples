@@ -18,18 +18,18 @@
 			<inputField dataType="_text" name="source"/> 
 		</inputFields>
 		<inputRecords>
-			<inputRecord recordName="relatedObjects" sheetName="relatedObjects" />
-			<inputRecord recordName="relatedParties" sheetName="relatedParties" />
-			<inputRecord recordName="notes" sheetName="notes" />
+			<inputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
+			<inputRecord recordName="RelatedParty" sheetName="relatedParties"/>
+			<inputRecord recordName="Note" sheetName="notes"/>
 		</inputRecords>
 	</inputData>
 	<actions>
 		
-		<save saveAction="save" recordName="ticket">
+		<save saveAction="save" recordName="TroubleTicket">
 			<childRecords>
-				<relatedRecord sheetName="relatedObjects" recordName="relatedObjects" />
-				<relatedRecord sheetName="relatedParties" recordName="relatedParties" />
-				<relatedRecord sheetName="notes" recordName="notes" />
+				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject"/>
+				<relatedRecord sheetName="relatedParties" recordName="RelatedParty"/>
+				<relatedRecord sheetName="notes" recordName="Note"/>
 			</childRecords>
 		</save>
 		<setValue fieldName="callback" fieldValue="http://localhost:8088/api/troubleTicket"></setValue>
@@ -40,10 +40,10 @@
 			executeOnCondition="source=='self'">
 			<requestData>
 				<outputRecords>
-					<outputRecord recordName="ticket" />
-					<outputRecord recordName="relatedObjects" sheetName="relatedObjects" />
-					<outputRecord recordName="relatedParties" sheetName="relatedParties" />
-					<outputRecord recordName="notes" sheetName="notes" />
+					<outputRecord recordName="TroubleTicket" />
+					<outputRecord recordName="RelatedObject" sheetName="relatedObjects" />
+					<outputRecord recordName="RelatedParty" sheetName="relatedParties" />
+					<outputRecord recordName="Note" sheetName="notes" />
 				</outputRecords>
 			</requestData>
 		</httpClient>

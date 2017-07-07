@@ -11,6 +11,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.examples.auth.oauth2.OAuth2AuthEndPoint;
 import org.simplity.examples.filter.AuthFilter;
 import org.simplity.examples.filter.CorsFilter;
+import org.simplity.examples.filter.EntryFilter;
 import org.simplity.kernel.Application;
 
 public class TTServiceMain {
@@ -24,13 +25,14 @@ public class TTServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
+				TTServiceConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
 			} catch (Exception e) {
 				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
 			}
-			ResourceConfig rc = new OpenApiServiceConfig();
+			ResourceConfig rc = new TTServiceConfig();
+			rc.register(EntryFilter.class);	
 			rc.register(CorsFilter.class);			
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085/api"), rc);

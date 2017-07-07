@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.Map.Entry;
 
 import javax.ws.rs.container.ContainerRequestContext;
@@ -20,6 +21,7 @@ import org.glassfish.jersey.server.model.ResourceMethod;
 import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
+import org.slf4j.MDC;
 
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Model;
@@ -64,52 +66,73 @@ public class OpenApiServiceConfig extends ResourceConfig {
 				methodBuilder.produces(mt).handledBy(new Inflector<ContainerRequestContext, String>() {
 					@Override
 					public String apply(ContainerRequestContext containerRequestContext) {
-						BufferedReader reader = new BufferedReader(
-								new InputStreamReader(containerRequestContext.getEntityStream()));
-						String line = "";
-						StringBuffer sb = new StringBuffer();
 						try {
-							while ((line = reader.readLine()) != null) {
-								sb.append(line);
+							String correlationId;
+							if ((correlationId = containerRequestContext.getHeaderString("correlationId")) == null) {
+								correlationId = genCorrelationId();
 							}
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-						JSONObject jObj = new JSONObject();
-						if (sb.length()!=0 && containerRequestContext.getMediaType().isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
-							jObj = new JSONObject(sb.toString());
-						}
-						MultivaluedMap<String, String> pathParams = containerRequestContext.getUriInfo()
-								.getPathParameters();
-						for (Entry<String, List<String>> pathParam : pathParams.entrySet()) {
-							for(String pathParamValue:pathParam.getValue()){
-								jObj.put(pathParam.getKey(), pathParamValue);	
+							MDC.put("correlationId", correlationId);
+							BufferedReader reader = new BufferedReader(
+									new InputStreamReader(containerRequestContext.getEntityStream()));
+							String line = "";
+							StringBuffer sb = new StringBuffer();
+							try {
+								while ((line = reader.readLine()) != null) {
+									sb.append(line);
+								}
+							} catch (IOException e) {
+								e.printStackTrace();
 							}
-							
-						}
-						MultivaluedMap<String, String> queryParams = containerRequestContext.getUriInfo()
-								.getQueryParameters();
-						for (Entry<String, List<String>> queryParam : queryParams.entrySet()) {
-							for(String queryParamValue:queryParam.getValue()){
-								jObj.put(queryParam.getKey(), queryParamValue);	
-							}							
-						}
-						
-						MultivaluedMap<String, String> headerParams = containerRequestContext.getHeaders();
-						for (Entry<String, List<String>> headerParam : headerParams.entrySet()) {
-							for(String headerParamValue:headerParam.getValue()){
-								jObj.put(headerParam.getKey(), headerParamValue);	
-							}							
-						}
+							JSONObject jObj = new JSONObject();
+							if (sb.length() != 0 && containerRequestContext.getMediaType()
+									.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
+								jObj = new JSONObject(sb.toString());
+							}
+							MultivaluedMap<String, String> pathParams = containerRequestContext.getUriInfo()
+									.getPathParameters();
+							for (Entry<String, List<String>> pathParam : pathParams.entrySet()) {
+								for (String pathParamValue : pathParam.getValue()) {
+									jObj.put(pathParam.getKey(), pathParamValue);
+								}
 
-						ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
-						return outData.getResponseJson();
+							}
+							MultivaluedMap<String, String> queryParams = containerRequestContext.getUriInfo()
+									.getQueryParameters();
+							for (Entry<String, List<String>> queryParam : queryParams.entrySet()) {
+								for (String queryParamValue : queryParam.getValue()) {
+									jObj.put(queryParam.getKey(), queryParamValue);
+								}
+							}
+
+							MultivaluedMap<String, String> headerParams = containerRequestContext.getHeaders();
+							for (Entry<String, List<String>> headerParam : headerParams.entrySet()) {
+								for (String headerParamValue : headerParam.getValue()) {
+									jObj.put(headerParam.getKey(), headerParamValue);
+								}
+							}
+
+							ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
+							return outData.getResponseJson();
+
+						} catch (Exception e) {
+							e.printStackTrace();
+						} finally {
+							MDC.remove("correlationId");
+						}
+						return null;
 					}
+
 				});
 
 			}
 		}
 		registerResources(resourceBuilder.build());
+	}
+
+	private String genCorrelationId() {
+		String uuidGen = UUID.randomUUID().toString();
+		return uuidGen.substring(uuidGen.length() - 9);
+
 	}
 
 	public static void setApiPath(String apiPath) {

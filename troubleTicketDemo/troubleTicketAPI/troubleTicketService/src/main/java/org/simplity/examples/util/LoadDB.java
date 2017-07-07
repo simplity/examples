@@ -4,28 +4,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-
-import javax.json.JsonObject;
-
 import org.simplity.examples.TTServiceMain;
 import org.simplity.json.JSONArray;
-import org.simplity.json.JSONObject;
 import org.simplity.kernel.Application;
 import org.simplity.service.JavaAgent;
 
 public class LoadDB {
-	final static String filePath = "D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/src/main/resources/db/troubleTicket.json";
+	final static String filePath = "D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/src/main/resources/db/troubleTicket.json";
 
 	public static void main(String[] args) throws Exception {
 		JSONArray js = loadArray();

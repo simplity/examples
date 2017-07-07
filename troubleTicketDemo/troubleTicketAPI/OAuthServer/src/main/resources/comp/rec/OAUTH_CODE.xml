@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="OAUTH_CODE" recordType="storage" tableName="OAUTH_CODE" xmlns="http://www.simplity.org/schema">
-<fields>
-<field columnName="CODE" dataType="_text" fieldType="data" isNullable="true" name="code" sqlTypeName="VARCHAR"/>
-<field columnName="AUTHENTICATION" dataType="VARBINARY" fieldType="data" isNullable="true" name="authentication" sqlTypeName="VARBINARY"/>
-</fields>
-</record>
