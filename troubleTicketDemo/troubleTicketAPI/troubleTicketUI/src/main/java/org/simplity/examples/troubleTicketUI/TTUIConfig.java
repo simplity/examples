@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.UUID;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MediaType;
@@ -20,7 +19,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.model.Resource;
 import org.glassfish.jersey.server.model.Resource.Builder;
 import org.glassfish.jersey.server.model.ResourceMethod;
-import org.simplity.kernel.ApplicationError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -31,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
 import io.swagger.models.Path;
+import io.swagger.models.SecurityRequirement;
 import io.swagger.models.Swagger;
 import io.swagger.models.auth.OAuth2Definition;
 import io.swagger.models.auth.SecuritySchemeDefinition;
@@ -52,16 +51,31 @@ public class TTUIConfig extends ResourceConfig {
 		resourceBuilder.path(swagger.getBasePath());
 
 		Map<String, Path> paths = swagger.getPaths();
+		List<String> scopes = new ArrayList<String>();
+		boolean authFlag = false;
+		secDefs = swagger.getSecurityDefinitions();
+		if (swagger.getSecurity() != null) {
 
+			for (SecurityRequirement sec : swagger.getSecurity()) {
+				for (String lsecs : sec.getRequirements().keySet()) {
+					if (secDefs.containsKey(lsecs)) {
+						if (secDefs.get(lsecs).getType().equals("oauth2")) {
+							for (String oscope : ((OAuth2Definition) secDefs.get(lsecs)).getScopes().keySet()) {
+								scopes.add(oscope);
+							}
+							;
+							authFlag = true;
+						}
+					}
+				}
+			}
+		}
 		for (Entry<String, Path> path : paths.entrySet()) {
 			for (Entry<HttpMethod, Operation> method : path.getValue().getOperationMap().entrySet()) {
 				Builder childResource = resourceBuilder.addChildResource(path.getKey());
 				final ResourceMethod.Builder methodBuilder = childResource.addMethod(method.getKey().name());
 				final String serviceName = method.getValue().getOperationId();
-				secDefs = swagger.getSecurityDefinitions();
 
-				boolean authFlag = false;
-				List<String> scopes = new ArrayList<String>();
 				// check if required oauth authorization
 				if (method.getValue().getSecurity() != null) {
 					for (Map<String, List<String>> secs : method.getValue().getSecurity()) {
@@ -113,53 +127,34 @@ public class TTUIConfig extends ResourceConfig {
 								String accessCode = "";
 								if (requiresOAuth) {
 									if (!request.getUriInfo().getQueryParameters().containsKey("code")) {
-										String url = AuthService + "?"
-											+ "redirect_uri="
-											+ TTUI
-											+ "&state="
-											+ "fixed"
-											+ "&scope="
-											+ scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "")
-											+ "&response_type="
-											+ "code"
-											+ "&client_id="
-											+ "TTUIMain"
-											+ "&correlation_Id="
-											+ MDC.get("correlationId");
+										String url = AuthService + "?" + "redirect_uri=" + TTUI + "&state=" + "fixed"
+												+ "&scope="
+												+ scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "")
+												+ "&response_type=" + "code" + "&client_id=" + "TTUIMain"
+												+ "&correlation_Id=" + MDC.get("correlationId");
 										logger.info("redirect to authorize request");
 										return "{\"url\":\"" + URLEncoder.encode(url, "UTF-8") + "\"}";
 									}
 									if (request.getUriInfo().getQueryParameters().containsKey("code")) {
 										// get Access token
-										String url = AuthService + "/auth/token" + "?"
-													+ "redirect_uri="
-													+ TTUI + "/api/" 
-													+ request.getUriInfo().getPath()
-													+ "&grant_type="
-													+ "authorization_code"
-													+ "&code="
-													+ request.getUriInfo().getQueryParameters().getFirst("code")
-													+ "&client_id="
-													+ "TTUIMain"
-													+ "&client_secret="
-													+ "TTUIMain"
-													+ "&correlation_Id="
-													+ MDC.get("correlationId");
+										String url = AuthService + "/auth/token" + "?" + "redirect_uri=" + TTUI
+												+ "/api/" + request.getUriInfo().getPath() + "&grant_type="
+												+ "authorization_code" + "&code="
+												+ request.getUriInfo().getQueryParameters().getFirst("code")
+												+ "&client_id=" + "TTUIMain" + "&client_secret=" + "TTUIMain"
+												+ "&correlation_Id=" + MDC.get("correlationId");
 
 										ObjectMapper mapper = new ObjectMapper();
-										JsonNode jsonData = mapper.readTree(getHttpResponse(url, request));
+										JsonNode jsonData = mapper
+												.readTree(getHttpResponse(url, "GET", false, request));
 										accessCode = jsonData.get("access_token").asText();
 
-										url = TTService
-												+ "/api/" 
-												+ request.getUriInfo().getPath() + "?"
-												+"access_token="
-												+ accessCode
-												+ "&correlation_Id="
+										url = TTService + "/api/" + request.getUriInfo().getPath() + "?"
+												+ "access_token=" + accessCode + "&correlation_Id="
 												+ MDC.get("correlationId");
 
-										logger.info("fetch the token");
-										output = getHttpResponse(url, request);
+										logger.info("fetch the token "+url);
+										output = getHttpResponse(url, request.getMethod(), true, request);
 									}
 								}
 
@@ -169,13 +164,13 @@ public class TTUIConfig extends ResourceConfig {
 								// receive response and pass it on the client
 
 							} catch (Exception e) {
-								e.printStackTrace();
+								logger.error("Error in service", e);
 							}
 							return output;
 
 						} catch (Exception e) {
-							e.printStackTrace();
-						} 
+							logger.error("Error in service", e);
+						}
 						return null;
 					}
 				});
@@ -188,7 +183,8 @@ public class TTUIConfig extends ResourceConfig {
 		api_path = apiPath;
 	}
 
-	private String getHttpResponse(String urlStr, ContainerRequestContext request) {
+	private String getHttpResponse(String urlStr, String method, boolean extractRequest,
+			ContainerRequestContext request) {
 		try {
 			URL url = new URL(urlStr);
 			HttpURLConnection conn = null;
@@ -201,27 +197,26 @@ public class TTUIConfig extends ResourceConfig {
 			/*
 			 * despatch request
 			 */
-			conn.setRequestMethod(request.getMethod());
+			conn.setRequestMethod(method);
 			conn.setDoOutput(true);
-
-			byte[] buffer = new byte[1024];
-			int len;
-			while ((len = request.getEntityStream().read(buffer)) != -1) {
-				conn.getOutputStream().write(buffer, 0, len);
+			conn.setRequestProperty("Content-Type", "application/json");
+			if (extractRequest) {
+				byte[] buffer = new byte[1024];
+				int len;
+				while ((len = request.getEntityStream().read(buffer)) != -1) {
+					conn.getOutputStream().write(buffer, 0, len);
+				}
 			}
-
 			/*
 			 * receive response
 			 */
 			int resp = conn.getResponseCode();
 			if (resp != 200) {
-				throw new ApplicationError("Http call for url " + url + " returned with a non200 status " + resp);
+				logger.error("Http call for url " + url + " returned with a non200 status " + resp);
 			}
 			return readResponse(conn);
-		} catch (ApplicationError e) {
-			throw e;
 		} catch (Exception e) {
-			e.printStackTrace(System.out);
+			logger.error("Error in service", e);
 		}
 		return null;
 	}
@@ -242,7 +237,7 @@ public class TTUIConfig extends ResourceConfig {
 				try {
 					reader.close();
 				} catch (Exception e) {
-					//
+					logger.error("Error reading response", e);
 				}
 			}
 		}

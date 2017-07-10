@@ -2,10 +2,11 @@
 <service xmlns="http://www.simplity.org/schema" name="publishMessages"
 	moduleName="publish">
 	<actions>
-		<log names="relatedObjects" />
+		<setValue fieldName="url" expression="concat(callback,'?correlation_Id=',correlation_Id)"
+			executeOnCondition="action=='update'"></setValue>	
 		<httpClient httpMethod="POST" urlString="$callback"
 			contentType="application/json" executeOnCondition="action=='add'">
-			<requestData dataSheets="relatedObjects,relatedParties,notes">
+			<requestData>
 				<outputRecords>
 					<outputRecord recordName="TroubleTicket"/>
 					<outputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
@@ -14,7 +15,7 @@
 				</outputRecords>
 			</requestData>
 		</httpClient>
-		<setValue fieldName="url" expression="concat(callback,'/',id)"
+		<setValue fieldName="url" expression="concat(callback,'/',id,'?correlation_Id=',correlation_Id)"
 			executeOnCondition="action=='update'"></setValue>
 		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"
 			executeOnCondition="action=='update'">			

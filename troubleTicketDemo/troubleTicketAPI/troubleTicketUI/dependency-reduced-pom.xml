@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>todos</artifactId>
-    <groupId>org.simplity.examples</groupId>
+    <artifactId>troubleTicketAPI</artifactId>
+    <groupId>org.simplity.examples.troubleTicketDemo</groupId>
     <version>1.2.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>todoViewService</artifactId>
-  <name>todoViewService</name>
+  <artifactId>troubleTicketUI</artifactId>
+  <name>troubleTicketUI</name>
   <url>http://maven.apache.org</url>
   <build>
     <resources>
@@ -19,12 +19,6 @@
         </excludes>
       </resource>
     </resources>
-    <testResources>
-      <testResource>
-        <filtering>true</filtering>
-        <directory>${project.basedir}/src/test/resources</directory>
-      </testResource>
-    </testResources>
     <plugins>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
@@ -32,7 +26,7 @@
         <executions>
           <execution>
             <id>copy-resources</id>
-            <phase>generate-resources</phase>
+            <phase>install</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -49,43 +43,6 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sql-maven-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <id>create-db</id>
-            <phase>generate-test-resources</phase>
-            <goals>
-              <goal>execute</goal>
-            </goals>
-            <configuration>
-              <autocommit>true</autocommit>
-              <srcFiles>
-                <srcFile>${project.build.directory}/classes/db/todos.sql</srcFile>
-              </srcFiles>
-              <driver>org.h2.Driver</driver>
-              <url>jdbc:h2:file:${project.build.directory}/todos</url>
-              <username>sa</username>
-              <password />
-              <autocommit>true</autocommit>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.166</version>
-          </dependency>
-          <dependency>
-            <groupId>org.simplity.utils</groupId>
-            <artifactId>template</artifactId>
-            <version>1.2.1-SNAPSHOT</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
@@ -97,25 +54,13 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>org.simplity.examples.App</mainClass>
+                  <mainClass>org.simplity.examples.troubleTicketUI.TTUIMain</mainClass>
                 </transformer>
                 <transformer>
                   <resource>/comp</resource>
                 </transformer>
               </transformers>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20</version>
-        <executions>
-          <execution>
-            <phase>install</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>
@@ -133,10 +78,9 @@
         <configuration>
           <executable>java</executable>
           <arguments>
-            <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
             <argument>-classpath</argument>
             <classpath />
-            <argument>org.simplity.examples.TodoViewServiceMain</argument>
+            <argument>org.simplity.examples.troubleTicketUI.TTUIMain</argument>
           </arguments>
         </configuration>
       </plugin>
@@ -146,19 +90,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>hamcrest-core</artifactId>
-          <groupId>org.hamcrest</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.simplity.utils</groupId>
-      <artifactId>test</artifactId>
-      <version>1.2.1-SNAPSHOT</version>
+      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

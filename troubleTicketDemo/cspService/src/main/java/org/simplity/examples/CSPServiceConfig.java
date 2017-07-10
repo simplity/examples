@@ -21,6 +21,8 @@ import org.glassfish.jersey.server.model.ResourceMethod;
 import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import io.swagger.models.HttpMethod;
@@ -30,10 +32,12 @@ import io.swagger.models.Path;
 import io.swagger.models.Swagger;
 import io.swagger.parser.SwaggerParser;
 
-public class OpenApiServiceConfig extends ResourceConfig {
+public class CSPServiceConfig extends ResourceConfig {
+	final static Logger logger = LoggerFactory.getLogger(CSPServiceMain.class);
+	
 	private static String api_path;
 
-	public OpenApiServiceConfig() {
+	public CSPServiceConfig() {
 		Swagger swagger = new SwaggerParser().read(api_path);
 
 		final Resource.Builder resourceBuilder = Resource.builder();
@@ -67,11 +71,6 @@ public class OpenApiServiceConfig extends ResourceConfig {
 					@Override
 					public String apply(ContainerRequestContext containerRequestContext) {
 						try {
-							String correlationId;
-							if ((correlationId = containerRequestContext.getHeaderString("correlationId")) == null) {
-								correlationId = genCorrelationId();
-							}
-							MDC.put("correlationId", correlationId);
 							BufferedReader reader = new BufferedReader(
 									new InputStreamReader(containerRequestContext.getEntityStream()));
 							String line = "";
@@ -110,15 +109,16 @@ public class OpenApiServiceConfig extends ResourceConfig {
 									jObj.put(headerParam.getKey(), headerParamValue);
 								}
 							}
-
+							
+							if(!jObj.has("correlation_Id"))
+								jObj.append("correlation_Id", MDC.get("correlationId"));
+							
 							ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();
 
 						} catch (Exception e) {
-							e.printStackTrace();
-						} finally {
-							MDC.remove("correlationId");
-						}
+							logger.error("Error in the Service config",e);
+						} 
 						return null;
 					}
 

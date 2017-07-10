@@ -16,6 +16,13 @@
   "produces": [
     "application/json"
   ],
+"security": [
+          {
+            "oauth": [
+              "read_troubleTicket"
+            ]
+          }
+   ],  
   "paths": {
     "/troubleTicket": {
       "post": {

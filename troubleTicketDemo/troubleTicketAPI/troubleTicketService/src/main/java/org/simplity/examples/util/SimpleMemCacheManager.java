@@ -2,7 +2,7 @@ package org.simplity.examples.util;
 
 import java.util.logging.Level;
 
-import org.simplity.examples.CacheObject;
+import org.simplity.examples.model.CacheObject;
 import org.simplity.http.HttpAgent;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.comp.ComponentManager;

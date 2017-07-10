@@ -9,9 +9,14 @@ import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.simplity.examples.filter.CorsFilter;
+import org.simplity.examples.filter.CSPEntryFilter;
 import org.simplity.kernel.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CSPServiceMain {
+	final static Logger logger = LoggerFactory.getLogger(CSPServiceMain.class);
 	public static HttpServer server;
 
 	public static void main(String[] args) {
@@ -22,14 +27,14 @@ public class CSPServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
+				CSPServiceConfig.setApiPath(folder + "openapi" + File.separator + "csp_troubleTicket.json");
 			} catch (Exception e) {
-				System.err.println("error while bootstrapping with compFolder=" + folder);
-				e.printStackTrace(System.err);
+				logger.error("error while bootstrapping with compFolder=" + folder,e);
 				return;
 			}
 
-			ResourceConfig rc = new OpenApiServiceConfig();
+			ResourceConfig rc = new CSPServiceConfig();
+			rc.register(CSPEntryFilter.class);
 			rc.register(CorsFilter.class);
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8087/api"), rc);

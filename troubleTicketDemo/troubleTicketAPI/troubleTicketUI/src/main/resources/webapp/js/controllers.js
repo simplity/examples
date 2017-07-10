@@ -39,20 +39,36 @@ angular.module('tmfforum.controllers', [])
     }
 
     $scope.setCurrentTicketView = function(id) {
-    	 $http.get("api/troubleTicket/"+id)
-    	    .then(function(response) {
-    	    	$scope.myData.action = "view";
-    	        $scope.myData.currentTicket = response.data.ticket[0];
-    	    });    	  
+    	var req = {
+   			 method: 'GET',
+   			 url: 'api/troubleTicket/',
+   			 params: {'id':id,
+   				 	  'code': code,
+   				 	  'correlation_Id':correlation_Id}
+   			}
+   	
+       $http(req)
+       .then(function(response) {
+	    	$scope.myData.action = "view";
+	        $scope.myData.currentTicket = response.data.tickets[0];
+	    });    	 	  
       };
     
       $scope.setCurrentTicketEdit = function(id) {
-     	 $http.get("api/troubleTicket/"+id)
-     	    .then(function(response) {
-     	    	$scope.myData.action = "edit";
-     	    	$scope.ticketAction = "update";
-     	        $scope.myData.currentTicket = response.data.ticket[0];
-     	    });    	  
+      	var req = {
+      			 method: 'GET',
+      			 url: 'api/troubleTicket/',
+      			 params: {'id':id,
+      				 	  'code': code,
+      				 	  'correlation_Id':correlation_Id}
+      			}
+      	
+          $http(req)
+          .then(function(response) {
+   	    	$scope.myData.action = "edit";
+ 	    	$scope.ticketAction = "update";
+ 	        $scope.myData.currentTicket = response.data.tickets[0];
+ 	    });      	     	  
        };      
     
        $scope.createTicket = function(){
@@ -70,16 +86,56 @@ angular.module('tmfforum.controllers', [])
    		    } 
    		  }     	   
     	   if($scope.ticketAction == "update"){
-         	 $http.put("api/troubleTicket/"+ticket.id,ticket) 
-    	    .then(function(response) {
-    	    	console.log(response);
-    	    }); 
+    		    if(code){
+    		    	var req = {
+    		    			 method: 'PUT', 
+    		    			 url: "api/troubleTicket/"+ticket.id,
+    		    			 params: {'code': code},
+    		    			 data: ticket
+    		    			}    		    	
+    		        $http(req)
+    		        .then(function(response) {
+    	    	    	console.log(response);  
+    		        });    	
+    		    }else{
+    		    	var req = {
+   		    			 method: 'PUT',
+   		    			 url: "api/troubleTicket/"+ticket.id,
+   		    			 data: ticket
+   		    			}    		    	    		   	    	
+    		        $http(req)
+    		        .then(function(response) {
+    		        	if(response.data.url){
+    		        		$window.location.href=decodeURIComponent(response.data.url);
+    		        	}
+    		        });
+    		    }    		       		       		   
     	   }
-    	   else if($scope.ticketAction == "add"){ 
-    		$http.post("api/troubleTicket",ticket) 
-    	    .then(function(response) {
-    	    	console.log(response);
-    	    });   
+    	   if($scope.ticketAction == "add"){ 
+   		    if(code){
+		    	var req = {
+		    			 method: 'POST',
+		    			 url: "api/troubleTicket/",
+		    			 params: {'code': code},
+		    			 data: ticket
+		    			}    		    	
+		        $http(req)
+		        .then(function(response) {
+	    	    	console.log(response);  
+		        });    	
+		    }else{
+		    	var req = {
+		    			 method: 'POST',
+		    			 url: "api/troubleTicket/",
+		    			 data: ticket
+		    			}    		    	    		   	    	
+		        $http(req) 
+		        .then(function(response) {
+		        	if(response.data.url){
+		        		$window.location.href=decodeURIComponent(response.data.url);
+		        	}
+		        });
+		    }  
     	   }
          };       
        

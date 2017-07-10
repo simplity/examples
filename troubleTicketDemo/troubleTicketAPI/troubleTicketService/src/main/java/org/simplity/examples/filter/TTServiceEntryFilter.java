@@ -1,6 +1,8 @@
 package org.simplity.examples.filter;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.UUID;
 
 import javax.ws.rs.container.ContainerRequestContext;
@@ -14,7 +16,7 @@ import org.slf4j.MDC;
 
 @Provider
 @PreMatching
-public class EntryFilter implements ContainerRequestFilter {
+public class TTServiceEntryFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext request) throws IOException {
@@ -23,6 +25,7 @@ public class EntryFilter implements ContainerRequestFilter {
 		if ((correlationId = request.getUriInfo().getQueryParameters().getFirst("correlation_Id")) == null) {
 			correlationId = genCorrelationId();
 		}
+		
 		MDC.put("correlationId", correlationId);
 	}
 	

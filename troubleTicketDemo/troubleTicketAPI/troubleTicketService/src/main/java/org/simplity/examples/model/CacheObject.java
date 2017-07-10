@@ -1,4 +1,4 @@
-package org.simplity.examples;
+package org.simplity.examples.model;
 
 import java.io.Serializable;
 

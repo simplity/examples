@@ -33,7 +33,7 @@
 			</childRecords>
 		</save>
 		<setValue fieldName="callback" fieldValue="http://localhost:8088/api/troubleTicket"></setValue>
-		<setValue fieldName="url" expression="concat(callback,'/',id)"
+		<setValue fieldName="url" expression="concat(callback,'/',id,'?correlation_Id=',correlation_Id)"
 			executeOnCondition="source=='self'"></setValue>
 		<log names="source"/>	
 		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"

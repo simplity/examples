@@ -1,5 +1,6 @@
-package org.simplity.examples;
+package org.simplity.examples.cache;
 
+import org.simplity.examples.model.CacheObject;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.kernel.data.InputField;
@@ -55,9 +56,8 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		CacheObject object = new CacheObject(inData, outData, serviceName);
 		mcc.add(getInDataKey(inData.getServiceName(),inData), object);
 	}
-
-
 	@Override
+
 	public void invalidate(String serviceName, ServiceData inData) {
 		Tracer.trace("Invalidate entry for viewTodos");
 		System.out.println(mcc.delete(getInDataKey(serviceName,inData)));

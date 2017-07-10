@@ -7,7 +7,7 @@
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
-			<inputField dataType="_text" name="correlationId" />
+			<inputField dataType="_text" name="correlation_Id" />
 			<inputField dataType="_text" name="description" />
 			<inputField dataType="_text" name="severity" />
 			<inputField dataType="_text" name="type" />

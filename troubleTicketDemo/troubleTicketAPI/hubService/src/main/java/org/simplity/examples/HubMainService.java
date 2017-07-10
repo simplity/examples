@@ -8,9 +8,14 @@ import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.simplity.examples.filter.CorsFilter;
+import org.simplity.examples.filter.HubEntryFilter;
 import org.simplity.kernel.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HubMainService {
+	final static Logger logger = LoggerFactory.getLogger(HubMainService.class);
 	public static HttpServer server;		
 	public static void main(String[] args) {
 		try {
@@ -18,14 +23,15 @@ public class HubMainService {
 			String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
 			try {
 				Application.bootStrap(folder);
-				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "hub.json");
+				HubServiceConfig.setApiPath(folder + "openapi" + File.separator + "hub.json");
 			} catch (Exception e) {
-				System.err.println("error while bootstrapping with compFolder=" + folder);
+				logger.error("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
 			}
 
-			ResourceConfig rc = new OpenApiServiceConfig();
+			ResourceConfig rc = new HubServiceConfig();
+			rc.register(HubEntryFilter.class);
 			rc.register(CorsFilter.class);
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8088/api"), rc);
@@ -35,7 +41,7 @@ public class HubMainService {
 			server.start();
 			Thread.currentThread().join();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error in service",e);
 			server.shutdown();
 		}
 	}

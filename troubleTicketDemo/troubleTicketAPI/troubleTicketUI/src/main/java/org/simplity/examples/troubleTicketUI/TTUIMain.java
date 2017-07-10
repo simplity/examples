@@ -9,26 +9,28 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.simplity.examples.troubleTicketUI.filter.CorsFilter;
-import org.simplity.examples.troubleTicketUI.filter.EntryFilter;
+import org.simplity.examples.troubleTicketUI.filter.TTUIEntryFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TTUIMain {
+	final static Logger logger = LoggerFactory.getLogger(TTUIMain.class);
 	public static HttpServer server;
 
 	public static void main(String[] args) {
 
 		try {
 			File jarPath = new File(TTUIMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-			String folder = jarPath + File.separator + "comp" + File.separator;
+			String folder = jarPath.getParent() + File.separator + "comp" + File.separator;
 
 			try {
-				TTUIConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
+				TTUIConfig.setApiPath(folder + "openapi" + File.separator + "ttui_troubleTicket.json");
 			} catch (Exception e) {
-				System.err.println("error while bootstrapping with compFolder=" + folder);
-				e.printStackTrace(System.err);
+				logger.error("error while bootstrapping with compFolder=" + folder,e);
 				return;
 			}
 			ResourceConfig rc = new TTUIConfig();
-			rc.register(EntryFilter.class);			
+			rc.register(TTUIEntryFilter.class);			
 			rc.register(CorsFilter.class);			
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8095/api"), rc);
@@ -38,7 +40,7 @@ public class TTUIMain {
 			server.start();
 			Thread.currentThread().join();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error in service",e);
 			server.shutdown();
 		}
 	}

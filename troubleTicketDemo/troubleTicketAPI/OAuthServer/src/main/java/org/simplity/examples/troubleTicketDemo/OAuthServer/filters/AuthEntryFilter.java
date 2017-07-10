@@ -1,6 +1,8 @@
 package org.simplity.examples.troubleTicketDemo.OAuthServer.filters;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.UUID;
 
 import javax.servlet.Filter;
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.MDC;
 
-public class EntryFilter implements Filter {
+public class AuthEntryFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

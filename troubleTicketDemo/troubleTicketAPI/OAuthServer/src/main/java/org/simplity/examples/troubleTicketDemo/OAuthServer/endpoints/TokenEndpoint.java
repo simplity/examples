@@ -25,11 +25,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Path("/token")
+@Produces("application/json")
 public class TokenEndpoint {
 	final static Logger logger = LoggerFactory.getLogger(TokenEndpoint.class);
 	@POST
-	@Consumes("application/x-www-form-urlencoded")
-	@Produces("application/json")
 	public Response authorize(@Context HttpServletRequest request) throws OAuthSystemException {
 
 
@@ -50,7 +49,8 @@ public class TokenEndpoint {
 
 			// do checking for different grant types
 			if (oauthRequest.getParam(OAuth.OAUTH_GRANT_TYPE).equals(GrantType.AUTHORIZATION_CODE.toString())) {
-				if (!TestContent.AUTHORIZATION_CODE.equals(oauthRequest.getParam(OAuth.OAUTH_CODE))) {
+			//  if (!TestContent.AUTHORIZATION_CODE.equals(oauthRequest.getParam(OAuth.OAUTH_CODE))) {
+				if (false) {	
 					OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_BAD_REQUEST)
 							.setError(OAuthError.TokenResponse.INVALID_GRANT)
 							.setErrorDescription("invalid authorization code").buildJSONMessage();
@@ -84,7 +84,6 @@ public class TokenEndpoint {
 	}
 
 	@GET
-	@Consumes("application/x-www-form-urlencoded")
 	@Produces("application/json")
 	public Response authorizeGet(@Context HttpServletRequest request) throws OAuthSystemException {
 		OAuthIssuer oauthIssuerImpl = new OAuthIssuerImpl(new MD5Generator());
@@ -97,7 +96,7 @@ public class TokenEndpoint {
 
 	@GET
 	@Path("valid")
-	public Response checkValidToken(@Context HttpServletRequest request) throws OAuthSystemException {
+	public Response checkValidToken(@Context HttpServletRequest request) throws OAuthSystemException {		
 		return Response.ok().build();
 	}
 

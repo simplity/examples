@@ -8,10 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.Map.Entry;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
@@ -22,13 +20,11 @@ import org.glassfish.jersey.server.model.Resource;
 import org.glassfish.jersey.server.model.Resource.Builder;
 import org.glassfish.jersey.server.model.ResourceMethod;
 import org.simplity.json.JSONObject;
-import org.simplity.kernel.ApplicationError;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
@@ -38,6 +34,8 @@ import io.swagger.models.auth.SecuritySchemeDefinition;
 import io.swagger.parser.SwaggerParser;
 
 public class TTServiceConfig extends ResourceConfig {
+	final static Logger logger = LoggerFactory.getLogger(TTServiceConfig.class);
+
 	private static String api_path;
 	public static Map<String, SecuritySchemeDefinition> secDefs;
 	private static String AuthService = "http://localhost:8090";
@@ -76,13 +74,13 @@ public class TTServiceConfig extends ResourceConfig {
 				methodBuilder.produces(mt);
 
 				secDefs = swagger.getSecurityDefinitions();
-				final String[] roles = getRoles(method.getValue().getSecurity());
 				methodBuilder.handledBy(new Inflector<ContainerRequestContext, String>() {
 					@Override
 					public String apply(ContainerRequestContext containerRequestContext) {
 						try {
 							if (containerRequestContext.getUriInfo().getQueryParameters().containsKey("access_token")) {
 								// verify if token issued is correct
+								logger.info("redirect to Auth service for authorization");
 								String url = AuthService 
 										+ "/auth/token/valid" 
 										+ "?access_token="
@@ -90,7 +88,8 @@ public class TTServiceConfig extends ResourceConfig {
 										.getFirst("access_token")
 										+ "&correlation_Id="
 										+ MDC.get("correlationId");
-								String output = getHttpResponse(url, containerRequestContext);
+								
+								getHttpResponse(url, "GET");
 							}
 
 							BufferedReader reader = new BufferedReader(
@@ -134,11 +133,14 @@ public class TTServiceConfig extends ResourceConfig {
 							String username = "100";
 							String pwd = null;
 
+							if(!jObj.has("correlation_Id"))
+								jObj.append("correlation_Id", MDC.get("correlationId"));
+System.out.println(jObj.toString());
 							ServiceData outData = JavaAgent.getAgent(username, pwd).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();
 
 						} catch (Exception e) {
-							e.printStackTrace();
+							logger.error("Error in the Service config",e);
 						}
 						return null;
 					}
@@ -150,24 +152,11 @@ public class TTServiceConfig extends ResourceConfig {
 		registerResources(resourceBuilder.build());
 	}
 
-	private static String[] getRoles(List<Map<String, List<String>>> secs) {
-		if (secs != null) {
-			List<String> roles = new ArrayList<String>();
-			for (Map<String, List<String>> sec : secs) {
-				for (String lsec : sec.keySet()) {
-					roles.add(secDefs.get(lsec).getType());
-				}
-			}
-			return roles.toArray(new String[roles.size()]);
-		}
-		return null;
-	}
-
 	public static void setApiPath(String apiPath) {
 		api_path = apiPath;
 	}
 
-	private String getHttpResponse(String urlStr, ContainerRequestContext request) {
+	private String getHttpResponse(String urlStr, String method) {
 		try {
 			URL url = new URL(urlStr);
 			HttpURLConnection conn = null;
@@ -180,27 +169,19 @@ public class TTServiceConfig extends ResourceConfig {
 			/*
 			 * despatch request
 			 */
-			conn.setRequestMethod(request.getMethod());
+			conn.setRequestMethod(method);
 			conn.setDoOutput(true);
-
-			byte[] buffer = new byte[1024];
-			int len;
-			while ((len = request.getEntityStream().read(buffer)) != -1) {
-				conn.getOutputStream().write(buffer, 0, len);
-			}
-
+		
 			/*
 			 * receive response
 			 */
 			int resp = conn.getResponseCode();
 			if (resp != 200) {
-				throw new ApplicationError("Http call for url " + url + " returned with a non200 status " + resp);
+				logger.error("Http call for url " + url + " returned with a non200 status " + resp);
 			}
-			return readResponse(conn);
-		} catch (ApplicationError e) {
-			throw e;
+			return readResponse(conn);		
 		} catch (Exception e) {
-			e.printStackTrace(System.out);
+			logger.error("Error in service",e);
 		}
 		return null;
 	}
@@ -221,10 +202,9 @@ public class TTServiceConfig extends ResourceConfig {
 				try {
 					reader.close();
 				} catch (Exception e) {
-					//
+					logger.error("Error reading response",e);
 				}
 			}
 		}
-
 	}
 }

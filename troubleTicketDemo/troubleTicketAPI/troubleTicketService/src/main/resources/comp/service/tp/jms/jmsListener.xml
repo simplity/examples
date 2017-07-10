@@ -3,7 +3,7 @@
 	xmlns="http://www.simplity.org/schema"
 	name="jmsListener"
 	moduleName="jms"
-	dbAccessType="none"
+	dbAccessType="subService"
 	jmsUsage="notManaged">
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
@@ -18,7 +18,9 @@
 				</inputData>			
 			</requestDestination>
 			<actions>
-				<subService serviceName="troubleTicketUpdate"/>
+				<log names="correlation_Id" setMDC="true"></log>
+				<setValue fieldName="fromBatch" fieldValue="true"></setValue>
+				<logic className="org.simplity.examples.logic.InvokeUpdate"/>
 			</actions>
 		</jmsConsumer>
 	</actions>

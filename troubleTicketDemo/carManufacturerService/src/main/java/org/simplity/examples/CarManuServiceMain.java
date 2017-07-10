@@ -7,6 +7,8 @@ import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.simplity.examples.filter.CorsFilter;
+import org.simplity.examples.filter.CarManuEntryFilter;
 import org.simplity.kernel.Application;
 
 public class CarManuServiceMain {
@@ -20,14 +22,15 @@ public class CarManuServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				OpenApiServiceConfig.setApiPath(folder + "openapi" + File.separator + "troubleTicket.json");
+				CarManuServiceConfig.setApiPath(folder + "openapi" + File.separator + "carManu_troubleTicket.json");
 			} catch (Exception e) {
 				System.err.println("error while bootstrapping with compFolder=" + folder);
 				e.printStackTrace(System.err);
 				return;
 			}
 
-			ResourceConfig rc = new OpenApiServiceConfig();
+			ResourceConfig rc = new CarManuServiceConfig();
+			rc.register(CarManuEntryFilter.class);
 			rc.register(CorsFilter.class);
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8086/api"), rc);

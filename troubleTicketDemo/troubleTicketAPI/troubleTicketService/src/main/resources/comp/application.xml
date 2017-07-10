@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns="http://www.simplity.org/schema" 
 			applicationId="troubleTicketService"
-			loggingFramework="log4j"
-			queueConnectionFactory="ConnectionFactory" 
+			jmsConnectionFactory="ConnectionFactory" 
 			dbVendor="h2"
 			dbDriverClassName="org.h2.Driver"
 			connectionString="jdbc:h2:file:${project.build.directory}\troubleTicket;user=sa;"
-			jobsToRunOnStartup="listenerJob"			 
+			jobsToRunOnStartup="listenerJob"
 			logSqls="true"
 			serviceCacheManager="org.simplity.examples.util.SimpleMemCacheManager">
 			<jmsProperties>

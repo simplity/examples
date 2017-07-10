@@ -20,6 +20,9 @@ import org.glassfish.jersey.server.model.ResourceMethod;
 import org.simplity.json.JSONObject;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Model;
@@ -28,10 +31,11 @@ import io.swagger.models.Path;
 import io.swagger.models.Swagger;
 import io.swagger.parser.SwaggerParser;
 
-public class OpenApiServiceConfig extends ResourceConfig {
+public class HubServiceConfig extends ResourceConfig {
 	private static String api_path;
+	final static Logger logger = LoggerFactory.getLogger(HubServiceConfig.class);
 
-	public OpenApiServiceConfig() {
+	public HubServiceConfig() {
 		Swagger swagger = new SwaggerParser().read(api_path);
 
 		final Resource.Builder resourceBuilder = Resource.builder();
@@ -64,46 +68,55 @@ public class OpenApiServiceConfig extends ResourceConfig {
 				methodBuilder.produces(mt).handledBy(new Inflector<ContainerRequestContext, String>() {
 					@Override
 					public String apply(ContainerRequestContext containerRequestContext) {
-						BufferedReader reader = new BufferedReader(
-								new InputStreamReader(containerRequestContext.getEntityStream()));
-						String line = "";
-						StringBuffer sb = new StringBuffer();
 						try {
-							while ((line = reader.readLine()) != null) {
-								sb.append(line);
+							BufferedReader reader = new BufferedReader(
+									new InputStreamReader(containerRequestContext.getEntityStream()));
+							String line = "";
+							StringBuffer sb = new StringBuffer();
+							try {
+								while ((line = reader.readLine()) != null) {
+									sb.append(line);
+								}
+							} catch (IOException e) {
+								e.printStackTrace();
 							}
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-						JSONObject jObj = new JSONObject();
-						if (sb.length()!=0 && containerRequestContext.getMediaType().isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
-							jObj = new JSONObject(sb.toString());
-						}
-						MultivaluedMap<String, String> pathParams = containerRequestContext.getUriInfo()
-								.getPathParameters();
-						for (Entry<String, List<String>> pathParam : pathParams.entrySet()) {
-							for(String pathParamValue:pathParam.getValue()){
-								jObj.put(pathParam.getKey(), pathParamValue);	
+							JSONObject jObj = new JSONObject();
+							if (sb.length() != 0 && containerRequestContext.getMediaType()
+									.isCompatible(MediaType.APPLICATION_JSON_TYPE)) {
+								jObj = new JSONObject(sb.toString());
 							}
-							
-						}
-						MultivaluedMap<String, String> queryParams = containerRequestContext.getUriInfo()
-								.getQueryParameters();
-						for (Entry<String, List<String>> queryParam : queryParams.entrySet()) {
-							for(String queryParamValue:queryParam.getValue()){
-								jObj.put(queryParam.getKey(), queryParamValue);	
-							}							
-						}
-						
-						MultivaluedMap<String, String> headerParams = containerRequestContext.getHeaders();
-						for (Entry<String, List<String>> headerParam : headerParams.entrySet()) {
-							for(String headerParamValue:headerParam.getValue()){
-								jObj.put(headerParam.getKey(), headerParamValue);	
-							}							
-						}
+							MultivaluedMap<String, String> pathParams = containerRequestContext.getUriInfo()
+									.getPathParameters();
+							for (Entry<String, List<String>> pathParam : pathParams.entrySet()) {
+								for (String pathParamValue : pathParam.getValue()) {
+									jObj.put(pathParam.getKey(), pathParamValue);
+								}
 
-						ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
-						return outData.getResponseJson();
+							}
+							MultivaluedMap<String, String> queryParams = containerRequestContext.getUriInfo()
+									.getQueryParameters();
+							for (Entry<String, List<String>> queryParam : queryParams.entrySet()) {
+								for (String queryParamValue : queryParam.getValue()) {
+									jObj.put(queryParam.getKey(), queryParamValue);
+								}
+							}
+
+							MultivaluedMap<String, String> headerParams = containerRequestContext.getHeaders();
+							for (Entry<String, List<String>> headerParam : headerParams.entrySet()) {
+								for (String headerParamValue : headerParam.getValue()) {
+									jObj.put(headerParam.getKey(), headerParamValue);
+								}
+							}
+
+							if(!jObj.has("correlation_Id"))
+								jObj.append("correlation_Id", MDC.get("correlationId"));
+
+							ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
+							return outData.getResponseJson();
+						} catch (Exception e) {
+							logger.error("Error in service", e);
+						}
+						return null;
 					}
 				});
 

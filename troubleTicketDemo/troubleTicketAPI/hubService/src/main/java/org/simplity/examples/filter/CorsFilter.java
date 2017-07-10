@@ -1,4 +1,4 @@
-package org.simplity.examples;
+package org.simplity.examples.filter;
 
 import java.io.IOException;
 

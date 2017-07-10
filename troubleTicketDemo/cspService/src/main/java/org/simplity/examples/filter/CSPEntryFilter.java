@@ -1,4 +1,4 @@
-package org.simplity.examples.troubleTicketUI.filter;
+package org.simplity.examples.filter;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -14,7 +14,7 @@ import org.slf4j.MDC;
 
 @Provider
 @PreMatching
-public class EntryFilter implements ContainerRequestFilter {
+public class CSPEntryFilter implements ContainerRequestFilter {
 
 	@Override
 	public void filter(ContainerRequestContext request) throws IOException {

@@ -19,7 +19,7 @@ import org.glassfish.jersey.server.ServerProperties;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.simplity.examples.troubleTicketDemo.OAuthServer.endpoints.LoginEndpoint;
 import org.simplity.examples.troubleTicketDemo.OAuthServer.filters.CorsFilter;
-import org.simplity.examples.troubleTicketDemo.OAuthServer.filters.EntryFilter;
+import org.simplity.examples.troubleTicketDemo.OAuthServer.filters.AuthEntryFilter;
 
 import com.sun.javafx.collections.MappingChange.Map;
 
@@ -42,12 +42,12 @@ public class OAuthServerMain {
 					OAuthServerMain.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 			String folder = jarPath + File.separator + "webapp";
 			final Swagger swagger = new SwaggerParser()
-					.read(jarPath + File.separator + "comp/openapi" + File.separator + "troubleTicket.json");
+					.read(jarPath.getParent() + File.separator + "comp/openapi" + File.separator + "troubleTicket.json");
 			secDefs = swagger.getSecurityDefinitions();
 
 			WebappContext wContext = new WebappContext("OAuthServer Context");
 
-			FilterRegistration testFilterReg1 = wContext.addFilter("EntryFilter", EntryFilter.class);			
+			FilterRegistration testFilterReg1 = wContext.addFilter("EntryFilter", AuthEntryFilter.class);			
 			testFilterReg1.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), "/*");
 			
 			ServletRegistration sRegistration = wContext.addServlet("Jersey", ServletContainer.class);
