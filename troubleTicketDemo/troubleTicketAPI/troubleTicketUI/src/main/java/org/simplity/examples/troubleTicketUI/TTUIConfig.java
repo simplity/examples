@@ -131,7 +131,7 @@ public class TTUIConfig extends ResourceConfig {
 												+ "&scope="
 												+ scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "")
 												+ "&response_type=" + "code" + "&client_id=" + "TTUIMain"
-												+ "&correlation_Id=" + MDC.get("correlationId");
+												+ "&correlationId=" + MDC.get("correlationId");
 										logger.info("redirect to authorize request");
 										return "{\"url\":\"" + URLEncoder.encode(url, "UTF-8") + "\"}";
 									}
@@ -142,7 +142,7 @@ public class TTUIConfig extends ResourceConfig {
 												+ "authorization_code" + "&code="
 												+ request.getUriInfo().getQueryParameters().getFirst("code")
 												+ "&client_id=" + "TTUIMain" + "&client_secret=" + "TTUIMain"
-												+ "&correlation_Id=" + MDC.get("correlationId");
+												+ "&correlationId=" + MDC.get("correlationId");
 
 										ObjectMapper mapper = new ObjectMapper();
 										JsonNode jsonData = mapper
@@ -150,7 +150,7 @@ public class TTUIConfig extends ResourceConfig {
 										accessCode = jsonData.get("access_token").asText();
 
 										url = TTService + "/api/" + request.getUriInfo().getPath() + "?"
-												+ "access_token=" + accessCode + "&correlation_Id="
+												+ "access_token=" + accessCode + "&correlationId="
 												+ MDC.get("correlationId");
 
 										logger.info("fetch the token "+url);

@@ -108,8 +108,8 @@ public class HubServiceConfig extends ResourceConfig {
 								}
 							}
 
-							if(!jObj.has("correlation_Id"))
-								jObj.append("correlation_Id", MDC.get("correlationId"));
+							if(!jObj.has("correlationId"))
+								jObj.append("correlationId", MDC.get("correlationId"));
 
 							ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();

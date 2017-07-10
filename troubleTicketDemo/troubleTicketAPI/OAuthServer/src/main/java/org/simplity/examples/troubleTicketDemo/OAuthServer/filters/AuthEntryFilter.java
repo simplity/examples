@@ -26,7 +26,7 @@ public class AuthEntryFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		String correlationId;
-		if ((correlationId = request.getParameter("correlation_Id")) == null) {
+		if ((correlationId = request.getParameter("correlationId")) == null) {
 			correlationId = genCorrelationId();
 		}
 		MDC.put("correlationId", correlationId);

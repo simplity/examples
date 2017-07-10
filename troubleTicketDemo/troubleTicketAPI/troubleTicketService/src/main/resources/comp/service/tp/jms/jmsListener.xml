@@ -18,7 +18,7 @@
 				</inputData>			
 			</requestDestination>
 			<actions>
-				<log names="correlation_Id" setMDC="true"></log>
+				<log names="correlationId" setMDC="true"></log>
 				<setValue fieldName="fromBatch" fieldValue="true"></setValue>
 				<logic className="org.simplity.examples.logic.InvokeUpdate"/>
 			</actions>

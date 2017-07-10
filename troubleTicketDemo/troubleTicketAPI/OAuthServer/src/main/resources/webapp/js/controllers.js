@@ -11,7 +11,7 @@ angular.module('tmfforum.controllers', [])
 	var scope = $routeParams.scope;
 	var response_type = $routeParams.response_type;
 	var client_id= $routeParams.client_id;
-	var correlation_Id= $routeParams.correlation_Id; 
+	var correlationId= $routeParams.correlationId; 
 	var loginId= "";
 	var pwd= "";
 	
@@ -21,7 +21,7 @@ angular.module('tmfforum.controllers', [])
 		 method: 'GET',
 		 url: 'auth/login',
 		 params: {'scope': scope,
-			 	  'correlation_Id':correlation_Id}
+			 	  'correlationId':correlationId}
 		}
 
 	$http(req).then(function(response){
@@ -39,7 +39,7 @@ angular.module('tmfforum.controllers', [])
    			 	          'scope':scope,
    			 	          'response_type':response_type,
    			 	          'client_id':client_id,
-   			 	          'correlation_Id':correlation_Id},    			 
+   			 	          'correlationId':correlationId},    			 
     			 data: {
     		            'loginId' : $scope.loginId,
     		            'password': $scope.pwd

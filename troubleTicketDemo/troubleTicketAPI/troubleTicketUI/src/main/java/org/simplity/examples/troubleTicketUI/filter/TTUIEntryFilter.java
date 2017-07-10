@@ -20,7 +20,7 @@ public class TTUIEntryFilter implements ContainerRequestFilter {
 	public void filter(ContainerRequestContext request) throws IOException {
 
 		String correlationId;
-		if ((correlationId = request.getUriInfo().getQueryParameters().getFirst("correlation_Id")) == null) {
+		if ((correlationId = request.getUriInfo().getQueryParameters().getFirst("correlationId")) == null) {
 			correlationId = genCorrelationId();
 		}
 		MDC.put("correlationId", correlationId);

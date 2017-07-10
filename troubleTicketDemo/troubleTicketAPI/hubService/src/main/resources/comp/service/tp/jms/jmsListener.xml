@@ -14,7 +14,7 @@
 				</inputData>
 			</requestDestination>
 			<actions>
-			    <log names="correlation_Id" setMDC="true"></log>
+			    <log names="correlationId" setMDC="true"></log>
 				<subService serviceName="publish.processMessages" />
 			</actions>
 		</jmsConsumer>

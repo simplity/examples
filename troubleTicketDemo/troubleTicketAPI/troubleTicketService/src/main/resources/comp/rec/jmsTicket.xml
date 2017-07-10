@@ -3,7 +3,7 @@
 	xmlns="http://www.simplity.org/schema">
 	<fields>
 		<field dataType="_number" name="id" />
-		<field dataType="_text" name="correlation_Id" />
+		<field dataType="_text" name="correlationId" />
 		<field dataType="_text" name="description" />
 		<field dataType="_text" name="severity" />
 		<field dataType="_text" name="type" />

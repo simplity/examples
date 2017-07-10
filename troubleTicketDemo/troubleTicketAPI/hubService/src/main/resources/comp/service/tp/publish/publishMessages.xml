@@ -2,7 +2,7 @@
 <service xmlns="http://www.simplity.org/schema" name="publishMessages"
 	moduleName="publish">
 	<actions>
-		<setValue fieldName="url" expression="concat(callback,'?correlation_Id=',correlation_Id)"
+		<setValue fieldName="url" expression="concat(callback,'?correlationId=',correlationId)"
 			executeOnCondition="action=='update'"></setValue>	
 		<httpClient httpMethod="POST" urlString="$callback"
 			contentType="application/json" executeOnCondition="action=='add'">
@@ -15,7 +15,7 @@
 				</outputRecords>
 			</requestData>
 		</httpClient>
-		<setValue fieldName="url" expression="concat(callback,'/',id,'?correlation_Id=',correlation_Id)"
+		<setValue fieldName="url" expression="concat(callback,'/',id,'?correlationId=',correlationId)"
 			executeOnCondition="action=='update'"></setValue>
 		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"
 			executeOnCondition="action=='update'">			

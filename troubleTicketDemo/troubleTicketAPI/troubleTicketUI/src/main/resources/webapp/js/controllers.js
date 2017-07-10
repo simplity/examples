@@ -10,14 +10,14 @@ angular.module('tmfforum.controllers', [])
     $scope.ticketAction = "get";
     $scope.myData.action = "list";
     var code = $routeParams.code;
-    var correlation_Id= $routeParams.correlation_Id; 
+    var correlationId= $routeParams.correlationId; 
     
     if(code){
     	var req = {
     			 method: 'GET',
     			 url: 'api/troubleTicket',
     			 params: {'code': code,
-    				 	  'correlation_Id':correlation_Id}
+    				 	  'correlationId':correlationId}
     			}
     	
         $http(req)
@@ -44,7 +44,7 @@ angular.module('tmfforum.controllers', [])
    			 url: 'api/troubleTicket/',
    			 params: {'id':id,
    				 	  'code': code,
-   				 	  'correlation_Id':correlation_Id}
+   				 	  'correlationId':correlationId}
    			}
    	
        $http(req)
@@ -60,7 +60,7 @@ angular.module('tmfforum.controllers', [])
       			 url: 'api/troubleTicket/',
       			 params: {'id':id,
       				 	  'code': code,
-      				 	  'correlation_Id':correlation_Id}
+      				 	  'correlationId':correlationId}
       			}
       	
           $http(req)

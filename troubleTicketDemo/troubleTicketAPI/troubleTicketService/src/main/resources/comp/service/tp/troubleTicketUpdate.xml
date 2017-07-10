@@ -23,6 +23,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
+	<log names="correlationId"/>
 		<setValue fieldName="action" fieldValue="update"></setValue>
 		<save saveAction="save" recordName="TroubleTicket">
 			<childRecords>

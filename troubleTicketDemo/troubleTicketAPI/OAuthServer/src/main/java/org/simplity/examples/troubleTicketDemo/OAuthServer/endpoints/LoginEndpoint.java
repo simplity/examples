@@ -117,7 +117,7 @@ public class LoginEndpoint {
             final OAuthResponse response = builder.location(redirectURI).buildQueryMessage();
             
             logger.info("authorization succeeded");
-            return Response.ok(response.getLocationUri()+"&correlation_Id="+MDC.get("correlationId")).build();
+            return Response.ok(response.getLocationUri()+"&correlationId="+MDC.get("correlationId")).build();
 
         } catch (OAuthProblemException e) {
 
@@ -133,7 +133,7 @@ public class LoginEndpoint {
             final OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_FOUND)
                 .error(e)
                 .location(redirectUri).buildQueryMessage();
-            final URI location = new URI(response.getLocationUri()+"&correlation_Id="+ MDC.get("correlationId"));
+            final URI location = new URI(response.getLocationUri()+"&correlationId="+ MDC.get("correlationId"));
             return responseBuilder.location(location).build();
         }
     }

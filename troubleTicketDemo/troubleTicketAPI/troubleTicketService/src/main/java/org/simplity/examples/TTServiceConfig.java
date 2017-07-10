@@ -86,7 +86,7 @@ public class TTServiceConfig extends ResourceConfig {
 										+ "?access_token="
 										+ containerRequestContext.getUriInfo().getQueryParameters()
 										.getFirst("access_token")
-										+ "&correlation_Id="
+										+ "&correlationId="
 										+ MDC.get("correlationId");
 								
 								getHttpResponse(url, "GET");
@@ -133,8 +133,8 @@ public class TTServiceConfig extends ResourceConfig {
 							String username = "100";
 							String pwd = null;
 
-							if(!jObj.has("correlation_Id"))
-								jObj.append("correlation_Id", MDC.get("correlationId"));
+							if(!jObj.has("correlationId"))
+								jObj.append("correlationId", MDC.get("correlationId"));
 System.out.println(jObj.toString());
 							ServiceData outData = JavaAgent.getAgent(username, pwd).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();
