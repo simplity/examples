@@ -17,8 +17,8 @@
 		<setValue fieldName="action" fieldValue="post"></setValue>
 		<log names="id, title, completed"/>
 		<jmsProducer>
-			<requestQueue
-				queueName="dynamicQueues/Queue01" recordName="todos"/>
+			<requestDestination
+				name="dynamicQueues/Queue01" recordName="todos"/>
 		</jmsProducer>
 	</actions>
 </service>

@@ -9,7 +9,7 @@ public class InvalidateCache implements LogicInterface{
 
 	@Override
 	public Value execute(ServiceContext ctx) {
-		ServiceAgent.invalidateCache(ctx.getServiceName(),null);
+		ServiceAgent.invalidateCache(ctx.getServiceName(), null);
 		return Value.newBooleanValue(true);
 	}
 

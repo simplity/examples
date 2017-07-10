@@ -16,8 +16,8 @@
 	<actions>
 		<setValue fieldName="action" fieldValue="put"></setValue>
 		<jmsProducer>
-			<requestQueue
-				queueName="dynamicQueues/Queue01" recordName="todos"/>
+			<requestDestination
+				name="dynamicQueues/Queue01" recordName="todos"/>
 		</jmsProducer>
 	</actions>
 </service>
