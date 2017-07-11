@@ -110,9 +110,7 @@ public class CarManuServiceConfig extends ResourceConfig {
 								}
 							}
 
-							if(!jObj.has("correlationId"))
-								jObj.append("correlationId", MDC.get("correlationId"));
-							
+							jObj.put("correlationId", MDC.get("correlationId"));
 							ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();
 

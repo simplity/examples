@@ -133,9 +133,7 @@ public class TTServiceConfig extends ResourceConfig {
 							String username = "100";
 							String pwd = null;
 
-							if(!jObj.has("correlationId"))
-								jObj.append("correlationId", MDC.get("correlationId"));
-System.out.println(jObj.toString());
+							jObj.put("correlationId", MDC.get("correlationId"));
 							ServiceData outData = JavaAgent.getAgent(username, pwd).serve(serviceName, jObj.toString());
 							return outData.getResponseJson();
 
