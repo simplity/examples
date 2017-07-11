@@ -38,7 +38,7 @@ public class TTServiceMain {
 			server.start();
 			Thread.currentThread().join();
 		} catch (Exception e) {
-			logger.error("Error is Service",e);
+			logger.error("Error in Service",e);
 			server.shutdown();
 		}
 	}
