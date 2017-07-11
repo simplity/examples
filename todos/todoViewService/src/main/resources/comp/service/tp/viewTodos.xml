@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <service xmlns="http://www.simplity.org/schema" name="viewTodos"
-	dbAccessType="readWrite" canBeCachedByFields="" cacheRefreshTime="10">
+	dbAccessType="readWrite" canBeCachedByFields="" cacheRefreshTime="60">
 	<actions>
 		<filter filterRecordName="todosDBTable" outputSheetName="todosDBTable"></filter>
 	</actions>

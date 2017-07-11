@@ -3,7 +3,7 @@
 	dbAccessType="readWrite">
 	<actions>
 		<filter filterRecordName="memcacheKeysTable" outputSheetName="memcacheKeysSheet"></filter>
-		<logic className="org.simplity.examples.MemCacheRefresh"/>
+		<logic className="org.simplity.examples.logic.MemCacheRefresh"/>
 		<save saveAction="save" inputSheetName="memcacheKeysSheet" recordName="memcacheKeysTable"></save>
 	</actions>
 </service>

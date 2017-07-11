@@ -1,5 +1,7 @@
-package org.simplity.examples;
+package org.simplity.examples.logic;
 
+import org.simplity.examples.CacheValueObject;
+import org.simplity.examples.SimpleMemCacheManager;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.data.DataSheet;
 import org.simplity.kernel.value.Value;

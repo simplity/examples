@@ -24,15 +24,12 @@ package org.simplity.examples;
 
 import java.util.Arrays;
 
-import org.omg.IOP.ServiceContext;
 import org.simplity.kernel.Tracer;
 import org.simplity.kernel.comp.ComponentManager;
-import org.simplity.kernel.value.Value;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
-import org.simplity.service.ServiceInterface;
 import org.simplity.service.ServiceProtocol;
 import org.simplity.tp.Service;
 
@@ -65,15 +62,16 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		sockIOPool.initialize();
 
 		memCachedClient = new MemCachedClient("default");
-
 	}
 
 	@Override
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
-		String fieldsForHash = inData.getCacheForInput();		
-		CacheValueObject cacheValueObject = (CacheValueObject) memCachedClient.get(this.getHash(serviceName,inData,fieldsForHash));
-		if(cacheValueObject != null) {
+		String fieldsForHash = inData.getCacheForInput();
+		String cacheInputKey = this.getHash(serviceName,inData,fieldsForHash);
+		Object obj = memCachedClient.get(cacheInputKey);
+		if(obj != null) {
+			CacheValueObject cacheValueObject = (CacheValueObject) obj;
 			ServiceData outData = cacheValueObject.getOutData();
 			Tracer.trace("Responding from cache");
 			return outData;
@@ -103,12 +101,12 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 			}
 		}
 		hashKey += Arrays.hashCode(fields);
-		return Integer.toString(hashKey);
+		hashKey = Math.abs(hashKey);
+		return String.valueOf(hashKey);
 	}
 
 	@Override
 	public void cache(ServiceData inData, ServiceData outData) {
-		// Get the Memcached Client from SockIOPool named Test1
 		String serviceName = inData.getServiceName();
 		String fieldsForHash = inData.getCacheForInput();
 		CacheValueObject cacheValueObject = new CacheValueObject();
@@ -116,17 +114,28 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		cacheValueObject.setInData(inData);
 		cacheValueObject.setOutData(outData);
 		String cacheKey = this.getHash(serviceName, inData, fieldsForHash);
-		if(memCachedClient.add(cacheKey, cacheValueObject)) {
+		boolean successFlag = false;
+		if(memCachedClient.keyExists(cacheKey)) {
+			memCachedClient.set(cacheKey, cacheValueObject);
+			successFlag = true;
+		} else {
+			memCachedClient.add(cacheKey, cacheValueObject);
+			successFlag = true;
+		}
+		if(successFlag) {
 			Tracer.trace("Added to cache");
-			
 			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
-			int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
-			String payLoad = "{'cacheKey':'" + cacheKey + "',"
-					+ "'refreshTimePeriod':" + cacheRefreshTime + ","
-					+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
-			ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad, PayloadType.JSON);
-			if(!outData1.hasErrors())
-				Tracer.trace("cache key added to the database");
+			if(service.getCacheRefreshTime() != null) {
+				int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
+				String payLoad = "{'cacheKey':'" + cacheKey + "',"
+						+ "'refreshTimePeriod':" + cacheRefreshTime + ","
+						+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
+				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad, PayloadType.JSON);
+				if(!outData1.hasErrors())
+					Tracer.trace("cache key added to the database");
+			} else {
+				Tracer.trace("cache refresh is not enabled for this service");
+			}
 		} else {
 			Tracer.trace("Error in adding data to the cache");
 		}
@@ -142,6 +151,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	}
 
 	public Object readMemCacheData(String key) {
-		return this.memCachedClient.get(key);
+		Object obj = this.memCachedClient.get(key);
+		return obj;
 	}
 }
