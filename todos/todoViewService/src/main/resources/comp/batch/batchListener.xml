@@ -5,6 +5,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<jobs>
 		<job name="jmsListener" serviceName="jmsConsumer" nbrDedicatedThreads="2"/>
-		<job name="memcacheListener" serviceName="memCacheRefresh" runInterval="10"/>
+		<job name="memcacheListener" serviceName="memCacheRefresh" runInterval="60"/>
 	</jobs>
 </batch>

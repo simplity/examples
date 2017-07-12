@@ -5,18 +5,14 @@
 	tableName="MEMCACHEKEYS" 
 	okToSelectAll="true" 
 	readOnly="false" 
-	keyToBeGenerated="true"
 	xmlns="http://www.simplity.org/schema"
 >
 	<fields>
 		<field
-			dataType="_number"
-			name="id"
-			fieldType="primaryKey" 
-			isNullable="true"/>
-		<field
 			name="cacheKey"		
-			dataType="_text"/>
+			dataType="_text" 
+			fieldType="primaryKey" 
+			isNullable="false"/>
 		<field
 			name="refreshTimePeriod"
 			dataType="_number"/>

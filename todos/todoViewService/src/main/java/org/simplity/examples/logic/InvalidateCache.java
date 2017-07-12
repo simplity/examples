@@ -1,4 +1,4 @@
-package org.simplity.examples.LogicClasses;
+package org.simplity.examples.logic;
 
 import org.simplity.kernel.value.Value;
 import org.simplity.service.ServiceAgent;
