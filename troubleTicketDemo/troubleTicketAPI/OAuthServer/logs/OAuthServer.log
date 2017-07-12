@@ -1,0 +1,6 @@
+2017-07-11 22:39:04,634 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+2017-07-11 22:57:44,910 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+2017-07-11 23:03:20,329 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+2017-07-11 23:04:54,503 INFO o.s.e.t.O.e.LoginEndpoint [grizzly-http-server-2] sending the scope details
+2017-07-11 23:05:02,246 INFO o.s.e.t.O.e.LoginEndpoint [grizzly-http-server-6] authorization succeeded
+[INFO ]  2017 23:15:16.845 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
