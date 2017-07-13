@@ -4,45 +4,46 @@ import java.io.Serializable;
 
 import org.simplity.service.ServiceData;
 
-public class CacheObject implements Serializable{
-	
-	/**
-	 * 
-	 */
+public class CacheValueObject implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	private ServiceData inData;
 	private ServiceData outData;
-	private String servicename;
-	
-	public CacheObject(){
-		
+	private String serviceName;
+
+	public CacheValueObject() {
+
 	}
-	
-	public CacheObject(ServiceData inData, ServiceData outData, String servicename) {
+
+	public CacheValueObject(ServiceData inData, ServiceData outData, String serviceName) {
 		super();
 		this.inData = inData;
 		this.outData = outData;
-		this.servicename = servicename;
+		this.serviceName = serviceName;
 	}
+
 	public ServiceData getInData() {
 		return inData;
 	}
+
 	public void setInData(ServiceData inData) {
 		this.inData = inData;
 	}
+
 	public ServiceData getOutData() {
 		return outData;
 	}
+
 	public void setOutData(ServiceData outData) {
 		this.outData = outData;
 	}
-	public String getServicename() {
-		return servicename;
+
+	public String getServiceName() {
+		return serviceName;
 	}
-	public void setServicename(String servicename) {
-		this.servicename = servicename;
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
-	
-	
 
 }
