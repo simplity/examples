@@ -3,6 +3,7 @@
 	xmlns="http://www.simplity.org/schema"
 	name="troubleTicketFind"
 	canBeCachedByFields=""
+	cacheRefreshTime="10"
 	dbAccessType="readOnly">
 	<actions>
 		<filter filterRecordName="TroubleTicket" outputSheetName="tickets">

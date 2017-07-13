@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="bootstrapService"
+	moduleName="bootstrap" 
+	dbAccessType="readWrite">
+	<actions>
+		<logic className="org.simplity.examples.logic.BootstrapService"/>
+	</actions>
+</service>

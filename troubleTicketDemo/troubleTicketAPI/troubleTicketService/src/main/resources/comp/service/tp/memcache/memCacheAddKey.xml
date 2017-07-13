@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="memCacheAddKey" 
+	moduleName="memcache"
+	dbAccessType="readWrite">
+	
+	<inputData>
+		<inputRecords>
+			<inputRecord recordName="memcacheKeysTable"/>
+		</inputRecords>
+	</inputData>
+	<actions>
+		<save saveAction="save" recordName="memcacheKeysTable"></save>
+	</actions>
+	
+</service>
