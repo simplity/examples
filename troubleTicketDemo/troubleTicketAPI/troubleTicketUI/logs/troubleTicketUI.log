@@ -1,0 +1,19 @@
+2017-07-11 22:39:10,222 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+2017-07-11 22:57:44,385 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+2017-07-11 22:58:29,634 INFO o.s.e.t.TTUIConfig [grizzly-http-server-7] fetch the token http://localhost:8085/api/troubleTicket?access_token=014cfbca9b9e8e82717fec29d3698df1&correlationId=eed327c7d
+2017-07-11 22:58:38,568 INFO o.s.e.t.TTUIConfig [grizzly-http-server-1] fetch the token http://localhost:8085/api/troubleTicket/?access_token=d9b1703be0e4a281ca9105f6728d1f63&correlationId=a23ffab9f
+2017-07-11 22:58:49,550 INFO o.s.e.t.TTUIConfig [grizzly-http-server-6] fetch the token http://localhost:8085/api/troubleTicket?access_token=4ac8b2465488d83ba78df95be95f3c15&correlationId=eed327c7d
+2017-07-11 23:03:37,952 INFO i.s.p.Swagger20Parser [main] reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+2017-07-11 23:03:47,755 INFO o.s.e.t.TTUIConfig [grizzly-http-server-1] fetch the token http://localhost:8085/api/troubleTicket?access_token=5c7ec0ff08827d60adac9d1795d21767&correlationId=eed327c7d
+2017-07-11 23:04:01,207 INFO o.s.e.t.TTUIConfig [grizzly-http-server-4] fetch the token http://localhost:8085/api/troubleTicket/?access_token=85cf6634ea4db34acff3277bca43a681&correlationId=fd6fc186a
+2017-07-11 23:04:05,800 INFO o.s.e.t.TTUIConfig [grizzly-http-server-6] fetch the token http://localhost:8085/api/troubleTicket?access_token=2fb92f0582457f3e31f84016e7784edd&correlationId=eed327c7d
+2017-07-11 23:04:50,653 INFO o.s.e.t.TTUIConfig [grizzly-http-server-4] fetch the token http://localhost:8085/api/troubleTicket?access_token=415ea5d9615c1112ef59dbcb129a6a21&correlationId=eed327c7d
+2017-07-11 23:04:54,124 INFO o.s.e.t.TTUIConfig [grizzly-http-server-6] redirect to authorize request
+2017-07-11 23:05:02,542 INFO o.s.e.t.TTUIConfig [grizzly-http-server-4] fetch the token http://localhost:8085/api/troubleTicket?access_token=45a961ec78a84a7ed16765f5006e0563&correlationId=6008a0f36
+2017-07-11 23:08:18,720 INFO o.s.e.t.TTUIConfig [grizzly-http-server-6] fetch the token http://localhost:8085/api/troubleTicket?access_token=8815517fabb7d60f7ecf79f4a41be1a7&correlationId=6008a0f36
+2017-07-11 23:08:28,202 INFO o.s.e.t.TTUIConfig [grizzly-http-server-4] fetch the token http://localhost:8085/api/troubleTicket?access_token=3361b08ba44ba3d69a5291b5c9df96e8&correlationId=6008a0f36
+2017-07-11 23:08:36,707 INFO o.s.e.t.TTUIConfig [grizzly-http-server-2] fetch the token http://localhost:8085/api/troubleTicket/?access_token=53e92d78b4712f63bfadb618cd1aa34e&correlationId=6008a0f36
+2017-07-11 23:08:43,083 INFO o.s.e.t.TTUIConfig [grizzly-http-server-3] fetch the token http://localhost:8085/api/troubleTicket/1?access_token=b09e9972fe1fd0781eaa09b5b0df9a33&correlationId=a4aba1016
+[INFO ]  2017 23:14:57.836 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+[INFO ] 6008a0f36 2017 23:21:07.338 [grizzly-http-server-5] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=5ecb91ddb528fb98827ce514bfcc8130&correlationId=6008a0f36
+[INFO ] bd09f649c 2017 23:21:14.295 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=7c6eb66ee0bec82bdadaf289c8193823&correlationId=bd09f649c
