@@ -17,6 +17,10 @@
         </Async>
     </Appenders>
     <Loggers>
+    	<logger name="org.apache.activemq" level="error" additivity="true">
+		    <AppenderRef ref="Console" />
+		    <AppenderRef ref="Async"/>
+		 </logger>
         <Root level="trace" additivity="false">
             <AppenderRef ref="console" />
             <AppenderRef ref="Async" />
