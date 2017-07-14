@@ -23,7 +23,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
-		<log names="description,type"/>
+		<log names="description,type,correlationId"/>
 		<save saveAction="add" recordName="TroubleTicket">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject"/>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record xmlns="http://www.simplity.org/schema"
+		name="Hub" 
+		recordType="storage"
+		tableName="HUB" 	
+		keyToBeGenerated="true"			
+		okToSelectAll="true">
+<fields>
+<field columnName="ID" dataType="_number" fieldType="primaryKey" name="hubId" sqlTypeName="INTEGER"/>
+<field columnName="CALLBACK" dataType="_text" fieldType="data" name="callback" sqlTypeName="VARCHAR"/>
+<field columnName="QUERY" dataType="_text" fieldType="data" name="query" sqlTypeName="VARCHAR" />
+</fields>
+</record>

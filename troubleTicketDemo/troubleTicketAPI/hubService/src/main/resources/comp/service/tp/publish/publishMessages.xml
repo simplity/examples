@@ -3,8 +3,8 @@
 	moduleName="publish">
 	<actions>
 		<setValue fieldName="url" expression="concat(callback,'?correlationId=',correlationId)"
-			executeOnCondition="action=='update'"></setValue>	
-		<httpClient httpMethod="POST" urlString="$callback"
+			executeOnCondition="action=='add'"></setValue>	
+		<httpClient httpMethod="POST" urlString="$url"
 			contentType="application/json" executeOnCondition="action=='add'">
 			<requestData>
 				<outputRecords>
