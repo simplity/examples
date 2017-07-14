@@ -1,12 +1,14 @@
 package org.simplity.examples.cache;
 
 import org.simplity.examples.model.CacheObject;
-import org.simplity.kernel.Tracer;
+import org.simplity.kernel.Application;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.kernel.data.InputField;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
 import org.simplity.tp.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
@@ -18,6 +20,8 @@ import com.whalin.MemCached.SockIOPool;
  *
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
+	static final Logger logger = LoggerFactory.getLogger(Application.class);
+
 	SockIOPool pool;
 	MemCachedClient mcc;
 	private String[] fieldNames;
@@ -43,24 +47,25 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	@Override
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
-		CacheObject object = (CacheObject) mcc.get(getInDataKey(serviceName,inData));
-		Tracer.trace("Responding from cache");
+		CacheObject object = (CacheObject) mcc.get(getInDataKey(serviceName, inData));
+		logger.info("Responding from cache");
 		return object.getOutData();
 	}
 
 	@Override
 	public void cache(ServiceData inData, ServiceData outData) {
 		// Get the Memcached Client from SockIOPool named Test1
-		Tracer.trace("Added to trace");
+		logger.info("Added to trace");
 		String serviceName = inData.getServiceName();
 		CacheObject object = new CacheObject(inData, outData, serviceName);
-		mcc.add(getInDataKey(inData.getServiceName(),inData), object);
+		mcc.add(getInDataKey(inData.getServiceName(), inData), object);
 	}
+
 	@Override
 
 	public void invalidate(String serviceName, ServiceData inData) {
-		Tracer.trace("Invalidate entry for viewTodos");
-		System.out.println(mcc.delete(getInDataKey(serviceName,inData)));
+		logger.info("Invalidate entry for viewTodos");
+		System.out.println(mcc.delete(getInDataKey(serviceName, inData)));
 	}
 
 	/**
@@ -69,34 +74,34 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	 * @param text
 	 * @return
 	 */
-	private String getInDataKey(String serviceName,ServiceData inData) {
+	private String getInDataKey(String serviceName, ServiceData inData) {
 		StringBuilder sbf = new StringBuilder();
 		String fieldsToCache = null;
-		if(serviceName.equals(inData.getServiceName())){
+		if (serviceName.equals(inData.getServiceName())) {
 			fieldsToCache = inData.getCacheForInput();
-			if(fieldsToCache != null){
-				if(fieldsToCache.isEmpty()){
+			if (fieldsToCache != null) {
+				if (fieldsToCache.isEmpty()) {
 					this.fieldNames = inData.getFieldNames().toArray(new String[0]);
-				}else{
+				} else {
 					this.fieldNames = fieldsToCache.split(",");
 				}
 			}
-		}else{
+		} else {
 			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
-			if(service != null){
+			if (service != null) {
 				fieldsToCache = service.getFieldsToCache();
-				if(fieldsToCache != null){
-					if(fieldsToCache.isEmpty()){
+				if (fieldsToCache != null) {
+					if (fieldsToCache.isEmpty()) {
 						int i = 0;
-						for(InputField field:service.getInputData().getInputFields()){
-						this.fieldNames[i] = field.getName();
-						i++;
+						for (InputField field : service.getInputData().getInputFields()) {
+							this.fieldNames[i] = field.getName();
+							i++;
 						}
-					}else{
+					} else {
 						this.fieldNames = fieldsToCache.split(",");
 					}
 				}
-			}else{
+			} else {
 				return null;
 			}
 		}
@@ -107,9 +112,8 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 			if (obj != null) {
 				sbf.append(obj);
 			}
-		}			
+		}
 		return sbf.toString();
 	}
-	
-	
+
 }

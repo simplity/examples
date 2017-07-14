@@ -24,7 +24,7 @@ package org.simplity.examples;
 
 import java.util.Arrays;
 
-import org.simplity.kernel.Tracer;
+import org.simplity.kernel.ApplicationError;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
@@ -32,6 +32,8 @@ import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
 import org.simplity.service.ServiceProtocol;
 import org.simplity.tp.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.whalin.MemCached.MemCachedClient;
 import com.whalin.MemCached.SockIOPool;
@@ -43,7 +45,7 @@ import com.whalin.MemCached.SockIOPool;
  *
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
-
+	static final Logger logger = LoggerFactory.getLogger(SimpleMemCacheManager.class);
 	private SockIOPool sockIOPool;
 	private MemCachedClient memCachedClient;
 
@@ -68,12 +70,12 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	public ServiceData respond(ServiceData inData) {
 		String serviceName = inData.getServiceName();
 		String fieldsForHash = inData.getCacheForInput();
-		String cacheInputKey = this.getHash(serviceName,inData,fieldsForHash);
+		String cacheInputKey = this.getHash(serviceName, inData, fieldsForHash);
 		Object obj = memCachedClient.get(cacheInputKey);
-		if(obj != null) {
+		if (obj != null) {
 			CacheValueObject cacheValueObject = (CacheValueObject) obj;
 			ServiceData outData = cacheValueObject.getOutData();
-			Tracer.trace("Responding from cache");
+			logger.info("Responding from cache");
 			return outData;
 		}
 		return null;
@@ -96,7 +98,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 					fields = newFields;
 				}
 			}
-			for(String field:fields){
+			for (String field : fields) {
 				hashKey += inData.get(field).hashCode();
 			}
 		}
@@ -115,39 +117,39 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		cacheValueObject.setOutData(outData);
 		String cacheKey = this.getHash(serviceName, inData, fieldsForHash);
 		boolean successFlag = false;
-		if(memCachedClient.keyExists(cacheKey)) {
+		if (memCachedClient.keyExists(cacheKey)) {
 			memCachedClient.set(cacheKey, cacheValueObject);
 			successFlag = true;
 		} else {
 			memCachedClient.add(cacheKey, cacheValueObject);
 			successFlag = true;
 		}
-		if(successFlag) {
-			Tracer.trace("Added to cache");
+		if (successFlag) {
+			logger.info("Added to cache");
 			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
-			if(service.getCacheRefreshTime() != null) {
+			if (service.getCacheRefreshTime() != null) {
 				int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
-				String payLoad = "{'cacheKey':'" + cacheKey + "',"
-						+ "'refreshTimePeriod':" + cacheRefreshTime + ","
+				String payLoad = "{'cacheKey':'" + cacheKey + "'," + "'refreshTimePeriod':" + cacheRefreshTime + ","
 						+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
-				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad, PayloadType.JSON);
-				if(!outData1.hasErrors())
-					Tracer.trace("cache key added to the database");
+				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad,
+						PayloadType.JSON);
+				if (!outData1.hasErrors())
+					logger.info("cache key added to the database");
 			} else {
-				Tracer.trace("cache refresh is not enabled for this service");
+				logger.info("cache refresh is not enabled for this service");
 			}
 		} else {
-			Tracer.trace("Error in adding data to the cache");
+			logger.info("Error in adding data to the cache");
 		}
 	}
 
 	@Override
 	public void invalidate(String cacheKey, ServiceData inData) {
-		Tracer.trace("Invalidate entry for viewTodos");
-		if(memCachedClient.delete(cacheKey))
-			Tracer.trace("viewTodos - key deleted");
+		logger.info("Invalidate entry for viewTodos");
+		if (memCachedClient.delete(cacheKey))
+			logger.info("viewTodos - key deleted");
 		else
-			Tracer.trace("viewTodos - unable to delete the key");
+			logger.info("viewTodos - unable to delete the key");
 	}
 
 	public Object readMemCacheData(String key) {
