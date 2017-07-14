@@ -2,15 +2,17 @@ package org.simplity.examples.logic;
 
 import org.simplity.examples.CacheValueObject;
 import org.simplity.examples.SimpleMemCacheManager;
-import org.simplity.kernel.Tracer;
 import org.simplity.kernel.data.DataSheet;
 import org.simplity.kernel.value.Value;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceContext;
 import org.simplity.service.ServiceData;
 import org.simplity.tp.LogicInterface;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MemCacheRefresh implements LogicInterface {
+	static final Logger logger = LoggerFactory.getLogger(MemCacheRefresh.class);
 
 	@Override
 	public Value execute(ServiceContext ctx) {
@@ -40,12 +42,12 @@ public class MemCacheRefresh implements LogicInterface {
 					ServiceData outData = JavaAgent.getAgent("100", null).serve(serviceName, inData.getPayLoad());
 					 
 					if(!outData.hasErrors()) {
-						Tracer.trace("Data refreshed successfully in the memcache for the key - " + cacheKey);
+						logger.info("Data refreshed successfully in the memcache for the key - " + cacheKey);
 					}
 					Value updatedLastRefreshTime = Value.newTextValue(String.valueOf(System.currentTimeMillis()));
 					memcacheKeysSheet.setColumnValue("lastRefreshTime", i, updatedLastRefreshTime);
 				} else {
-					Tracer.trace("Data not available in the memcache");
+					logger.info("Data not available in the memcache");
 				}
 			}
 		}

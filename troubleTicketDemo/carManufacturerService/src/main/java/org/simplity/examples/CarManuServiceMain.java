@@ -2,17 +2,22 @@ package org.simplity.examples;
 
 import java.io.File;
 import java.net.URI;
+
+import javax.servlet.ServletRegistration;
+
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.servlet.WebappContext;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.simplity.examples.filter.CorsFilter;
-import org.simplity.examples.filter.CarManuEntryFilter;
 import org.simplity.kernel.Application;
+import org.simplity.rest.Operations;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CarManuServiceMain {
 	public static HttpServer server;
+	final static Logger logger = LoggerFactory.getLogger(CarManuServiceMain.class);
 
 	public static void main(String[] args) {
 
@@ -22,25 +27,26 @@ public class CarManuServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				CarManuServiceConfig.setApiPath(folder + "openapi" + File.separator + "carManu_troubleTicket.json");
+				Operations.loadAll(folder+"/openapi/");
 			} catch (Exception e) {
-				System.err.println("error while bootstrapping with compFolder=" + folder);
-				e.printStackTrace(System.err);
+				logger.error("error while bootstrapping with compFolder=" + folder,e);
 				return;
 			}
+			WebappContext wContext = new WebappContext("Car Context");
+			
+			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
+			rRegistration.addMapping("api");
 
-			ResourceConfig rc = new CarManuServiceConfig();
-			rc.register(CarManuEntryFilter.class);
-			rc.register(CorsFilter.class);
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8086"));
+			wContext.deploy(server);
 
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8086/api"), rc);
 			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
 			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
-			
+
 			server.start();
 			Thread.currentThread().join();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error in Service",e);
 			server.shutdown();
 		}
 	}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="Hub" okToSelectAll="true" recordType="storage" xmlns="http://www.simplity.org/schema">
+<fields>
+<field dataType="_text" fieldType="data" name="query"/>
+<field dataType="_text" fieldType="data" name="callback"/>
+<field dataType="_text" fieldType="data" name="id"/>
+</fields>
+</record>

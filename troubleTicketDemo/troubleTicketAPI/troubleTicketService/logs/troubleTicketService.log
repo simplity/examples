@@ -1,0 +1,146 @@
+troubleTicketService [INFO ]  2017 10:47:20.324 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\troubleTicketService\target\comp\
+troubleTicketService [INFO ]  2017 10:47:20.346 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\troubleTicketService\target\comp\/
+troubleTicketService [INFO ]  2017 10:47:20.348 [main] ComponentType - 0 java class names loaded as services.
+troubleTicketService [INFO ]  2017 10:47:20.348 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\troubleTicketService\target\comp\/dt/kernel.xml
+troubleTicketService [INFO ]  2017 10:47:20.365 [main] ComponentType - 11 DataType loaded.
+troubleTicketService [INFO ]  2017 10:47:20.366 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\troubleTicketService\target\comp\/msg/kernel.xml
+troubleTicketService [INFO ]  2017 10:47:20.374 [main] ComponentType - 27 Message loaded.
+troubleTicketService [INFO ]  2017 10:47:20.374 [main] ComponentType - 0 Function loaded.
+troubleTicketService [INFO ]  2017 10:47:20.374 [main] ComponentType - components pre-loaded
+troubleTicketService [INFO ]  2017 10:47:20.410 [main] DbDriver - dbVendor is set to H2
+troubleTicketService [INFO ]  2017 10:47:20.414 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+troubleTicketService [INFO ]  2017 10:47:20.725 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+troubleTicketService [INFO ]  2017 10:47:20.803 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+troubleTicketService [INFO ]  2017 10:47:20.803 [main] Application - No logging framework set by application designer. All service logs will be emitted to console. (System.out)
+troubleTicketService [INFO ]  2017 10:47:20.812 [main] Jobs - Default User Id is not specified either at app level or at Jobs level. If they are indeed required in a service, and the job has not speicified, we will end up using a dummy value of 100
+troubleTicketService [INFO ]  2017 10:47:20.817 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+troubleTicketService [INFO ]  2017 10:47:20.867 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+troubleTicketService [INFO ]  2017 10:47:20.868 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+troubleTicketService [INFO ]  2017 10:47:20.873 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+troubleTicketService [INFO ]  2017 10:47:20.896 [main] Application - Scheduler started for Batch listenerJob
+troubleTicketService [INFO ]  2017 10:47:20.905 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+troubleTicketService [INFO ]  2017 10:47:20.980 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/target/comp/openapi/tt_troubleTicket.json
+troubleTicketService [TRACE]  2017 10:47:22.350 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@42856b67[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] with await termination: 0 millis
+troubleTicketService [DEBUG]  2017 10:47:22.354 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@42856b67[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+troubleTicketService [DEBUG]  2017 10:47:22.355 [pool-2-thread-1] TcpTransport - Stopping transport tcp://127.0.0.1:61616
+troubleTicketService [DEBUG]  2017 10:47:22.360 [pool-2-thread-1] TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@5e920cba[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+troubleTicketService [TRACE]  2017 10:47:22.360 [pool-2-thread-1] TaskRunnerFactory - Execute[ActiveMQ Task] runnable: org.apache.activemq.transport.tcp.TcpTransport$1@181f5cb3
+troubleTicketService [TRACE]  2017 10:47:22.360 [pool-2-thread-1] TaskRunnerFactory - Created thread[ActiveMQ Task-1]: Thread[ActiveMQ Task-1,5,main]
+troubleTicketService [TRACE]  2017 10:47:22.370 [ActiveMQ Task-1] TcpTransport - Closing socket Socket[unconnected]
+troubleTicketService [DEBUG]  2017 10:47:22.372 [ActiveMQ Task-1] TcpTransport - Closed socket Socket[unconnected]
+troubleTicketService [DEBUG]  2017 10:47:22.374 [pool-2-thread-1] ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@5e920cba[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+troubleTicketService [TRACE]  2017 10:47:22.375 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@5e920cba[Shutting down, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1] is shutdown: true and terminated: false.
+troubleTicketService [ERROR]  2017 10:47:22.376 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:142) [classes/:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:123) [classes/:?]
+	at org.simplity.tp.Service.executeService(Service.java:290) [classes/:?]
+	at org.simplity.tp.Service.respond(Service.java:256) [classes/:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [classes/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_111]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_111]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_111]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_111]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_111]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_111]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_111]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_111]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+troubleTicketService [ERROR]  2017 10:47:22.383 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:155) ~[classes/:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:123) ~[classes/:?]
+	at org.simplity.tp.Service.executeService(Service.java:290) ~[classes/:?]
+	at org.simplity.tp.Service.respond(Service.java:256) ~[classes/:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [classes/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_111]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_111]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_111]
+troubleTicketService [INFO ]  2017 10:47:22.383 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+troubleTicketService [INFO ]  2017 10:47:22.383 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+troubleTicketService [TRACE]  2017 10:47:23.394 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2bc61a86[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] with await termination: 0 millis
+troubleTicketService [DEBUG]  2017 10:47:23.394 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2bc61a86[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+troubleTicketService [DEBUG]  2017 10:47:23.394 [pool-2-thread-1] TcpTransport - Stopping transport tcp://127.0.0.1:61616
+troubleTicketService [DEBUG]  2017 10:47:23.395 [pool-2-thread-1] TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@3632aa8b[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+troubleTicketService [TRACE]  2017 10:47:23.395 [pool-2-thread-1] TaskRunnerFactory - Execute[ActiveMQ Task] runnable: org.apache.activemq.transport.tcp.TcpTransport$1@7ebef0b6
+troubleTicketService [TRACE]  2017 10:47:23.395 [pool-2-thread-1] TaskRunnerFactory - Created thread[ActiveMQ Task-1]: Thread[ActiveMQ Task-1,5,main]
+troubleTicketService [TRACE]  2017 10:47:23.396 [ActiveMQ Task-1] TcpTransport - Closing socket Socket[unconnected]
+troubleTicketService [DEBUG]  2017 10:47:23.396 [ActiveMQ Task-1] TcpTransport - Closed socket Socket[unconnected]
+troubleTicketService [DEBUG]  2017 10:47:23.396 [pool-2-thread-1] ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@3632aa8b[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+troubleTicketService [TRACE]  2017 10:47:23.396 [pool-2-thread-1] ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@3632aa8b[Shutting down, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1] is shutdown: true and terminated: false.
+troubleTicketService [ERROR]  2017 10:47:23.396 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:142) [classes/:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:123) [classes/:?]
+	at org.simplity.tp.Service.executeService(Service.java:290) [classes/:?]
+	at org.simplity.tp.Service.respond(Service.java:256) [classes/:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [classes/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_111]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_111]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_111]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_111]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_111]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_111]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_111]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_111]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_111]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+troubleTicketService [ERROR]  2017 10:47:23.398 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:155) ~[classes/:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:123) ~[classes/:?]
+	at org.simplity.tp.Service.executeService(Service.java:290) ~[classes/:?]
+	at org.simplity.tp.Service.respond(Service.java:256) ~[classes/:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [classes/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_111]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_111]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_111]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_111]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_111]

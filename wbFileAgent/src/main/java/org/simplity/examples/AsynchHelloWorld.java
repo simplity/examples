@@ -23,7 +23,6 @@
 package org.simplity.examples;
 
 import org.simplity.kernel.ApplicationError;
-import org.simplity.kernel.Tracer;
 import org.simplity.kernel.value.Value;
 import org.simplity.service.ServiceContext;
 import org.simplity.tp.LogicInterface;
@@ -41,13 +40,13 @@ public class AsynchHelloWorld implements LogicInterface {
 	public Value execute(ServiceContext arg0) {
 		// We want to put some arbitrary delay to simulate an external task
 		long l = Math.round(10000 * Math.random());
-		Tracer.trace("James Bond " + "started, but will take a nap for " + l + "ns");
+		System.out.println("James Bond " + "started, but will take a nap for " + l + "ns");
 		try {
 			Thread.sleep(l);
 		} catch (InterruptedException e) {
 			throw new ApplicationError("James Bond is interrupted. Can you beleive that!!!");
 		}
-		Tracer.trace("My Name is Bond.. James Bond");
+		System.out.println("My Name is Bond.. James Bond");
 		return Value.VALUE_TRUE;
 	}
 }
