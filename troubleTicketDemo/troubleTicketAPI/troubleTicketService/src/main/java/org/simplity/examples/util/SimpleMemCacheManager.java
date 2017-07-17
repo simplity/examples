@@ -2,7 +2,7 @@ package org.simplity.examples.util;
 
 import org.simplity.examples.model.CacheValueObject;
 import org.simplity.kernel.comp.ComponentManager;
-import org.simplity.kernel.data.InputField;
+import org.simplity.service.InputField;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceCacheManager;

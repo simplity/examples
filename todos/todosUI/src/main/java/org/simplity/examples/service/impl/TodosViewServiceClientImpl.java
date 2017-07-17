@@ -2,13 +2,12 @@ package org.simplity.examples.service.impl;
 
 import javax.ws.rs.core.Response;
 
+import org.simplity.examples.service.TodosViewServiceClient;
 import org.simplity.kernel.value.Value;
+import org.simplity.service.InputData;
+import org.simplity.service.OutputData;
 import org.simplity.service.ServiceContext;
 import org.simplity.tp.HttpClient;
-import org.simplity.kernel.data.InputData;
-import org.simplity.kernel.data.OutputData;
-
-import org.simplity.examples.service.TodosViewServiceClient;
 
 public class TodosViewServiceClientImpl implements TodosViewServiceClient {
 	/**

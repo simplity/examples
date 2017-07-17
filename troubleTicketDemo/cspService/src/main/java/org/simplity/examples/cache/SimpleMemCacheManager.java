@@ -3,7 +3,7 @@ package org.simplity.examples.cache;
 import org.simplity.examples.model.CacheObject;
 import org.simplity.kernel.Application;
 import org.simplity.kernel.comp.ComponentManager;
-import org.simplity.kernel.data.InputField;
+import org.simplity.service.InputField;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
 import org.simplity.tp.Service;

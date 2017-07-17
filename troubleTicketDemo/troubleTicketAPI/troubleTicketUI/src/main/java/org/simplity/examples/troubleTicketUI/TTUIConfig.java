@@ -7,9 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MediaType;
@@ -51,7 +53,7 @@ public class TTUIConfig extends ResourceConfig {
 		resourceBuilder.path(swagger.getBasePath());
 
 		Map<String, Path> paths = swagger.getPaths();
-		List<String> scopes = new ArrayList<String>();
+		Set<String> scopes = new HashSet<String>();
 		boolean authFlag = false;
 		secDefs = swagger.getSecurityDefinitions();
 		if (swagger.getSecurity() != null) {
