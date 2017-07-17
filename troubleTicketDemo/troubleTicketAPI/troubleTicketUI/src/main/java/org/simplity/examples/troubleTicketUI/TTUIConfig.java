@@ -153,6 +153,13 @@ public class TTUIConfig extends ResourceConfig {
 												+ "access_token=" + accessCode + "&correlationId="
 												+ MDC.get("correlationId");
 
+										for(Entry<String, List<String>> parm:request.getUriInfo().getQueryParameters().entrySet()){
+											if(parm.getKey().equals("access_token") || parm.getKey().equals("correlationId") || parm.getKey().equals("code")){
+												continue;
+											}
+											url += "&" + parm.getKey() + "=" + parm.getValue().get(0);
+										}
+
 										logger.info("fetch the token "+url);
 										output = getHttpResponse(url, request.getMethod(), true, request);
 									}

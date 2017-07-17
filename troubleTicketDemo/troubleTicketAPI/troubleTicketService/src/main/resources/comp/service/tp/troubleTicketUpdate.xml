@@ -23,9 +23,9 @@
 		</inputRecords>
 	</inputData>
 	<actions>
-	<log names="correlationId"/>
+		<log names="correlationId"/>
 		<setValue fieldName="action" fieldValue="update"></setValue>
-		<save saveAction="save" recordName="TroubleTicket">
+		<save saveAction="save" recordName="TroubleTicket" >
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject" />
 				<relatedRecord sheetName="relatedParties" recordName="RelatedParty" />

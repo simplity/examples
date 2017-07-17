@@ -4,3 +4,15 @@
 2017-07-11 23:04:54,503 INFO o.s.e.t.O.e.LoginEndpoint [grizzly-http-server-2] sending the scope details
 2017-07-11 23:05:02,246 INFO o.s.e.t.O.e.LoginEndpoint [grizzly-http-server-6] authorization succeeded
 [INFO ]  2017 23:15:16.845 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ]  2017 15:22:52.710 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 96bbb8cf2 2017 15:23:45.891 [grizzly-http-server-1] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 96bbb8cf2 2017 15:24:04.273 [grizzly-http-server-3] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ] 96bbb8cf2 2017 16:29:12.574 [grizzly-http-server-2] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 96bbb8cf2 2017 16:29:20.520 [grizzly-http-server-2] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 16:46:25.028 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ]  2017 17:51:34.906 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] f3aef7515 2017 17:52:46.247 [grizzly-http-server-2] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] f3aef7515 2017 17:52:54.963 [grizzly-http-server-1] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 10:11:13.883 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 42bbf0df0 2017 10:12:32.474 [grizzly-http-server-2] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 42bbf0df0 2017 10:12:45.217 [grizzly-http-server-0] LoginEndpoint - authorization succeeded

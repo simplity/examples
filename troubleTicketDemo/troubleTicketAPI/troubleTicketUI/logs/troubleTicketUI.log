@@ -17,3 +17,220 @@
 [INFO ]  2017 23:14:57.836 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
 [INFO ] 6008a0f36 2017 23:21:07.338 [grizzly-http-server-5] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=5ecb91ddb528fb98827ce514bfcc8130&correlationId=6008a0f36
 [INFO ] bd09f649c 2017 23:21:14.295 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=7c6eb66ee0bec82bdadaf289c8193823&correlationId=bd09f649c
+troubleTicketUI [INFO ]  2017 15:23:03.392 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 96bbb8cf2 2017 15:23:43.417 [grizzly-http-server-1] TTUIConfig - redirect to authorize request
+troubleTicketUI [INFO ] 96bbb8cf2 2017 15:24:04.526 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=b6e2312ea1d3eee25eedd25fe273f402&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:19:24.322 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=e7b777463f2ec5c761f85e1df394f23e&correlationId=96bbb8cf2
+troubleTicketUI [ERROR] 96bbb8cf2 2017 16:19:25.439 [grizzly-http-server-2] TTUIConfig - Error in service
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_66]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_66]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_66]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:538) ~[?:1.8.0_66]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1105) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441) ~[?:1.8.0_66]
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480) ~[?:1.8.0_66]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.getHttpResponse(TTUIConfig.java:213) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.access$200(TTUIConfig.java:38) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:157) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:121) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_66]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_66]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_66]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_66]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:205) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:384) [jersey-container-grizzly2-http-2.25.1.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:224) [grizzly-http-server-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593) [grizzly-framework-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573) [grizzly-framework-2.3.28.jar:2.3.28]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_66]
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:19:46.502 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=da9160723fa10a435b82cf98391833b8&correlationId=96bbb8cf2
+troubleTicketUI [ERROR] 96bbb8cf2 2017 16:19:47.534 [grizzly-http-server-1] TTUIConfig - Error in service
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_66]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_66]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_66]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:538) ~[?:1.8.0_66]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1105) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441) ~[?:1.8.0_66]
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480) ~[?:1.8.0_66]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.getHttpResponse(TTUIConfig.java:213) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.access$200(TTUIConfig.java:38) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:157) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:121) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_66]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_66]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_66]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_66]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:205) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:384) [jersey-container-grizzly2-http-2.25.1.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:224) [grizzly-http-server-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593) [grizzly-framework-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573) [grizzly-framework-2.3.28.jar:2.3.28]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_66]
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:20:57.387 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=b96e2b7ec81f8936a679ea43e5208b59&correlationId=96bbb8cf2
+troubleTicketUI [ERROR] 96bbb8cf2 2017 16:20:58.485 [grizzly-http-server-1] TTUIConfig - Error in service
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_66]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_66]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_66]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_66]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_66]
+	at java.net.Socket.connect(Socket.java:538) ~[?:1.8.0_66]
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308) ~[?:1.8.0_66]
+	at sun.net.www.http.HttpClient.New(HttpClient.java:326) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1169) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1105) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:999) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:933) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1513) ~[?:1.8.0_66]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441) ~[?:1.8.0_66]
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480) ~[?:1.8.0_66]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.getHttpResponse(TTUIConfig.java:213) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig.access$200(TTUIConfig.java:38) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:157) [classes/:?]
+	at org.simplity.examples.troubleTicketUI.TTUIConfig$1.apply(TTUIConfig.java:121) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_66]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_66]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_66]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_66]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:205) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) [jersey-common-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) [jersey-server-2.25.1.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:384) [jersey-container-grizzly2-http-2.25.1.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:224) [grizzly-http-server-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593) [grizzly-framework-2.3.28.jar:2.3.28]
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573) [grizzly-framework-2.3.28.jar:2.3.28]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_66]
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:22:00.891 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=dc6786f3f67771382e86b8b07fbcb820&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:22:51.480 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=62c42ee0f2a3d9d6cb8ccdb2006d25ae&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 084636d83 2017 16:22:55.994 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/1?access_token=8c9dbe2c12799188d607835d0af5fb5f&correlationId=084636d83
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:23:21.076 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=41e9314e7cb831df6a03a3ff670bcbf9&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:23:34.171 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=edc8fcf6b4d2345fe73a75933f4b51c6&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:23:47.690 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=cf1d4ced6afe7d7c6a123e035aa52967&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:24:18.656 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=0e621c5670a4e8bcb635671c608f1909&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:28:36.026 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=0c081f05b7f9b927c92305fed0a24da0&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:28:51.111 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=9aa7a4f0977153a75544103520a7b31e&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:28:56.144 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=e227aa7b8c5e8d0d884103e76830a0dd&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:29:21.168 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=f546a15d6635ba545efe2ba1ddf752b6&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:29:24.940 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=81d9be41878f682638f935c58f55124f&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:31:47.218 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=b8a36fa353c514d71b83fa86f55b5938&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:32:01.357 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=5248479245371ccd1d6b3b7df2b1cf72&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:34:22.108 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=dbc5e003829ccb578607cbb97fd919f4&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:34:48.827 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=9cca8014ddf11d49677ddffbf2ec2f7b&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:35:46.209 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=f56dbd992f7ea31174cf9bc7fc432778&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:38:12.062 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=19d58c1918645cc88e354d82ab226bb9&correlationId=96bbb8cf2
+troubleTicketUI [INFO ]  2017 16:46:10.274 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:46:53.289 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=3b4c82c4970aac61b16469bc78f3db66&correlationId=96bbb8cf2&code=[549b110ef6e5af5209519d743e42b14a]&correlationId=[96bbb8cf2]
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:47:10.422 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=53a3a23b8a182e8e59b0b3685faa6333&correlationId=96bbb8cf2&code=[549b110ef6e5af5209519d743e42b14a]&correlationId=[96bbb8cf2]&id=[34]
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:50:15.434 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=191feb50be495175468fb6764e0ba71e&correlationId=96bbb8cf2&id=35
+troubleTicketUI [INFO ]  2017 16:55:46.532 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:56:05.697 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=04dceb3a46148ac2fea6b786f9f29b80&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:56:22.032 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/2?access_token=be8af0f603e5f92e5582bb640d8c125c&correlationId=96bbb8cf2
+troubleTicketUI [INFO ]  2017 16:58:31.813 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:58:47.127 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=5bf212123a26408628fca693e0b44183&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 16:58:57.358 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/35?access_token=bc8f25739a9677761af38267b96c6c07&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 5c6d3ca50 2017 16:59:32.451 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/2?access_token=80f9f6d066f922486de4a5c9a194b84e&correlationId=5c6d3ca50
+troubleTicketUI [INFO ] 96bbb8cf2 2017 17:00:06.554 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=e5a3d18f87b8b6496b15195c8505bc4e&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 17:22:00.573 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=07cd861ae5a7f1928c5b23f89cf39d26&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 17:27:20.411 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=030036b10e3404c85d059114ab8eed92&correlationId=96bbb8cf2
+troubleTicketUI [INFO ] 96bbb8cf2 2017 17:27:31.987 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=466e40d208cee3babbbb45c2020f43ae&correlationId=96bbb8cf2
+troubleTicketUI [INFO ]  2017 17:52:18.774 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] f3aef7515 2017 17:52:43.081 [grizzly-http-server-2] TTUIConfig - redirect to authorize request
+troubleTicketUI [INFO ] f3aef7515 2017 17:52:55.390 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=404eb96810a5ee662d546c959e934b38&correlationId=f3aef7515
+troubleTicketUI [INFO ] 4816f0fef 2017 17:53:59.591 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=6ca0e6327a72390659993660ecba6a5d&correlationId=4816f0fef
+troubleTicketUI [INFO ] f3aef7515 2017 17:54:03.076 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=8fcbba6af0ad0efb30d71ec87ce57e0f&correlationId=f3aef7515
+troubleTicketUI [INFO ] f3aef7515 2017 17:55:39.361 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=713a111833b66dc4803c7ceb3aa765ba&correlationId=f3aef7515
+troubleTicketUI [INFO ] f3aef7515 2017 17:59:00.148 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=fb0af5332cd643a0c177306a402e88bb&correlationId=f3aef7515
+troubleTicketUI [INFO ] 29d2aefbb 2017 18:02:17.209 [grizzly-http-server-3] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=79aadbea73b6a44cca6a74fba97de188&correlationId=29d2aefbb
+troubleTicketUI [INFO ] 8c7bd7eba 2017 18:07:02.856 [grizzly-http-server-2] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=1f4620cfd8029674486e59ceddf5000a&correlationId=8c7bd7eba
+troubleTicketUI [INFO ] d865d80d5 2017 18:07:36.316 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=5562114b7f43e7ae22ffd41ef488fbd3&correlationId=d865d80d5
+troubleTicketUI [INFO ]  2017 18:08:19.356 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 8d0b3550a 2017 18:09:26.788 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=04a77e5771235de143978da64cbf8ab4&correlationId=8d0b3550a
+troubleTicketUI [INFO ]  2017 10:11:25.034 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketUI/target/comp/openapi/ttui_troubleTicket.json
+troubleTicketUI [INFO ] 42bbf0df0 2017 10:12:26.088 [grizzly-http-server-1] TTUIConfig - redirect to authorize request
+troubleTicketUI [INFO ] 42bbf0df0 2017 10:12:55.229 [grizzly-http-server-0] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket?access_token=dfb0fa2496172ab3f2f8162cac90eb57&correlationId=42bbf0df0
+troubleTicketUI [INFO ] 235b76a16 2017 10:13:43.938 [grizzly-http-server-1] TTUIConfig - fetch the token http://localhost:8085/api/troubleTicket/?access_token=161a754bb2c9326656defd54b9360850&correlationId=235b76a16

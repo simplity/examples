@@ -3,7 +3,7 @@
 	xmlns="http://www.simplity.org/schema"
 	name="jmsListener"
 	moduleName="jms"
-	dbAccessType="subService"
+	dbAccessType="none"
 	jmsUsage="notManaged">
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
@@ -19,7 +19,7 @@
 			</requestDestination>
 			<actions>
 				<log names="correlationId" setMDC="true"></log>
-				<setValue fieldName="fromBatch" fieldValue="true"></setValue>
+				<setValue actionName="fromBatch" fieldName="fromBatch" fieldValue="true"></setValue>
 				<logic className="org.simplity.examples.logic.InvokeUpdate"/>
 			</actions>
 		</jmsConsumer>
