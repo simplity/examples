@@ -16,3 +16,9 @@ OAuthServer [INFO ] f3aef7515 2017 17:52:54.963 [grizzly-http-server-1] LoginEnd
 OAuthServer [INFO ]  2017 10:11:13.883 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
 OAuthServer [INFO ] 42bbf0df0 2017 10:12:32.474 [grizzly-http-server-2] LoginEndpoint - sending the scope details
 OAuthServer [INFO ] 42bbf0df0 2017 10:12:45.217 [grizzly-http-server-0] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 16:23:11.196 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 1574cc33b 2017 16:23:38.542 [grizzly-http-server-1] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 1574cc33b 2017 16:23:48.535 [grizzly-http-server-0] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 11:32:02.963 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] a9785cb24 2017 11:32:58.280 [grizzly-http-server-3] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] a9785cb24 2017 11:33:07.604 [grizzly-http-server-0] LoginEndpoint - authorization succeeded

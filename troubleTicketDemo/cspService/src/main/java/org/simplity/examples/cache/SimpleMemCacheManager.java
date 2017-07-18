@@ -1,9 +1,10 @@
 package org.simplity.examples.cache;
 
-import org.simplity.examples.model.CacheObject;
-import org.simplity.kernel.Application;
+import org.simplity.examples.model.CacheValueObject;
 import org.simplity.kernel.comp.ComponentManager;
 import org.simplity.service.InputField;
+import org.simplity.service.JavaAgent;
+import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
 import org.simplity.tp.Service;
@@ -20,101 +21,83 @@ import com.whalin.MemCached.SockIOPool;
  *
  */
 public class SimpleMemCacheManager implements ServiceCacheManager {
-  static final Logger logger = LoggerFactory.getLogger(Application.class);
-
-	SockIOPool pool;
-	MemCachedClient mcc;
+	static final Logger logger = LoggerFactory.getLogger(SimpleMemCacheManager.class);
+	private SockIOPool sockIOPool;
+	private MemCachedClient memCachedClient;
 	private String[] fieldNames;
-
+	
 	public SimpleMemCacheManager() {
-		pool = SockIOPool.getInstance("default");
+		sockIOPool = SockIOPool.getInstance("default");
 		String[] servers = { "localhost:11211" };
-		pool.setServers(servers);
-		pool.setFailover(true);
-		pool.setInitConn(10);
-		pool.setMinConn(5);
-		pool.setMaxConn(250);
-		pool.setMaintSleep(30);
-		pool.setNagle(false);
-		pool.setSocketTO(3000);
-		pool.setAliveCheck(true);
-		pool.initialize();
+		sockIOPool.setServers(servers);
+		sockIOPool.setFailover(true);
+		sockIOPool.setInitConn(10);
+		sockIOPool.setMinConn(5);
+		sockIOPool.setMaxConn(250);
+		sockIOPool.setMaintSleep(30);
+		sockIOPool.setNagle(false);
+		sockIOPool.setSocketTO(3000);
+		sockIOPool.setAliveCheck(true);
+		sockIOPool.initialize();
 
-		mcc = new MemCachedClient("default");
-
+		memCachedClient = new MemCachedClient("default");		
 	}
 
 	@Override
-	public ServiceData respond(ServiceData inData) {
-		String serviceName = inData.getServiceName();
-		CacheObject object = (CacheObject) mcc.get(getInDataKey(serviceName,inData));
-		logger.info("Responding from cache");
-		return object.getOutData();
-	}
-
-	@Override
-	public void cache(ServiceData inData, ServiceData outData) {
-		// Get the Memcached Client from SockIOPool named Test1
-		logger.info("Added to trace");
-		String serviceName = inData.getServiceName();
-		CacheObject object = new CacheObject(inData, outData, serviceName);
-		mcc.add(getInDataKey(inData.getServiceName(),inData), object);
-	}
-
-
-	@Override
-	public void invalidate(String serviceName, ServiceData inData) {
-		logger.info("Invalidate entry for viewTodos");
-		System.out.println(mcc.delete(getInDataKey(serviceName,inData)));
-	}
-
-	/**
-	 * generate index key based on input field values
-	 *
-	 * @param text
-	 * @return
-	 */
-	private String getInDataKey(String serviceName,ServiceData inData) {
-		StringBuilder sbf = new StringBuilder();
-		String fieldsToCache = null;
-		if(serviceName.equals(inData.getServiceName())){
-			fieldsToCache = inData.getCacheForInput();
-			if(fieldsToCache != null){
-				if(fieldsToCache.isEmpty()){
-					this.fieldNames = inData.getFieldNames().toArray(new String[0]);
-				}else{
-					this.fieldNames = fieldsToCache.split(",");
-				}
-			}
-		}else{
-			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
-			if(service != null){
-				fieldsToCache = service.getFieldsToCache();
-				if(fieldsToCache != null){
-					if(fieldsToCache.isEmpty()){
-						int i = 0;
-						for(InputField field:service.getInputData().getInputFields()){
-						this.fieldNames[i] = field.getName();
-						i++;
-						}
-					}else{
-						this.fieldNames = fieldsToCache.split(",");
-					}
-				}
-			}else{
-				return null;
-			}
+	public ServiceData respond(String key) {
+		CacheValueObject obj = (CacheValueObject) memCachedClient.get(key);		
+		if(obj != null){
+			logger.info("Responding from cache");
+			return obj.getOutData();
 		}
-		sbf.append('\0');
-		sbf.append(serviceName);
-		for (String nam : this.fieldNames) {
-			Object obj = inData.get(nam);
-			if (obj != null) {
-				sbf.append(obj);
-			}
-		}			
-		return sbf.toString();
+		return null;
 	}
-	
-	
+
+
+	@Override
+	public void cache(ServiceData inputData,ServiceData outData) {
+		// Get the Memcached Client from SockIOPool named Test1
+		CacheValueObject obj = new CacheValueObject(inputData, outData, inputData.getServiceName());
+		String cacheKey = outData.getCacheKey();
+		boolean successFlag = false;
+		if(memCachedClient.keyExists(cacheKey)) {
+			memCachedClient.set(cacheKey, obj);
+			successFlag = true;
+		} else {
+			memCachedClient.add(cacheKey, obj);
+			successFlag = true;
+		}
+		if(successFlag) {
+			logger.info("Added to cache");
+			Service service = (Service) ComponentManager.getServiceOrNull(outData.getServiceName());
+			if(service.getCacheRefreshTime() != null) {
+				int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
+				String payLoad = "{'cacheKey':'" + cacheKey + "',"
+						+ "'refreshTimePeriod':" + cacheRefreshTime + ","
+						+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
+				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memcache.memCacheAddKey", payLoad, PayloadType.JSON);
+				if(!outData1.hasErrors())
+					logger.info("cache key added to the database");
+			} else {
+				logger.info("cache refresh is not enabled for this service");
+			}
+		} else {
+			logger.info("Error in adding data to the cache");
+		}
+	}
+
+	@Override
+	public void invalidate(String key) {
+		logger.info("Invalidate entry");
+		if(memCachedClient.delete(key))
+			logger.info("key "+key+" deleted");
+		else
+			logger.info("unable to delete the key "+key);
+	}
+
+	public Object readMemCacheData(String key) {
+		Object obj = this.memCachedClient.get(key);
+		return obj;
+	}
+		
 }

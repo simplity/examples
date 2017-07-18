@@ -2,17 +2,17 @@ package org.simplity.examples.model;
 
 import org.simplity.service.ServiceData;
 
-public class CacheObject {
+public class CacheValueObject {
 	
 	private ServiceData inData;
 	private ServiceData outData;
 	private String servicename;
 	
-	public CacheObject(){
+	public CacheValueObject(){
 		
 	}
 	
-	public CacheObject(ServiceData inData, ServiceData outData, String servicename) {
+	public CacheValueObject(ServiceData inData, ServiceData outData, String servicename) {
 		super();
 		this.inData = inData;
 		this.outData = outData;
