@@ -7,16 +7,18 @@ import org.simplity.service.ServiceData;
 public class CacheValueObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private String serviceName;
 	private ServiceData inData;
 	private ServiceData outData;
+	private String serviceName;
 
-	public String getServiceName() {
-		return serviceName;
+	public CacheValueObject() {
+
 	}
 
-	public void setServiceName(String serviceName) {
+	public CacheValueObject(ServiceData inData, ServiceData outData, String serviceName) {
+		super();
+		this.inData = inData;
+		this.outData = outData;
 		this.serviceName = serviceName;
 	}
 
@@ -34,6 +36,14 @@ public class CacheValueObject implements Serializable {
 
 	public void setOutData(ServiceData outData) {
 		this.outData = outData;
+	}
+
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
 
 }

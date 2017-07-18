@@ -34,7 +34,7 @@ public class MemCacheRefresh implements LogicInterface {
 					/*
 					 * Invoke cache invalidate to invalidate the key 
 					 */
-					simpleMemCacheManager.invalidate(cacheKey, inData);
+					simpleMemCacheManager.invalidate(cacheKey);
 					/*
 					 * Invoke service to set cacheValueObject in the memCache. 
 					 * Explicitly we don't require to set cacheValueObject in the memCache.

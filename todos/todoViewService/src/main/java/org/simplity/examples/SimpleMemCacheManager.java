@@ -1,36 +1,11 @@
-/*
- * Copyright (c) 2016 simplity.org
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 package org.simplity.examples;
 
-import java.util.Arrays;
-
-import org.simplity.kernel.ApplicationError;
 import org.simplity.kernel.comp.ComponentManager;
+import org.simplity.service.InputField;
 import org.simplity.service.JavaAgent;
 import org.simplity.service.PayloadType;
 import org.simplity.service.ServiceCacheManager;
 import org.simplity.service.ServiceData;
-import org.simplity.service.ServiceProtocol;
 import org.simplity.tp.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +23,8 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	static final Logger logger = LoggerFactory.getLogger(SimpleMemCacheManager.class);
 	private SockIOPool sockIOPool;
 	private MemCachedClient memCachedClient;
-
+	private String[] fieldNames;
+	
 	public SimpleMemCacheManager() {
 		sockIOPool = SockIOPool.getInstance("default");
 		String[] servers = { "localhost:11211" };
@@ -63,77 +39,43 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		sockIOPool.setAliveCheck(true);
 		sockIOPool.initialize();
 
-		memCachedClient = new MemCachedClient("default");
+		memCachedClient = new MemCachedClient("default");		
 	}
 
 	@Override
-	public ServiceData respond(ServiceData inData) {
-		String serviceName = inData.getServiceName();
-		String fieldsForHash = inData.getCacheForInput();
-		String cacheInputKey = this.getHash(serviceName, inData, fieldsForHash);
-		Object obj = memCachedClient.get(cacheInputKey);
-		if (obj != null) {
-			CacheValueObject cacheValueObject = (CacheValueObject) obj;
-			ServiceData outData = cacheValueObject.getOutData();
+	public ServiceData respond(String key) {
+		CacheValueObject obj = (CacheValueObject) memCachedClient.get(key);		
+		if(obj != null){
 			logger.info("Responding from cache");
-			return outData;
+			return obj.getOutData();
 		}
 		return null;
 	}
 
-	private String getHash(String serviceName, ServiceData inData, String fieldsForHash) {
-		int hashKey = serviceName.hashCode();
-		String[] fields = null;
-		if (fieldsForHash.length() > 0) {
-			fields = fieldsForHash.split(",");
-			if (fields[0].equals(ServiceProtocol.USER_ID)) {
-				hashKey += inData.getUserId().hashCode();
-				int n = fields.length;
-				if (n > 0) {
-					n--;
-					String[] newFields = new String[n];
-					for (int i = 0; i < newFields.length; i++) {
-						newFields[i] = fields[i + 1];
-					}
-					fields = newFields;
-				}
-			}
-			for (String field : fields) {
-				hashKey += inData.get(field).hashCode();
-			}
-		}
-		hashKey += Arrays.hashCode(fields);
-		hashKey = Math.abs(hashKey);
-		return String.valueOf(hashKey);
-	}
 
 	@Override
-	public void cache(ServiceData inData, ServiceData outData) {
-		String serviceName = inData.getServiceName();
-		String fieldsForHash = inData.getCacheForInput();
-		CacheValueObject cacheValueObject = new CacheValueObject();
-		cacheValueObject.setServiceName(serviceName);
-		cacheValueObject.setInData(inData);
-		cacheValueObject.setOutData(outData);
-		String cacheKey = this.getHash(serviceName, inData, fieldsForHash);
+	public void cache(ServiceData inputData,ServiceData outData) {
+		// Get the Memcached Client from SockIOPool named Test1
+		CacheValueObject obj = new CacheValueObject(inputData, outData, inputData.getServiceName());
+		String cacheKey = outData.getCacheKey();
 		boolean successFlag = false;
-		if (memCachedClient.keyExists(cacheKey)) {
-			memCachedClient.set(cacheKey, cacheValueObject);
+		if(memCachedClient.keyExists(cacheKey)) {
+			memCachedClient.set(cacheKey, obj);
 			successFlag = true;
 		} else {
-			memCachedClient.add(cacheKey, cacheValueObject);
+			memCachedClient.add(cacheKey, obj);
 			successFlag = true;
 		}
-		if (successFlag) {
+		if(successFlag) {
 			logger.info("Added to cache");
-			Service service = (Service) ComponentManager.getServiceOrNull(serviceName);
-			if (service.getCacheRefreshTime() != null) {
+			Service service = (Service) ComponentManager.getServiceOrNull(outData.getServiceName());
+			if(service.getCacheRefreshTime() != null) {
 				int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
-				String payLoad = "{'cacheKey':'" + cacheKey + "'," + "'refreshTimePeriod':" + cacheRefreshTime + ","
+				String payLoad = "{'cacheKey':'" + cacheKey + "',"
+						+ "'refreshTimePeriod':" + cacheRefreshTime + ","
 						+ "'lastRefreshTime':" + String.valueOf(System.currentTimeMillis()) + "}";
-				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memCacheAddKey", payLoad,
-						PayloadType.JSON);
-				if (!outData1.hasErrors())
+				ServiceData outData1 = JavaAgent.getAgent("100", null).serve("memcache.memCacheAddKey", payLoad, PayloadType.JSON);
+				if(!outData1.hasErrors())
 					logger.info("cache key added to the database");
 			} else {
 				logger.info("cache refresh is not enabled for this service");
@@ -144,16 +86,17 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 	}
 
 	@Override
-	public void invalidate(String cacheKey, ServiceData inData) {
-		logger.info("Invalidate entry for viewTodos");
-		if (memCachedClient.delete(cacheKey))
-			logger.info("viewTodos - key deleted");
+	public void invalidate(String key) {
+		logger.info("Invalidate entry");
+		if(memCachedClient.delete(key))
+			logger.info("key "+key+" deleted");
 		else
-			logger.info("viewTodos - unable to delete the key");
+			logger.info("unable to delete the key "+key);
 	}
 
 	public Object readMemCacheData(String key) {
 		Object obj = this.memCachedClient.get(key);
 		return obj;
 	}
+		
 }
