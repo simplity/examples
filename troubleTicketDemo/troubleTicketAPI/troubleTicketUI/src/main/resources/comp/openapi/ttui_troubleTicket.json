@@ -127,12 +127,7 @@
               "$ref": "#/definitions/TroubleTicket"
             }
           }
-        },
-        "security": [
-          {
-            "apiKey": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -301,14 +296,6 @@
     }
   },
   "securityDefinitions": {
-    "basic": {
-      "type": "basic"
-    },
-    "apiKey": {
-      "name": "apiKey",
-      "type": "apiKey",
-      "in": "query"
-    },
     "oauth": {
       "type": "oauth2",
       "authorizationUrl": "http://localhost:8085/auth/authorise",

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<batch
-	xmlns="http://www.simplity.org/schema"
-	name="listenerJob">
-	<jobs>
-		<job name="Listener" serviceName="jms.jmsListener" nbrDedicatedThreads="2"></job>
-	</jobs>
-</batch>

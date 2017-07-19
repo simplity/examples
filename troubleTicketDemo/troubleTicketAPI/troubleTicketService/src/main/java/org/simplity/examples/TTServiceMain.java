@@ -3,17 +3,20 @@ package org.simplity.examples;
 import java.io.File;
 import java.net.URI;
 
+import javax.servlet.ServletRegistration;
+
+import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
+import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.servlet.WebappContext;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.simplity.examples.filter.CorsFilter;
-import org.simplity.examples.filter.TTServiceEntryFilter;
 import org.simplity.kernel.Application;
+import org.simplity.rest.Operations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TTServiceMain {
-	final static Logger logger = LoggerFactory.getLogger(TTServiceConfig.class);
+	final static Logger logger = LoggerFactory.getLogger(TTServiceMain.class);
 	public static HttpServer server;
 
 	public static void main(String[] args) {
@@ -24,19 +27,25 @@ public class TTServiceMain {
 
 			try {
 				Application.bootStrap(folder);
-				TTServiceConfig.setApiPath(folder + "openapi" + File.separator + "tt_troubleTicket.json");
+				Operations.loadAll(folder+"/openapi/");
 			} catch (Exception e) {
 				logger.error("error while bootstrapping with compFolder=" + folder,e);
 				return;
 			}
-			ResourceConfig rc = new TTServiceConfig();
-			rc.register(TTServiceEntryFilter.class);	
-			rc.register(CorsFilter.class);			
-
-			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085/api"), rc);
+			WebappContext wContext = new WebappContext("TT Service Context");
 			
+			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
+			rRegistration.addMapping("api");
+
+			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085"));
+			wContext.deploy(server);
+
+			HttpHandler httpHandler = new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "/webapp/");
+			server.getServerConfiguration().addHttpHandler(httpHandler, "/");
+
 			server.start();
 			Thread.currentThread().join();
+
 		} catch (Exception e) {
 			logger.error("Error in Service",e);
 			server.shutdown();

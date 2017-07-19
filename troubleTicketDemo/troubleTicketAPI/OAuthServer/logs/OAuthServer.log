@@ -22,3 +22,29 @@ OAuthServer [INFO ] 1574cc33b 2017 16:23:48.535 [grizzly-http-server-0] LoginEnd
 OAuthServer [INFO ]  2017 11:32:02.963 [main] Swagger20Parser - reading from D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
 OAuthServer [INFO ] a9785cb24 2017 11:32:58.280 [grizzly-http-server-3] LoginEndpoint - sending the scope details
 OAuthServer [INFO ] a9785cb24 2017 11:33:07.604 [grizzly-http-server-0] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 16:24:43.604 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 7e40fe651 2017 16:26:12.846 [grizzly-http-server-3] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 7e40fe651 2017 16:26:26.994 [grizzly-http-server-1] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 16:29:34.524 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] a9ddaedcd 2017 16:30:50.641 [grizzly-http-server-6] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] a9ddaedcd 2017 16:30:57.462 [grizzly-http-server-3] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ] af6521815 2017 16:34:21.311 [grizzly-http-server-0] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] af6521815 2017 16:34:33.228 [grizzly-http-server-4] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 16:46:44.560 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] cfbe0abf2 2017 16:47:52.843 [grizzly-http-server-1] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] cfbe0abf2 2017 16:47:58.781 [grizzly-http-server-4] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 18:18:35.283 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 2a285fc87 2017 18:20:41.209 [grizzly-http-server-6] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 2a285fc87 2017 18:20:46.678 [grizzly-http-server-0] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 10:43:34.160 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 47ad5c478 2017 10:47:05.932 [grizzly-http-server-6] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 47ad5c478 2017 10:47:13.826 [grizzly-http-server-4] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 11:08:26.208 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] de28abc78 2017 11:09:14.374 [grizzly-http-server-5] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] de28abc78 2017 11:09:23.782 [grizzly-http-server-3] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 11:33:45.822 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 5f3c741d8 2017 11:34:38.511 [grizzly-http-server-1] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 5f3c741d8 2017 11:34:45.880 [grizzly-http-server-2] LoginEndpoint - authorization succeeded
+OAuthServer [INFO ]  2017 11:47:14.688 [main] Swagger20Parser - reading from D:/Workspace/simplity/examples/troubleTicketDemo/troubleTicketAPI/OAuthServer/target/comp/openapi/troubleTicket.json
+OAuthServer [INFO ] 191825074 2017 11:57:35.945 [grizzly-http-server-6] LoginEndpoint - sending the scope details
+OAuthServer [INFO ] 191825074 2017 11:57:42.155 [grizzly-http-server-1] LoginEndpoint - authorization succeeded

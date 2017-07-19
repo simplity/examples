@@ -31,7 +31,7 @@
 				<relatedRecord recordName="Note" sheetName="notes" />
 			</childRecords>
 		</save>
-		<log names="id" />
+		<log names="id" />		
 		<jmsProducer actionName="write2Q">
 			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
 				<outputData>
