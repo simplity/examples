@@ -22,7 +22,7 @@ angular.module('tmfforum.controllers', [])
     	
         $http(req)
         .then(function(response) {
-            $scope.myData.ticketList = response.data.tickets;  
+            $scope.myData.ticketList = response.data;  
         });    	
     }else{
     	var req = {
@@ -49,7 +49,7 @@ angular.module('tmfforum.controllers', [])
        $http(req)
        .then(function(response) {
 	    	$scope.myData.action = "view";
-	        $scope.myData.currentTicket = response.data.ticket[0];
+	        $scope.myData.currentTicket = response.data;
 	    });    	 	  
       };
     
@@ -65,7 +65,7 @@ angular.module('tmfforum.controllers', [])
           .then(function(response) {
    	    	$scope.myData.action = "edit";
  	    	$scope.ticketAction = "update";
- 	        $scope.myData.currentTicket = response.data.ticket[0];
+ 	        $scope.myData.currentTicket = response.data;
  	    });      	     	  
        };      
     

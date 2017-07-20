@@ -14321,3 +14321,310 @@ org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 10:25:47.681 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\
+hubService [INFO ]  2017 10:25:47.759 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/
+hubService [INFO ]  2017 10:25:47.762 [main] ComponentType - 0 java class names loaded as services.
+hubService [INFO ]  2017 10:25:47.762 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/dt/kernel.xml
+hubService [INFO ]  2017 10:25:47.798 [main] ComponentType - 10 DataType loaded.
+hubService [INFO ]  2017 10:25:47.800 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/msg/kernel.xml
+hubService [INFO ]  2017 10:25:47.833 [main] ComponentType - 27 Message loaded.
+hubService [INFO ]  2017 10:25:47.834 [main] ComponentType - 0 Function loaded.
+hubService [INFO ]  2017 10:25:47.834 [main] ComponentType - components pre-loaded
+hubService [INFO ]  2017 10:25:47.852 [main] DbDriver - dbVendor is set to H2
+hubService [INFO ]  2017 10:25:47.856 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+hubService [INFO ]  2017 10:25:48.360 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+hubService [INFO ]  2017 10:25:48.524 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+hubService [INFO ]  2017 10:25:48.567 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 10:25:48.686 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 10:25:48.720 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 10:25:48.726 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [INFO ]  2017 10:25:48.732 [main] Application - Scheduler started for Batch listenerJob
+hubService [INFO ]  2017 10:25:48.742 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+hubService [INFO ]  2017 10:25:48.805 [main] PathNode - Node created with prefix=null
+hubService [INFO ]  2017 10:25:48.806 [main] HierarchicalSheet - Going to load file D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 10:25:48.871 [main] HierarchicalSheet - null. Error while loading open-api spec D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 10:25:50.096 [pool-2-thread-1] JmsDestination - Started consumer for destination dynamicQueues/TTWriteQQ
+hubService [INFO ]  2017 10:25:50.546 [pool-2-thread-1] JmsDestination - Looking/waiting for next message on dynamicQueues/TTWriteQQ
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - 6 fields into ctx based on record jmsTicket
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - No data for sheet relatedObjects. We try and add fields instead.
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - 0 fields into ctx based on record RelatedObject
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - No data for sheet relatedObjects
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - No data for sheet relatedParties. We try and add fields instead.
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - 0 fields into ctx based on record RelatedParty
+hubService [INFO ]  2017 10:26:47.882 [pool-2-thread-1] InputRecord - No data for sheet relatedParties
+hubService [INFO ]  2017 10:26:47.883 [pool-2-thread-1] InputRecord - No data for sheet notes. We try and add fields instead.
+hubService [INFO ]  2017 10:26:47.883 [pool-2-thread-1] InputRecord - 0 fields into ctx based on record Note
+hubService [INFO ]  2017 10:26:47.883 [pool-2-thread-1] InputRecord - No data for sheet notes
+hubService [INFO ]  2017 10:26:47.883 [pool-2-thread-1] Log - Values at log action _a0
+hubService [INFO ]  2017 10:26:47.884 [pool-2-thread-1] Log - correlationId = 04fa7c08f
+hubService [INFO ] 04fa7c08f 2017 10:26:47.888 [pool-2-thread-1] BlockWorker - Action _a0 finished with result=1 in 2 ms
+hubService [INFO ] 04fa7c08f 2017 10:26:47.889 [pool-2-thread-1] Service - Trying to generate service publish.processMessages on-the-fly
+hubService [INFO ] 04fa7c08f 2017 10:26:47.897 [pool-2-thread-1] SubService - service publish.processMessages started as sub service.
+hubService [INFO ] 04fa7c08f 2017 10:26:47.968 [pool-2-thread-1] DbDriver - Select * from HUB
+hubService [INFO ] 04fa7c08f 2017 10:26:47.969 [pool-2-thread-1] Service - Trying to generate service publish.publishMessages on-the-fly
+hubService [INFO ] 04fa7c08f 2017 10:26:48.013 [pool-2-thread-1] SubService - service publish.publishMessages started as sub service.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.015 [pool-2-thread-1] Action - Cleared the condition action=='add' for action to proceed.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.015 [pool-2-thread-1] BlockWorker - Action _a0 finished with result=http://localhost:8086/api/troubleTicket?correlationId=04fa7c08f in 2 ms
+hubService [INFO ] 04fa7c08f 2017 10:26:48.015 [pool-2-thread-1] Action - Cleared the condition action=='add' for action to proceed.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.024 [pool-2-thread-1] OutputRecord - creationDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.024 [pool-2-thread-1] OutputRecord - targetResolutionDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - status has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - subStatus has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - statusChangeReason has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - statusChangeDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - resolutionDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - Service context has no sheet with name relatedObjects for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - objectId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - involvement has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - reference has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - Service context has no sheet with name relatedParties for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - partyId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.025 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.026 [pool-2-thread-1] OutputRecord - reference has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.026 [pool-2-thread-1] OutputRecord - role has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.026 [pool-2-thread-1] OutputRecord - name has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.027 [pool-2-thread-1] OutputRecord - validFor has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.027 [pool-2-thread-1] OutputRecord - Service context has no sheet with name notes for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.028 [pool-2-thread-1] OutputRecord - noteId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.028 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.028 [pool-2-thread-1] OutputRecord - date has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.028 [pool-2-thread-1] OutputRecord - author has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.028 [pool-2-thread-1] OutputRecord - text has no value and hence is not added to output
+hubService [ERROR] 04fa7c08f 2017 10:26:48.125 [pool-2-thread-1] ApplicationError - 
+org.simplity.kernel.ApplicationError: Http call for url http://localhost:8086/api/troubleTicket?correlationId=04fa7c08f returned with a non200 status 500
+	at org.simplity.tp.HttpClient.getHttpResponse(HttpClient.java:236) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.HttpClient.doAct(HttpClient.java:177) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.delegate(Action.java:175) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.workWithDriver(BlockWorker.java:89) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeAsAction(Service.java:511) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.SubService.delegate(SubService.java:53) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$AbstractProcess.processARow(BatchRowProcessor.java:392) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.doOneTransaction(BatchRowProcessor.java:596) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.callBackOnDbRow(BatchRowProcessor.java:578) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.DbDriver.processRows(DbDriver.java:775) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.Sql.processRows(Sql.java:154) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.callFromParent(BatchRowProcessor.java:522) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor.process(BatchRowProcessor.java:185) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.processAllFiles(BatchProcessor.java:456) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.workWithDriver(BatchProcessor.java:433) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.DbDriver.workWithDriver(DbDriver.java:542) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.work(BatchProcessor.java:416) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor.delegate(BatchProcessor.java:249) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.workWithDriver(BlockWorker.java:89) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeAsAction(Service.java:511) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.SubService.delegate(SubService.java:53) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.process(BlockWorker.java:185) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:216) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ] 04fa7c08f 2017 10:26:48.128 [pool-2-thread-1] Service - Trying to generate service publish.publishMessages on-the-fly
+hubService [INFO ] 04fa7c08f 2017 10:26:48.162 [pool-2-thread-1] SubService - service publish.publishMessages started as sub service.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.162 [pool-2-thread-1] Action - Cleared the condition action=='add' for action to proceed.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.162 [pool-2-thread-1] BlockWorker - Action _a0 finished with result=http://localhost:8087/api/troubleTicket?correlationId=04fa7c08f in 0 ms
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] Action - Cleared the condition action=='add' for action to proceed.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - creationDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - targetResolutionDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - status has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - subStatus has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - statusChangeReason has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - statusChangeDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - resolutionDate has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - Service context has no sheet with name relatedObjects for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - objectId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - involvement has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - reference has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - Service context has no sheet with name relatedParties for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - partyId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.163 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - reference has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - role has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - name has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - validFor has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - Service context has no sheet with name notes for output. We try and output fields.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - noteId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - ticketId has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - date has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - author has no value and hence is not added to output
+hubService [INFO ] 04fa7c08f 2017 10:26:48.164 [pool-2-thread-1] OutputRecord - text has no value and hence is not added to output
+hubService [ERROR] 04fa7c08f 2017 10:26:48.238 [pool-2-thread-1] ApplicationError - 
+org.simplity.kernel.ApplicationError: Http call for url http://localhost:8087/api/troubleTicket?correlationId=04fa7c08f returned with a non200 status 500
+	at org.simplity.tp.HttpClient.getHttpResponse(HttpClient.java:236) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.HttpClient.doAct(HttpClient.java:177) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.delegate(Action.java:175) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.workWithDriver(BlockWorker.java:89) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeAsAction(Service.java:511) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.SubService.delegate(SubService.java:53) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$AbstractProcess.processARow(BatchRowProcessor.java:392) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.doOneTransaction(BatchRowProcessor.java:596) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.callBackOnDbRow(BatchRowProcessor.java:578) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.DbDriver.processRows(DbDriver.java:775) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.Sql.processRows(Sql.java:154) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor$DriverProcess.callFromParent(BatchRowProcessor.java:522) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchRowProcessor.process(BatchRowProcessor.java:185) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.processAllFiles(BatchProcessor.java:456) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.workWithDriver(BatchProcessor.java:433) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.kernel.db.DbDriver.workWithDriver(DbDriver.java:542) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor$Worker.work(BatchProcessor.java:416) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BatchProcessor.delegate(BatchProcessor.java:249) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.workWithDriver(BlockWorker.java:89) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeAsAction(Service.java:511) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.SubService.delegate(SubService.java:53) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.process(BlockWorker.java:185) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:216) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ] 04fa7c08f 2017 10:26:48.239 [pool-2-thread-1] DbDriver - 2 rows processed.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.240 [pool-2-thread-1] DbDriver - Going to close a connection of type READ_ONLY with allOK = false
+hubService [INFO ] 04fa7c08f 2017 10:26:48.255 [pool-2-thread-1] BlockWorker - Action _a0 finished with result=2 in 358 ms
+hubService [INFO ] 04fa7c08f 2017 10:26:48.256 [pool-2-thread-1] SubService - service publish.processMessages returned control back.
+hubService [INFO ] 04fa7c08f 2017 10:26:48.256 [pool-2-thread-1] BlockWorker - Action _a1 finished with result=0 in 367 ms
+hubService [INFO ] 04fa7c08f 2017 10:26:48.256 [pool-2-thread-1] JmsDestination - Looking/waiting for next message on dynamicQueues/TTWriteQQ
+hubService [ERROR] 04fa7c08f 2017 10:29:38.752 [pool-2-thread-1] ApplicationError - Error while consuming and procesing JMS queue dynamicQueues/TTWriteQQ
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:62) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:476) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:522) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:584) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:184) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:612) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:597) ~[activemq-core-5.7.0.jar:5.7.0]
+	at java.io.DataInputStream.readInt(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:275) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:229) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:221) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:204) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 1 more
+hubService [INFO ] 04fa7c08f 2017 10:29:38.753 [pool-2-thread-1] JmsConnector - non-transactional JMS session closed.
+hubService [ERROR] 04fa7c08f 2017 10:29:38.757 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Connection reset
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:245) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ] 04fa7c08f 2017 10:29:38.794 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ] 04fa7c08f 2017 10:29:38.795 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR] 04fa7c08f 2017 10:29:39.796 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR] 04fa7c08f 2017 10:29:39.798 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
