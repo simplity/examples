@@ -2,6 +2,8 @@ package org.simplity.examples.troubleTicketUI;
 
 import java.io.File;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
 import org.glassfish.grizzly.http.server.HttpHandler;
@@ -16,7 +18,7 @@ import org.slf4j.LoggerFactory;
 public class TTUIMain {
 	final static Logger logger = LoggerFactory.getLogger(TTUIMain.class);
 	public static HttpServer server;
-
+	public static Map<String,String[]> internalCache = new HashMap<String,String[]>();
 	public static void main(String[] args) {
 
 		try {

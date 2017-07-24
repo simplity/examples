@@ -1,7 +1,7 @@
 cd troubleTicketAPI/ttactiveMQ
 start ttactiveMQ.bat
-cd ../OAuthServer
-start OAuthServer.bat
+cd ../oauth2
+start oauth2.bat
 cd ../hubService
 start hubService.bat
 cd ../troubleTicketUI

@@ -13,7 +13,7 @@
 		<module>troubleTicketService</module>
 		<module>ttactiveMQ</module>
 		<module>hubService</module>
-    	<module>OAuthServer</module>
    		<module>troubleTicketUI</module>
+		<module>oauth2</module>
   </modules>
 </project>

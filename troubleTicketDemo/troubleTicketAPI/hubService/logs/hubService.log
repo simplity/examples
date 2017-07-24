@@ -14628,3 +14628,516 @@ org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:08:26.437 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\
+hubService [INFO ]  2017 15:08:26.472 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/
+hubService [INFO ]  2017 15:08:26.481 [main] ComponentType - 0 java class names loaded as services.
+hubService [INFO ]  2017 15:08:26.482 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/dt/kernel.xml
+hubService [INFO ]  2017 15:08:26.526 [main] ComponentType - 10 DataType loaded.
+hubService [INFO ]  2017 15:08:26.526 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/msg/kernel.xml
+hubService [INFO ]  2017 15:08:26.556 [main] ComponentType - 27 Message loaded.
+hubService [INFO ]  2017 15:08:26.556 [main] ComponentType - 0 Function loaded.
+hubService [INFO ]  2017 15:08:26.557 [main] ComponentType - components pre-loaded
+hubService [INFO ]  2017 15:08:26.577 [main] DbDriver - dbVendor is set to H2
+hubService [INFO ]  2017 15:08:26.588 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+hubService [INFO ]  2017 15:08:27.162 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+hubService [INFO ]  2017 15:08:27.331 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+hubService [INFO ]  2017 15:08:27.394 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:08:27.550 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:08:27.603 [main] Application - Scheduler started for Batch listenerJob
+hubService [INFO ]  2017 15:08:27.613 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+hubService [INFO ]  2017 15:08:27.616 [main] PathNode - Node created with prefix=null
+hubService [INFO ]  2017 15:08:27.617 [main] HierarchicalSheet - Going to load file D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:08:27.657 [main] HierarchicalSheet - null. Error while loading open-api spec D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:08:27.868 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:08:27.909 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR]  2017 15:08:29.772 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR]  2017 15:08:29.777 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:08:29.778 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:08:29.779 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR]  2017 15:08:30.863 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR]  2017 15:08:30.864 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:24:11.179 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\
+hubService [INFO ]  2017 15:24:11.212 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/
+hubService [INFO ]  2017 15:24:11.214 [main] ComponentType - 0 java class names loaded as services.
+hubService [INFO ]  2017 15:24:11.215 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/dt/kernel.xml
+hubService [INFO ]  2017 15:24:11.352 [main] ComponentType - 10 DataType loaded.
+hubService [INFO ]  2017 15:24:11.352 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/msg/kernel.xml
+hubService [INFO ]  2017 15:24:11.373 [main] ComponentType - 27 Message loaded.
+hubService [INFO ]  2017 15:24:11.373 [main] ComponentType - 0 Function loaded.
+hubService [INFO ]  2017 15:24:11.373 [main] ComponentType - components pre-loaded
+hubService [INFO ]  2017 15:24:11.446 [main] DbDriver - dbVendor is set to H2
+hubService [INFO ]  2017 15:24:11.449 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+hubService [INFO ]  2017 15:24:12.053 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+hubService [INFO ]  2017 15:24:12.192 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+hubService [INFO ]  2017 15:24:12.213 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:24:13.302 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:24:13.303 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:24:13.310 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [INFO ]  2017 15:24:13.373 [main] Application - Scheduler started for Batch listenerJob
+hubService [INFO ]  2017 15:24:13.404 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+hubService [INFO ]  2017 15:24:13.407 [main] PathNode - Node created with prefix=null
+hubService [INFO ]  2017 15:24:13.408 [main] HierarchicalSheet - Going to load file D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:24:13.438 [main] HierarchicalSheet - null. Error while loading open-api spec D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:24:13.962 [pool-2-thread-1] JmsDestination - Started consumer for destination dynamicQueues/TTWriteQQ
+hubService [INFO ]  2017 15:24:13.968 [pool-2-thread-1] JmsDestination - Looking/waiting for next message on dynamicQueues/TTWriteQQ
+hubService [ERROR]  2017 15:27:54.287 [pool-2-thread-1] ApplicationError - Error while consuming and procesing JMS queue dynamicQueues/TTWriteQQ
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:62) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:476) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:522) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:584) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:184) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:612) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:597) ~[activemq-core-5.7.0.jar:5.7.0]
+	at java.io.DataInputStream.readInt(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:275) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:229) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:221) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:204) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 1 more
+hubService [INFO ]  2017 15:27:54.295 [pool-2-thread-1] JmsConnector - non-transactional JMS session closed.
+hubService [ERROR]  2017 15:27:54.297 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Connection reset
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:245) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:27:54.301 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:27:54.302 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR]  2017 15:27:55.306 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR]  2017 15:27:55.308 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:30:32.953 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\
+hubService [INFO ]  2017 15:30:32.999 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/
+hubService [INFO ]  2017 15:30:33.001 [main] ComponentType - 0 java class names loaded as services.
+hubService [INFO ]  2017 15:30:33.002 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/dt/kernel.xml
+hubService [INFO ]  2017 15:30:33.041 [main] ComponentType - 10 DataType loaded.
+hubService [INFO ]  2017 15:30:33.042 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/msg/kernel.xml
+hubService [INFO ]  2017 15:30:33.061 [main] ComponentType - 27 Message loaded.
+hubService [INFO ]  2017 15:30:33.062 [main] ComponentType - 0 Function loaded.
+hubService [INFO ]  2017 15:30:33.062 [main] ComponentType - components pre-loaded
+hubService [INFO ]  2017 15:30:33.088 [main] DbDriver - dbVendor is set to H2
+hubService [INFO ]  2017 15:30:33.092 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+hubService [INFO ]  2017 15:30:33.819 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+hubService [INFO ]  2017 15:30:34.191 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+hubService [INFO ]  2017 15:30:34.220 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:30:34.401 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:30:34.444 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:30:34.448 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [INFO ]  2017 15:30:34.531 [main] Application - Scheduler started for Batch listenerJob
+hubService [INFO ]  2017 15:30:34.537 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+hubService [INFO ]  2017 15:30:34.540 [main] PathNode - Node created with prefix=null
+hubService [INFO ]  2017 15:30:34.541 [main] HierarchicalSheet - Going to load file D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:30:34.574 [main] HierarchicalSheet - null. Error while loading open-api spec D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:30:36.097 [pool-2-thread-1] JmsDestination - Started consumer for destination dynamicQueues/TTWriteQQ
+hubService [INFO ]  2017 15:30:36.102 [pool-2-thread-1] JmsDestination - Looking/waiting for next message on dynamicQueues/TTWriteQQ
+hubService [ERROR]  2017 15:34:24.709 [pool-2-thread-1] ApplicationError - Error while consuming and procesing JMS queue dynamicQueues/TTWriteQQ
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:62) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:476) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:522) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:584) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:184) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:612) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:597) ~[activemq-core-5.7.0.jar:5.7.0]
+	at java.io.DataInputStream.readInt(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:275) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:229) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:221) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:204) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 1 more
+hubService [INFO ]  2017 15:34:24.717 [pool-2-thread-1] JmsConnector - non-transactional JMS session closed.
+hubService [ERROR]  2017 15:34:24.718 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Connection reset
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:245) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:34:24.719 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:34:24.719 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR]  2017 15:34:25.747 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR]  2017 15:34:25.748 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:37:01.293 [main] Application - Bootstrapping with D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\
+hubService [INFO ]  2017 15:37:01.325 [main] ComponentType - component folder set to D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/
+hubService [INFO ]  2017 15:37:01.331 [main] ComponentType - 0 java class names loaded as services.
+hubService [INFO ]  2017 15:37:01.331 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/dt/kernel.xml
+hubService [INFO ]  2017 15:37:01.378 [main] ComponentType - 10 DataType loaded.
+hubService [INFO ]  2017 15:37:01.378 [main] ComponentType - Going to load components from D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/msg/kernel.xml
+hubService [INFO ]  2017 15:37:01.415 [main] ComponentType - 27 Message loaded.
+hubService [INFO ]  2017 15:37:01.416 [main] ComponentType - 0 Function loaded.
+hubService [INFO ]  2017 15:37:01.416 [main] ComponentType - components pre-loaded
+hubService [INFO ]  2017 15:37:01.433 [main] DbDriver - dbVendor is set to H2
+hubService [INFO ]  2017 15:37:01.437 [main] DbDriver - Driver class name org.h2.Driver invoked successfully
+hubService [INFO ]  2017 15:37:02.030 [main] DbDriver - Database connection for H2 established successfully using a valid connection string. Default schema is PUBLIC
+hubService [INFO ]  2017 15:37:02.161 [main] JmsConnector - queueConnectionFactory successfully set to org.apache.activemq.ActiveMQConnectionFactory
+hubService [INFO ]  2017 15:37:02.192 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:37:02.310 [main] Service - Trying to generate service jms.jmsListener on-the-fly
+hubService [INFO ]  2017 15:37:02.342 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:37:02.343 [main] Application - Scheduler started for Batch listenerJob
+hubService [INFO ]  2017 15:37:02.348 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [INFO ]  2017 15:37:02.428 [main] Serve - Web Agent is given a green signal by Startup to start serving.
+hubService [INFO ]  2017 15:37:02.435 [main] PathNode - Node created with prefix=null
+hubService [INFO ]  2017 15:37:02.435 [main] HierarchicalSheet - Going to load file D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:37:02.473 [main] HierarchicalSheet - null. Error while loading open-api spec D:\Workspace\simplity\examples\troubleTicketDemo\troubleTicketAPI\hubService\target\comp\/openapi/hub.json
+hubService [INFO ]  2017 15:37:03.172 [pool-2-thread-1] JmsDestination - Started consumer for destination dynamicQueues/TTWriteQQ
+hubService [INFO ]  2017 15:37:03.177 [pool-2-thread-1] JmsDestination - Looking/waiting for next message on dynamicQueues/TTWriteQQ
+hubService [ERROR]  2017 15:39:11.632 [pool-2-thread-1] ApplicationError - Error while consuming and procesing JMS queue dynamicQueues/TTWriteQQ
+javax.jms.JMSException: Connection reset
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:62) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.dequeue(ActiveMQMessageConsumer.java:476) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:522) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQMessageConsumer.receive(ActiveMQMessageConsumer.java:584) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:184) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocketInputStream.read(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.fill(TcpBufferedInputStream.java:50) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.fill(TcpTransport.java:612) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpBufferedInputStream.read(TcpBufferedInputStream.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport$2.read(TcpTransport.java:597) ~[activemq-core-5.7.0.jar:5.7.0]
+	at java.io.DataInputStream.readInt(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:275) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:229) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:221) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:204) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 1 more
+hubService [INFO ]  2017 15:39:11.641 [pool-2-thread-1] JmsConnector - non-transactional JMS session closed.
+hubService [ERROR]  2017 15:39:11.643 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Connection reset
+	at org.simplity.jms.JmsDestination.consume(JmsDestination.java:245) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.JmsConsumer.delegate(JmsConsumer.java:56) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Action.act(Action.java:136) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.execute(BlockWorker.java:124) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.BlockWorker.act(BlockWorker.java:108) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:302) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+hubService [INFO ]  2017 15:39:11.644 [pool-2-thread-1] RunningJob - Job status set to  RUNNING
+hubService [INFO ]  2017 15:39:11.644 [pool-2-thread-1] Service - We received input data, but this service is designed not to make use of input.
+hubService [ERROR]  2017 15:39:12.647 [pool-2-thread-1] ApplicationError - Error while creating jms session
+javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:135) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_91]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_91]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_91]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_91]
+	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58) ~[activemq-core-5.7.0.jar:5.7.0]
+	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273) ~[activemq-core-5.7.0.jar:5.7.0]
+	... 14 more
+hubService [ERROR]  2017 15:39:12.650 [pool-2-thread-1] ApplicationError - Error while running service jms.jmsListener as a batch job.
+org.simplity.kernel.ApplicationError: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
+	at org.simplity.jms.JmsConnector.borrow(JmsConnector.java:148) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.jms.JmsConnector.borrowConnector(JmsConnector.java:116) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.executeService(Service.java:289) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.tp.Service.respond(Service.java:255) ~[kernel-1.2.1-SNAPSHOT.jar:?]
+	at org.simplity.job.RunningJob.run(RunningJob.java:76) [kernel-1.2.1-SNAPSHOT.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.FutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_91]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_91]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_91]

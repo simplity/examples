@@ -7,12 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.json.JsonObject;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.MediaType;
 
@@ -27,6 +29,7 @@ import org.slf4j.MDC;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
@@ -43,7 +46,7 @@ public class TTUIConfig extends ResourceConfig {
 	private static String api_path;
 	private static Map<String, SecuritySchemeDefinition> secDefs;
 	private static String TTService = "http://localhost:8085";
-	private static String AuthService = "http://localhost:8090";
+	private static String AuthService = "http://localhost:8090/oauth2/";
 	private static String TTUI = "http://localhost:8095";
 
 	public TTUIConfig() {
@@ -129,41 +132,57 @@ public class TTUIConfig extends ResourceConfig {
 								String accessCode = "";
 								if (requiresOAuth) {
 									if (!request.getUriInfo().getQueryParameters().containsKey("code")) {
-										String url = AuthService + "?" + "redirect_uri=" + TTUI + "&state=" + "fixed"
-												+ "&scope="
-												+ scopeList.replace("[", "").replace("]", "").replaceAll("\\s", "")
-												+ "&response_type=" + "code" + "&client_id=" + "TTUIMain"
+										String url = AuthService + "oauth/authorize?" + "redirect_uri=" + TTUI
+												+ "&state=" + "fixed" + "&response_type=" + "code" + "&client_id="
+												+ "my-trusted-client-with-secret" + "&client_secret=somesecret"
 												+ "&correlationId=" + MDC.get("correlationId");
 										logger.info("redirect to authorize request");
 										return "{\"url\":\"" + URLEncoder.encode(url, "UTF-8") + "\"}";
 									}
 									if (request.getUriInfo().getQueryParameters().containsKey("code")) {
-										// get Access token
-										String url = AuthService + "/auth/token" + "?" + "redirect_uri=" + TTUI
-												+ "/api/" + request.getUriInfo().getPath() + "&grant_type="
-												+ "authorization_code" + "&code="
-												+ request.getUriInfo().getQueryParameters().getFirst("code")
-												+ "&client_id=" + "TTUIMain" + "&client_secret=" + "TTUIMain"
-												+ "&correlationId=" + MDC.get("correlationId");
+										accessCode = request.getUriInfo().getQueryParameters().getFirst("code");
+										String[] tokens;
+										String url;
+										String access_token;
+										String refresh_token; 
+										if ((tokens = TTUIMain.internalCache.get(accessCode)) == null) {
+											// get Access token
+											url = AuthService + "oauth/token" + "?"
+													+ "&grant_type=authorization_code" + "&redirect_uri=" + TTUI
+													+ "&state=" + "fixed" + "&code="
+													+ request.getUriInfo().getQueryParameters().getFirst("code")
+													+ "&client_id=" + "my-trusted-client-with-secret"
+													+ "&client_secret=" + "somesecret" + "&correlationId="
+													+ MDC.get("correlationId");
 
-										ObjectMapper mapper = new ObjectMapper();
-										JsonNode jsonData = mapper
-												.readTree(getHttpResponse(url, "GET", false, request));
-										accessCode = jsonData.get("access_token").asText();
+											ObjectMapper mapper = new ObjectMapper();
+											JsonNode jsonData = mapper
+													.readTree(getHttpResponse(url, "POST", false, request, true));
+											 access_token = jsonData.get("access_token").asText();
+											 refresh_token = jsonData.get("refresh_token").asText();
 
-										url = TTService + "/api/" + request.getUriInfo().getPath() + "?"
-												+ "access_token=" + accessCode + "&correlationId="
-												+ MDC.get("correlationId");
-
-										for(Entry<String, List<String>> parm:request.getUriInfo().getQueryParameters().entrySet()){
-											if(parm.getKey().equals("access_token") || parm.getKey().equals("correlationId") || parm.getKey().equals("code")){
-												continue;
-											}
-											url += "&" + parm.getKey() + "=" + parm.getValue().get(0);
+											TTUIMain.internalCache.put(accessCode, new String[]{access_token,refresh_token});
+										}else{
+											access_token =tokens[0];
+											refresh_token = tokens[1];
 										}
+											url = TTService + "/api/" + request.getUriInfo().getPath() + "?"
+													+ "access_token=" + access_token + "&refresh_token=" + refresh_token
+													+ "&correlationId=" + MDC.get("correlationId");
 
-										logger.info("fetch the token "+url);
-										output = getHttpResponse(url, request.getMethod(), true, request);
+											for (Entry<String, List<String>> parm : request.getUriInfo()
+													.getQueryParameters().entrySet()) {
+												if (parm.getKey().equals("access_token")
+														|| parm.getKey().equals("correlationId")
+														|| parm.getKey().equals("code")) {
+													continue;
+												}
+												url += "&" + parm.getKey() + "=" + parm.getValue().get(0);
+											}
+
+											logger.info("fetch the token " + url);
+											output = getHttpResponse(url, request.getMethod(), true, request, false);
+										
 									}
 								}
 
@@ -193,7 +212,7 @@ public class TTUIConfig extends ResourceConfig {
 	}
 
 	private String getHttpResponse(String urlStr, String method, boolean extractRequest,
-			ContainerRequestContext request) {
+			ContainerRequestContext request, boolean authHeader) {
 		try {
 			URL url = new URL(urlStr);
 			HttpURLConnection conn = null;
@@ -202,6 +221,12 @@ public class TTUIConfig extends ResourceConfig {
 			 * get connection
 			 */
 			conn = (HttpURLConnection) url.openConnection();
+
+			if (authHeader) {
+				String userPassword = "my-trusted-client-with-secret:somesecret";
+				String encoding = new String(Base64.getEncoder().encode(userPassword.getBytes()));
+				conn.setRequestProperty("Authorization", "Basic " + encoding);
+			}
 
 			/*
 			 * despatch request

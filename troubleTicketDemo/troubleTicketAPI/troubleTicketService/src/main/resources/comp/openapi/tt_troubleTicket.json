@@ -5,7 +5,7 @@
     "version": "2.0",
     "title": "API TroubleTicket"
   },
-  "host": "localhost:8080",
+  "host": "localhost:8085",
   "basePath": "/",
   "schemes": [
     "http"
@@ -298,8 +298,8 @@
   "securityDefinitions": {
     "oauth": {
       "type": "oauth2",
-      "authorizationUrl": "http://localhost:8090/auth/authorise",
-      "tokenUrl": "http://localhost:8090/auth/token/valid",
+      "authorizationUrl": "http://localhost:8090/oauth2/oauth/authorize",
+      "tokenUrl": "http://localhost:8090/oauth2/oauth/token",
       "flow": "implicit",
       "scopes": {
         "write_troubleTicket": "modify troubleTicket",
