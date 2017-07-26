@@ -143,6 +143,7 @@ public class OAuth2ServerConfig {
  			            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
  			            .scopes("read", "write", "trust")
  			            .secret("somesecret")
+ 			            .accessTokenValiditySeconds(60)
 	 		        .and()
  		            .withClient("my-less-trusted-client")
 			            .authorizedGrantTypes("authorization_code", "implicit")
@@ -170,7 +171,9 @@ public class OAuth2ServerConfig {
 
 		@Override
 		public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-			oauthServer.realm("oauth2/client");
+			oauthServer
+			.realm("oauth2/client")
+			.checkTokenAccess("hasAuthority('ROLE_TRUSTED_CLIENT')");
 		}
 
 	}
