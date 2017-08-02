@@ -43,14 +43,7 @@
               "$ref": "#/definitions/TroubleTicket"
             }
           }
-        },
-        "security": [
-          {
-            "oauth": [
-              "write_troubleTicket"
-            ]
-          }
-        ]
+        }        
       },
     "get": {
       "tags": [

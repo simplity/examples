@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package apitroubleticket;
+
+message GetHubResponse {
+    repeated Hub items = 1;
+}
+
+message PostHubRequest {
+    Hub hub = 1;
+}
+
+message GetHubHubIdRequest {
+    string hubId = 1;
+}
+
+message DeleteHubHubIdRequest {
+    string hubId = 1;
+}
+
+message GetTroubleTicketRequest {
+    string fields = 1;
+}
+
+message GetTroubleTicketResponse {
+    repeated TroubleTicket items = 1;
+}
+
+message PostTroubleTicketRequest {
+    TroubleTicket troubleTicket = 1;
+}
+
+message GetTroubleTicketTroubleTicketIdRequest {
+    string fields = 1;
+    string troubleTicketId = 2;
+}
+
+message PutTroubleTicketTroubleTicketIdRequest {
+    TroubleTicket troubleTicket = 1;
+    string troubleTicketId = 2;
+}
+
+message Hub {
+    string callback = 1;
+    string id = 2;
+    string query = 3;
+}
+
+message Note {
+    string author = 1;
+    string date = 2;
+    string text = 3;
+}
+
+message RelatedObject {
+    string involvement = 1;
+    string reference = 2;
+}
+
+message RelatedParty {
+    string href = 1;
+    string role = 2;
+}
+
+message TroubleTicket {
+    string correlationId = 1;
+    string creationDate = 2;
+    string description = 3;
+    string id = 4;
+    repeated Note note = 5;
+    repeated RelatedObject relatedObject = 6;
+    repeated RelatedParty relatedParty = 7;
+    string severity = 8;
+    enum TroubleTicket_Statu {
+        TROUBLETICKET_STATU_SUBMITTED = 0;
+        TROUBLETICKET_STATU_REJECTED = 1;
+        TROUBLETICKET_STATU_ACKNOWLEDGED = 2;
+        TROUBLETICKET_STATU_INPROGRESS = 3;
+        TROUBLETICKET_STATU_INPROGRESSHELD = 4;
+        TROUBLETICKET_STATU_INPROGRESSPENDING = 5;
+        TROUBLETICKET_STATU_RESOLVED = 6;
+        TROUBLETICKET_STATU_CLOSED = 7;
+        TROUBLETICKET_STATU_CANCELLED = 8;
+    }
+    TroubleTicket_Statu status = 9;
+    string statusChangeDate = 10;
+    string statusChangeReason = 11;
+    string targetResolutionDate = 12;
+    string type = 13;
+}
+
+service APITroubleTicketService {
+    // hubFind
+    rpc GetHub(google.protobuf.Empty) returns (GetHubResponse) {}
+    // hubCreate
+    rpc PostHub(PostHubRequest) returns (Hub) {}
+    // hubGet
+    rpc GetHubHubId(GetHubHubIdRequest) returns (Hub) {}
+    // hubDelete
+    rpc DeleteHubHubId(DeleteHubHubIdRequest) returns (google.protobuf.Empty) {}
+    // troubleTicketFind
+    rpc GetTroubleTicket(GetTroubleTicketRequest) returns (GetTroubleTicketResponse) {}
+    // troubleTicketCreate
+    rpc PostTroubleTicket(PostTroubleTicketRequest) returns (TroubleTicket) {}
+    // troubleTicketGet
+    rpc GetTroubleTicketTroubleTicketId(GetTroubleTicketTroubleTicketIdRequest) returns (TroubleTicket) {}
+    // troubleTicketUpdate
+    rpc PutTroubleTicketTroubleTicketId(PutTroubleTicketTroubleTicketIdRequest) returns (TroubleTicket) {}
+}

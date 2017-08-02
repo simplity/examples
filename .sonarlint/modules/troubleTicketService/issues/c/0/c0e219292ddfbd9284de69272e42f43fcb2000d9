@@ -1,0 +1,15 @@
+
+dsquid:S2629]"7Use the built-in formatting to construct this argument.(ÿØê’Hï=RMAJORZ
+CODE_SMELL
+isquid:S2629_"7Use the built-in formatting to construct this argument.(“¤ðúýÿÿÿÿHð=RMAJORZ
+CODE_SMELL
+`squid:S1068".Remove this unused "fieldNames" private field.(àŸÂ‚úÿÿÿÿHñ=RMAJORZ
+CODE_SMELL
+nsquid:S2583F"CChange this condition so that it does not always evaluate to "true"(ãýâèúÿÿÿÿHò=RMAJORZBUG
+ˆsquid:S1488c"[Immediately return this expression instead of assigning it to the temporary variable "obj".(˜òóïHó=RMINORZ
+CODE_SMELL
+Jsquid:S2153J"Remove the boxing to "Integer".(êñ‘¼üÿÿÿÿHô=RMINORZBUG
+csquid:S1153M"1Directly append the argument of String.valueOf().(²ìÈìùÿÿÿÿHõ=RMINORZ
+CODE_SMELL
+{squid:UselessImportCheck"<Remove this unused import 'org.simplity.service.InputField'.(²üÐûÿÿÿÿHö=RMINORZ
+CODE_SMELL
