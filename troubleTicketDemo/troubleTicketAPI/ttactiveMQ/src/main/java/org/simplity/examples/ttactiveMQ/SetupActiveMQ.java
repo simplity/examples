@@ -25,8 +25,8 @@ public class SetupActiveMQ {
 			QueueSession queueSession = queueConnection.createQueueSession(false,
 					javax.jms.Session.DUPS_OK_ACKNOWLEDGE);
 			queueConnection.start();
-			Destination destination = queueSession.createQueue("jms/TTWriteQQ");
-			Destination source = queueSession.createQueue("jms/TTReadQQ");
+			queueSession.createQueue("jms/TTWriteQQ");
+			queueSession.createQueue("jms/TTReadQQ");
 			queueConnection.close();
 		} catch (JMSException e) {
 			logger.error("JMS error",e);

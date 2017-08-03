@@ -7,5 +7,5 @@ CREATE TABLE HUB
 	query VARCHAR(500) 
 	 );
 	 
-INSERT INTO HUB (callback) VALUES ('http://localhost:8086/api/troubleTicket');
-INSERT INTO HUB (callback) VALUES ('http://localhost:8087/api/troubleTicket');
+INSERT INTO HUB (callback) VALUES ('localhost:8086/api/troubleTicket');
+INSERT INTO HUB (callback) VALUES ('localhost:8087/api/troubleTicket');

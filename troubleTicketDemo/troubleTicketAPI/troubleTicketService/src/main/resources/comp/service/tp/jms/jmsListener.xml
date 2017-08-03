@@ -7,7 +7,7 @@
 	jmsUsage="notManaged">
 	<actions>
 		<jmsConsumer waitForMessage="true" consumeAll="true">
-			<requestDestination name="dynamicQueues/TTReadQQ" messageBodyType="text">
+			<requestDestination name="jms/TTReadQQ" messageBodyType="text">
 				<inputData>				
 					<inputRecords>
 						<inputRecord recordName="TroubleTicket" />

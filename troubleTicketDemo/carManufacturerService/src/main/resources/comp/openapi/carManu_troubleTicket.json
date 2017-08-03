@@ -45,14 +45,7 @@
             }
           }
         },
-        "security": [
-          {
-            "oauth": [
-              "write_troubleTicket"
-            ]
-          }
-        ]
-      },       
+     },       
     "get": {
       "tags": [
          "troubleTicket"

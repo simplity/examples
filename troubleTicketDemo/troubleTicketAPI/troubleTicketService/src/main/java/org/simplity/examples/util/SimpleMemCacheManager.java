@@ -70,7 +70,7 @@ public class SimpleMemCacheManager implements ServiceCacheManager {
 		if(successFlag) {
 			logger.info("Added to cache");
 			Service service = (Service) ComponentManager.getServiceOrNull(outData.getServiceName());
-			if(service.getCacheRefreshTime() != 0) {
+			if(service.getCacheRefreshTime() != 0 ) {
 				int cacheRefreshTime = Integer.valueOf(service.getCacheRefreshTime());
 				String payLoad = "{'cacheKey':'" + cacheKey + "',"
 						+ "'refreshTimePeriod':" + cacheRefreshTime + ","

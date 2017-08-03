@@ -113,7 +113,8 @@
         <configuration>
           <executable>java</executable>
           <arguments>
-            <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
+            <argument>-Djava.naming.factory.initial=com.sun.jndi.fscontext.RefFSContextFactory</argument>
+            <argument>-Djava.naming.provider.url=file:/D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/target/classes</argument>
             <argument>-classpath</argument>
             <classpath />
             <argument>org.simplity.examples.TTServiceMain</argument>
