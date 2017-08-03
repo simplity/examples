@@ -44,8 +44,8 @@
               "$ref": "#/definitions/TroubleTicket"
             }
           }
-        },
-     },       
+      }        
+      },       
     "get": {
       "tags": [
          "troubleTicket"
