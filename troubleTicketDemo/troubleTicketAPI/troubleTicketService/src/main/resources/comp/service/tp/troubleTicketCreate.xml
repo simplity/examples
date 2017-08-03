@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <service xmlns="http://www.simplity.org/schema" name="troubleTicketCreate"
-	dbAccessType="readWrite" jmsUsage="notManaged" referredServicesToInvalidate="troubleTicketFind">
+	dbAccessType="readWrite" jmsUsage="notManaged"
+	referredServicesToInvalidate="troubleTicketFind">
 	<inputData>
 		<inputFields>
 			<inputField dataType="_text" name="id" />
@@ -31,18 +32,23 @@
 				<relatedRecord recordName="Note" sheetName="notes" />
 			</childRecords>
 		</save>
-		<log names="id" />		
+		<log names="id" />
 		<jmsProducer actionName="write2Q">
-			<requestDestination name="dynamicQueues/TTWriteQQ" messageBodyType="text">
+			<requestDestination name="dynamicQueues/TTWriteQQ"
+				messageBodyType="text">
 				<outputData>
 					<outputRecords>
 						<outputRecord recordName="jmsTicket" />
-						<outputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
-						<outputRecord recordName="RelatedParty" sheetName="relatedParties"/>
-						<outputRecord recordName="Note" sheetName="notes"/>
+						<outputRecord recordName="RelatedObject" sheetName="relatedObjects" />
+						<outputRecord recordName="RelatedParty" sheetName="relatedParties" />
+						<outputRecord recordName="Note" sheetName="notes" />
 					</outputRecords>
 				</outputData>
 			</requestDestination>
 		</jmsProducer>
 	</actions>
+	<outputData
+		fieldNames="id,correlationId,description,severity,type,creationDate,targetResolutionDate,status,subStatus,statusChangeReason,statusChangeDate,resolutionDate"
+		dataSheets="relatedObjects,relatedParties,notes">
+	</outputData>
 </service>

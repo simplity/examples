@@ -1,11 +1,0 @@
-
-^squid:S10683"*Remove this unused "scopes" private field.(ÆÂÞ¢8Šòž”Ø+HØ=RMAJORZ
-CODE_SMELL
-|squid:UselessImportCheck";Remove this unused import 'java.net.MalformedURLException'.(ªËÞˆ8©…«”Ø+Hæ=RMINORZ
-CODE_SMELL
-psquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8Ù¨—”Ø+HÒ=RMINORZ
-CODE_SMELL
-isquid:S2629Z"7Use the built-in formatting to construct this argument.(‡¶¬¬úÿÿÿÿH±=RMAJORZ
-CODE_SMELL
-nsquid:UselessImportCheck"-Remove this unused import 'java.util.Base64'.(ëŠ»Õ8Ô€Ö”Ø+Hí=RMINORZ
-CODE_SMELL
