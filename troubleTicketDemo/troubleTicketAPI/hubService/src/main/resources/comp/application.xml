@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns="http://www.simplity.org/schema" 
 			applicationId="HelloWorld"
-			autoLoginUserId="100"
-			loggingFramework="log4j"
+			autoLoginUserId="100"			
 			jmsConnectionFactory="ConnectionFactory"	
 			logSqls="true"
 			dbVendor="h2"
@@ -10,7 +9,13 @@
 			connectionString="jdbc:h2:file:${project.build.directory}\hub;user=sa;"
 			jobsToRunOnStartup="listenerJob">	
 			<jmsProperties>
-				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
-				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
-			</jmsProperties> 				 
+				<!-- <property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
+				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/> -->
+				<property name="java.naming.provider.url" value="file://D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/hubService/target/classes"/>
+				<property name="java.naming.factory.initial" value="com.sun.jndi.fscontext.RefFSContextFactory"/>
+		
+			</jmsProperties>			
+			<gateways>
+				<httpGateway name="123" baseUrl="http://"  />
+			</gateways>				 
 </application>

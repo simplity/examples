@@ -4,29 +4,29 @@
 	<actions>
 		<setValue fieldName="url" expression="concat(callback,'?correlationId=',correlationId)"
 			executeOnCondition="action=='add'"></setValue>	
-		<httpClient httpMethod="POST" urlString="$url"
-			contentType="application/json" executeOnCondition="action=='add'">
-			<requestData>
+		<httpClient httpMethod="POST" urlString="$url" gatewayId="123" 
+			contentType="application/json" executeOnCondition="action=='add'" >
+			<dataToBeSent>
 				<outputRecords>
 					<outputRecord recordName="TroubleTicket"/>
 					<outputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
 					<outputRecord recordName="RelatedParty" sheetName="relatedParties"/>
 					<outputRecord recordName="Note" sheetName="notes"/>
 				</outputRecords>
-			</requestData>
+			</dataToBeSent>
 		</httpClient>
 		<setValue fieldName="url" expression="concat(callback,'/',id,'?correlationId=',correlationId)"
 			executeOnCondition="action=='update'"></setValue>
 		<httpClient httpMethod="PUT" urlString="$url" contentType="application/json"
-			executeOnCondition="action=='update'">			
-			<requestData fieldNames="source">
+			executeOnCondition="action=='update'" gatewayId="123">			
+			<dataToBeSent>
 				<outputRecords>
-					<outputRecord recordName="TroubleTicket" />
+					<outputRecord recordName="TroubleTicket"/>
 					<outputRecord recordName="RelatedObject" sheetName="relatedObjects"/>
 					<outputRecord recordName="RelatedParty" sheetName="relatedParties"/>
 					<outputRecord recordName="Note" sheetName="notes"/>
 				</outputRecords>
-			</requestData>
+			</dataToBeSent>
 		</httpClient>
 	</actions>
 </service>

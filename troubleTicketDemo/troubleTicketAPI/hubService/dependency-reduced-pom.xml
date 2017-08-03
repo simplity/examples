@@ -138,7 +138,7 @@
         <configuration>
           <executable>java</executable>
           <arguments>
-            <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
+            <argument>-Djava.naming.factory.initial=com.sun.jndi.fscontext.RefFSContextFactory</argument>
             <argument>-classpath</argument>
             <classpath />
             <argument>org.simplity.examples.HubMainService</argument>

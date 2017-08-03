@@ -4,7 +4,7 @@
 	name="listenerJob">
 	<jobs>
  		<job name="bootstrapListener" serviceName="bootstrap.bootstrapService" nbrDedicatedThreads="1"/> 
-		<job name="Listener" serviceName="jms.jmsListener" nbrDedicatedThreads="2"/>
+		<!-- <job name="Listener" serviceName="jms.jmsListener" nbrDedicatedThreads="2"/> -->
  		<!-- <job name="memcacheListener" serviceName="memcache.memCacheRefresh" runInterval="60"/>  -->
 	</jobs>
 </batch>
