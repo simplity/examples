@@ -1,82 +1,126 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
+package org.simplity.apiscdb;
 
-package apiscdb;
-
-message PostContractRequest {
-    Contract contract = 1;
-}
-
-message GetContractContractIdRequest {
-    string contractId = 1;
-}
-
-message PutContractContractIdRequest {
-    Contract contract = 1;
-    string contractId = 2;
-}
-
-message Contract {
+message ContractHeader {
     string assetName = 1;
     string assetOwner = 2;
-    string bench = 3;
+    int32 bench = 3;
     string city = 4;
-    string contractEndDate = 5;
-    string contractNum = 6;
-    string contractSignDate = 7;
-    string contractStartDate = 8;
-    string contractingEntity = 9;
-    string country = 10;
-    string county = 11;
-    string dealCounterParty = 12;
-    string dealName = 13;
-    string desc = 14;
-    string durationInMonths = 15;
-    string econs = 16;
-    string econsUOM = 17;
-    string excessThroughputRate = 18;
-    string excessThroughputRateUOM = 19;
-    string id = 20;
-    string leaseType = 21;
-    string notes = 22;
-    string otherRefNum = 23;
-    string region = 24;
-    string segment = 25;
-    string state = 26;
-    string status = 27;
-    string terminal = 28;
-    string throughputsPerYear = 29;
+    int32 contractEndDate = 5;
+    string contractLink = 6;
+    string contractNum = 7;
+    int32 contractSignDate = 8;
+    int32 contractStartDate = 9;
+    string contractingEntity = 10;
+    int32 country = 11;
+    string county = 12;
+    string dealCounterParty = 13;
+    string dealName = 14;
+    string desc = 15;
+    int32 durationInMonths = 16;
+    int32 econs = 17;
+    enum ContractHeader_EconsUOM {
+        CONTRACTHEADER_ECONSUOM_NPV = 0;
+        CONTRACTHEADER_ECONSUOM_GM = 1;
+    }
+    ContractHeader_EconsUOM econsUOM = 18;
+    int32 excessThroughputRate = 19;
+    enum ContractHeader_ExcessThroughputRateUOM {
+        CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3 = 0;
+        CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL = 1;
+        CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG = 2;
+    }
+    ContractHeader_ExcessThroughputRateUOM excessThroughputRateUOM = 20;
+    string externalContractNum = 21;
+    int32 id = 22;
+    enum ContractHeader_LeaseType {
+        CONTRACTHEADER_LEASETYPE_OPERATING = 0;
+        CONTRACTHEADER_LEASETYPE_CAPITAL = 1;
+        CONTRACTHEADER_LEASETYPE_LTCC = 2;
+    }
+    ContractHeader_LeaseType leaseType = 23;
+    string notes = 24;
+    string otherRefNum = 25;
+    int32 region = 26;
+    repeated Role roles = 27;
+    string segment = 28;
+    string state = 29;
+    enum ContractHeader_Statu {
+        CONTRACTHEADER_STATU_LIVE = 0;
+        CONTRACTHEADER_STATU_CLOSED = 1;
+    }
+    ContractHeader_Statu status = 30;
+    repeated Storage tanks = 31;
+    string terminal = 32;
+    int32 throughputsPerYear = 33;
 }
 
-message Contracts {
-    repeated Contract contracts = 1;
+message ContractHeaders {
+    repeated ContractHeader contractHeaders = 1;
+}
+
+message ErrorResponse {
+    string message = 1;
 }
 
 message Role {
-    string id = 1;
+    int32 id = 1;
     string primaryIndividual = 2;
-    string secondaryIndividual = 3;
+    RoleType roleType = 3;
+    string secondaryIndividual = 4;
 }
 
-message Tank {
-    string currency = 1;
-    string desc = 2;
-    string gradeGroup = 3;
-    string id = 4;
-    string quantity = 5;
-    string storageRate = 6;
-    string tankId = 7;
-    string uom = 8;
+message RoleType {
+    int32 id = 1;
+    string name = 2;
 }
 
-service APISCDBService {
-    // contractFind
-    rpc GetContract(google.protobuf.Empty) returns (Contracts) {}
-    // contractCreate
-    rpc PostContract(PostContractRequest) returns (Contract) {}
-    // contractGet
-    rpc GetContractContractId(GetContractContractIdRequest) returns (Contract) {}
-    // contractUpdate
-    rpc PutContractContractId(PutContractContractIdRequest) returns (Contract) {}
+message RoleTypes {
+    repeated RoleType roleTypes = 1;
+}
+
+message SearchCriteria {
+    string assetName = 1;
+    string assetOwner = 2;
+    int32 bench = 3;
+    string bpContractNum = 4;
+    string bpContractingEntity = 5;
+    string city = 6;
+    enum SearchCriteria_ContractStatu {
+        SEARCHCRITERIA_CONTRACTSTATU_LIVE = 0;
+        SEARCHCRITERIA_CONTRACTSTATU_CLOSED = 1;
+    }
+    SearchCriteria_ContractStatu contractStatus = 7;
+    int32 country = 8;
+    string county = 9;
+    string dealCounterParty = 10;
+    string dealName = 11;
+    int32 gradeGroup = 12;
+    int32 region = 13;
+    string segment = 14;
+    string state = 15;
+    string terminal = 16;
+}
+
+message Storage {
+    enum Storage_Action {
+        STORAGE_ACTION_ADD = 0;
+        STORAGE_ACTION_UPDATE = 1;
+        STORAGE_ACTION_DELETE = 2;
+    }
+    Storage_Action action = 1;
+    int32 currency = 2;
+    string desc = 3;
+    int32 gradeGroup = 4;
+    int32 id = 5;
+    int32 quantity = 6;
+    int32 storageRate = 7;
+    string tankId = 8;
+    enum Storage_Uom {
+        STORAGE_UOM_M3 = 0;
+        STORAGE_UOM_BBL = 1;
+        STORAGE_UOM_USG = 2;
+    }
+    Storage_Uom uom = 9;
 }

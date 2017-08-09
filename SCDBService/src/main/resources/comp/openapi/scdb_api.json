@@ -33,7 +33,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Contract"
+              "$ref": "#/definitions/ContractHeader"
             }
           }
         ],
@@ -41,7 +41,7 @@
           "201": {
             "description": "Contract",
             "schema": {
-              "$ref": "#/definitions/Contract"
+              "$ref": "#/definitions/ContractHeader"
             }
           }
         }
@@ -58,7 +58,7 @@
           "200": {
             "description": "List of contracts",
             "schema": {
-              "$ref": "#/definitions/Contracts"
+              "$ref": "#/definitions/ContractHeaders"
             }
           }
         }
@@ -85,7 +85,7 @@
           "200": {
             "description": "Contract",
             "schema": {
-              "$ref": "#/definitions/Contract"
+              "$ref": "#/definitions/ContractHeader"
             }
           }
         }
@@ -110,7 +110,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Contract"
+              "$ref": "#/definitions/ContractHeader"
             }
           }
         ],
@@ -118,7 +118,7 @@
           "200": {
             "description": "Success Contract",
             "schema": {
-              "$ref": "#/definitions/Contract"
+              "$ref": "#/definitions/ContractHeader"
             }
           }
         }
@@ -126,28 +126,30 @@
     }
   },
   "definitions": {
-    "Contracts": {
+    "ContractHeaders": {
       "type": "object",
-      "x-fieldName": "Contracts",
+      "x-fieldName": "ContractHeaders",
       "properties": {
-        "contracts": {
+        "contractHeaders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Contract"
+            "$ref": "#/definitions/ContractHeader"
           }
         }
       }
     },
-    "Contract": {
-      "x-fieldName": "Contract",
+    "ContractHeader": {
+      "x-fieldName": "ContractHeader",
       "type": "object",
-      "required": [ "id" ],
+      "required": [
+        "id"
+      ],
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "country": {
-          "type": "string"
+          "type": "integer"
         },
         "state": {
           "type": "string"
@@ -162,10 +164,10 @@
           "type": "string"
         },
         "region": {
-          "type": "string"
+          "type": "integer"
         },
         "bench": {
-          "type": "string"
+          "type": "integer"
         },
         "assetName": {
           "type": "string"
@@ -182,6 +184,9 @@
         "contractNum": {
           "type": "string"
         },
+        "externalContractNum": {
+          "type": "string"
+        },
         "otherRefNum": {
           "type": "string"
         },
@@ -195,49 +200,82 @@
           "type": "string"
         },
         "leaseType": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Operating",
+            "Capital",
+            "LTCC"
+          ]
         },
         "status": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "Live",
+            "Closed"
+          ]
         },
         "contractSignDate": {
-          "type": "string"
+          "type": "integer"
         },
         "contractStartDate": {
-          "type": "string"
+          "type": "integer"
         },
         "contractEndDate": {
-          "type": "string"
+          "type": "integer"
         },
         "durationInMonths": {
-          "type": "string"
+          "type": "number"
         },
         "excessThroughputRate": {
-          "type": "string"
+          "type": "number"
         },
         "excessThroughputRateUOM": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "M3",
+            "BBL",
+            "USG"
+          ]
         },
         "throughputsPerYear": {
-          "type": "string"
+          "type": "number"
         },
         "econs": {
-          "type": "string"
+          "type": "number"
         },
         "econsUOM": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "NPV",
+            "GM"
+          ]
         },
         "notes": {
           "type": "string"
-        }  
+        },
+        "contractLink": {
+          "type": "string"
+        },
+        "tanks": {
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/Storage"
+          }
+        },
+        "roles": {
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/Role"
+          }
+        }        
       }
     },
-    "Tank": {
-      "x-fieldName": "Tank",
+    "Storage": {
+      "x-fieldName": "Storage",
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
         },
         "tankId": {
           "type": "string"
@@ -246,19 +284,32 @@
           "type": "string"
         },
         "quantity": {
-          "type": "string"
+          "type": "number"
         },
         "uom": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "M3",
+            "BBL",
+            "USG"
+          ]
         },
         "storageRate": {
-          "type": "string"
+          "type": "number"
         },
         "currency": {
-          "type": "string"
+          "type": "integer"
         },
         "gradeGroup": {
-          "type": "string"
+          "type": "integer"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "Add",
+            "Update",
+            "Delete"
+          ]
         }
       }
     },
@@ -267,13 +318,107 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "integer"
+        },
+        "roleType": {
+          "$ref": "#/definitions/RoleType"
         },
         "primaryIndividual": {
           "type": "string"
         },
         "secondaryIndividual": {
           "type": "string"
+        }
+      }
+    },
+    "RoleType": {
+      "x-fieldName": "RoleType",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "RoleTypes": {
+      "x-fieldName": "RoleTypes",
+      "type": "object",
+      "properties": {
+        "roleTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RoleType"
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "x-fieldName": "ErrorResponse",
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "SearchCriteria": {
+      "x-fieldName": "SearchCriteria",
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "integer"
+        },
+        "bench": {
+          "type": "integer"
+        },
+        "country": {
+          "type": "integer"
+        },
+        "state": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "terminal": {
+          "type": "string"
+        },
+        "assetName": {
+          "type": "string"
+        },
+        "assetOwner": {
+          "type": "string"
+        },
+        "dealName": {
+          "type": "string"
+        },
+        "dealCounterParty": {
+          "type": "string"
+        },
+        "bpContractNum": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "bpContractingEntity": {
+          "type": "string"
+        },
+        "contractStatus": {
+          "type": "string",
+          "enum": [
+            "Live",
+            "Closed"
+          ]
+        },
+        "gradeGroup": {
+          "type": "integer"
         }
       }
     }
