@@ -1,0 +1,2 @@
+openapi2proto -spec tt_troubleTicket.json -yaml=false > tt_troubleTicket.proto
+protoc tt_troubleTicket.proto --java_out=.

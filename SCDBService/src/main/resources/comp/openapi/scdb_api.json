@@ -1,0 +1,281 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "2.0",
+    "title": "API SCDB"
+  },
+  "host": "localhost:8070",
+  "basePath": "/scdb/storagecontracts",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/contract": {
+      "post": {
+        "tags": [
+          "contract"
+        ],
+        "operationId": "contractCreate",
+        "consumes": [],
+        "summary": "contractCreate",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "contract",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Contract",
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "contract"
+        ],
+        "operationId": "contractFind",
+        "summary": "contractFind",
+        "description": "",
+        "deprecated": false,
+        "responses": {
+          "200": {
+            "description": "List of contracts",
+            "schema": {
+              "$ref": "#/definitions/Contracts"
+            }
+          }
+        }
+      }
+    },
+    "/contract/{contractId}": {
+      "get": {
+        "tags": [
+          "contract"
+        ],
+        "operationId": "contractGet",
+        "summary": "contractGet",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contract",
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "contract"
+        ],
+        "operationId": "contractUpdate",
+        "summary": "contractUpdate",
+        "description": "",
+        "deprecated": false,
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contract",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success Contract",
+            "schema": {
+              "$ref": "#/definitions/Contract"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contracts": {
+      "type": "object",
+      "x-fieldName": "Contracts",
+      "properties": {
+        "contracts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contract"
+          }
+        }
+      }
+    },
+    "Contract": {
+      "x-fieldName": "Contract",
+      "type": "object",
+      "required": [ "id" ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "terminal": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bench": {
+          "type": "string"
+        },
+        "assetName": {
+          "type": "string"
+        },
+        "assetOwner": {
+          "type": "string"
+        },
+        "dealName": {
+          "type": "string"
+        },
+        "dealCounterParty": {
+          "type": "string"
+        },
+        "contractNum": {
+          "type": "string"
+        },
+        "otherRefNum": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "contractingEntity": {
+          "type": "string"
+        },
+        "leaseType": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "contractSignDate": {
+          "type": "string"
+        },
+        "contractStartDate": {
+          "type": "string"
+        },
+        "contractEndDate": {
+          "type": "string"
+        },
+        "durationInMonths": {
+          "type": "string"
+        },
+        "excessThroughputRate": {
+          "type": "string"
+        },
+        "excessThroughputRateUOM": {
+          "type": "string"
+        },
+        "throughputsPerYear": {
+          "type": "string"
+        },
+        "econs": {
+          "type": "string"
+        },
+        "econsUOM": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }  
+      }
+    },
+    "Tank": {
+      "x-fieldName": "Tank",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "tankId": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "uom": {
+          "type": "string"
+        },
+        "storageRate": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "gradeGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "Role": {
+      "x-fieldName": "Role",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "primaryIndividual": {
+          "type": "string"
+        },
+        "secondaryIndividual": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

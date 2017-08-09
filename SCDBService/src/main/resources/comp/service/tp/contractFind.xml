@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="contractFind"
+	dbAccessType="readOnly">
+	<actions>
+		<filter filterRecordName="Contract" outputSheetName="contracts">
+			<childRecords>			
+				<relatedRecord sheetName="tanks" recordName="Tank"/>
+				<relatedRecord sheetName="roles" recordName="Role"/>
+			</childRecords>
+		</filter>
+		<filter filterRecordName="RoleType" outputSheetName="roleType"> 
+		</filter>
+		<log names="contracts,tanks,roles,roleType"/>		
+	</actions>
+	<outputData justOutputEveryThing="true">
+		<outputRecords>
+			<outputRecord sheetName="contracts"/>
+			<outputRecord sheetName="tanks" parentSheetName="contracts" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
+			<outputRecord sheetName="roles" parentSheetName="contracts" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
+			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="roleId"/>
+		</outputRecords>
+	</outputData>
+</service>

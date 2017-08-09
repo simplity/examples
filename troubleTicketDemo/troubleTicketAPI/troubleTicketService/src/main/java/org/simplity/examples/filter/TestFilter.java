@@ -24,6 +24,7 @@ public class TestFilter implements Filter {
 			throws IOException, ServletException {
 		org.simplity.examples.util.TtTroubleTicket.TroubleTicket.Builder a = TtTroubleTicket.TroubleTicket.newBuilder();
 		a.setCorrelationId("123");
+		a.setDescription("Hello");
 		a.build().writeTo(response.getOutputStream());
 	}
 

@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package apiscdb;
+
+message PostContractRequest {
+    Contract contract = 1;
+}
+
+message GetContractContractIdRequest {
+    string contractId = 1;
+}
+
+message PutContractContractIdRequest {
+    Contract contract = 1;
+    string contractId = 2;
+}
+
+message Contract {
+    string assetName = 1;
+    string assetOwner = 2;
+    string bench = 3;
+    string city = 4;
+    string contractEndDate = 5;
+    string contractNum = 6;
+    string contractSignDate = 7;
+    string contractStartDate = 8;
+    string contractingEntity = 9;
+    string country = 10;
+    string county = 11;
+    string dealCounterParty = 12;
+    string dealName = 13;
+    string desc = 14;
+    string durationInMonths = 15;
+    string econs = 16;
+    string econsUOM = 17;
+    string excessThroughputRate = 18;
+    string excessThroughputRateUOM = 19;
+    string id = 20;
+    string leaseType = 21;
+    string notes = 22;
+    string otherRefNum = 23;
+    string region = 24;
+    string segment = 25;
+    string state = 26;
+    string status = 27;
+    string terminal = 28;
+    string throughputsPerYear = 29;
+}
+
+message Contracts {
+    repeated Contract contracts = 1;
+}
+
+message Role {
+    string id = 1;
+    string primaryIndividual = 2;
+    string secondaryIndividual = 3;
+}
+
+message Tank {
+    string currency = 1;
+    string desc = 2;
+    string gradeGroup = 3;
+    string id = 4;
+    string quantity = 5;
+    string storageRate = 6;
+    string tankId = 7;
+    string uom = 8;
+}
+
+service APISCDBService {
+    // contractFind
+    rpc GetContract(google.protobuf.Empty) returns (Contracts) {}
+    // contractCreate
+    rpc PostContract(PostContractRequest) returns (Contract) {}
+    // contractGet
+    rpc GetContractContractId(GetContractContractIdRequest) returns (Contract) {}
+    // contractUpdate
+    rpc PutContractContractId(PutContractContractIdRequest) returns (Contract) {}
+}

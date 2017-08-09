@@ -1,2 +1,2 @@
-openapi2proto -spec tt_troubleTicket.json -yaml=false > tt_troubleTicket.proto
-protoc tt_troubleTicket.proto --java_out=.
+openapi2proto -spec scdb_api.json -yaml=false > scdb_api.proto
+protoc scdb_api.proto --java_out=.

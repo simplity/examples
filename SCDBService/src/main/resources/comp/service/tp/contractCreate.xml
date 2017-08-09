@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" 
+		 name="contractCreate"
+		 dbAccessType="readWrite">
+	<inputData>
+		<inputRecords>
+			<inputRecord recordName="Contract"/>
+			<inputRecord recordName="Tank" sheetName="tanks" />
+			<inputRecord recordName="Role" sheetName="roles"/>
+		</inputRecords>
+	</inputData>
+	<actions>
+		<save saveAction="save" recordName="Contract">
+			<childRecords>
+			 	<relatedRecord sheetName="tanks" recordName="Tank"/>
+			 	<relatedRecord sheetName="roles" recordName="Role"/>
+			 	<relatedRecord sheetName="roleTypes" recordName="RoleType"/>
+			</childRecords>
+		</save>
+	</actions>
+	<outputData fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status">
+		<outputRecords>
+			<outputRecord sheetName="tanks" />
+			<outputRecord sheetName="roles" />
+			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="id"/>
+		</outputRecords>
+	</outputData>	
+</service>
