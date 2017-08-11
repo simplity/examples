@@ -5,14 +5,14 @@
 	<inputData>
 		<inputRecords>
 			<inputRecord recordName="Contract"/>
-			<inputRecord recordName="Tank" sheetName="tanks" />
+			<inputRecord recordName="Storage" sheetName="storage" />
 			<inputRecord recordName="Role" sheetName="roles"/>
 		</inputRecords>
 	</inputData>
 	<actions>
 		<save saveAction="save" recordName="Contract">
 			<childRecords>
-			 	<relatedRecord sheetName="tanks" recordName="Tank"/>
+			 	<relatedRecord sheetName="storage" recordName="Storage"/>
 			 	<relatedRecord sheetName="roles" recordName="Role"/>
 			 	<relatedRecord sheetName="roleTypes" recordName="RoleType"/>
 			</childRecords>
@@ -20,7 +20,7 @@
 	</actions>
 	<outputData fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status">
 		<outputRecords>
-			<outputRecord sheetName="tanks" />
+			<outputRecord sheetName="storage" />
 			<outputRecord sheetName="roles" />
 			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="id"/>
 		</outputRecords>

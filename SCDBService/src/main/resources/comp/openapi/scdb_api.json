@@ -141,8 +141,7 @@
     "ContractHeader": {
       "x-fieldName": "ContractHeader",
       "type": "object",
-      "required": [
-        "id"
+      "required": [        
       ],
       "properties": {
         "id": {

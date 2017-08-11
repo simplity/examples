@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="Tank" 
+<record name="Storage" 
 		recordType="storage" 
-		tableName="TANK" 
+		tableName="STORAGE" 
 		okToSelectAll="true"
 		xmlns="http://www.simplity.org/schema"
 		keyToBeGenerated="true">

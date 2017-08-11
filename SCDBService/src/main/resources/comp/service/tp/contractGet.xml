@@ -12,17 +12,17 @@
 		<createSheet sheetName="filterSheet" data="id;$contractId" />
 		<filter filterRecordName="Contract" inputSheetName="filterSheet">
 			<childRecords>			
-				<relatedRecord sheetName="tanks" recordName="Tank"/>
+				<relatedRecord sheetName="storage" recordName="Storage"/>
 				<relatedRecord sheetName="roles" recordName="Role"/>
 			</childRecords>
 		</filter>
 		<filter filterRecordName="RoleType" outputSheetName="roleType"> 
 		</filter>
-		<log names="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status,notes,tanks,roles,roleType"/>
+		<log names="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status,notes,storage,roles,roleType"/>
 	</actions>
 	<outputData justOutputEveryThing="true" fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status,notes">
 		<outputRecords>
-			<outputRecord sheetName="tanks" />
+			<outputRecord sheetName="storage" />
 			<outputRecord sheetName="roles" />
 			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="roleId"/>
 		</outputRecords>

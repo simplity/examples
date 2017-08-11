@@ -4,21 +4,21 @@
 	name="contractFind"
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="Contract" outputSheetName="contracts">
+		<filter filterRecordName="Contract" outputSheetName="contractHeaders">
 			<childRecords>			
-				<relatedRecord sheetName="tanks" recordName="Tank"/>
+				<relatedRecord sheetName="storage" recordName="Storage"/>
 				<relatedRecord sheetName="roles" recordName="Role"/>
 			</childRecords>
 		</filter>
 		<filter filterRecordName="RoleType" outputSheetName="roleType"> 
 		</filter>
-		<log names="contracts,tanks,roles,roleType"/>		
+		<log names="contracts,storage,roles,roleType"/>		
 	</actions>
 	<outputData justOutputEveryThing="true">
 		<outputRecords>
-			<outputRecord sheetName="contracts"/>
-			<outputRecord sheetName="tanks" parentSheetName="contracts" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
-			<outputRecord sheetName="roles" parentSheetName="contracts" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
+			<outputRecord sheetName="contractHeaders"/>
+			<outputRecord sheetName="storage" parentSheetName="contractHeaders" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
+			<outputRecord sheetName="roles" parentSheetName="contractHeaders" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
 			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="roleId"/>
 		</outputRecords>
 	</outputData>

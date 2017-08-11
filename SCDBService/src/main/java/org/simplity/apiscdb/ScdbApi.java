@@ -39,9 +39,9 @@ public final class ScdbApi {
         getAssetOwnerBytes();
 
     /**
-     * <code>int32 bench = 3;</code>
+     * <code>int64 bench = 3;</code>
      */
-    int getBench();
+    long getBench();
 
     /**
      * <code>string city = 4;</code>
@@ -54,9 +54,9 @@ public final class ScdbApi {
         getCityBytes();
 
     /**
-     * <code>int32 contractEndDate = 5;</code>
+     * <code>int64 contractEndDate = 5;</code>
      */
-    int getContractEndDate();
+    long getContractEndDate();
 
     /**
      * <code>string contractLink = 6;</code>
@@ -79,14 +79,14 @@ public final class ScdbApi {
         getContractNumBytes();
 
     /**
-     * <code>int32 contractSignDate = 8;</code>
+     * <code>int64 contractSignDate = 8;</code>
      */
-    int getContractSignDate();
+    long getContractSignDate();
 
     /**
-     * <code>int32 contractStartDate = 9;</code>
+     * <code>int64 contractStartDate = 9;</code>
      */
-    int getContractStartDate();
+    long getContractStartDate();
 
     /**
      * <code>string contractingEntity = 10;</code>
@@ -99,9 +99,9 @@ public final class ScdbApi {
         getContractingEntityBytes();
 
     /**
-     * <code>int32 country = 11;</code>
+     * <code>int64 country = 11;</code>
      */
-    int getCountry();
+    long getCountry();
 
     /**
      * <code>string county = 12;</code>
@@ -144,14 +144,14 @@ public final class ScdbApi {
         getDescBytes();
 
     /**
-     * <code>int32 durationInMonths = 16;</code>
+     * <code>int64 durationInMonths = 16;</code>
      */
-    int getDurationInMonths();
+    long getDurationInMonths();
 
     /**
-     * <code>int32 econs = 17;</code>
+     * <code>int64 econs = 17;</code>
      */
-    int getEcons();
+    long getEcons();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_EconsUOM econsUOM = 18;</code>
@@ -163,9 +163,9 @@ public final class ScdbApi {
     org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUOM getEconsUOM();
 
     /**
-     * <code>int32 excessThroughputRate = 19;</code>
+     * <code>int64 excessThroughputRate = 19;</code>
      */
-    int getExcessThroughputRate();
+    long getExcessThroughputRate();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_ExcessThroughputRateUOM excessThroughputRateUOM = 20;</code>
@@ -187,9 +187,9 @@ public final class ScdbApi {
         getExternalContractNumBytes();
 
     /**
-     * <code>int32 id = 22;</code>
+     * <code>int64 id = 22;</code>
      */
-    int getId();
+    long getId();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_LeaseType leaseType = 23;</code>
@@ -221,9 +221,9 @@ public final class ScdbApi {
         getOtherRefNumBytes();
 
     /**
-     * <code>int32 region = 26;</code>
+     * <code>int64 region = 26;</code>
      */
-    int getRegion();
+    long getRegion();
 
     /**
      * <code>repeated .org.simplity.apiscdb.Role roles = 27;</code>
@@ -313,9 +313,9 @@ public final class ScdbApi {
         getTerminalBytes();
 
     /**
-     * <code>int32 throughputsPerYear = 33;</code>
+     * <code>int64 throughputsPerYear = 33;</code>
      */
-    int getThroughputsPerYear();
+    long getThroughputsPerYear();
   }
   /**
    * Protobuf type {@code org.simplity.apiscdb.ContractHeader}
@@ -331,37 +331,37 @@ public final class ScdbApi {
     private ContractHeader() {
       assetName_ = "";
       assetOwner_ = "";
-      bench_ = 0;
+      bench_ = 0L;
       city_ = "";
-      contractEndDate_ = 0;
+      contractEndDate_ = 0L;
       contractLink_ = "";
       contractNum_ = "";
-      contractSignDate_ = 0;
-      contractStartDate_ = 0;
+      contractSignDate_ = 0L;
+      contractStartDate_ = 0L;
       contractingEntity_ = "";
-      country_ = 0;
+      country_ = 0L;
       county_ = "";
       dealCounterParty_ = "";
       dealName_ = "";
       desc_ = "";
-      durationInMonths_ = 0;
-      econs_ = 0;
+      durationInMonths_ = 0L;
+      econs_ = 0L;
       econsUOM_ = 0;
-      excessThroughputRate_ = 0;
+      excessThroughputRate_ = 0L;
       excessThroughputRateUOM_ = 0;
       externalContractNum_ = "";
-      id_ = 0;
+      id_ = 0L;
       leaseType_ = 0;
       notes_ = "";
       otherRefNum_ = "";
-      region_ = 0;
+      region_ = 0L;
       roles_ = java.util.Collections.emptyList();
       segment_ = "";
       state_ = "";
       status_ = 0;
       tanks_ = java.util.Collections.emptyList();
       terminal_ = "";
-      throughputsPerYear_ = 0;
+      throughputsPerYear_ = 0L;
     }
 
     @java.lang.Override
@@ -404,7 +404,7 @@ public final class ScdbApi {
             }
             case 24: {
 
-              bench_ = input.readInt32();
+              bench_ = input.readInt64();
               break;
             }
             case 34: {
@@ -415,7 +415,7 @@ public final class ScdbApi {
             }
             case 40: {
 
-              contractEndDate_ = input.readInt32();
+              contractEndDate_ = input.readInt64();
               break;
             }
             case 50: {
@@ -432,12 +432,12 @@ public final class ScdbApi {
             }
             case 64: {
 
-              contractSignDate_ = input.readInt32();
+              contractSignDate_ = input.readInt64();
               break;
             }
             case 72: {
 
-              contractStartDate_ = input.readInt32();
+              contractStartDate_ = input.readInt64();
               break;
             }
             case 82: {
@@ -448,7 +448,7 @@ public final class ScdbApi {
             }
             case 88: {
 
-              country_ = input.readInt32();
+              country_ = input.readInt64();
               break;
             }
             case 98: {
@@ -477,12 +477,12 @@ public final class ScdbApi {
             }
             case 128: {
 
-              durationInMonths_ = input.readInt32();
+              durationInMonths_ = input.readInt64();
               break;
             }
             case 136: {
 
-              econs_ = input.readInt32();
+              econs_ = input.readInt64();
               break;
             }
             case 144: {
@@ -493,7 +493,7 @@ public final class ScdbApi {
             }
             case 152: {
 
-              excessThroughputRate_ = input.readInt32();
+              excessThroughputRate_ = input.readInt64();
               break;
             }
             case 160: {
@@ -510,7 +510,7 @@ public final class ScdbApi {
             }
             case 176: {
 
-              id_ = input.readInt32();
+              id_ = input.readInt64();
               break;
             }
             case 184: {
@@ -533,7 +533,7 @@ public final class ScdbApi {
             }
             case 208: {
 
-              region_ = input.readInt32();
+              region_ = input.readInt64();
               break;
             }
             case 218: {
@@ -580,7 +580,7 @@ public final class ScdbApi {
             }
             case 264: {
 
-              throughputsPerYear_ = input.readInt32();
+              throughputsPerYear_ = input.readInt64();
               break;
             }
           }
@@ -618,24 +618,24 @@ public final class ScdbApi {
     public enum ContractHeader_EconsUOM
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>CONTRACTHEADER_ECONSUOM_NPV = 0;</code>
+       * <code>NPV = 0;</code>
        */
-      CONTRACTHEADER_ECONSUOM_NPV(0),
+      NPV(0),
       /**
-       * <code>CONTRACTHEADER_ECONSUOM_GM = 1;</code>
+       * <code>GM = 1;</code>
        */
-      CONTRACTHEADER_ECONSUOM_GM(1),
+      GM(1),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>CONTRACTHEADER_ECONSUOM_NPV = 0;</code>
+       * <code>NPV = 0;</code>
        */
-      public static final int CONTRACTHEADER_ECONSUOM_NPV_VALUE = 0;
+      public static final int NPV_VALUE = 0;
       /**
-       * <code>CONTRACTHEADER_ECONSUOM_GM = 1;</code>
+       * <code>GM = 1;</code>
        */
-      public static final int CONTRACTHEADER_ECONSUOM_GM_VALUE = 1;
+      public static final int GM_VALUE = 1;
 
 
       public final int getNumber() {
@@ -656,8 +656,8 @@ public final class ScdbApi {
 
       public static ContractHeader_EconsUOM forNumber(int value) {
         switch (value) {
-          case 0: return CONTRACTHEADER_ECONSUOM_NPV;
-          case 1: return CONTRACTHEADER_ECONSUOM_GM;
+          case 0: return NPV;
+          case 1: return GM;
           default: return null;
         }
       }
@@ -716,32 +716,32 @@ public final class ScdbApi {
     public enum ContractHeader_ExcessThroughputRateUOM
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3 = 0;</code>
+       * <code>M3 = 0;</code>
        */
-      CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3(0),
+      M3(0),
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL = 1;</code>
+       * <code>BBL = 1;</code>
        */
-      CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL(1),
+      BBL(1),
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG = 2;</code>
+       * <code>USG = 2;</code>
        */
-      CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG(2),
+      USG(2),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3 = 0;</code>
+       * <code>M3 = 0;</code>
        */
-      public static final int CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3_VALUE = 0;
+      public static final int M3_VALUE = 0;
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL = 1;</code>
+       * <code>BBL = 1;</code>
        */
-      public static final int CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL_VALUE = 1;
+      public static final int BBL_VALUE = 1;
       /**
-       * <code>CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG = 2;</code>
+       * <code>USG = 2;</code>
        */
-      public static final int CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG_VALUE = 2;
+      public static final int USG_VALUE = 2;
 
 
       public final int getNumber() {
@@ -762,9 +762,9 @@ public final class ScdbApi {
 
       public static ContractHeader_ExcessThroughputRateUOM forNumber(int value) {
         switch (value) {
-          case 0: return CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3;
-          case 1: return CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_BBL;
-          case 2: return CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG;
+          case 0: return M3;
+          case 1: return BBL;
+          case 2: return USG;
           default: return null;
         }
       }
@@ -823,32 +823,32 @@ public final class ScdbApi {
     public enum ContractHeader_LeaseType
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_OPERATING = 0;</code>
+       * <code>OPERATING = 0;</code>
        */
-      CONTRACTHEADER_LEASETYPE_OPERATING(0),
+      OPERATING(0),
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_CAPITAL = 1;</code>
+       * <code>CAPITAL = 1;</code>
        */
-      CONTRACTHEADER_LEASETYPE_CAPITAL(1),
+      CAPITAL(1),
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_LTCC = 2;</code>
+       * <code>LTCC = 2;</code>
        */
-      CONTRACTHEADER_LEASETYPE_LTCC(2),
+      LTCC(2),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_OPERATING = 0;</code>
+       * <code>OPERATING = 0;</code>
        */
-      public static final int CONTRACTHEADER_LEASETYPE_OPERATING_VALUE = 0;
+      public static final int OPERATING_VALUE = 0;
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_CAPITAL = 1;</code>
+       * <code>CAPITAL = 1;</code>
        */
-      public static final int CONTRACTHEADER_LEASETYPE_CAPITAL_VALUE = 1;
+      public static final int CAPITAL_VALUE = 1;
       /**
-       * <code>CONTRACTHEADER_LEASETYPE_LTCC = 2;</code>
+       * <code>LTCC = 2;</code>
        */
-      public static final int CONTRACTHEADER_LEASETYPE_LTCC_VALUE = 2;
+      public static final int LTCC_VALUE = 2;
 
 
       public final int getNumber() {
@@ -869,9 +869,9 @@ public final class ScdbApi {
 
       public static ContractHeader_LeaseType forNumber(int value) {
         switch (value) {
-          case 0: return CONTRACTHEADER_LEASETYPE_OPERATING;
-          case 1: return CONTRACTHEADER_LEASETYPE_CAPITAL;
-          case 2: return CONTRACTHEADER_LEASETYPE_LTCC;
+          case 0: return OPERATING;
+          case 1: return CAPITAL;
+          case 2: return LTCC;
           default: return null;
         }
       }
@@ -930,24 +930,24 @@ public final class ScdbApi {
     public enum ContractHeader_Statu
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>CONTRACTHEADER_STATU_LIVE = 0;</code>
+       * <code>LIVE = 0;</code>
        */
-      CONTRACTHEADER_STATU_LIVE(0),
+      LIVE(0),
       /**
-       * <code>CONTRACTHEADER_STATU_CLOSED = 1;</code>
+       * <code>CLOSED = 1;</code>
        */
-      CONTRACTHEADER_STATU_CLOSED(1),
+      CLOSED(1),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>CONTRACTHEADER_STATU_LIVE = 0;</code>
+       * <code>LIVE = 0;</code>
        */
-      public static final int CONTRACTHEADER_STATU_LIVE_VALUE = 0;
+      public static final int LIVE_VALUE = 0;
       /**
-       * <code>CONTRACTHEADER_STATU_CLOSED = 1;</code>
+       * <code>CLOSED = 1;</code>
        */
-      public static final int CONTRACTHEADER_STATU_CLOSED_VALUE = 1;
+      public static final int CLOSED_VALUE = 1;
 
 
       public final int getNumber() {
@@ -968,8 +968,8 @@ public final class ScdbApi {
 
       public static ContractHeader_Statu forNumber(int value) {
         switch (value) {
-          case 0: return CONTRACTHEADER_STATU_LIVE;
-          case 1: return CONTRACTHEADER_STATU_CLOSED;
+          case 0: return LIVE;
+          case 1: return CLOSED;
           default: return null;
         }
       }
@@ -1092,11 +1092,11 @@ public final class ScdbApi {
     }
 
     public static final int BENCH_FIELD_NUMBER = 3;
-    private int bench_;
+    private long bench_;
     /**
-     * <code>int32 bench = 3;</code>
+     * <code>int64 bench = 3;</code>
      */
-    public int getBench() {
+    public long getBench() {
       return bench_;
     }
 
@@ -1135,11 +1135,11 @@ public final class ScdbApi {
     }
 
     public static final int CONTRACTENDDATE_FIELD_NUMBER = 5;
-    private int contractEndDate_;
+    private long contractEndDate_;
     /**
-     * <code>int32 contractEndDate = 5;</code>
+     * <code>int64 contractEndDate = 5;</code>
      */
-    public int getContractEndDate() {
+    public long getContractEndDate() {
       return contractEndDate_;
     }
 
@@ -1212,20 +1212,20 @@ public final class ScdbApi {
     }
 
     public static final int CONTRACTSIGNDATE_FIELD_NUMBER = 8;
-    private int contractSignDate_;
+    private long contractSignDate_;
     /**
-     * <code>int32 contractSignDate = 8;</code>
+     * <code>int64 contractSignDate = 8;</code>
      */
-    public int getContractSignDate() {
+    public long getContractSignDate() {
       return contractSignDate_;
     }
 
     public static final int CONTRACTSTARTDATE_FIELD_NUMBER = 9;
-    private int contractStartDate_;
+    private long contractStartDate_;
     /**
-     * <code>int32 contractStartDate = 9;</code>
+     * <code>int64 contractStartDate = 9;</code>
      */
-    public int getContractStartDate() {
+    public long getContractStartDate() {
       return contractStartDate_;
     }
 
@@ -1264,11 +1264,11 @@ public final class ScdbApi {
     }
 
     public static final int COUNTRY_FIELD_NUMBER = 11;
-    private int country_;
+    private long country_;
     /**
-     * <code>int32 country = 11;</code>
+     * <code>int64 country = 11;</code>
      */
-    public int getCountry() {
+    public long getCountry() {
       return country_;
     }
 
@@ -1409,20 +1409,20 @@ public final class ScdbApi {
     }
 
     public static final int DURATIONINMONTHS_FIELD_NUMBER = 16;
-    private int durationInMonths_;
+    private long durationInMonths_;
     /**
-     * <code>int32 durationInMonths = 16;</code>
+     * <code>int64 durationInMonths = 16;</code>
      */
-    public int getDurationInMonths() {
+    public long getDurationInMonths() {
       return durationInMonths_;
     }
 
     public static final int ECONS_FIELD_NUMBER = 17;
-    private int econs_;
+    private long econs_;
     /**
-     * <code>int32 econs = 17;</code>
+     * <code>int64 econs = 17;</code>
      */
-    public int getEcons() {
+    public long getEcons() {
       return econs_;
     }
 
@@ -1443,11 +1443,11 @@ public final class ScdbApi {
     }
 
     public static final int EXCESSTHROUGHPUTRATE_FIELD_NUMBER = 19;
-    private int excessThroughputRate_;
+    private long excessThroughputRate_;
     /**
-     * <code>int32 excessThroughputRate = 19;</code>
+     * <code>int64 excessThroughputRate = 19;</code>
      */
-    public int getExcessThroughputRate() {
+    public long getExcessThroughputRate() {
       return excessThroughputRate_;
     }
 
@@ -1502,11 +1502,11 @@ public final class ScdbApi {
     }
 
     public static final int ID_FIELD_NUMBER = 22;
-    private int id_;
+    private long id_;
     /**
-     * <code>int32 id = 22;</code>
+     * <code>int64 id = 22;</code>
      */
-    public int getId() {
+    public long getId() {
       return id_;
     }
 
@@ -1595,11 +1595,11 @@ public final class ScdbApi {
     }
 
     public static final int REGION_FIELD_NUMBER = 26;
-    private int region_;
+    private long region_;
     /**
-     * <code>int32 region = 26;</code>
+     * <code>int64 region = 26;</code>
      */
-    public int getRegion() {
+    public long getRegion() {
       return region_;
     }
 
@@ -1792,11 +1792,11 @@ public final class ScdbApi {
     }
 
     public static final int THROUGHPUTSPERYEAR_FIELD_NUMBER = 33;
-    private int throughputsPerYear_;
+    private long throughputsPerYear_;
     /**
-     * <code>int32 throughputsPerYear = 33;</code>
+     * <code>int64 throughputsPerYear = 33;</code>
      */
-    public int getThroughputsPerYear() {
+    public long getThroughputsPerYear() {
       return throughputsPerYear_;
     }
 
@@ -1818,14 +1818,14 @@ public final class ScdbApi {
       if (!getAssetOwnerBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, assetOwner_);
       }
-      if (bench_ != 0) {
-        output.writeInt32(3, bench_);
+      if (bench_ != 0L) {
+        output.writeInt64(3, bench_);
       }
       if (!getCityBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, city_);
       }
-      if (contractEndDate_ != 0) {
-        output.writeInt32(5, contractEndDate_);
+      if (contractEndDate_ != 0L) {
+        output.writeInt64(5, contractEndDate_);
       }
       if (!getContractLinkBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, contractLink_);
@@ -1833,17 +1833,17 @@ public final class ScdbApi {
       if (!getContractNumBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, contractNum_);
       }
-      if (contractSignDate_ != 0) {
-        output.writeInt32(8, contractSignDate_);
+      if (contractSignDate_ != 0L) {
+        output.writeInt64(8, contractSignDate_);
       }
-      if (contractStartDate_ != 0) {
-        output.writeInt32(9, contractStartDate_);
+      if (contractStartDate_ != 0L) {
+        output.writeInt64(9, contractStartDate_);
       }
       if (!getContractingEntityBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, contractingEntity_);
       }
-      if (country_ != 0) {
-        output.writeInt32(11, country_);
+      if (country_ != 0L) {
+        output.writeInt64(11, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, county_);
@@ -1857,28 +1857,28 @@ public final class ScdbApi {
       if (!getDescBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 15, desc_);
       }
-      if (durationInMonths_ != 0) {
-        output.writeInt32(16, durationInMonths_);
+      if (durationInMonths_ != 0L) {
+        output.writeInt64(16, durationInMonths_);
       }
-      if (econs_ != 0) {
-        output.writeInt32(17, econs_);
+      if (econs_ != 0L) {
+        output.writeInt64(17, econs_);
       }
-      if (econsUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUOM.CONTRACTHEADER_ECONSUOM_NPV.getNumber()) {
+      if (econsUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUOM.NPV.getNumber()) {
         output.writeEnum(18, econsUOM_);
       }
-      if (excessThroughputRate_ != 0) {
-        output.writeInt32(19, excessThroughputRate_);
+      if (excessThroughputRate_ != 0L) {
+        output.writeInt64(19, excessThroughputRate_);
       }
-      if (excessThroughputRateUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUOM.CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3.getNumber()) {
+      if (excessThroughputRateUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUOM.M3.getNumber()) {
         output.writeEnum(20, excessThroughputRateUOM_);
       }
       if (!getExternalContractNumBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 21, externalContractNum_);
       }
-      if (id_ != 0) {
-        output.writeInt32(22, id_);
+      if (id_ != 0L) {
+        output.writeInt64(22, id_);
       }
-      if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.CONTRACTHEADER_LEASETYPE_OPERATING.getNumber()) {
+      if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.OPERATING.getNumber()) {
         output.writeEnum(23, leaseType_);
       }
       if (!getNotesBytes().isEmpty()) {
@@ -1887,8 +1887,8 @@ public final class ScdbApi {
       if (!getOtherRefNumBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 25, otherRefNum_);
       }
-      if (region_ != 0) {
-        output.writeInt32(26, region_);
+      if (region_ != 0L) {
+        output.writeInt64(26, region_);
       }
       for (int i = 0; i < roles_.size(); i++) {
         output.writeMessage(27, roles_.get(i));
@@ -1899,7 +1899,7 @@ public final class ScdbApi {
       if (!getStateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 29, state_);
       }
-      if (status_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_Statu.CONTRACTHEADER_STATU_LIVE.getNumber()) {
+      if (status_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_Statu.LIVE.getNumber()) {
         output.writeEnum(30, status_);
       }
       for (int i = 0; i < tanks_.size(); i++) {
@@ -1908,8 +1908,8 @@ public final class ScdbApi {
       if (!getTerminalBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 32, terminal_);
       }
-      if (throughputsPerYear_ != 0) {
-        output.writeInt32(33, throughputsPerYear_);
+      if (throughputsPerYear_ != 0L) {
+        output.writeInt64(33, throughputsPerYear_);
       }
     }
 
@@ -1924,16 +1924,16 @@ public final class ScdbApi {
       if (!getAssetOwnerBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, assetOwner_);
       }
-      if (bench_ != 0) {
+      if (bench_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, bench_);
+          .computeInt64Size(3, bench_);
       }
       if (!getCityBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, city_);
       }
-      if (contractEndDate_ != 0) {
+      if (contractEndDate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, contractEndDate_);
+          .computeInt64Size(5, contractEndDate_);
       }
       if (!getContractLinkBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, contractLink_);
@@ -1941,20 +1941,20 @@ public final class ScdbApi {
       if (!getContractNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, contractNum_);
       }
-      if (contractSignDate_ != 0) {
+      if (contractSignDate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, contractSignDate_);
+          .computeInt64Size(8, contractSignDate_);
       }
-      if (contractStartDate_ != 0) {
+      if (contractStartDate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, contractStartDate_);
+          .computeInt64Size(9, contractStartDate_);
       }
       if (!getContractingEntityBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, contractingEntity_);
       }
-      if (country_ != 0) {
+      if (country_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, country_);
+          .computeInt64Size(11, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, county_);
@@ -1968,34 +1968,34 @@ public final class ScdbApi {
       if (!getDescBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, desc_);
       }
-      if (durationInMonths_ != 0) {
+      if (durationInMonths_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, durationInMonths_);
+          .computeInt64Size(16, durationInMonths_);
       }
-      if (econs_ != 0) {
+      if (econs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, econs_);
+          .computeInt64Size(17, econs_);
       }
-      if (econsUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUOM.CONTRACTHEADER_ECONSUOM_NPV.getNumber()) {
+      if (econsUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUOM.NPV.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(18, econsUOM_);
       }
-      if (excessThroughputRate_ != 0) {
+      if (excessThroughputRate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(19, excessThroughputRate_);
+          .computeInt64Size(19, excessThroughputRate_);
       }
-      if (excessThroughputRateUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUOM.CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_M3.getNumber()) {
+      if (excessThroughputRateUOM_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUOM.M3.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(20, excessThroughputRateUOM_);
       }
       if (!getExternalContractNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, externalContractNum_);
       }
-      if (id_ != 0) {
+      if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(22, id_);
+          .computeInt64Size(22, id_);
       }
-      if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.CONTRACTHEADER_LEASETYPE_OPERATING.getNumber()) {
+      if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.OPERATING.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(23, leaseType_);
       }
@@ -2005,9 +2005,9 @@ public final class ScdbApi {
       if (!getOtherRefNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, otherRefNum_);
       }
-      if (region_ != 0) {
+      if (region_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(26, region_);
+          .computeInt64Size(26, region_);
       }
       for (int i = 0; i < roles_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -2019,7 +2019,7 @@ public final class ScdbApi {
       if (!getStateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(29, state_);
       }
-      if (status_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_Statu.CONTRACTHEADER_STATU_LIVE.getNumber()) {
+      if (status_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_Statu.LIVE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(30, status_);
       }
@@ -2030,9 +2030,9 @@ public final class ScdbApi {
       if (!getTerminalBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, terminal_);
       }
-      if (throughputsPerYear_ != 0) {
+      if (throughputsPerYear_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(33, throughputsPerYear_);
+          .computeInt64Size(33, throughputsPerYear_);
       }
       memoizedSize = size;
       return size;
@@ -2127,23 +2127,28 @@ public final class ScdbApi {
       hash = (37 * hash) + ASSETOWNER_FIELD_NUMBER;
       hash = (53 * hash) + getAssetOwner().hashCode();
       hash = (37 * hash) + BENCH_FIELD_NUMBER;
-      hash = (53 * hash) + getBench();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBench());
       hash = (37 * hash) + CITY_FIELD_NUMBER;
       hash = (53 * hash) + getCity().hashCode();
       hash = (37 * hash) + CONTRACTENDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getContractEndDate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getContractEndDate());
       hash = (37 * hash) + CONTRACTLINK_FIELD_NUMBER;
       hash = (53 * hash) + getContractLink().hashCode();
       hash = (37 * hash) + CONTRACTNUM_FIELD_NUMBER;
       hash = (53 * hash) + getContractNum().hashCode();
       hash = (37 * hash) + CONTRACTSIGNDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getContractSignDate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getContractSignDate());
       hash = (37 * hash) + CONTRACTSTARTDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getContractStartDate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getContractStartDate());
       hash = (37 * hash) + CONTRACTINGENTITY_FIELD_NUMBER;
       hash = (53 * hash) + getContractingEntity().hashCode();
       hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
-      hash = (53 * hash) + getCountry();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCountry());
       hash = (37 * hash) + COUNTY_FIELD_NUMBER;
       hash = (53 * hash) + getCounty().hashCode();
       hash = (37 * hash) + DEALCOUNTERPARTY_FIELD_NUMBER;
@@ -2153,19 +2158,23 @@ public final class ScdbApi {
       hash = (37 * hash) + DESC_FIELD_NUMBER;
       hash = (53 * hash) + getDesc().hashCode();
       hash = (37 * hash) + DURATIONINMONTHS_FIELD_NUMBER;
-      hash = (53 * hash) + getDurationInMonths();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDurationInMonths());
       hash = (37 * hash) + ECONS_FIELD_NUMBER;
-      hash = (53 * hash) + getEcons();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEcons());
       hash = (37 * hash) + ECONSUOM_FIELD_NUMBER;
       hash = (53 * hash) + econsUOM_;
       hash = (37 * hash) + EXCESSTHROUGHPUTRATE_FIELD_NUMBER;
-      hash = (53 * hash) + getExcessThroughputRate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExcessThroughputRate());
       hash = (37 * hash) + EXCESSTHROUGHPUTRATEUOM_FIELD_NUMBER;
       hash = (53 * hash) + excessThroughputRateUOM_;
       hash = (37 * hash) + EXTERNALCONTRACTNUM_FIELD_NUMBER;
       hash = (53 * hash) + getExternalContractNum().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + LEASETYPE_FIELD_NUMBER;
       hash = (53 * hash) + leaseType_;
       hash = (37 * hash) + NOTES_FIELD_NUMBER;
@@ -2173,7 +2182,8 @@ public final class ScdbApi {
       hash = (37 * hash) + OTHERREFNUM_FIELD_NUMBER;
       hash = (53 * hash) + getOtherRefNum().hashCode();
       hash = (37 * hash) + REGION_FIELD_NUMBER;
-      hash = (53 * hash) + getRegion();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegion());
       if (getRolesCount() > 0) {
         hash = (37 * hash) + ROLES_FIELD_NUMBER;
         hash = (53 * hash) + getRolesList().hashCode();
@@ -2191,7 +2201,8 @@ public final class ScdbApi {
       hash = (37 * hash) + TERMINAL_FIELD_NUMBER;
       hash = (53 * hash) + getTerminal().hashCode();
       hash = (37 * hash) + THROUGHPUTSPERYEAR_FIELD_NUMBER;
-      hash = (53 * hash) + getThroughputsPerYear();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getThroughputsPerYear());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2327,23 +2338,23 @@ public final class ScdbApi {
 
         assetOwner_ = "";
 
-        bench_ = 0;
+        bench_ = 0L;
 
         city_ = "";
 
-        contractEndDate_ = 0;
+        contractEndDate_ = 0L;
 
         contractLink_ = "";
 
         contractNum_ = "";
 
-        contractSignDate_ = 0;
+        contractSignDate_ = 0L;
 
-        contractStartDate_ = 0;
+        contractStartDate_ = 0L;
 
         contractingEntity_ = "";
 
-        country_ = 0;
+        country_ = 0L;
 
         county_ = "";
 
@@ -2353,19 +2364,19 @@ public final class ScdbApi {
 
         desc_ = "";
 
-        durationInMonths_ = 0;
+        durationInMonths_ = 0L;
 
-        econs_ = 0;
+        econs_ = 0L;
 
         econsUOM_ = 0;
 
-        excessThroughputRate_ = 0;
+        excessThroughputRate_ = 0L;
 
         excessThroughputRateUOM_ = 0;
 
         externalContractNum_ = "";
 
-        id_ = 0;
+        id_ = 0L;
 
         leaseType_ = 0;
 
@@ -2373,7 +2384,7 @@ public final class ScdbApi {
 
         otherRefNum_ = "";
 
-        region_ = 0;
+        region_ = 0L;
 
         if (rolesBuilder_ == null) {
           roles_ = java.util.Collections.emptyList();
@@ -2395,7 +2406,7 @@ public final class ScdbApi {
         }
         terminal_ = "";
 
-        throughputsPerYear_ = 0;
+        throughputsPerYear_ = 0L;
 
         return this;
       }
@@ -2521,14 +2532,14 @@ public final class ScdbApi {
           assetOwner_ = other.assetOwner_;
           onChanged();
         }
-        if (other.getBench() != 0) {
+        if (other.getBench() != 0L) {
           setBench(other.getBench());
         }
         if (!other.getCity().isEmpty()) {
           city_ = other.city_;
           onChanged();
         }
-        if (other.getContractEndDate() != 0) {
+        if (other.getContractEndDate() != 0L) {
           setContractEndDate(other.getContractEndDate());
         }
         if (!other.getContractLink().isEmpty()) {
@@ -2539,17 +2550,17 @@ public final class ScdbApi {
           contractNum_ = other.contractNum_;
           onChanged();
         }
-        if (other.getContractSignDate() != 0) {
+        if (other.getContractSignDate() != 0L) {
           setContractSignDate(other.getContractSignDate());
         }
-        if (other.getContractStartDate() != 0) {
+        if (other.getContractStartDate() != 0L) {
           setContractStartDate(other.getContractStartDate());
         }
         if (!other.getContractingEntity().isEmpty()) {
           contractingEntity_ = other.contractingEntity_;
           onChanged();
         }
-        if (other.getCountry() != 0) {
+        if (other.getCountry() != 0L) {
           setCountry(other.getCountry());
         }
         if (!other.getCounty().isEmpty()) {
@@ -2568,16 +2579,16 @@ public final class ScdbApi {
           desc_ = other.desc_;
           onChanged();
         }
-        if (other.getDurationInMonths() != 0) {
+        if (other.getDurationInMonths() != 0L) {
           setDurationInMonths(other.getDurationInMonths());
         }
-        if (other.getEcons() != 0) {
+        if (other.getEcons() != 0L) {
           setEcons(other.getEcons());
         }
         if (other.econsUOM_ != 0) {
           setEconsUOMValue(other.getEconsUOMValue());
         }
-        if (other.getExcessThroughputRate() != 0) {
+        if (other.getExcessThroughputRate() != 0L) {
           setExcessThroughputRate(other.getExcessThroughputRate());
         }
         if (other.excessThroughputRateUOM_ != 0) {
@@ -2587,7 +2598,7 @@ public final class ScdbApi {
           externalContractNum_ = other.externalContractNum_;
           onChanged();
         }
-        if (other.getId() != 0) {
+        if (other.getId() != 0L) {
           setId(other.getId());
         }
         if (other.leaseType_ != 0) {
@@ -2601,7 +2612,7 @@ public final class ScdbApi {
           otherRefNum_ = other.otherRefNum_;
           onChanged();
         }
-        if (other.getRegion() != 0) {
+        if (other.getRegion() != 0L) {
           setRegion(other.getRegion());
         }
         if (rolesBuilder_ == null) {
@@ -2671,7 +2682,7 @@ public final class ScdbApi {
           terminal_ = other.terminal_;
           onChanged();
         }
-        if (other.getThroughputsPerYear() != 0) {
+        if (other.getThroughputsPerYear() != 0L) {
           setThroughputsPerYear(other.getThroughputsPerYear());
         }
         onChanged();
@@ -2840,28 +2851,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int bench_ ;
+      private long bench_ ;
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
-      public int getBench() {
+      public long getBench() {
         return bench_;
       }
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
-      public Builder setBench(int value) {
+      public Builder setBench(long value) {
         
         bench_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
       public Builder clearBench() {
         
-        bench_ = 0;
+        bench_ = 0L;
         onChanged();
         return this;
       }
@@ -2935,28 +2946,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int contractEndDate_ ;
+      private long contractEndDate_ ;
       /**
-       * <code>int32 contractEndDate = 5;</code>
+       * <code>int64 contractEndDate = 5;</code>
        */
-      public int getContractEndDate() {
+      public long getContractEndDate() {
         return contractEndDate_;
       }
       /**
-       * <code>int32 contractEndDate = 5;</code>
+       * <code>int64 contractEndDate = 5;</code>
        */
-      public Builder setContractEndDate(int value) {
+      public Builder setContractEndDate(long value) {
         
         contractEndDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 contractEndDate = 5;</code>
+       * <code>int64 contractEndDate = 5;</code>
        */
       public Builder clearContractEndDate() {
         
-        contractEndDate_ = 0;
+        contractEndDate_ = 0L;
         onChanged();
         return this;
       }
@@ -3099,54 +3110,54 @@ public final class ScdbApi {
         return this;
       }
 
-      private int contractSignDate_ ;
+      private long contractSignDate_ ;
       /**
-       * <code>int32 contractSignDate = 8;</code>
+       * <code>int64 contractSignDate = 8;</code>
        */
-      public int getContractSignDate() {
+      public long getContractSignDate() {
         return contractSignDate_;
       }
       /**
-       * <code>int32 contractSignDate = 8;</code>
+       * <code>int64 contractSignDate = 8;</code>
        */
-      public Builder setContractSignDate(int value) {
+      public Builder setContractSignDate(long value) {
         
         contractSignDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 contractSignDate = 8;</code>
+       * <code>int64 contractSignDate = 8;</code>
        */
       public Builder clearContractSignDate() {
         
-        contractSignDate_ = 0;
+        contractSignDate_ = 0L;
         onChanged();
         return this;
       }
 
-      private int contractStartDate_ ;
+      private long contractStartDate_ ;
       /**
-       * <code>int32 contractStartDate = 9;</code>
+       * <code>int64 contractStartDate = 9;</code>
        */
-      public int getContractStartDate() {
+      public long getContractStartDate() {
         return contractStartDate_;
       }
       /**
-       * <code>int32 contractStartDate = 9;</code>
+       * <code>int64 contractStartDate = 9;</code>
        */
-      public Builder setContractStartDate(int value) {
+      public Builder setContractStartDate(long value) {
         
         contractStartDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 contractStartDate = 9;</code>
+       * <code>int64 contractStartDate = 9;</code>
        */
       public Builder clearContractStartDate() {
         
-        contractStartDate_ = 0;
+        contractStartDate_ = 0L;
         onChanged();
         return this;
       }
@@ -3220,28 +3231,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int country_ ;
+      private long country_ ;
       /**
-       * <code>int32 country = 11;</code>
+       * <code>int64 country = 11;</code>
        */
-      public int getCountry() {
+      public long getCountry() {
         return country_;
       }
       /**
-       * <code>int32 country = 11;</code>
+       * <code>int64 country = 11;</code>
        */
-      public Builder setCountry(int value) {
+      public Builder setCountry(long value) {
         
         country_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 country = 11;</code>
+       * <code>int64 country = 11;</code>
        */
       public Builder clearCountry() {
         
-        country_ = 0;
+        country_ = 0L;
         onChanged();
         return this;
       }
@@ -3522,54 +3533,54 @@ public final class ScdbApi {
         return this;
       }
 
-      private int durationInMonths_ ;
+      private long durationInMonths_ ;
       /**
-       * <code>int32 durationInMonths = 16;</code>
+       * <code>int64 durationInMonths = 16;</code>
        */
-      public int getDurationInMonths() {
+      public long getDurationInMonths() {
         return durationInMonths_;
       }
       /**
-       * <code>int32 durationInMonths = 16;</code>
+       * <code>int64 durationInMonths = 16;</code>
        */
-      public Builder setDurationInMonths(int value) {
+      public Builder setDurationInMonths(long value) {
         
         durationInMonths_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 durationInMonths = 16;</code>
+       * <code>int64 durationInMonths = 16;</code>
        */
       public Builder clearDurationInMonths() {
         
-        durationInMonths_ = 0;
+        durationInMonths_ = 0L;
         onChanged();
         return this;
       }
 
-      private int econs_ ;
+      private long econs_ ;
       /**
-       * <code>int32 econs = 17;</code>
+       * <code>int64 econs = 17;</code>
        */
-      public int getEcons() {
+      public long getEcons() {
         return econs_;
       }
       /**
-       * <code>int32 econs = 17;</code>
+       * <code>int64 econs = 17;</code>
        */
-      public Builder setEcons(int value) {
+      public Builder setEcons(long value) {
         
         econs_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 econs = 17;</code>
+       * <code>int64 econs = 17;</code>
        */
       public Builder clearEcons() {
         
-        econs_ = 0;
+        econs_ = 0L;
         onChanged();
         return this;
       }
@@ -3618,28 +3629,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int excessThroughputRate_ ;
+      private long excessThroughputRate_ ;
       /**
-       * <code>int32 excessThroughputRate = 19;</code>
+       * <code>int64 excessThroughputRate = 19;</code>
        */
-      public int getExcessThroughputRate() {
+      public long getExcessThroughputRate() {
         return excessThroughputRate_;
       }
       /**
-       * <code>int32 excessThroughputRate = 19;</code>
+       * <code>int64 excessThroughputRate = 19;</code>
        */
-      public Builder setExcessThroughputRate(int value) {
+      public Builder setExcessThroughputRate(long value) {
         
         excessThroughputRate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 excessThroughputRate = 19;</code>
+       * <code>int64 excessThroughputRate = 19;</code>
        */
       public Builder clearExcessThroughputRate() {
         
-        excessThroughputRate_ = 0;
+        excessThroughputRate_ = 0L;
         onChanged();
         return this;
       }
@@ -3757,28 +3768,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int id_ ;
+      private long id_ ;
       /**
-       * <code>int32 id = 22;</code>
+       * <code>int64 id = 22;</code>
        */
-      public int getId() {
+      public long getId() {
         return id_;
       }
       /**
-       * <code>int32 id = 22;</code>
+       * <code>int64 id = 22;</code>
        */
-      public Builder setId(int value) {
+      public Builder setId(long value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 22;</code>
+       * <code>int64 id = 22;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -3965,28 +3976,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int region_ ;
+      private long region_ ;
       /**
-       * <code>int32 region = 26;</code>
+       * <code>int64 region = 26;</code>
        */
-      public int getRegion() {
+      public long getRegion() {
         return region_;
       }
       /**
-       * <code>int32 region = 26;</code>
+       * <code>int64 region = 26;</code>
        */
-      public Builder setRegion(int value) {
+      public Builder setRegion(long value) {
         
         region_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 region = 26;</code>
+       * <code>int64 region = 26;</code>
        */
       public Builder clearRegion() {
         
-        region_ = 0;
+        region_ = 0L;
         onChanged();
         return this;
       }
@@ -4722,28 +4733,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int throughputsPerYear_ ;
+      private long throughputsPerYear_ ;
       /**
-       * <code>int32 throughputsPerYear = 33;</code>
+       * <code>int64 throughputsPerYear = 33;</code>
        */
-      public int getThroughputsPerYear() {
+      public long getThroughputsPerYear() {
         return throughputsPerYear_;
       }
       /**
-       * <code>int32 throughputsPerYear = 33;</code>
+       * <code>int64 throughputsPerYear = 33;</code>
        */
-      public Builder setThroughputsPerYear(int value) {
+      public Builder setThroughputsPerYear(long value) {
         
         throughputsPerYear_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 throughputsPerYear = 33;</code>
+       * <code>int64 throughputsPerYear = 33;</code>
        */
       public Builder clearThroughputsPerYear() {
         
-        throughputsPerYear_ = 0;
+        throughputsPerYear_ = 0L;
         onChanged();
         return this;
       }
@@ -6061,9 +6072,9 @@ public final class ScdbApi {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 id = 1;</code>
      */
-    int getId();
+    long getId();
 
     /**
      * <code>string primaryIndividual = 2;</code>
@@ -6110,7 +6121,7 @@ public final class ScdbApi {
       super(builder);
     }
     private Role() {
-      id_ = 0;
+      id_ = 0L;
       primaryIndividual_ = "";
       secondaryIndividual_ = "";
     }
@@ -6142,7 +6153,7 @@ public final class ScdbApi {
             }
             case 8: {
 
-              id_ = input.readInt32();
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -6194,11 +6205,11 @@ public final class ScdbApi {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private long id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 id = 1;</code>
      */
-    public int getId() {
+    public long getId() {
       return id_;
     }
 
@@ -6303,8 +6314,8 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (!getPrimaryIndividualBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, primaryIndividual_);
@@ -6322,9 +6333,9 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
+      if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+          .computeInt64Size(1, id_);
       }
       if (!getPrimaryIndividualBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, primaryIndividual_);
@@ -6374,7 +6385,8 @@ public final class ScdbApi {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + PRIMARYINDIVIDUAL_FIELD_NUMBER;
       hash = (53 * hash) + getPrimaryIndividual().hashCode();
       if (hasRoleType()) {
@@ -6512,7 +6524,7 @@ public final class ScdbApi {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = 0L;
 
         primaryIndividual_ = "";
 
@@ -6595,7 +6607,7 @@ public final class ScdbApi {
 
       public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.Role other) {
         if (other == org.simplity.apiscdb.ScdbApi.Role.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
+        if (other.getId() != 0L) {
           setId(other.getId());
         }
         if (!other.getPrimaryIndividual().isEmpty()) {
@@ -6635,28 +6647,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int id_ ;
+      private long id_ ;
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
-      public int getId() {
+      public long getId() {
         return id_;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
-      public Builder setId(int value) {
+      public Builder setId(long value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -6969,9 +6981,9 @@ public final class ScdbApi {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 id = 1;</code>
      */
-    int getId();
+    long getId();
 
     /**
      * <code>string name = 2;</code>
@@ -6995,7 +7007,7 @@ public final class ScdbApi {
       super(builder);
     }
     private RoleType() {
-      id_ = 0;
+      id_ = 0L;
       name_ = "";
     }
 
@@ -7026,7 +7038,7 @@ public final class ScdbApi {
             }
             case 8: {
 
-              id_ = input.readInt32();
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -7059,11 +7071,11 @@ public final class ScdbApi {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private long id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 id = 1;</code>
      */
-    public int getId() {
+    public long getId() {
       return id_;
     }
 
@@ -7113,8 +7125,8 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
@@ -7126,9 +7138,9 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
+      if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+          .computeInt64Size(1, id_);
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -7164,7 +7176,8 @@ public final class ScdbApi {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -7296,7 +7309,7 @@ public final class ScdbApi {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = 0L;
 
         name_ = "";
 
@@ -7365,7 +7378,7 @@ public final class ScdbApi {
 
       public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.RoleType other) {
         if (other == org.simplity.apiscdb.ScdbApi.RoleType.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
+        if (other.getId() != 0L) {
           setId(other.getId());
         }
         if (!other.getName().isEmpty()) {
@@ -7398,28 +7411,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int id_ ;
+      private long id_ ;
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
-      public int getId() {
+      public long getId() {
         return id_;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
-      public Builder setId(int value) {
+      public Builder setId(long value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -8312,9 +8325,9 @@ public final class ScdbApi {
         getAssetOwnerBytes();
 
     /**
-     * <code>int32 bench = 3;</code>
+     * <code>int64 bench = 3;</code>
      */
-    int getBench();
+    long getBench();
 
     /**
      * <code>string bpContractNum = 4;</code>
@@ -8356,9 +8369,9 @@ public final class ScdbApi {
     org.simplity.apiscdb.ScdbApi.SearchCriteria.SearchCriteria_ContractStatu getContractStatus();
 
     /**
-     * <code>int32 country = 8;</code>
+     * <code>int64 country = 8;</code>
      */
-    int getCountry();
+    long getCountry();
 
     /**
      * <code>string county = 9;</code>
@@ -8391,14 +8404,14 @@ public final class ScdbApi {
         getDealNameBytes();
 
     /**
-     * <code>int32 gradeGroup = 12;</code>
+     * <code>int64 gradeGroup = 12;</code>
      */
-    int getGradeGroup();
+    long getGradeGroup();
 
     /**
-     * <code>int32 region = 13;</code>
+     * <code>int64 region = 13;</code>
      */
-    int getRegion();
+    long getRegion();
 
     /**
      * <code>string segment = 14;</code>
@@ -8444,17 +8457,17 @@ public final class ScdbApi {
     private SearchCriteria() {
       assetName_ = "";
       assetOwner_ = "";
-      bench_ = 0;
+      bench_ = 0L;
       bpContractNum_ = "";
       bpContractingEntity_ = "";
       city_ = "";
       contractStatus_ = 0;
-      country_ = 0;
+      country_ = 0L;
       county_ = "";
       dealCounterParty_ = "";
       dealName_ = "";
-      gradeGroup_ = 0;
-      region_ = 0;
+      gradeGroup_ = 0L;
+      region_ = 0L;
       segment_ = "";
       state_ = "";
       terminal_ = "";
@@ -8499,7 +8512,7 @@ public final class ScdbApi {
             }
             case 24: {
 
-              bench_ = input.readInt32();
+              bench_ = input.readInt64();
               break;
             }
             case 34: {
@@ -8528,7 +8541,7 @@ public final class ScdbApi {
             }
             case 64: {
 
-              country_ = input.readInt32();
+              country_ = input.readInt64();
               break;
             }
             case 74: {
@@ -8551,12 +8564,12 @@ public final class ScdbApi {
             }
             case 96: {
 
-              gradeGroup_ = input.readInt32();
+              gradeGroup_ = input.readInt64();
               break;
             }
             case 104: {
 
-              region_ = input.readInt32();
+              region_ = input.readInt64();
               break;
             }
             case 114: {
@@ -8606,24 +8619,24 @@ public final class ScdbApi {
     public enum SearchCriteria_ContractStatu
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>SEARCHCRITERIA_CONTRACTSTATU_LIVE = 0;</code>
+       * <code>LIVE = 0;</code>
        */
-      SEARCHCRITERIA_CONTRACTSTATU_LIVE(0),
+      LIVE(0),
       /**
-       * <code>SEARCHCRITERIA_CONTRACTSTATU_CLOSED = 1;</code>
+       * <code>CLOSED = 1;</code>
        */
-      SEARCHCRITERIA_CONTRACTSTATU_CLOSED(1),
+      CLOSED(1),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>SEARCHCRITERIA_CONTRACTSTATU_LIVE = 0;</code>
+       * <code>LIVE = 0;</code>
        */
-      public static final int SEARCHCRITERIA_CONTRACTSTATU_LIVE_VALUE = 0;
+      public static final int LIVE_VALUE = 0;
       /**
-       * <code>SEARCHCRITERIA_CONTRACTSTATU_CLOSED = 1;</code>
+       * <code>CLOSED = 1;</code>
        */
-      public static final int SEARCHCRITERIA_CONTRACTSTATU_CLOSED_VALUE = 1;
+      public static final int CLOSED_VALUE = 1;
 
 
       public final int getNumber() {
@@ -8644,8 +8657,8 @@ public final class ScdbApi {
 
       public static SearchCriteria_ContractStatu forNumber(int value) {
         switch (value) {
-          case 0: return SEARCHCRITERIA_CONTRACTSTATU_LIVE;
-          case 1: return SEARCHCRITERIA_CONTRACTSTATU_CLOSED;
+          case 0: return LIVE;
+          case 1: return CLOSED;
           default: return null;
         }
       }
@@ -8767,11 +8780,11 @@ public final class ScdbApi {
     }
 
     public static final int BENCH_FIELD_NUMBER = 3;
-    private int bench_;
+    private long bench_;
     /**
-     * <code>int32 bench = 3;</code>
+     * <code>int64 bench = 3;</code>
      */
-    public int getBench() {
+    public long getBench() {
       return bench_;
     }
 
@@ -8894,11 +8907,11 @@ public final class ScdbApi {
     }
 
     public static final int COUNTRY_FIELD_NUMBER = 8;
-    private int country_;
+    private long country_;
     /**
-     * <code>int32 country = 8;</code>
+     * <code>int64 country = 8;</code>
      */
-    public int getCountry() {
+    public long getCountry() {
       return country_;
     }
 
@@ -9005,20 +9018,20 @@ public final class ScdbApi {
     }
 
     public static final int GRADEGROUP_FIELD_NUMBER = 12;
-    private int gradeGroup_;
+    private long gradeGroup_;
     /**
-     * <code>int32 gradeGroup = 12;</code>
+     * <code>int64 gradeGroup = 12;</code>
      */
-    public int getGradeGroup() {
+    public long getGradeGroup() {
       return gradeGroup_;
     }
 
     public static final int REGION_FIELD_NUMBER = 13;
-    private int region_;
+    private long region_;
     /**
-     * <code>int32 region = 13;</code>
+     * <code>int64 region = 13;</code>
      */
-    public int getRegion() {
+    public long getRegion() {
       return region_;
     }
 
@@ -9142,8 +9155,8 @@ public final class ScdbApi {
       if (!getAssetOwnerBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, assetOwner_);
       }
-      if (bench_ != 0) {
-        output.writeInt32(3, bench_);
+      if (bench_ != 0L) {
+        output.writeInt64(3, bench_);
       }
       if (!getBpContractNumBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bpContractNum_);
@@ -9154,11 +9167,11 @@ public final class ScdbApi {
       if (!getCityBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
       }
-      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.SearchCriteria.SearchCriteria_ContractStatu.SEARCHCRITERIA_CONTRACTSTATU_LIVE.getNumber()) {
+      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.SearchCriteria.SearchCriteria_ContractStatu.LIVE.getNumber()) {
         output.writeEnum(7, contractStatus_);
       }
-      if (country_ != 0) {
-        output.writeInt32(8, country_);
+      if (country_ != 0L) {
+        output.writeInt64(8, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, county_);
@@ -9169,11 +9182,11 @@ public final class ScdbApi {
       if (!getDealNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, dealName_);
       }
-      if (gradeGroup_ != 0) {
-        output.writeInt32(12, gradeGroup_);
+      if (gradeGroup_ != 0L) {
+        output.writeInt64(12, gradeGroup_);
       }
-      if (region_ != 0) {
-        output.writeInt32(13, region_);
+      if (region_ != 0L) {
+        output.writeInt64(13, region_);
       }
       if (!getSegmentBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, segment_);
@@ -9197,9 +9210,9 @@ public final class ScdbApi {
       if (!getAssetOwnerBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, assetOwner_);
       }
-      if (bench_ != 0) {
+      if (bench_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, bench_);
+          .computeInt64Size(3, bench_);
       }
       if (!getBpContractNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bpContractNum_);
@@ -9210,13 +9223,13 @@ public final class ScdbApi {
       if (!getCityBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, city_);
       }
-      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.SearchCriteria.SearchCriteria_ContractStatu.SEARCHCRITERIA_CONTRACTSTATU_LIVE.getNumber()) {
+      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.SearchCriteria.SearchCriteria_ContractStatu.LIVE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(7, contractStatus_);
       }
-      if (country_ != 0) {
+      if (country_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, country_);
+          .computeInt64Size(8, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, county_);
@@ -9227,13 +9240,13 @@ public final class ScdbApi {
       if (!getDealNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, dealName_);
       }
-      if (gradeGroup_ != 0) {
+      if (gradeGroup_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, gradeGroup_);
+          .computeInt64Size(12, gradeGroup_);
       }
-      if (region_ != 0) {
+      if (region_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, region_);
+          .computeInt64Size(13, region_);
       }
       if (!getSegmentBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, segment_);
@@ -9306,7 +9319,8 @@ public final class ScdbApi {
       hash = (37 * hash) + ASSETOWNER_FIELD_NUMBER;
       hash = (53 * hash) + getAssetOwner().hashCode();
       hash = (37 * hash) + BENCH_FIELD_NUMBER;
-      hash = (53 * hash) + getBench();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBench());
       hash = (37 * hash) + BPCONTRACTNUM_FIELD_NUMBER;
       hash = (53 * hash) + getBpContractNum().hashCode();
       hash = (37 * hash) + BPCONTRACTINGENTITY_FIELD_NUMBER;
@@ -9316,7 +9330,8 @@ public final class ScdbApi {
       hash = (37 * hash) + CONTRACTSTATUS_FIELD_NUMBER;
       hash = (53 * hash) + contractStatus_;
       hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
-      hash = (53 * hash) + getCountry();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCountry());
       hash = (37 * hash) + COUNTY_FIELD_NUMBER;
       hash = (53 * hash) + getCounty().hashCode();
       hash = (37 * hash) + DEALCOUNTERPARTY_FIELD_NUMBER;
@@ -9324,9 +9339,11 @@ public final class ScdbApi {
       hash = (37 * hash) + DEALNAME_FIELD_NUMBER;
       hash = (53 * hash) + getDealName().hashCode();
       hash = (37 * hash) + GRADEGROUP_FIELD_NUMBER;
-      hash = (53 * hash) + getGradeGroup();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getGradeGroup());
       hash = (37 * hash) + REGION_FIELD_NUMBER;
-      hash = (53 * hash) + getRegion();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegion());
       hash = (37 * hash) + SEGMENT_FIELD_NUMBER;
       hash = (53 * hash) + getSegment().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
@@ -9466,7 +9483,7 @@ public final class ScdbApi {
 
         assetOwner_ = "";
 
-        bench_ = 0;
+        bench_ = 0L;
 
         bpContractNum_ = "";
 
@@ -9476,7 +9493,7 @@ public final class ScdbApi {
 
         contractStatus_ = 0;
 
-        country_ = 0;
+        country_ = 0L;
 
         county_ = "";
 
@@ -9484,9 +9501,9 @@ public final class ScdbApi {
 
         dealName_ = "";
 
-        gradeGroup_ = 0;
+        gradeGroup_ = 0L;
 
-        region_ = 0;
+        region_ = 0L;
 
         segment_ = "";
 
@@ -9581,7 +9598,7 @@ public final class ScdbApi {
           assetOwner_ = other.assetOwner_;
           onChanged();
         }
-        if (other.getBench() != 0) {
+        if (other.getBench() != 0L) {
           setBench(other.getBench());
         }
         if (!other.getBpContractNum().isEmpty()) {
@@ -9599,7 +9616,7 @@ public final class ScdbApi {
         if (other.contractStatus_ != 0) {
           setContractStatusValue(other.getContractStatusValue());
         }
-        if (other.getCountry() != 0) {
+        if (other.getCountry() != 0L) {
           setCountry(other.getCountry());
         }
         if (!other.getCounty().isEmpty()) {
@@ -9614,10 +9631,10 @@ public final class ScdbApi {
           dealName_ = other.dealName_;
           onChanged();
         }
-        if (other.getGradeGroup() != 0) {
+        if (other.getGradeGroup() != 0L) {
           setGradeGroup(other.getGradeGroup());
         }
-        if (other.getRegion() != 0) {
+        if (other.getRegion() != 0L) {
           setRegion(other.getRegion());
         }
         if (!other.getSegment().isEmpty()) {
@@ -9796,28 +9813,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int bench_ ;
+      private long bench_ ;
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
-      public int getBench() {
+      public long getBench() {
         return bench_;
       }
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
-      public Builder setBench(int value) {
+      public Builder setBench(long value) {
         
         bench_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 bench = 3;</code>
+       * <code>int64 bench = 3;</code>
        */
       public Builder clearBench() {
         
-        bench_ = 0;
+        bench_ = 0L;
         onChanged();
         return this;
       }
@@ -10073,28 +10090,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int country_ ;
+      private long country_ ;
       /**
-       * <code>int32 country = 8;</code>
+       * <code>int64 country = 8;</code>
        */
-      public int getCountry() {
+      public long getCountry() {
         return country_;
       }
       /**
-       * <code>int32 country = 8;</code>
+       * <code>int64 country = 8;</code>
        */
-      public Builder setCountry(int value) {
+      public Builder setCountry(long value) {
         
         country_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 country = 8;</code>
+       * <code>int64 country = 8;</code>
        */
       public Builder clearCountry() {
         
-        country_ = 0;
+        country_ = 0L;
         onChanged();
         return this;
       }
@@ -10306,54 +10323,54 @@ public final class ScdbApi {
         return this;
       }
 
-      private int gradeGroup_ ;
+      private long gradeGroup_ ;
       /**
-       * <code>int32 gradeGroup = 12;</code>
+       * <code>int64 gradeGroup = 12;</code>
        */
-      public int getGradeGroup() {
+      public long getGradeGroup() {
         return gradeGroup_;
       }
       /**
-       * <code>int32 gradeGroup = 12;</code>
+       * <code>int64 gradeGroup = 12;</code>
        */
-      public Builder setGradeGroup(int value) {
+      public Builder setGradeGroup(long value) {
         
         gradeGroup_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 gradeGroup = 12;</code>
+       * <code>int64 gradeGroup = 12;</code>
        */
       public Builder clearGradeGroup() {
         
-        gradeGroup_ = 0;
+        gradeGroup_ = 0L;
         onChanged();
         return this;
       }
 
-      private int region_ ;
+      private long region_ ;
       /**
-       * <code>int32 region = 13;</code>
+       * <code>int64 region = 13;</code>
        */
-      public int getRegion() {
+      public long getRegion() {
         return region_;
       }
       /**
-       * <code>int32 region = 13;</code>
+       * <code>int64 region = 13;</code>
        */
-      public Builder setRegion(int value) {
+      public Builder setRegion(long value) {
         
         region_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 region = 13;</code>
+       * <code>int64 region = 13;</code>
        */
       public Builder clearRegion() {
         
-        region_ = 0;
+        region_ = 0L;
         onChanged();
         return this;
       }
@@ -10627,9 +10644,9 @@ public final class ScdbApi {
     org.simplity.apiscdb.ScdbApi.Storage.Storage_Action getAction();
 
     /**
-     * <code>int32 currency = 2;</code>
+     * <code>int64 currency = 2;</code>
      */
-    int getCurrency();
+    long getCurrency();
 
     /**
      * <code>string desc = 3;</code>
@@ -10642,24 +10659,24 @@ public final class ScdbApi {
         getDescBytes();
 
     /**
-     * <code>int32 gradeGroup = 4;</code>
+     * <code>int64 gradeGroup = 4;</code>
      */
-    int getGradeGroup();
+    long getGradeGroup();
 
     /**
-     * <code>int32 id = 5;</code>
+     * <code>int64 id = 5;</code>
      */
-    int getId();
+    long getId();
 
     /**
-     * <code>int32 quantity = 6;</code>
+     * <code>int64 quantity = 6;</code>
      */
-    int getQuantity();
+    long getQuantity();
 
     /**
-     * <code>int32 storageRate = 7;</code>
+     * <code>int64 storageRate = 7;</code>
      */
-    int getStorageRate();
+    long getStorageRate();
 
     /**
      * <code>string tankId = 8;</code>
@@ -10693,12 +10710,12 @@ public final class ScdbApi {
     }
     private Storage() {
       action_ = 0;
-      currency_ = 0;
+      currency_ = 0L;
       desc_ = "";
-      gradeGroup_ = 0;
-      id_ = 0;
-      quantity_ = 0;
-      storageRate_ = 0;
+      gradeGroup_ = 0L;
+      id_ = 0L;
+      quantity_ = 0L;
+      storageRate_ = 0L;
       tankId_ = "";
       uom_ = 0;
     }
@@ -10736,7 +10753,7 @@ public final class ScdbApi {
             }
             case 16: {
 
-              currency_ = input.readInt32();
+              currency_ = input.readInt64();
               break;
             }
             case 26: {
@@ -10747,22 +10764,22 @@ public final class ScdbApi {
             }
             case 32: {
 
-              gradeGroup_ = input.readInt32();
+              gradeGroup_ = input.readInt64();
               break;
             }
             case 40: {
 
-              id_ = input.readInt32();
+              id_ = input.readInt64();
               break;
             }
             case 48: {
 
-              quantity_ = input.readInt32();
+              quantity_ = input.readInt64();
               break;
             }
             case 56: {
 
-              storageRate_ = input.readInt32();
+              storageRate_ = input.readInt64();
               break;
             }
             case 66: {
@@ -10806,32 +10823,32 @@ public final class ScdbApi {
     public enum Storage_Action
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>STORAGE_ACTION_ADD = 0;</code>
+       * <code>ADD = 0;</code>
        */
-      STORAGE_ACTION_ADD(0),
+      ADD(0),
       /**
-       * <code>STORAGE_ACTION_UPDATE = 1;</code>
+       * <code>UPDATE = 1;</code>
        */
-      STORAGE_ACTION_UPDATE(1),
+      UPDATE(1),
       /**
-       * <code>STORAGE_ACTION_DELETE = 2;</code>
+       * <code>DELETE = 2;</code>
        */
-      STORAGE_ACTION_DELETE(2),
+      DELETE(2),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>STORAGE_ACTION_ADD = 0;</code>
+       * <code>ADD = 0;</code>
        */
-      public static final int STORAGE_ACTION_ADD_VALUE = 0;
+      public static final int ADD_VALUE = 0;
       /**
-       * <code>STORAGE_ACTION_UPDATE = 1;</code>
+       * <code>UPDATE = 1;</code>
        */
-      public static final int STORAGE_ACTION_UPDATE_VALUE = 1;
+      public static final int UPDATE_VALUE = 1;
       /**
-       * <code>STORAGE_ACTION_DELETE = 2;</code>
+       * <code>DELETE = 2;</code>
        */
-      public static final int STORAGE_ACTION_DELETE_VALUE = 2;
+      public static final int DELETE_VALUE = 2;
 
 
       public final int getNumber() {
@@ -10852,9 +10869,9 @@ public final class ScdbApi {
 
       public static Storage_Action forNumber(int value) {
         switch (value) {
-          case 0: return STORAGE_ACTION_ADD;
-          case 1: return STORAGE_ACTION_UPDATE;
-          case 2: return STORAGE_ACTION_DELETE;
+          case 0: return ADD;
+          case 1: return UPDATE;
+          case 2: return DELETE;
           default: return null;
         }
       }
@@ -10913,32 +10930,32 @@ public final class ScdbApi {
     public enum Storage_Uom
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>STORAGE_UOM_M3 = 0;</code>
+       * <code>M3 = 0;</code>
        */
-      STORAGE_UOM_M3(0),
+      M3(0),
       /**
-       * <code>STORAGE_UOM_BBL = 1;</code>
+       * <code>BBL = 1;</code>
        */
-      STORAGE_UOM_BBL(1),
+      BBL(1),
       /**
-       * <code>STORAGE_UOM_USG = 2;</code>
+       * <code>USG = 2;</code>
        */
-      STORAGE_UOM_USG(2),
+      USG(2),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>STORAGE_UOM_M3 = 0;</code>
+       * <code>M3 = 0;</code>
        */
-      public static final int STORAGE_UOM_M3_VALUE = 0;
+      public static final int M3_VALUE = 0;
       /**
-       * <code>STORAGE_UOM_BBL = 1;</code>
+       * <code>BBL = 1;</code>
        */
-      public static final int STORAGE_UOM_BBL_VALUE = 1;
+      public static final int BBL_VALUE = 1;
       /**
-       * <code>STORAGE_UOM_USG = 2;</code>
+       * <code>USG = 2;</code>
        */
-      public static final int STORAGE_UOM_USG_VALUE = 2;
+      public static final int USG_VALUE = 2;
 
 
       public final int getNumber() {
@@ -10959,9 +10976,9 @@ public final class ScdbApi {
 
       public static Storage_Uom forNumber(int value) {
         switch (value) {
-          case 0: return STORAGE_UOM_M3;
-          case 1: return STORAGE_UOM_BBL;
-          case 2: return STORAGE_UOM_USG;
+          case 0: return M3;
+          case 1: return BBL;
+          case 2: return USG;
           default: return null;
         }
       }
@@ -11031,11 +11048,11 @@ public final class ScdbApi {
     }
 
     public static final int CURRENCY_FIELD_NUMBER = 2;
-    private int currency_;
+    private long currency_;
     /**
-     * <code>int32 currency = 2;</code>
+     * <code>int64 currency = 2;</code>
      */
-    public int getCurrency() {
+    public long getCurrency() {
       return currency_;
     }
 
@@ -11074,38 +11091,38 @@ public final class ScdbApi {
     }
 
     public static final int GRADEGROUP_FIELD_NUMBER = 4;
-    private int gradeGroup_;
+    private long gradeGroup_;
     /**
-     * <code>int32 gradeGroup = 4;</code>
+     * <code>int64 gradeGroup = 4;</code>
      */
-    public int getGradeGroup() {
+    public long getGradeGroup() {
       return gradeGroup_;
     }
 
     public static final int ID_FIELD_NUMBER = 5;
-    private int id_;
+    private long id_;
     /**
-     * <code>int32 id = 5;</code>
+     * <code>int64 id = 5;</code>
      */
-    public int getId() {
+    public long getId() {
       return id_;
     }
 
     public static final int QUANTITY_FIELD_NUMBER = 6;
-    private int quantity_;
+    private long quantity_;
     /**
-     * <code>int32 quantity = 6;</code>
+     * <code>int64 quantity = 6;</code>
      */
-    public int getQuantity() {
+    public long getQuantity() {
       return quantity_;
     }
 
     public static final int STORAGERATE_FIELD_NUMBER = 7;
-    private int storageRate_;
+    private long storageRate_;
     /**
-     * <code>int32 storageRate = 7;</code>
+     * <code>int64 storageRate = 7;</code>
      */
-    public int getStorageRate() {
+    public long getStorageRate() {
       return storageRate_;
     }
 
@@ -11171,31 +11188,31 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (action_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Action.STORAGE_ACTION_ADD.getNumber()) {
+      if (action_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Action.ADD.getNumber()) {
         output.writeEnum(1, action_);
       }
-      if (currency_ != 0) {
-        output.writeInt32(2, currency_);
+      if (currency_ != 0L) {
+        output.writeInt64(2, currency_);
       }
       if (!getDescBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, desc_);
       }
-      if (gradeGroup_ != 0) {
-        output.writeInt32(4, gradeGroup_);
+      if (gradeGroup_ != 0L) {
+        output.writeInt64(4, gradeGroup_);
       }
-      if (id_ != 0) {
-        output.writeInt32(5, id_);
+      if (id_ != 0L) {
+        output.writeInt64(5, id_);
       }
-      if (quantity_ != 0) {
-        output.writeInt32(6, quantity_);
+      if (quantity_ != 0L) {
+        output.writeInt64(6, quantity_);
       }
-      if (storageRate_ != 0) {
-        output.writeInt32(7, storageRate_);
+      if (storageRate_ != 0L) {
+        output.writeInt64(7, storageRate_);
       }
       if (!getTankIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, tankId_);
       }
-      if (uom_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Uom.STORAGE_UOM_M3.getNumber()) {
+      if (uom_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Uom.M3.getNumber()) {
         output.writeEnum(9, uom_);
       }
     }
@@ -11205,37 +11222,37 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (action_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Action.STORAGE_ACTION_ADD.getNumber()) {
+      if (action_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Action.ADD.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, action_);
       }
-      if (currency_ != 0) {
+      if (currency_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, currency_);
+          .computeInt64Size(2, currency_);
       }
       if (!getDescBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, desc_);
       }
-      if (gradeGroup_ != 0) {
+      if (gradeGroup_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, gradeGroup_);
+          .computeInt64Size(4, gradeGroup_);
       }
-      if (id_ != 0) {
+      if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, id_);
+          .computeInt64Size(5, id_);
       }
-      if (quantity_ != 0) {
+      if (quantity_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, quantity_);
+          .computeInt64Size(6, quantity_);
       }
-      if (storageRate_ != 0) {
+      if (storageRate_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, storageRate_);
+          .computeInt64Size(7, storageRate_);
       }
       if (!getTankIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, tankId_);
       }
-      if (uom_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Uom.STORAGE_UOM_M3.getNumber()) {
+      if (uom_ != org.simplity.apiscdb.ScdbApi.Storage.Storage_Uom.M3.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, uom_);
       }
@@ -11284,17 +11301,22 @@ public final class ScdbApi {
       hash = (37 * hash) + ACTION_FIELD_NUMBER;
       hash = (53 * hash) + action_;
       hash = (37 * hash) + CURRENCY_FIELD_NUMBER;
-      hash = (53 * hash) + getCurrency();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCurrency());
       hash = (37 * hash) + DESC_FIELD_NUMBER;
       hash = (53 * hash) + getDesc().hashCode();
       hash = (37 * hash) + GRADEGROUP_FIELD_NUMBER;
-      hash = (53 * hash) + getGradeGroup();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getGradeGroup());
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
-      hash = (53 * hash) + getQuantity();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getQuantity());
       hash = (37 * hash) + STORAGERATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStorageRate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStorageRate());
       hash = (37 * hash) + TANKID_FIELD_NUMBER;
       hash = (53 * hash) + getTankId().hashCode();
       hash = (37 * hash) + UOM_FIELD_NUMBER;
@@ -11430,17 +11452,17 @@ public final class ScdbApi {
         super.clear();
         action_ = 0;
 
-        currency_ = 0;
+        currency_ = 0L;
 
         desc_ = "";
 
-        gradeGroup_ = 0;
+        gradeGroup_ = 0L;
 
-        id_ = 0;
+        id_ = 0L;
 
-        quantity_ = 0;
+        quantity_ = 0L;
 
-        storageRate_ = 0;
+        storageRate_ = 0L;
 
         tankId_ = "";
 
@@ -11521,23 +11543,23 @@ public final class ScdbApi {
         if (other.action_ != 0) {
           setActionValue(other.getActionValue());
         }
-        if (other.getCurrency() != 0) {
+        if (other.getCurrency() != 0L) {
           setCurrency(other.getCurrency());
         }
         if (!other.getDesc().isEmpty()) {
           desc_ = other.desc_;
           onChanged();
         }
-        if (other.getGradeGroup() != 0) {
+        if (other.getGradeGroup() != 0L) {
           setGradeGroup(other.getGradeGroup());
         }
-        if (other.getId() != 0) {
+        if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (other.getQuantity() != 0) {
+        if (other.getQuantity() != 0L) {
           setQuantity(other.getQuantity());
         }
-        if (other.getStorageRate() != 0) {
+        if (other.getStorageRate() != 0L) {
           setStorageRate(other.getStorageRate());
         }
         if (!other.getTankId().isEmpty()) {
@@ -11617,28 +11639,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int currency_ ;
+      private long currency_ ;
       /**
-       * <code>int32 currency = 2;</code>
+       * <code>int64 currency = 2;</code>
        */
-      public int getCurrency() {
+      public long getCurrency() {
         return currency_;
       }
       /**
-       * <code>int32 currency = 2;</code>
+       * <code>int64 currency = 2;</code>
        */
-      public Builder setCurrency(int value) {
+      public Builder setCurrency(long value) {
         
         currency_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 currency = 2;</code>
+       * <code>int64 currency = 2;</code>
        */
       public Builder clearCurrency() {
         
-        currency_ = 0;
+        currency_ = 0L;
         onChanged();
         return this;
       }
@@ -11712,106 +11734,106 @@ public final class ScdbApi {
         return this;
       }
 
-      private int gradeGroup_ ;
+      private long gradeGroup_ ;
       /**
-       * <code>int32 gradeGroup = 4;</code>
+       * <code>int64 gradeGroup = 4;</code>
        */
-      public int getGradeGroup() {
+      public long getGradeGroup() {
         return gradeGroup_;
       }
       /**
-       * <code>int32 gradeGroup = 4;</code>
+       * <code>int64 gradeGroup = 4;</code>
        */
-      public Builder setGradeGroup(int value) {
+      public Builder setGradeGroup(long value) {
         
         gradeGroup_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 gradeGroup = 4;</code>
+       * <code>int64 gradeGroup = 4;</code>
        */
       public Builder clearGradeGroup() {
         
-        gradeGroup_ = 0;
+        gradeGroup_ = 0L;
         onChanged();
         return this;
       }
 
-      private int id_ ;
+      private long id_ ;
       /**
-       * <code>int32 id = 5;</code>
+       * <code>int64 id = 5;</code>
        */
-      public int getId() {
+      public long getId() {
         return id_;
       }
       /**
-       * <code>int32 id = 5;</code>
+       * <code>int64 id = 5;</code>
        */
-      public Builder setId(int value) {
+      public Builder setId(long value) {
         
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 5;</code>
+       * <code>int64 id = 5;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = 0L;
         onChanged();
         return this;
       }
 
-      private int quantity_ ;
+      private long quantity_ ;
       /**
-       * <code>int32 quantity = 6;</code>
+       * <code>int64 quantity = 6;</code>
        */
-      public int getQuantity() {
+      public long getQuantity() {
         return quantity_;
       }
       /**
-       * <code>int32 quantity = 6;</code>
+       * <code>int64 quantity = 6;</code>
        */
-      public Builder setQuantity(int value) {
+      public Builder setQuantity(long value) {
         
         quantity_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 quantity = 6;</code>
+       * <code>int64 quantity = 6;</code>
        */
       public Builder clearQuantity() {
         
-        quantity_ = 0;
+        quantity_ = 0L;
         onChanged();
         return this;
       }
 
-      private int storageRate_ ;
+      private long storageRate_ ;
       /**
-       * <code>int32 storageRate = 7;</code>
+       * <code>int64 storageRate = 7;</code>
        */
-      public int getStorageRate() {
+      public long getStorageRate() {
         return storageRate_;
       }
       /**
-       * <code>int32 storageRate = 7;</code>
+       * <code>int64 storageRate = 7;</code>
        */
-      public Builder setStorageRate(int value) {
+      public Builder setStorageRate(long value) {
         
         storageRate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 storageRate = 7;</code>
+       * <code>int64 storageRate = 7;</code>
        */
       public Builder clearStorageRate() {
         
-        storageRate_ = 0;
+        storageRate_ = 0L;
         onChanged();
         return this;
       }
@@ -12026,77 +12048,67 @@ public final class ScdbApi {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\"\345" +
-      "\013\n\016ContractHeader\022\021\n\tassetName\030\001 \001(\t\022\022\n\n" +
-      "assetOwner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\014\n\004city\030" +
-      "\004 \001(\t\022\027\n\017contractEndDate\030\005 \001(\005\022\024\n\014contra" +
+      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\"\311" +
+      "\t\n\016ContractHeader\022\021\n\tassetName\030\001 \001(\t\022\022\n\n" +
+      "assetOwner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\003\022\014\n\004city\030" +
+      "\004 \001(\t\022\027\n\017contractEndDate\030\005 \001(\003\022\024\n\014contra" +
       "ctLink\030\006 \001(\t\022\023\n\013contractNum\030\007 \001(\t\022\030\n\020con" +
-      "tractSignDate\030\010 \001(\005\022\031\n\021contractStartDate" +
-      "\030\t \001(\005\022\031\n\021contractingEntity\030\n \001(\t\022\017\n\007cou" +
-      "ntry\030\013 \001(\005\022\016\n\006county\030\014 \001(\t\022\030\n\020dealCounte" +
+      "tractSignDate\030\010 \001(\003\022\031\n\021contractStartDate" +
+      "\030\t \001(\003\022\031\n\021contractingEntity\030\n \001(\t\022\017\n\007cou" +
+      "ntry\030\013 \001(\003\022\016\n\006county\030\014 \001(\t\022\030\n\020dealCounte" +
       "rParty\030\r \001(\t\022\020\n\010dealName\030\016 \001(\t\022\014\n\004desc\030\017" +
-      " \001(\t\022\030\n\020durationInMonths\030\020 \001(\005\022\r\n\005econs\030",
-      "\021 \001(\005\022N\n\010econsUOM\030\022 \001(\0162<.org.simplity.a" +
+      " \001(\t\022\030\n\020durationInMonths\030\020 \001(\003\022\r\n\005econs\030",
+      "\021 \001(\003\022N\n\010econsUOM\030\022 \001(\0162<.org.simplity.a" +
       "piscdb.ContractHeader.ContractHeader_Eco" +
-      "nsUOM\022\034\n\024excessThroughputRate\030\023 \001(\005\022l\n\027e" +
+      "nsUOM\022\034\n\024excessThroughputRate\030\023 \001(\003\022l\n\027e" +
       "xcessThroughputRateUOM\030\024 \001(\0162K.org.simpl" +
       "ity.apiscdb.ContractHeader.ContractHeade" +
       "r_ExcessThroughputRateUOM\022\033\n\023externalCon" +
-      "tractNum\030\025 \001(\t\022\n\n\002id\030\026 \001(\005\022P\n\tleaseType\030" +
+      "tractNum\030\025 \001(\t\022\n\n\002id\030\026 \001(\003\022P\n\tleaseType\030" +
       "\027 \001(\0162=.org.simplity.apiscdb.ContractHea" +
       "der.ContractHeader_LeaseType\022\r\n\005notes\030\030 " +
-      "\001(\t\022\023\n\013otherRefNum\030\031 \001(\t\022\016\n\006region\030\032 \001(\005",
+      "\001(\t\022\023\n\013otherRefNum\030\031 \001(\t\022\016\n\006region\030\032 \001(\003",
       "\022)\n\005roles\030\033 \003(\0132\032.org.simplity.apiscdb.R" +
       "ole\022\017\n\007segment\030\034 \001(\t\022\r\n\005state\030\035 \001(\t\022I\n\006s" +
       "tatus\030\036 \001(\01629.org.simplity.apiscdb.Contr" +
       "actHeader.ContractHeader_Statu\022,\n\005tanks\030" +
       "\037 \003(\0132\035.org.simplity.apiscdb.Storage\022\020\n\010" +
       "terminal\030  \001(\t\022\032\n\022throughputsPerYear\030! \001" +
-      "(\005\"Z\n\027ContractHeader_EconsUOM\022\037\n\033CONTRAC" +
-      "THEADER_ECONSUOM_NPV\020\000\022\036\n\032CONTRACTHEADER" +
-      "_ECONSUOM_GM\020\001\"\267\001\n&ContractHeader_Excess" +
-      "ThroughputRateUOM\022-\n)CONTRACTHEADER_EXCE",
-      "SSTHROUGHPUTRATEUOM_M3\020\000\022.\n*CONTRACTHEAD" +
-      "ER_EXCESSTHROUGHPUTRATEUOM_BBL\020\001\022.\n*CONT" +
-      "RACTHEADER_EXCESSTHROUGHPUTRATEUOM_USG\020\002" +
-      "\"\213\001\n\030ContractHeader_LeaseType\022&\n\"CONTRAC" +
-      "THEADER_LEASETYPE_OPERATING\020\000\022$\n CONTRAC" +
-      "THEADER_LEASETYPE_CAPITAL\020\001\022!\n\035CONTRACTH" +
-      "EADER_LEASETYPE_LTCC\020\002\"V\n\024ContractHeader" +
-      "_Statu\022\035\n\031CONTRACTHEADER_STATU_LIVE\020\000\022\037\n" +
-      "\033CONTRACTHEADER_STATU_CLOSED\020\001\"P\n\017Contra" +
-      "ctHeaders\022=\n\017contractHeaders\030\001 \003(\0132$.org",
-      ".simplity.apiscdb.ContractHeader\" \n\rErro" +
-      "rResponse\022\017\n\007message\030\001 \001(\t\"|\n\004Role\022\n\n\002id" +
-      "\030\001 \001(\005\022\031\n\021primaryIndividual\030\002 \001(\t\0220\n\010rol" +
-      "eType\030\003 \001(\0132\036.org.simplity.apiscdb.RoleT" +
-      "ype\022\033\n\023secondaryIndividual\030\004 \001(\t\"$\n\010Role" +
-      "Type\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\">\n\tRoleTy" +
-      "pes\0221\n\troleTypes\030\001 \003(\0132\036.org.simplity.ap" +
-      "iscdb.RoleType\"\366\003\n\016SearchCriteria\022\021\n\tass" +
-      "etName\030\001 \001(\t\022\022\n\nassetOwner\030\002 \001(\t\022\r\n\005benc" +
-      "h\030\003 \001(\005\022\025\n\rbpContractNum\030\004 \001(\t\022\033\n\023bpCont",
-      "ractingEntity\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022Y\n\016con" +
-      "tractStatus\030\007 \001(\0162A.org.simplity.apiscdb" +
-      ".SearchCriteria.SearchCriteria_ContractS" +
-      "tatu\022\017\n\007country\030\010 \001(\005\022\016\n\006county\030\t \001(\t\022\030\n" +
-      "\020dealCounterParty\030\n \001(\t\022\020\n\010dealName\030\013 \001(" +
-      "\t\022\022\n\ngradeGroup\030\014 \001(\005\022\016\n\006region\030\r \001(\005\022\017\n" +
-      "\007segment\030\016 \001(\t\022\r\n\005state\030\017 \001(\t\022\020\n\010termina" +
-      "l\030\020 \001(\t\"n\n\034SearchCriteria_ContractStatu\022" +
-      "%\n!SEARCHCRITERIA_CONTRACTSTATU_LIVE\020\000\022\'" +
-      "\n#SEARCHCRITERIA_CONTRACTSTATU_CLOSED\020\001\"",
-      "\243\003\n\007Storage\022<\n\006action\030\001 \001(\0162,.org.simpli" +
-      "ty.apiscdb.Storage.Storage_Action\022\020\n\010cur" +
-      "rency\030\002 \001(\005\022\014\n\004desc\030\003 \001(\t\022\022\n\ngradeGroup\030" +
-      "\004 \001(\005\022\n\n\002id\030\005 \001(\005\022\020\n\010quantity\030\006 \001(\005\022\023\n\013s" +
-      "torageRate\030\007 \001(\005\022\016\n\006tankId\030\010 \001(\t\0226\n\003uom\030" +
-      "\t \001(\0162).org.simplity.apiscdb.Storage.Sto" +
-      "rage_Uom\"^\n\016Storage_Action\022\026\n\022STORAGE_AC" +
-      "TION_ADD\020\000\022\031\n\025STORAGE_ACTION_UPDATE\020\001\022\031\n" +
-      "\025STORAGE_ACTION_DELETE\020\002\"K\n\013Storage_Uom\022" +
-      "\022\n\016STORAGE_UOM_M3\020\000\022\023\n\017STORAGE_UOM_BBL\020\001",
-      "\022\023\n\017STORAGE_UOM_USG\020\002b\006proto3"
+      "(\003\"*\n\027ContractHeader_EconsUOM\022\007\n\003NPV\020\000\022\006" +
+      "\n\002GM\020\001\"B\n&ContractHeader_ExcessThroughpu" +
+      "tRateUOM\022\006\n\002M3\020\000\022\007\n\003BBL\020\001\022\007\n\003USG\020\002\"@\n\030Co" +
+      "ntractHeader_LeaseType\022\r\n\tOPERATING\020\000\022\013\n",
+      "\007CAPITAL\020\001\022\010\n\004LTCC\020\002\",\n\024ContractHeader_S" +
+      "tatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"P\n\017ContractHe" +
+      "aders\022=\n\017contractHeaders\030\001 \003(\0132$.org.sim" +
+      "plity.apiscdb.ContractHeader\" \n\rErrorRes" +
+      "ponse\022\017\n\007message\030\001 \001(\t\"|\n\004Role\022\n\n\002id\030\001 \001" +
+      "(\003\022\031\n\021primaryIndividual\030\002 \001(\t\0220\n\010roleTyp" +
+      "e\030\003 \001(\0132\036.org.simplity.apiscdb.RoleType\022" +
+      "\033\n\023secondaryIndividual\030\004 \001(\t\"$\n\010RoleType" +
+      "\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\">\n\tRoleTypes\022" +
+      "1\n\troleTypes\030\001 \003(\0132\036.org.simplity.apiscd",
+      "b.RoleType\"\274\003\n\016SearchCriteria\022\021\n\tassetNa" +
+      "me\030\001 \001(\t\022\022\n\nassetOwner\030\002 \001(\t\022\r\n\005bench\030\003 " +
+      "\001(\003\022\025\n\rbpContractNum\030\004 \001(\t\022\033\n\023bpContract" +
+      "ingEntity\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022Y\n\016contrac" +
+      "tStatus\030\007 \001(\0162A.org.simplity.apiscdb.Sea" +
+      "rchCriteria.SearchCriteria_ContractStatu" +
+      "\022\017\n\007country\030\010 \001(\003\022\016\n\006county\030\t \001(\t\022\030\n\020dea" +
+      "lCounterParty\030\n \001(\t\022\020\n\010dealName\030\013 \001(\t\022\022\n" +
+      "\ngradeGroup\030\014 \001(\003\022\016\n\006region\030\r \001(\003\022\017\n\007seg" +
+      "ment\030\016 \001(\t\022\r\n\005state\030\017 \001(\t\022\020\n\010terminal\030\020 ",
+      "\001(\t\"4\n\034SearchCriteria_ContractStatu\022\010\n\004L" +
+      "IVE\020\000\022\n\n\006CLOSED\020\001\"\322\002\n\007Storage\022<\n\006action\030" +
+      "\001 \001(\0162,.org.simplity.apiscdb.Storage.Sto" +
+      "rage_Action\022\020\n\010currency\030\002 \001(\003\022\014\n\004desc\030\003 " +
+      "\001(\t\022\022\n\ngradeGroup\030\004 \001(\003\022\n\n\002id\030\005 \001(\003\022\020\n\010q" +
+      "uantity\030\006 \001(\003\022\023\n\013storageRate\030\007 \001(\003\022\016\n\006ta" +
+      "nkId\030\010 \001(\t\0226\n\003uom\030\t \001(\0162).org.simplity.a" +
+      "piscdb.Storage.Storage_Uom\"1\n\016Storage_Ac" +
+      "tion\022\007\n\003ADD\020\000\022\n\n\006UPDATE\020\001\022\n\n\006DELETE\020\002\"\'\n" +
+      "\013Storage_Uom\022\006\n\002M3\020\000\022\007\n\003BBL\020\001\022\007\n\003USG\020\002b\006",
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

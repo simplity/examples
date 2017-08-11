@@ -1,5 +1,5 @@
 DROP TABLE CONTRACT IF EXISTS;
-DROP TABLE TANK IF EXISTS;
+DROP TABLE STORAGE IF EXISTS;
 DROP TABLE ROLE IF EXISTS;
 DROP TABLE ROLETYPE IF EXISTS;
 
@@ -7,13 +7,13 @@ DROP TABLE ROLETYPE IF EXISTS;
 CREATE TABLE CONTRACT 
    (	
     id INTEGER IDENTITY NOT NULL, 
-	country VARCHAR(100),
+	country LONG,
 	state VARCHAR(100),
 	county VARCHAR(100),
 	city VARCHAR(100),
 	terminal VARCHAR(100),
-	region VARCHAR(100),
-	bench VARCHAR(100),
+	region LONG,
+	bench LONG,
 	assetName VARCHAR(100),
 	assetOwner VARCHAR(100),
 	dealName VARCHAR(100),
@@ -25,19 +25,19 @@ CREATE TABLE CONTRACT
 	contractingEntity VARCHAR(100),
 	leaseType VARCHAR(100),
 	status VARCHAR(100),
-	contractSignDate VARCHAR(100),
-	contractStartDate VARCHAR(100),
-	contractEndDate VARCHAR(100),
-	durationInMonths VARCHAR(100),
-	excessThroughputRate VARCHAR(100),
+	contractSignDate LONG,
+	contractStartDate LONG,
+	contractEndDate LONG,
+	durationInMonths LONG,
+	excessThroughputRate LONG,
 	excessThroughputRateUOM VARCHAR(100),
-	throughputsPerYear VARCHAR(100),
-	econs VARCHAR(100),
+	throughputsPerYear LONG,
+	econs LONG,
 	econsUOM VARCHAR(100),
 	notes VARCHAR(1000)
 	);
  
-CREATE TABLE TANK
+CREATE TABLE STORAGE
 	(
 	 id INTEGER IDENTITY NOT NULL,
 	 contractId INTEGER NOT NULL,
@@ -53,8 +53,8 @@ CREATE TABLE TANK
 CREATE TABLE ROLE
 	(
 	 id INTEGER IDENTITY NOT NULL,
-	 contractId INTEGER NOT NULL,
 	 roleId INTEGER,
+	 contractId INTEGER NOT NULL,
 	 primaryIndividual VARCHAR(100),
      secondaryIndividual VARCHAR(100)
 	);
@@ -66,8 +66,192 @@ CREATE TABLE ROLETYPE
 	);
 
 	
-ALTER TABLE TANK ADD FOREIGN KEY (contractId) REFERENCES CONTRACT(id);
+ALTER TABLE STORAGE ADD FOREIGN KEY (contractId) REFERENCES CONTRACT(id);
 ALTER TABLE ROLE ADD FOREIGN KEY (contractId) REFERENCES CONTRACT(id);
+
+INSERT INTO CONTRACT VALUES(
+1,
+1010002001001400,
+'TEXAS',
+'JEFFERSON',
+'BEAUMONT',
+'DUBUQUE IA',
+1010003098000000,
+1010003073000000,
+'Enterprise BMW',
+'Enterprise',
+'Enterprise Beaumont Marine West',
+'Enterprise Beaumont Marine West',
+'Ent BMW',
+'NA',
+'Beaumont',
+'USGC',
+'BPPNA',
+'Operating',
+'Live',
+1501439400000,
+1501439400000,
+1501439400000,
+0,
+1,
+'BBL',
+'15',
+0,
+'NPV',
+'Note'
+);
+
+INSERT INTO CONTRACT VALUES(
+2,
+1010002001001400,
+'OKLAHOMA',
+'Payne',
+'Cushing',
+'MAGELLAN TUL',
+1010003098000000,
+1010003073000000,
+'wewqe',
+'Magellan',
+'Cushing Magellan',
+'Magellan Midstream, LLC',
+'TestCopy1',
+'na',
+'Cushing Storage',
+'Midcon',
+'BPPNA',
+'Operating',
+'Live',
+1501439400000,
+1501439400000,
+1501439400000,
+182,
+0,
+'BBL',
+100,
+77000000,
+'GM',
+'Former USPL site sold to Magellan 2010'
+);
+
+INSERT INTO STORAGE VALUES(
+1,
+1,
+'1',
+'SADFSAD',
+15000,
+'BBL',
+0,
+1011000038891080,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+2,
+1,
+'300-1',
+'Segregated',
+300000,
+'BBL',
+0,
+1010003029000020,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+3,
+1,
+'5001',
+'Segregated',
+500000,
+'BBL',
+0,
+1010003029000020,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+4,
+2,
+'5002',
+'Segregated',
+500000,
+'BBL',
+0,
+1010003029000020,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+5,
+2,
+'250-1',
+'Segregated',
+250000,
+'BBL',
+0,
+1010003029000020,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+6,
+2,
+'various',
+'commingled',
+1000000,
+'BBL',
+0,
+1010003029000020,
+1010048013000000
+);
+
+INSERT INTO STORAGE VALUES(
+7,
+2,
+'Jango',
+'adecf',
+4500000,
+'M3',
+0,
+1010003029000020,
+1010003013000050
+);
+
+INSERT INTO STORAGE VALUES(
+8,
+2,
+'sdf',
+'sdf',
+10,
+'BBL',
+25,
+-1,
+-1
+);
+
+INSERT INTO ROLE VALUES(
+1,
+1,
+1,
+'test1',
+'test2'
+);
+
+INSERT INTO ROLE VALUES(
+2,
+1,
+1,
+'Chung',
+'Recktenwall'
+);
+
+INSERT INTO ROLE VALUES(
+3,
+2,
+2,
+'Chung',
+'Recktenwall'
+);
 
 INSERT INTO ROLETYPE VALUES(1,'Bench Owner');
 INSERT INTO ROLETYPE VALUES(2,'Originator');
