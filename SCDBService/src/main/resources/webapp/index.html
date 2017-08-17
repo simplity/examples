@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  ng-app="protojson">
+<body ng-controller="ProtoCtrl">
+<button>Create Contract</button>
+<br/>
+<button>Update Contract</button>
+<br/>
+<button ng-click="getContacts()">Find Contract</button> 
+<br/>
+<input id="contractID" type="text"/>
+<button>Get Contract</button>
+  <ul>
+    <li ng-repeat="contract in contracts track by $index">
+    {[contract]}
+    </li>
+  </ul>
+ <script src="js/long.js"></script>
+ <script src="js/ByteBufferAB.min.js"></script>
+  <script src="js/protobuf.js"></script>
+  <script src="js/angular.js"></script>
+  <script src="js/index.js"></script>  
+</body>
+</html>

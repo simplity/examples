@@ -1,0 +1,1 @@
+To access webpage use : http://localhost:8070/webapp

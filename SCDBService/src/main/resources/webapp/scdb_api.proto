@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+package org.simplity.apiscdb;
+
+message ContractHeader {
+    string assetName = 1;
+    string assetOwner = 2;
+    int64 bench = 3;
+    string city = 4;
+    int64 contractEndDate = 5;
+    string contractLink = 6;
+    string contractNum = 7;
+    int64 contractSignDate = 8;
+    int64 contractStartDate = 9;
+    string contractingEntity = 10;
+    int64 country = 11;
+    string county = 12;
+    string dealCounterParty = 13;
+    string dealName = 14;
+    string desc = 15;
+    int64 durationInMonths = 16;
+    int64 econs = 17;
+    enum ContractHeader_EconsUOM {
+        NPV = 0;
+        GM = 1;
+    }
+    ContractHeader_EconsUOM econsUOM = 18;
+    int64 excessThroughputRate = 19;
+    enum ContractHeader_ExcessThroughputRateUOM {
+        M3 = 0;
+        BBL = 1;
+        USG = 2;
+    }
+    ContractHeader_ExcessThroughputRateUOM excessThroughputRateUOM = 20;
+    string externalContractNum = 21;
+    int64 id = 22;
+    enum ContractHeader_LeaseType {
+        OPERATING = 0;
+        CAPITAL = 1;
+        LTCC = 2;
+    }
+    ContractHeader_LeaseType leaseType = 23;
+    string notes = 24;
+    string otherRefNum = 25;
+    int64 region = 26;
+    repeated Role roles = 27;
+    string segment = 28;
+    string state = 29;
+    enum ContractHeader_Statu {
+        LIVE = 0;
+        CLOSED = 1;
+    }
+    ContractHeader_Statu status = 30;
+    repeated Storage tanks = 31;
+    string terminal = 32;
+    int64 throughputsPerYear = 33;
+}
+
+message ContractHeaders {
+    repeated ContractHeader contractHeaders = 1;
+}
+
+message ErrorResponse {
+    string message = 1;
+}
+
+message Role {
+    int64 id = 1;
+    string primaryIndividual = 2;
+    RoleType roleType = 3;
+    string secondaryIndividual = 4;
+}
+
+message RoleType {
+    int64 id = 1;
+    string name = 2;
+}
+
+message RoleTypes {
+    repeated RoleType roleTypes = 1;
+}
+
+message SearchCriteria {
+    string assetName = 1;
+    string assetOwner = 2;
+    int64 bench = 3;
+    string bpContractNum = 4;
+    string bpContractingEntity = 5;
+    string city = 6;
+    enum SearchCriteria_ContractStatu {
+        LIVE = 0;
+        CLOSED = 1;
+    }
+    SearchCriteria_ContractStatu contractStatus = 7;
+    int64 country = 8;
+    string county = 9;
+    string dealCounterParty = 10;
+    string dealName = 11;
+    int64 gradeGroup = 12;
+    int64 region = 13;
+    string segment = 14;
+    string state = 15;
+    string terminal = 16;
+}
+
+message Storage {
+    enum Storage_Action {
+        ADD = 0;
+        UPDATE = 1;
+        DELETE = 2;
+    }
+    Storage_Action action = 1;
+    int64 currency = 2;
+    string desc = 3;
+    int64 gradeGroup = 4;
+    int64 id = 5;
+    int64 quantity = 6;
+    int64 storageRate = 7;
+    string tankId = 8;
+    enum Storage_Uom {
+        M3 = 0;
+        BBL = 1;
+        USG = 2;
+    }
+    Storage_Uom uom = 9;
+}

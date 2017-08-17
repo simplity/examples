@@ -1,2 +1,4 @@
 openapi2proto -spec scdb_api.json -yaml=false > scdb_api.proto
 protoc scdb_api.proto --java_out=.
+
+protoc scdb_api.proto --js_out=.
