@@ -6,7 +6,8 @@
 	cacheRefreshTime="10"
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="TroubleTicket" outputSheetName="tickets">
+		<createSheet sheetName="dummy" recordName="TroubleTicket"/>
+		<filter filterRecordName="TroubleTicket" inputSheetName="dummy" outputSheetName="tickets">
 			<childRecords>
 				<relatedRecord sheetName="relatedObjects" recordName="RelatedObject"/>
 				<relatedRecord sheetName="relatedParties" recordName="RelatedParty"/>
