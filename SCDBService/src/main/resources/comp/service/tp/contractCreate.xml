@@ -21,8 +21,6 @@
 	<outputData fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status">
 		<outputRecords>
 			<outputRecord sheetName="storage" />
-			<outputRecord sheetName="roles" />
-			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="id"/>
 		</outputRecords>
 	</outputData>	
 </service>
