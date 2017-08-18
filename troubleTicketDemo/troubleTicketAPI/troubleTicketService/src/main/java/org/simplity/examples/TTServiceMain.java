@@ -2,10 +2,7 @@ package org.simplity.examples;
 
 import java.io.File;
 import java.net.URI;
-import java.util.EnumSet;
 
-import javax.servlet.DispatcherType;
-import javax.servlet.FilterRegistration;
 import javax.servlet.ServletRegistration;
 
 import org.glassfish.grizzly.http.server.CLStaticHttpHandler;
@@ -13,8 +10,6 @@ import org.glassfish.grizzly.http.server.HttpHandler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.servlet.WebappContext;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-import org.simplity.examples.filter.TestFilter;
-import org.simplity.examples.util.TtTroubleTicket;
 import org.simplity.kernel.Application;
 import org.simplity.rest.Operations;
 import org.slf4j.Logger;
@@ -42,10 +37,7 @@ public class TTServiceMain {
 			
 			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
 			rRegistration.addMapping("api");
-			FilterRegistration fi = wContext.addFilter("TestFilter", new TestFilter());
-			EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST);
-			fi.addMappingForServletNames(dispatcherTypes, false, "RestSimplity");
-			
+		
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8085"));
 
 			wContext.deploy(server);

@@ -68,26 +68,26 @@
 			<artifactId>javax.jms-api</artifactId>
 			<version>2.0.1</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-core</artifactId>
 			<version>5.7.0</version>
-		</dependency> -->
-		<dependency>
-			<groupId>com.rabbitmq.jms</groupId>
-			<artifactId>rabbitmq-jms</artifactId>
-			<version>1.5.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.rabbitmq</groupId>
-			<artifactId>amqp-client</artifactId>
-			<version>4.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.messaging.mq</groupId>
-			<artifactId>fscontext</artifactId>
-			<version>4.4.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.rabbitmq.jms</groupId> -->
+<!-- 			<artifactId>rabbitmq-jms</artifactId> -->
+<!-- 			<version>1.5.0</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.rabbitmq</groupId> -->
+<!-- 			<artifactId>amqp-client</artifactId> -->
+<!-- 			<version>4.0.0</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.sun.messaging.mq</groupId> -->
+<!-- 			<artifactId>fscontext</artifactId> -->
+<!-- 			<version>4.4.2</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -203,9 +203,9 @@
 				<configuration>
 					<executable>java</executable>
 					<arguments>
-						<!-- <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument> -->
-						<argument>-Djava.naming.factory.initial=com.sun.jndi.fscontext.RefFSContextFactory</argument>
-						<argument>-Djava.naming.provider.url=file:/D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/hubService/target/classes</argument>
+						    <argument>-Djava.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory</argument>
+<!-- 						<argument>-Djava.naming.factory.initial=com.sun.jndi.fscontext.RefFSContextFactory</argument> -->
+<!-- 						<argument>-Djava.naming.provider.url=file:/D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/hubService/target/classes</argument> -->
 						<argument>-classpath</argument>
 						<classpath />
 						<argument>org.simplity.examples.HubMainService</argument>

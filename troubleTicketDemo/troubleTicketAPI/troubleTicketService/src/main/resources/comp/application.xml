@@ -10,9 +10,8 @@
 			serviceCacheManager="org.simplity.examples.util.SimpleMemCacheManager" 
 			corePoolSize="10">
 			<jmsProperties>
-				<property name="java.naming.factory.initial" value="com.sun.jndi.fscontext.RefFSContextFactory"/>
-
-				<property name="java.naming.provider.url" value="file:/D:/simplity/github/examples/troubleTicketDemo/troubleTicketAPI/troubleTicketService/target/classes"/>
-			</jmsProperties>
+				<property name="java.naming.provider.url" value="tcp://127.0.0.1:61616"/>
+				<property name="java.naming.factory.initial" value="org.apache.activemq.jndi.ActiveMQInitialContextFactory"/>
+			</jmsProperties> 
 			<oauthparameters checkTokenURL="http://localhost:8090/oauth2/oauth/check_token" clientId="my-trusted-client-with-secret" clientSecret="somesecret"/>			
 </application>
