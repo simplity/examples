@@ -10,6 +10,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
+	
 		<save saveAction="save" recordName="Contract">
 			<childRecords>
 			 	<relatedRecord sheetName="storage" recordName="Storage"/>

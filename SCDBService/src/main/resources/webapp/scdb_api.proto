@@ -63,7 +63,7 @@ message ContractHeaders {
 message ErrorResponse {
     string message = 1;
 }
-
+ 
 message Role {
     int64 id = 1;
     string primaryIndividual = 2;

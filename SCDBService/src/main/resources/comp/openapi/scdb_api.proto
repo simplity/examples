@@ -3,7 +3,7 @@ syntax = "proto3";
 package org.simplity.apiscdb;
 
 message ContractHeader {
-    string assetName = 1;
+    optional string assetName = 1;
     string assetOwner = 2;
     int64 bench = 3;
     string city = 4;

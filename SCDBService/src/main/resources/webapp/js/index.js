@@ -8,9 +8,9 @@ var ProtoBuf = dcodeIO.ProtoBuf;
 var ContractHeaders;
 var ContractHeader;
 
-ProtoBuf.loadProtoFile("scdb_api.proto", function(err, builder) {
-		ContractHeaders = builder.build("org.simplity.apiscdb.ContractHeaders");
-		ContractHeader = builder.build("org.simplity.apiscdb.ContractHeader");
+protobuf.load("webapp/scdb_api.proto", function(err, root) {
+		ContractHeaders = root.lookupType("org.simplity.apiscdb.ContractHeaders");
+		ContractHeader = root.lookupType("org.simplity.apiscdb.ContractHeader");
 	});
 
 protojson.controller('ProtoCtrl', function($scope, $http) {
@@ -24,7 +24,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 		    };
 
 		    $http(req).success(function(data) {
-		      var msg = ContractHeaders.decode(data);
+		      var msg = ContractHeaders.decode(new Uint8Array(data));
 		      $scope.contracts = msg.contractHeaders;
 		    });
 		  };
@@ -37,21 +37,30 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 			      responseType: 'arraybuffer'
 			    };
 	    $http(req).success(function(data) {
-		      var msg = ContractHeader.decode(data);
-		      $scope.contracts.push(msg);
+		      var msg = ContractHeader.decode(new Uint8Array(data));
+		      var object = ContractHeader.toObject(msg, {
+		    	  enums: String,  // enums as string names
+		    	  longs: String,  // longs as strings (requires long.js)
+		    	  bytes: String,  // bytes as base64 encoded strings
+		    	  defaults: true, // includes default values
+		    	  arrays: true,   // populates empty arrays (repeated fields) even if defaults=false
+		    	  objects: true,  // populates empty objects (map fields) even if defaults=false
+		    	  oneofs: true    // includes virtual oneof fields set to the present field's name
+		    	});
+		      $scope.contracts.push(object);
 		    });	    
 	}	  
 	
 	$scope.createContract = function(){
 	    $scope.contracts = [];
-	    var newContract = new ContractHeader({
+	    var newContract = {
 	    	    "country": 1010002001001400,
 	    	    "notes": "Notes",
 	    	    "city": "Cushing",	    	    
 	    	    "county": "Payne",
 	    	    "throughputsPerYear": "100",
-	    	    "econsUOM": 1,
-	    	    "leaseType": 1, 
+	    	    "econsUOM": "GM",
+	    	    "leaseType": "CAPITAL", 
 	    	    "segment": "Midcon",	    	
 	    	    "state": "OKLAHOMA",
 	    	    "contractingEntity": "BPPNA",
@@ -61,7 +70,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    	    "otherRefNum": "na",
 	    	    "contractStartDate": 1501439400000,
 	    	    "contractEndDate": 1501439400000,
-	    	    "excessThroughputRateUOM": 1,
+	    	    "excessThroughputRateUOM": "BBL",
 	    	    "terminal": "MAGELLAN,TUL",
 	    	    "econs": 77000000,
 	    	    "dealName": "Cushing Magellan",
@@ -72,14 +81,17 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    	    "region": 1010003098000000,
 	    	    "excessThroughputRate": 31, 
 	    	    "desc": "Cushing Storage",
-	    	    "status": 1
-	    	});
+	    	    "status": "CLOSED"
+	    	};
+	    
+	 // Create a new message
+	    var message = ContractHeader.create(newContract);
 	    
 	    var req = {
 			      method: 'POST',
 			      url: 'http://localhost:8070/scdb/storagecontracts/contract',
 			      transformRequest: function(r) { return r;},
-			      data: newContract.toArrayBuffer(),
+			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',
 			      headers: {
 			          'Content-Type': 'binary/octet-stream'
