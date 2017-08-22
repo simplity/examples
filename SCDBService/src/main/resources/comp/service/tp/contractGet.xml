@@ -9,22 +9,30 @@
 		</inputFields>
 	</inputData>
 	<actions>
+	<log names="contractId"/>
 		<createSheet sheetName="filterSheet" data="id;$contractId" />
-		<filter filterRecordName="Contract" inputSheetName="filterSheet">
-			<childRecords>			
-				<relatedRecord sheetName="storage" recordName="Storage"/>
-				<relatedRecord sheetName="roles" recordName="Role"/>
+		<filter filterRecordName="cschdContractHeaders"
+			outputSheetName="contractHeaders" inputSheetName="filterSheet">
+			<childRecords>
+				<relatedRecord sheetName="benches" recordName="cscbsContractBenchs" />
+				<relatedRecord sheetName="locations" recordName="csclsContractLocations" />
+				<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails" />
+				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>
-		<filter filterRecordName="RoleType" outputSheetName="roleType"> 
-		</filter>
-		<log names="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status,notes,storage,roles,roleType"/>
+		<log names="contractHeaders,benches,locations,roleDetails,storages" />
 	</actions>
-	<outputData justOutputEveryThing="true" fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status,notes">
+	<outputData justOutputEveryThing="true" fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
 		<outputRecords>
-			<outputRecord sheetName="storage" />
-			<outputRecord sheetName="roles" />
-			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="roleId"/>
+			<outputRecord sheetName="contractHeaders" />
+			<outputRecord sheetName="storages" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="benches" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="locations" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleDetails" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
 		</outputRecords>
 	</outputData>
 </service>
