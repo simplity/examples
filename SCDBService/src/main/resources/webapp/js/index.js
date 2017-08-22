@@ -85,7 +85,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    	};
 	    
 	 // Create a new message
-	    var message = ContractHeader.create(newContract);
+	    var message = ContractHeader.fromObject(newContract);
 	    
 	    var req = {
 			      method: 'POST',
@@ -98,22 +98,22 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 			        }
 			    }; 
 	    $http(req).success(function(data) {
-		      var msg = ContractHeader.decode(data);
+		      var msg = ContractHeader.decode(new Uint8Array(data));
 		      $scope.contracts.push(msg);
 		    });	    
 	}		
 	
 	$scope.updateContract = function(){
 	    $scope.contracts = [];
-	    var updateContract = new ContractHeader({
+	    var updateContract = {
 	    		"id": 1,
 	    	    "country": 1010002001001400,
 	    	    "notes": "Notes",
 	    	    "city": "Changed",	    	    
 	    	    "county": "Changed",
 	    	    "throughputsPerYear": "100",
-	    	    "econsUOM": 1,
-	    	    "leaseType": 1, 
+	    	    "econsUOM": "GM",
+	    	    "leaseType": "CAPITAL", 
 	    	    "segment": "Midcon",	    	
 	    	    "state": "OKLAHOMA",
 	    	    "contractingEntity": "Changed",
@@ -123,7 +123,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    	    "otherRefNum": "na",
 	    	    "contractStartDate": 1501439400000,
 	    	    "contractEndDate": 1501439400000,
-	    	    "excessThroughputRateUOM": 1,
+	    	    "excessThroughputRateUOM": "BBL",
 	    	    "terminal": "Changed",
 	    	    "econs": 77000000,
 	    	    "dealName": "Changed",
@@ -134,21 +134,24 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    	    "region": 1010003098000000,
 	    	    "excessThroughputRate": 31, 
 	    	    "desc": "Changed Storage",
-	    	    "status": 1
-	    	});
+	    	    "status": "CLOSED"
+	    	};
+	    
+	 // Create a new message
+	    var message = ContractHeader.fromObject(updateContract);
 	    
 	    var req = {
 			      method: 'POST',
 			      url: 'http://localhost:8070/scdb/storagecontracts/contract',
 			      transformRequest: function(r) { return r;},
-			      data: updateContract.toArrayBuffer(),
+			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',
 			      headers: {
 			          'Content-Type': 'binary/octet-stream'
 			        }
 			    }; 
 	    $http(req).success(function(data) {
-		      var msg = ContractHeader.decode(data);
+		      var msg = ContractHeader.decode(new Uint8Array(data));
 		      $scope.contracts.push(msg);
 		    });	    
 	}		
