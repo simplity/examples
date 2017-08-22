@@ -2,8 +2,9 @@
 <application xmlns="http://www.simplity.org/schema" 
 			applicationId="SCDB"
 			autoLoginUserId="100"
-			dbVendor="h2"
-			dbDriverClassName="org.h2.Driver"
-			connectionString="jdbc:h2:file:${project.build.directory}\scdb;user=sa;" 
+			dbVendor="oracle" 
+			dbDriverClassName="oracle.jdbc.OracleDriver"
+			connectionString="jdbc:oracle:thin:CSOWNERBS1/CSOWNERBS1@surya:1521:bpowb1" 
+			exceptionListener="org.simplity.errorhandle.ExceptionHandler"
 			logSqls="true">
 </application>

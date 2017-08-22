@@ -107,6 +107,7 @@
 				<executions>
 					<execution>
 						<id>generate-schema-from-jdbc</id>
+						<phase>install</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>

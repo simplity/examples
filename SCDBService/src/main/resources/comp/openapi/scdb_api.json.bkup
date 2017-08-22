@@ -141,11 +141,31 @@
     "ContractHeader": {
       "x-fieldName": "ContractHeader",
       "type": "object",
+      "required": [        
+      ],
       "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "country": {
+          "type": "integer"
+        },
+        "state": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
         "terminal": {
           "type": "string"
         },
         "region": {
+          "type": "integer"
+        },
+        "bench": {
           "type": "integer"
         },
         "assetName": {
@@ -160,7 +180,22 @@
         "dealCounterParty": {
           "type": "string"
         },
+        "contractNum": {
+          "type": "string"
+        },
         "externalContractNum": {
+          "type": "string"
+        },
+        "otherRefNum": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string"
+        },
+        "contractingEntity": {
           "type": "string"
         },
         "leaseType": {
@@ -179,16 +214,16 @@
           ]
         },
         "contractSignDate": {
-          "type": "integer",
-          "format": "int64"
+          "type": "integer"
         },
         "contractStartDate": {
-          "type": "integer",
-          "format": "int64"
+          "type": "integer"
         },
         "contractEndDate": {
-          "type": "integer",
-          "format": "int64"
+          "type": "integer"
+        },
+        "durationInMonths": {
+          "type": "number"
         },
         "excessThroughputRate": {
           "type": "number"
@@ -200,6 +235,9 @@
             "BBL",
             "USG"
           ]
+        },
+        "throughputsPerYear": {
+          "type": "number"
         },
         "econs": {
           "type": "number"
@@ -217,25 +255,13 @@
         "contractLink": {
           "type": "string"
         },
-        "benches": {
-         "type": "array",
-         "items": {
-            "$ref": "#/definitions/Bench"
-          }
-        },
-        "locations": {
-         "type": "array",
-         "items": {
-            "$ref": "#/definitions/Location"
-          }
-        },
-        "storages": {
+        "tanks": {
          "type": "array",
          "items": {
             "$ref": "#/definitions/Storage"
           }
         },
-        "roleDetails": {
+        "roles": {
          "type": "array",
          "items": {
             "$ref": "#/definitions/Role"
@@ -243,87 +269,29 @@
         }        
       }
     },
-    "Bench":{
-          "type": "object",
-          "properties": {
-           "bench": {
-            "type": "integer"
-          },
-          "contractCschdFk": {
-            "type": "integer"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "createdDate": {
-            "type": "string"
-          },
-          "cscbsPk": {
-            "type": "integer"
-          },
-          "isDeleted": {
-            "type": "string"
-          },
-          "lastUpdatedBy": {
-            "type": "string"
-          },
-          "lastUpdatedDate": {
-            "type": "string"
-          },
-          "lockNum": {
-            "type": "integer"
-          }
-       }
-    },
-    "Location":{
-     "type": "object",
-      "properties": {
-      "city": {
-            "type": "string"
-          },
-          "contractCschdFk": {
-            "type": "integer"
-          },
-          "country": {
-            "type": "integer"
-          },
-          "county": {
-            "type": "string"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "createdDate": {
-            "type": "string"
-          },
-          "csclsPk": {
-            "type": "integer"
-          },
-          "isDeleted": {
-            "type": "string"
-          },
-          "lastUpdatedBy": {
-            "type": "string"
-          },
-          "lastUpdatedDate": {
-            "type": "string"
-          },
-          "lockNum": {
-            "type": "integer"
-          },
-          "state": {
-            "type": "string"
-          }
-      }
-    },
     "Storage": {
+      "x-fieldName": "Storage",
       "type": "object",
       "properties": {
+        "id": {
+          "type": "integer"
+        },
         "tankId": {
+          "type": "string"
+        },
+        "desc": {
           "type": "string"
         },
         "quantity": {
           "type": "number"
+        },
+        "uom": {
+          "type": "string",
+          "enum": [
+            "M3",
+            "BBL",
+            "USG"
+          ]
         },
         "storageRate": {
           "type": "number"
@@ -332,88 +300,30 @@
           "type": "integer"
         },
         "gradeGroup": {
+          "type": "integer"
+        },
+        "action": {
           "type": "string",
           "enum": [
-            "Ethanol",
-            "Crude",      
-			"ULSD",       
-			"Biodiesel",           
-			"MTBE",       
-			"FAME",           
-			"Diluent",   
-			"Curde"
+            "Add",
+            "Update",
+            "Delete"
           ]
-        },
-        "contractCschdFk": {
-          "type": "integer"
-        },
-        "createdBy": {
-          "type": "string"
-        },
-        "createdDate": {
-          "type": "string"
-        },
-        "cscsgPk": {
-          "type": "integer"
-        },
-        "description": {
-          "type": "string"
-        },
-        "isDeleted": {
-          "type": "string"
-        },
-        "lastUpdatedBy": {
-          "type": "string"
-        },
-        "lastUpdatedDate": {
-          "type": "string"
-        },
-        "lockNum": {
-          "type": "integer"
-        },
-        "quantityUom": {
-          "type": "string"
-        },
-        "storageEndDate": {
-          "type": "string"
-        },
-        "storageStartDate": {
-          "type": "string"
         }
       }
     },
     "Role": {
+      "x-fieldName": "Role",
       "type": "object",
       "properties": {
-        "contractCschdFk": {
+        "id": {
           "type": "integer"
         },
-        "createdBy": {
-          "type": "string"
-        },
-        "createdDate": {
-          "type": "string"
-        },
-        "cscrdPk": {
-          "type": "integer"
-        },
-        "isDeleted": {
-          "type": "string"
-        },
-        "lastUpdatedBy": {
-          "type": "string"
-        },
-        "lastUpdatedDate": {
-          "type": "string"
-        },
-        "lockNum": {
-          "type": "integer"
+        "roleType": {
+          "$ref": "#/definitions/RoleType"
         },
         "primaryIndividual": {
           "type": "string"
-        },
-        "roleCscrtFk": {
-          "type": "integer"
         },
         "secondaryIndividual": {
           "type": "string"

@@ -4,22 +4,28 @@
 	name="contractFind"
 	dbAccessType="readOnly">
 	<actions>
-		<filter filterRecordName="Contract" outputSheetName="contractHeaders">
-			<childRecords>			
-				<relatedRecord sheetName="storage" recordName="Storage"/>
-				<relatedRecord sheetName="roles" recordName="Role"/>
+		<filter filterRecordName="cschdContractHeaders"
+			outputSheetName="contractHeaders">
+			<childRecords>
+				<relatedRecord sheetName="benches" recordName="cscbsContractBenchs" />
+				<relatedRecord sheetName="locations" recordName="csclsContractLocations" />
+				<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails" />
+				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>
-		<filter filterRecordName="RoleType" outputSheetName="roleType"> 
-		</filter>
-		<log names="contracts,storage,roles,roleType"/>		
+		<log names="contractHeaders,benches,locations,roleDetails,storages" />
 	</actions>
-	<outputData justOutputEveryThing="true">
+	<outputData>
 		<outputRecords>
-			<outputRecord sheetName="contractHeaders"/>
-			<outputRecord sheetName="storage" parentSheetName="contractHeaders" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
-			<outputRecord sheetName="roles" parentSheetName="contractHeaders" linkColumnInParentSheet="id" linkColumnInThisSheet="contractId"/>
-			<outputRecord sheetName="roleType" parentSheetName="roles" linkColumnInParentSheet="roleId" linkColumnInThisSheet="roleId"/>
+			<outputRecord sheetName="contractHeaders" />
+			<outputRecord sheetName="storages" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="benches" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="locations" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleDetails" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
 		</outputRecords>
 	</outputData>
 </service>

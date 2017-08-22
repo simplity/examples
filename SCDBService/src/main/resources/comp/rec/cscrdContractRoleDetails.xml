@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="cscrdContractRoleDetails" recordType="storage" tableName="CSCRD_CONTRACT_ROLE_DETAILS" xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="CSCRD_PK" dataType="_decimal" fieldType="primaryKey" name="cscrdPk" sqlTypeName="DECIMAL"/>
+<field columnName="CONTRACT_CSCHD_FK" dataType="_decimal" fieldType="parentKey" name="contractCschdFk" referredField="cschdPk" referredRecord="cschdContractHeaders" sqlTypeName="DECIMAL"/>
+<!-- <field columnName="ROLE_CSCRT_FK" dataType="_decimal" fieldType="parentKey" name="roleCscrtFk" referredField="cscrtPk" referredRecord="cscrtContractRoleTypes" sqlTypeName="DECIMAL"/> -->
+<field columnName="PRIMARY_INDIVIDUAL" dataType="_text" fieldType="data" name="primaryIndividual" sqlTypeName="VARCHAR"/>
+<field columnName="SECONDARY_INDIVIDUAL" dataType="_text" fieldType="data" name="secondaryIndividual" sqlTypeName="VARCHAR"/>
+<field columnName="LOCK_NUM" dataType="_decimal" fieldType="data" name="lockNum" sqlTypeName="DECIMAL"/>
+<field columnName="IS_DELETED" dataType="_text" fieldType="data" name="isDeleted" sqlTypeName="CHAR"/>
+<field columnName="CREATED_BY" dataType="_text" fieldType="data" name="createdBy" sqlTypeName="VARCHAR"/>
+<field columnName="CREATED_DATE" dataType="_dateTime" fieldType="data" name="createdDate" sqlTypeName="DATE"/>
+<field columnName="LAST_UPDATED_BY" dataType="_text" fieldType="data" name="lastUpdatedBy" sqlTypeName="VARCHAR"/>
+<field columnName="LAST_UPDATED_DATE" dataType="_dateTime" fieldType="data" name="lastUpdatedDate" sqlTypeName="DATE"/>
+</fields>
+</record>

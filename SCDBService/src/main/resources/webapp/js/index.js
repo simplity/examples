@@ -8,7 +8,7 @@ var ProtoBuf = dcodeIO.ProtoBuf;
 var ContractHeaders;
 var ContractHeader;
 
-protobuf.load("webapp/scdb_api.proto", function(err, root) {
+protobuf.load("scdb_api.proto", function(err, root) {
 		ContractHeaders = root.lookupType("org.simplity.apiscdb.ContractHeaders");
 		ContractHeader = root.lookupType("org.simplity.apiscdb.ContractHeader");
 	});
