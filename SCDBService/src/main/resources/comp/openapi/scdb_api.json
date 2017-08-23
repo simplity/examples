@@ -139,10 +139,9 @@
       }
     },
     "ContractHeader": {
-      "x-fieldName": "ContractHeader",
       "type": "object",
       "properties": {
-  "assetName": {
+       "assetName": {
             "type": "string"
         },
         "assetOwner": {
@@ -156,7 +155,7 @@
         },
         "contractEndDate": {
           "type": "integer",
-          "format": "date-time"
+          "format": "int64"
         },
         "contractLink": {
             "type": "string"
@@ -194,10 +193,12 @@
             "type": "string"
         },
         "durationMonths": {
-            "type": "number"
+            "type": "number",
+            "format": "double"
         },
         "econs": {
-            "type": "integer"
+            "type": "integer",
+            "format": "double"
         },
         "econsUom": {
             "type": "string",
@@ -207,7 +208,8 @@
           ]      
         },
         "excessThroughputRate": {
-            "type": "number"
+            "type": "number",
+            "format": "double"
         },
         "excessThroughputRateUom": {
             "type": "string",
@@ -231,7 +233,8 @@
           "format": "int64"
         },
         "leasePercentage": {
-            "type": "integer"
+            "type": "integer",
+            "format": "double"
         },
         "leaseType": {
             "type": "string",
@@ -265,7 +268,8 @@
             "type": "string"
         },
         "througputPerYear": {
-            "type": "integer"
+            "type": "integer",
+            "format": "double"
         },
         "benches": {
          "type": "array",
@@ -375,10 +379,12 @@
           "type": "string"
         },
         "quantity": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "storageRate": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "currency": {
           "type": "integer"

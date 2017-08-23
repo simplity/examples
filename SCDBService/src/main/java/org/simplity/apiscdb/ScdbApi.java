@@ -590,14 +590,9 @@ public final class ScdbApi {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string cschdPk = 1;</code>
+     * <code>int32 cschdPk = 1;</code>
      */
-    java.lang.String getCschdPk();
-    /**
-     * <code>string cschdPk = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getCschdPkBytes();
+    int getCschdPk();
   }
   /**
    * Protobuf type {@code org.simplity.apiscdb.GetContractCschdPkRequest}
@@ -611,7 +606,7 @@ public final class ScdbApi {
       super(builder);
     }
     private GetContractCschdPkRequest() {
-      cschdPk_ = "";
+      cschdPk_ = 0;
     }
 
     @java.lang.Override
@@ -639,10 +634,9 @@ public final class ScdbApi {
               }
               break;
             }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              cschdPk_ = s;
+              cschdPk_ = input.readInt32();
               break;
             }
           }
@@ -669,37 +663,12 @@ public final class ScdbApi {
     }
 
     public static final int CSCHDPK_FIELD_NUMBER = 1;
-    private volatile java.lang.Object cschdPk_;
+    private int cschdPk_;
     /**
-     * <code>string cschdPk = 1;</code>
+     * <code>int32 cschdPk = 1;</code>
      */
-    public java.lang.String getCschdPk() {
-      java.lang.Object ref = cschdPk_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cschdPk_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string cschdPk = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCschdPkBytes() {
-      java.lang.Object ref = cschdPk_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cschdPk_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getCschdPk() {
+      return cschdPk_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -714,8 +683,8 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCschdPkBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cschdPk_);
+      if (cschdPk_ != 0) {
+        output.writeInt32(1, cschdPk_);
       }
     }
 
@@ -724,8 +693,9 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCschdPkBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cschdPk_);
+      if (cschdPk_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, cschdPk_);
       }
       memoizedSize = size;
       return size;
@@ -743,8 +713,8 @@ public final class ScdbApi {
       org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest other = (org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest) obj;
 
       boolean result = true;
-      result = result && getCschdPk()
-          .equals(other.getCschdPk());
+      result = result && (getCschdPk()
+          == other.getCschdPk());
       return result;
     }
 
@@ -756,7 +726,7 @@ public final class ScdbApi {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CSCHDPK_FIELD_NUMBER;
-      hash = (53 * hash) + getCschdPk().hashCode();
+      hash = (53 * hash) + getCschdPk();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -886,7 +856,7 @@ public final class ScdbApi {
       }
       public Builder clear() {
         super.clear();
-        cschdPk_ = "";
+        cschdPk_ = 0;
 
         return this;
       }
@@ -952,9 +922,8 @@ public final class ScdbApi {
 
       public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest other) {
         if (other == org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest.getDefaultInstance()) return this;
-        if (!other.getCschdPk().isEmpty()) {
-          cschdPk_ = other.cschdPk_;
-          onChanged();
+        if (other.getCschdPk() != 0) {
+          setCschdPk(other.getCschdPk());
         }
         onChanged();
         return this;
@@ -982,71 +951,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object cschdPk_ = "";
+      private int cschdPk_ ;
       /**
-       * <code>string cschdPk = 1;</code>
+       * <code>int32 cschdPk = 1;</code>
        */
-      public java.lang.String getCschdPk() {
-        java.lang.Object ref = cschdPk_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          cschdPk_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getCschdPk() {
+        return cschdPk_;
       }
       /**
-       * <code>string cschdPk = 1;</code>
+       * <code>int32 cschdPk = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getCschdPkBytes() {
-        java.lang.Object ref = cschdPk_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cschdPk_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string cschdPk = 1;</code>
-       */
-      public Builder setCschdPk(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCschdPk(int value) {
+        
         cschdPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string cschdPk = 1;</code>
+       * <code>int32 cschdPk = 1;</code>
        */
       public Builder clearCschdPk() {
         
-        cschdPk_ = getDefaultInstance().getCschdPk();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string cschdPk = 1;</code>
-       */
-      public Builder setCschdPkBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cschdPk_ = value;
+        cschdPk_ = 0;
         onChanged();
         return this;
       }
@@ -3271,14 +3197,14 @@ public final class ScdbApi {
         getDescriptionBytes();
 
     /**
-     * <code>int32 durationMonths = 17;</code>
+     * <code>double durationMonths = 17;</code>
      */
-    int getDurationMonths();
+    double getDurationMonths();
 
     /**
-     * <code>int32 econs = 18;</code>
+     * <code>double econs = 18;</code>
      */
-    int getEcons();
+    double getEcons();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_EconsUom econsUom = 19;</code>
@@ -3290,9 +3216,9 @@ public final class ScdbApi {
     org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUom getEconsUom();
 
     /**
-     * <code>int32 excessThroughputRate = 20;</code>
+     * <code>double excessThroughputRate = 20;</code>
      */
-    int getExcessThroughputRate();
+    double getExcessThroughputRate();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_ExcessThroughputRateUom excessThroughputRateUom = 21;</code>
@@ -3339,9 +3265,9 @@ public final class ScdbApi {
     long getLastUpdatedDate();
 
     /**
-     * <code>int32 leasePercentage = 26;</code>
+     * <code>double leasePercentage = 26;</code>
      */
-    int getLeasePercentage();
+    double getLeasePercentage();
 
     /**
      * <code>.org.simplity.apiscdb.ContractHeader.ContractHeader_LeaseType leaseType = 27;</code>
@@ -3474,9 +3400,9 @@ public final class ScdbApi {
         getTerminalBytes();
 
     /**
-     * <code>int32 througputPerYear = 37;</code>
+     * <code>double througputPerYear = 37;</code>
      */
-    int getThrougputPerYear();
+    double getThrougputPerYear();
   }
   /**
    * Protobuf type {@code org.simplity.apiscdb.ContractHeader}
@@ -3506,16 +3432,16 @@ public final class ScdbApi {
       dealCounterParty_ = "";
       dealName_ = "";
       description_ = "";
-      durationMonths_ = 0;
-      econs_ = 0;
+      durationMonths_ = 0D;
+      econs_ = 0D;
       econsUom_ = 0;
-      excessThroughputRate_ = 0;
+      excessThroughputRate_ = 0D;
       excessThroughputRateUom_ = 0;
       externalContractNum_ = "";
       isDeleted_ = "";
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = 0L;
-      leasePercentage_ = 0;
+      leasePercentage_ = 0D;
       leaseType_ = 0;
       locations_ = java.util.Collections.emptyList();
       lockNum_ = 0;
@@ -3526,7 +3452,7 @@ public final class ScdbApi {
       status_ = 0;
       storages_ = java.util.Collections.emptyList();
       terminal_ = "";
-      througputPerYear_ = 0;
+      througputPerYear_ = 0D;
     }
 
     @java.lang.Override
@@ -3648,14 +3574,14 @@ public final class ScdbApi {
               description_ = s;
               break;
             }
-            case 136: {
+            case 137: {
 
-              durationMonths_ = input.readInt32();
+              durationMonths_ = input.readDouble();
               break;
             }
-            case 144: {
+            case 145: {
 
-              econs_ = input.readInt32();
+              econs_ = input.readDouble();
               break;
             }
             case 152: {
@@ -3664,9 +3590,9 @@ public final class ScdbApi {
               econsUom_ = rawValue;
               break;
             }
-            case 160: {
+            case 161: {
 
-              excessThroughputRate_ = input.readInt32();
+              excessThroughputRate_ = input.readDouble();
               break;
             }
             case 168: {
@@ -3698,9 +3624,9 @@ public final class ScdbApi {
               lastUpdatedDate_ = input.readInt64();
               break;
             }
-            case 208: {
+            case 209: {
 
-              leasePercentage_ = input.readInt32();
+              leasePercentage_ = input.readDouble();
               break;
             }
             case 216: {
@@ -3770,9 +3696,9 @@ public final class ScdbApi {
               terminal_ = s;
               break;
             }
-            case 296: {
+            case 297: {
 
-              througputPerYear_ = input.readInt32();
+              througputPerYear_ = input.readDouble();
               break;
             }
           }
@@ -4618,20 +4544,20 @@ public final class ScdbApi {
     }
 
     public static final int DURATIONMONTHS_FIELD_NUMBER = 17;
-    private int durationMonths_;
+    private double durationMonths_;
     /**
-     * <code>int32 durationMonths = 17;</code>
+     * <code>double durationMonths = 17;</code>
      */
-    public int getDurationMonths() {
+    public double getDurationMonths() {
       return durationMonths_;
     }
 
     public static final int ECONS_FIELD_NUMBER = 18;
-    private int econs_;
+    private double econs_;
     /**
-     * <code>int32 econs = 18;</code>
+     * <code>double econs = 18;</code>
      */
-    public int getEcons() {
+    public double getEcons() {
       return econs_;
     }
 
@@ -4652,11 +4578,11 @@ public final class ScdbApi {
     }
 
     public static final int EXCESSTHROUGHPUTRATE_FIELD_NUMBER = 20;
-    private int excessThroughputRate_;
+    private double excessThroughputRate_;
     /**
-     * <code>int32 excessThroughputRate = 20;</code>
+     * <code>double excessThroughputRate = 20;</code>
      */
-    public int getExcessThroughputRate() {
+    public double getExcessThroughputRate() {
       return excessThroughputRate_;
     }
 
@@ -4788,11 +4714,11 @@ public final class ScdbApi {
     }
 
     public static final int LEASEPERCENTAGE_FIELD_NUMBER = 26;
-    private int leasePercentage_;
+    private double leasePercentage_;
     /**
-     * <code>int32 leasePercentage = 26;</code>
+     * <code>double leasePercentage = 26;</code>
      */
-    public int getLeasePercentage() {
+    public double getLeasePercentage() {
       return leasePercentage_;
     }
 
@@ -5054,11 +4980,11 @@ public final class ScdbApi {
     }
 
     public static final int THROUGPUTPERYEAR_FIELD_NUMBER = 37;
-    private int througputPerYear_;
+    private double througputPerYear_;
     /**
-     * <code>int32 througputPerYear = 37;</code>
+     * <code>double througputPerYear = 37;</code>
      */
-    public int getThrougputPerYear() {
+    public double getThrougputPerYear() {
       return througputPerYear_;
     }
 
@@ -5122,17 +5048,17 @@ public final class ScdbApi {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 16, description_);
       }
-      if (durationMonths_ != 0) {
-        output.writeInt32(17, durationMonths_);
+      if (durationMonths_ != 0D) {
+        output.writeDouble(17, durationMonths_);
       }
-      if (econs_ != 0) {
-        output.writeInt32(18, econs_);
+      if (econs_ != 0D) {
+        output.writeDouble(18, econs_);
       }
       if (econsUom_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUom.NPV.getNumber()) {
         output.writeEnum(19, econsUom_);
       }
-      if (excessThroughputRate_ != 0) {
-        output.writeInt32(20, excessThroughputRate_);
+      if (excessThroughputRate_ != 0D) {
+        output.writeDouble(20, excessThroughputRate_);
       }
       if (excessThroughputRateUom_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUom.M3.getNumber()) {
         output.writeEnum(21, excessThroughputRateUom_);
@@ -5149,8 +5075,8 @@ public final class ScdbApi {
       if (lastUpdatedDate_ != 0L) {
         output.writeInt64(25, lastUpdatedDate_);
       }
-      if (leasePercentage_ != 0) {
-        output.writeInt32(26, leasePercentage_);
+      if (leasePercentage_ != 0D) {
+        output.writeDouble(26, leasePercentage_);
       }
       if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.OPERATING.getNumber()) {
         output.writeEnum(27, leaseType_);
@@ -5182,8 +5108,8 @@ public final class ScdbApi {
       if (!getTerminalBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 36, terminal_);
       }
-      if (througputPerYear_ != 0) {
-        output.writeInt32(37, througputPerYear_);
+      if (througputPerYear_ != 0D) {
+        output.writeDouble(37, througputPerYear_);
       }
     }
 
@@ -5247,21 +5173,21 @@ public final class ScdbApi {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, description_);
       }
-      if (durationMonths_ != 0) {
+      if (durationMonths_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, durationMonths_);
+          .computeDoubleSize(17, durationMonths_);
       }
-      if (econs_ != 0) {
+      if (econs_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(18, econs_);
+          .computeDoubleSize(18, econs_);
       }
       if (econsUom_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_EconsUom.NPV.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(19, econsUom_);
       }
-      if (excessThroughputRate_ != 0) {
+      if (excessThroughputRate_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(20, excessThroughputRate_);
+          .computeDoubleSize(20, excessThroughputRate_);
       }
       if (excessThroughputRateUom_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_ExcessThroughputRateUom.M3.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -5280,9 +5206,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(25, lastUpdatedDate_);
       }
-      if (leasePercentage_ != 0) {
+      if (leasePercentage_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(26, leasePercentage_);
+          .computeDoubleSize(26, leasePercentage_);
       }
       if (leaseType_ != org.simplity.apiscdb.ScdbApi.ContractHeader.ContractHeader_LeaseType.OPERATING.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -5321,9 +5247,9 @@ public final class ScdbApi {
       if (!getTerminalBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(36, terminal_);
       }
-      if (througputPerYear_ != 0) {
+      if (througputPerYear_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(37, througputPerYear_);
+          .computeDoubleSize(37, througputPerYear_);
       }
       memoizedSize = size;
       return size;
@@ -5373,13 +5299,19 @@ public final class ScdbApi {
           .equals(other.getDealName());
       result = result && getDescription()
           .equals(other.getDescription());
-      result = result && (getDurationMonths()
-          == other.getDurationMonths());
-      result = result && (getEcons()
-          == other.getEcons());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getDurationMonths())
+          == java.lang.Double.doubleToLongBits(
+              other.getDurationMonths()));
+      result = result && (
+          java.lang.Double.doubleToLongBits(getEcons())
+          == java.lang.Double.doubleToLongBits(
+              other.getEcons()));
       result = result && econsUom_ == other.econsUom_;
-      result = result && (getExcessThroughputRate()
-          == other.getExcessThroughputRate());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getExcessThroughputRate())
+          == java.lang.Double.doubleToLongBits(
+              other.getExcessThroughputRate()));
       result = result && excessThroughputRateUom_ == other.excessThroughputRateUom_;
       result = result && getExternalContractNum()
           .equals(other.getExternalContractNum());
@@ -5389,8 +5321,10 @@ public final class ScdbApi {
           .equals(other.getLastUpdatedBy());
       result = result && (getLastUpdatedDate()
           == other.getLastUpdatedDate());
-      result = result && (getLeasePercentage()
-          == other.getLeasePercentage());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getLeasePercentage())
+          == java.lang.Double.doubleToLongBits(
+              other.getLeasePercentage()));
       result = result && leaseType_ == other.leaseType_;
       result = result && getLocationsList()
           .equals(other.getLocationsList());
@@ -5409,8 +5343,10 @@ public final class ScdbApi {
           .equals(other.getStoragesList());
       result = result && getTerminal()
           .equals(other.getTerminal());
-      result = result && (getThrougputPerYear()
-          == other.getThrougputPerYear());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getThrougputPerYear())
+          == java.lang.Double.doubleToLongBits(
+              other.getThrougputPerYear()));
       return result;
     }
 
@@ -5462,13 +5398,16 @@ public final class ScdbApi {
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + DURATIONMONTHS_FIELD_NUMBER;
-      hash = (53 * hash) + getDurationMonths();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getDurationMonths()));
       hash = (37 * hash) + ECONS_FIELD_NUMBER;
-      hash = (53 * hash) + getEcons();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getEcons()));
       hash = (37 * hash) + ECONSUOM_FIELD_NUMBER;
       hash = (53 * hash) + econsUom_;
       hash = (37 * hash) + EXCESSTHROUGHPUTRATE_FIELD_NUMBER;
-      hash = (53 * hash) + getExcessThroughputRate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getExcessThroughputRate()));
       hash = (37 * hash) + EXCESSTHROUGHPUTRATEUOM_FIELD_NUMBER;
       hash = (53 * hash) + excessThroughputRateUom_;
       hash = (37 * hash) + EXTERNALCONTRACTNUM_FIELD_NUMBER;
@@ -5481,7 +5420,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastUpdatedDate());
       hash = (37 * hash) + LEASEPERCENTAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getLeasePercentage();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getLeasePercentage()));
       hash = (37 * hash) + LEASETYPE_FIELD_NUMBER;
       hash = (53 * hash) + leaseType_;
       if (getLocationsCount() > 0) {
@@ -5509,7 +5449,8 @@ public final class ScdbApi {
       hash = (37 * hash) + TERMINAL_FIELD_NUMBER;
       hash = (53 * hash) + getTerminal().hashCode();
       hash = (37 * hash) + THROUGPUTPERYEAR_FIELD_NUMBER;
-      hash = (53 * hash) + getThrougputPerYear();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getThrougputPerYear()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5679,13 +5620,13 @@ public final class ScdbApi {
 
         description_ = "";
 
-        durationMonths_ = 0;
+        durationMonths_ = 0D;
 
-        econs_ = 0;
+        econs_ = 0D;
 
         econsUom_ = 0;
 
-        excessThroughputRate_ = 0;
+        excessThroughputRate_ = 0D;
 
         excessThroughputRateUom_ = 0;
 
@@ -5697,7 +5638,7 @@ public final class ScdbApi {
 
         lastUpdatedDate_ = 0L;
 
-        leasePercentage_ = 0;
+        leasePercentage_ = 0D;
 
         leaseType_ = 0;
 
@@ -5731,7 +5672,7 @@ public final class ScdbApi {
         }
         terminal_ = "";
 
-        througputPerYear_ = 0;
+        througputPerYear_ = 0D;
 
         return this;
       }
@@ -5951,16 +5892,16 @@ public final class ScdbApi {
           description_ = other.description_;
           onChanged();
         }
-        if (other.getDurationMonths() != 0) {
+        if (other.getDurationMonths() != 0D) {
           setDurationMonths(other.getDurationMonths());
         }
-        if (other.getEcons() != 0) {
+        if (other.getEcons() != 0D) {
           setEcons(other.getEcons());
         }
         if (other.econsUom_ != 0) {
           setEconsUomValue(other.getEconsUomValue());
         }
-        if (other.getExcessThroughputRate() != 0) {
+        if (other.getExcessThroughputRate() != 0D) {
           setExcessThroughputRate(other.getExcessThroughputRate());
         }
         if (other.excessThroughputRateUom_ != 0) {
@@ -5981,7 +5922,7 @@ public final class ScdbApi {
         if (other.getLastUpdatedDate() != 0L) {
           setLastUpdatedDate(other.getLastUpdatedDate());
         }
-        if (other.getLeasePercentage() != 0) {
+        if (other.getLeasePercentage() != 0D) {
           setLeasePercentage(other.getLeasePercentage());
         }
         if (other.leaseType_ != 0) {
@@ -6086,7 +6027,7 @@ public final class ScdbApi {
           terminal_ = other.terminal_;
           onChanged();
         }
-        if (other.getThrougputPerYear() != 0) {
+        if (other.getThrougputPerYear() != 0D) {
           setThrougputPerYear(other.getThrougputPerYear());
         }
         onChanged();
@@ -7134,54 +7075,54 @@ public final class ScdbApi {
         return this;
       }
 
-      private int durationMonths_ ;
+      private double durationMonths_ ;
       /**
-       * <code>int32 durationMonths = 17;</code>
+       * <code>double durationMonths = 17;</code>
        */
-      public int getDurationMonths() {
+      public double getDurationMonths() {
         return durationMonths_;
       }
       /**
-       * <code>int32 durationMonths = 17;</code>
+       * <code>double durationMonths = 17;</code>
        */
-      public Builder setDurationMonths(int value) {
+      public Builder setDurationMonths(double value) {
         
         durationMonths_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 durationMonths = 17;</code>
+       * <code>double durationMonths = 17;</code>
        */
       public Builder clearDurationMonths() {
         
-        durationMonths_ = 0;
+        durationMonths_ = 0D;
         onChanged();
         return this;
       }
 
-      private int econs_ ;
+      private double econs_ ;
       /**
-       * <code>int32 econs = 18;</code>
+       * <code>double econs = 18;</code>
        */
-      public int getEcons() {
+      public double getEcons() {
         return econs_;
       }
       /**
-       * <code>int32 econs = 18;</code>
+       * <code>double econs = 18;</code>
        */
-      public Builder setEcons(int value) {
+      public Builder setEcons(double value) {
         
         econs_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 econs = 18;</code>
+       * <code>double econs = 18;</code>
        */
       public Builder clearEcons() {
         
-        econs_ = 0;
+        econs_ = 0D;
         onChanged();
         return this;
       }
@@ -7230,28 +7171,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int excessThroughputRate_ ;
+      private double excessThroughputRate_ ;
       /**
-       * <code>int32 excessThroughputRate = 20;</code>
+       * <code>double excessThroughputRate = 20;</code>
        */
-      public int getExcessThroughputRate() {
+      public double getExcessThroughputRate() {
         return excessThroughputRate_;
       }
       /**
-       * <code>int32 excessThroughputRate = 20;</code>
+       * <code>double excessThroughputRate = 20;</code>
        */
-      public Builder setExcessThroughputRate(int value) {
+      public Builder setExcessThroughputRate(double value) {
         
         excessThroughputRate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 excessThroughputRate = 20;</code>
+       * <code>double excessThroughputRate = 20;</code>
        */
       public Builder clearExcessThroughputRate() {
         
-        excessThroughputRate_ = 0;
+        excessThroughputRate_ = 0D;
         onChanged();
         return this;
       }
@@ -7533,28 +7474,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int leasePercentage_ ;
+      private double leasePercentage_ ;
       /**
-       * <code>int32 leasePercentage = 26;</code>
+       * <code>double leasePercentage = 26;</code>
        */
-      public int getLeasePercentage() {
+      public double getLeasePercentage() {
         return leasePercentage_;
       }
       /**
-       * <code>int32 leasePercentage = 26;</code>
+       * <code>double leasePercentage = 26;</code>
        */
-      public Builder setLeasePercentage(int value) {
+      public Builder setLeasePercentage(double value) {
         
         leasePercentage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 leasePercentage = 26;</code>
+       * <code>double leasePercentage = 26;</code>
        */
       public Builder clearLeasePercentage() {
         
-        leasePercentage_ = 0;
+        leasePercentage_ = 0D;
         onChanged();
         return this;
       }
@@ -8626,28 +8567,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int througputPerYear_ ;
+      private double througputPerYear_ ;
       /**
-       * <code>int32 througputPerYear = 37;</code>
+       * <code>double througputPerYear = 37;</code>
        */
-      public int getThrougputPerYear() {
+      public double getThrougputPerYear() {
         return througputPerYear_;
       }
       /**
-       * <code>int32 througputPerYear = 37;</code>
+       * <code>double througputPerYear = 37;</code>
        */
-      public Builder setThrougputPerYear(int value) {
+      public Builder setThrougputPerYear(double value) {
         
         througputPerYear_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 througputPerYear = 37;</code>
+       * <code>double througputPerYear = 37;</code>
        */
       public Builder clearThrougputPerYear() {
         
-        througputPerYear_ = 0;
+        througputPerYear_ = 0D;
         onChanged();
         return this;
       }
@@ -17018,9 +16959,9 @@ public final class ScdbApi {
     int getLockNum();
 
     /**
-     * <code>int32 quantity = 12;</code>
+     * <code>double quantity = 12;</code>
      */
-    int getQuantity();
+    double getQuantity();
 
     /**
      * <code>string quantityUom = 13;</code>
@@ -17043,9 +16984,9 @@ public final class ScdbApi {
         getStorageEndDateBytes();
 
     /**
-     * <code>int32 storageRate = 15;</code>
+     * <code>double storageRate = 15;</code>
      */
-    int getStorageRate();
+    double getStorageRate();
 
     /**
      * <code>string storageStartDate = 16;</code>
@@ -17090,10 +17031,10 @@ public final class ScdbApi {
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = "";
       lockNum_ = 0;
-      quantity_ = 0;
+      quantity_ = 0D;
       quantityUom_ = "";
       storageEndDate_ = "";
-      storageRate_ = 0;
+      storageRate_ = 0D;
       storageStartDate_ = "";
       tankId_ = "";
     }
@@ -17185,9 +17126,9 @@ public final class ScdbApi {
               lockNum_ = input.readInt32();
               break;
             }
-            case 96: {
+            case 97: {
 
-              quantity_ = input.readInt32();
+              quantity_ = input.readDouble();
               break;
             }
             case 106: {
@@ -17202,9 +17143,9 @@ public final class ScdbApi {
               storageEndDate_ = s;
               break;
             }
-            case 120: {
+            case 121: {
 
-              storageRate_ = input.readInt32();
+              storageRate_ = input.readDouble();
               break;
             }
             case 130: {
@@ -17651,11 +17592,11 @@ public final class ScdbApi {
     }
 
     public static final int QUANTITY_FIELD_NUMBER = 12;
-    private int quantity_;
+    private double quantity_;
     /**
-     * <code>int32 quantity = 12;</code>
+     * <code>double quantity = 12;</code>
      */
-    public int getQuantity() {
+    public double getQuantity() {
       return quantity_;
     }
 
@@ -17728,11 +17669,11 @@ public final class ScdbApi {
     }
 
     public static final int STORAGERATE_FIELD_NUMBER = 15;
-    private int storageRate_;
+    private double storageRate_;
     /**
-     * <code>int32 storageRate = 15;</code>
+     * <code>double storageRate = 15;</code>
      */
-    public int getStorageRate() {
+    public double getStorageRate() {
       return storageRate_;
     }
 
@@ -17849,8 +17790,8 @@ public final class ScdbApi {
       if (lockNum_ != 0) {
         output.writeInt32(11, lockNum_);
       }
-      if (quantity_ != 0) {
-        output.writeInt32(12, quantity_);
+      if (quantity_ != 0D) {
+        output.writeDouble(12, quantity_);
       }
       if (!getQuantityUomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 13, quantityUom_);
@@ -17858,8 +17799,8 @@ public final class ScdbApi {
       if (!getStorageEndDateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, storageEndDate_);
       }
-      if (storageRate_ != 0) {
-        output.writeInt32(15, storageRate_);
+      if (storageRate_ != 0D) {
+        output.writeDouble(15, storageRate_);
       }
       if (!getStorageStartDateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 16, storageStartDate_);
@@ -17912,9 +17853,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(11, lockNum_);
       }
-      if (quantity_ != 0) {
+      if (quantity_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, quantity_);
+          .computeDoubleSize(12, quantity_);
       }
       if (!getQuantityUomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, quantityUom_);
@@ -17922,9 +17863,9 @@ public final class ScdbApi {
       if (!getStorageEndDateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, storageEndDate_);
       }
-      if (storageRate_ != 0) {
+      if (storageRate_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, storageRate_);
+          .computeDoubleSize(15, storageRate_);
       }
       if (!getStorageStartDateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, storageStartDate_);
@@ -17969,14 +17910,18 @@ public final class ScdbApi {
           .equals(other.getLastUpdatedDate());
       result = result && (getLockNum()
           == other.getLockNum());
-      result = result && (getQuantity()
-          == other.getQuantity());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getQuantity())
+          == java.lang.Double.doubleToLongBits(
+              other.getQuantity()));
       result = result && getQuantityUom()
           .equals(other.getQuantityUom());
       result = result && getStorageEndDate()
           .equals(other.getStorageEndDate());
-      result = result && (getStorageRate()
-          == other.getStorageRate());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getStorageRate())
+          == java.lang.Double.doubleToLongBits(
+              other.getStorageRate()));
       result = result && getStorageStartDate()
           .equals(other.getStorageStartDate());
       result = result && getTankId()
@@ -18015,13 +17960,15 @@ public final class ScdbApi {
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
       hash = (53 * hash) + getLockNum();
       hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
-      hash = (53 * hash) + getQuantity();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getQuantity()));
       hash = (37 * hash) + QUANTITYUOM_FIELD_NUMBER;
       hash = (53 * hash) + getQuantityUom().hashCode();
       hash = (37 * hash) + STORAGEENDDATE_FIELD_NUMBER;
       hash = (53 * hash) + getStorageEndDate().hashCode();
       hash = (37 * hash) + STORAGERATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStorageRate();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getStorageRate()));
       hash = (37 * hash) + STORAGESTARTDATE_FIELD_NUMBER;
       hash = (53 * hash) + getStorageStartDate().hashCode();
       hash = (37 * hash) + TANKID_FIELD_NUMBER;
@@ -18177,13 +18124,13 @@ public final class ScdbApi {
 
         lockNum_ = 0;
 
-        quantity_ = 0;
+        quantity_ = 0D;
 
         quantityUom_ = "";
 
         storageEndDate_ = "";
 
-        storageRate_ = 0;
+        storageRate_ = 0D;
 
         storageStartDate_ = "";
 
@@ -18308,7 +18255,7 @@ public final class ScdbApi {
         if (other.getLockNum() != 0) {
           setLockNum(other.getLockNum());
         }
-        if (other.getQuantity() != 0) {
+        if (other.getQuantity() != 0D) {
           setQuantity(other.getQuantity());
         }
         if (!other.getQuantityUom().isEmpty()) {
@@ -18319,7 +18266,7 @@ public final class ScdbApi {
           storageEndDate_ = other.storageEndDate_;
           onChanged();
         }
-        if (other.getStorageRate() != 0) {
+        if (other.getStorageRate() != 0D) {
           setStorageRate(other.getStorageRate());
         }
         if (!other.getStorageStartDate().isEmpty()) {
@@ -18918,28 +18865,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int quantity_ ;
+      private double quantity_ ;
       /**
-       * <code>int32 quantity = 12;</code>
+       * <code>double quantity = 12;</code>
        */
-      public int getQuantity() {
+      public double getQuantity() {
         return quantity_;
       }
       /**
-       * <code>int32 quantity = 12;</code>
+       * <code>double quantity = 12;</code>
        */
-      public Builder setQuantity(int value) {
+      public Builder setQuantity(double value) {
         
         quantity_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 quantity = 12;</code>
+       * <code>double quantity = 12;</code>
        */
       public Builder clearQuantity() {
         
-        quantity_ = 0;
+        quantity_ = 0D;
         onChanged();
         return this;
       }
@@ -19082,28 +19029,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int storageRate_ ;
+      private double storageRate_ ;
       /**
-       * <code>int32 storageRate = 15;</code>
+       * <code>double storageRate = 15;</code>
        */
-      public int getStorageRate() {
+      public double getStorageRate() {
         return storageRate_;
       }
       /**
-       * <code>int32 storageRate = 15;</code>
+       * <code>double storageRate = 15;</code>
        */
-      public Builder setStorageRate(int value) {
+      public Builder setStorageRate(double value) {
         
         storageRate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 storageRate = 15;</code>
+       * <code>double storageRate = 15;</code>
        */
       public Builder clearStorageRate() {
         
-        storageRate_ = 0;
+        storageRate_ = 0D;
         onChanged();
         return this;
       }
@@ -19368,97 +19315,97 @@ public final class ScdbApi {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\032\034" +
-      "google/protobuf/struct.proto\"M\n\023PostCont" +
-      "ractRequest\0226\n\010contract\030\001 \001(\0132$.org.simp" +
-      "lity.apiscdb.ContractHeader\",\n\031GetContra" +
-      "ctCschdPkRequest\022\017\n\007cschdPk\030\001 \001(\t\"d\n\031Put" +
-      "ContractCschdPkRequest\0226\n\010contract\030\001 \001(\013" +
-      "2$.org.simplity.apiscdb.ContractHeader\022\017" +
-      "\n\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\005" +
-      "\022\027\n\017contractCschdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003" +
-      " \001(\t\022\023\n\013createdDate\030\004 \001(\t\022\017\n\007cscbsPk\030\005 \001",
-      "(\005\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007" +
-      " \001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\t\022\017\n\007lockNum" +
-      "\030\t \001(\005\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001" +
-      " \001(\t\022\022\n\nassetOwner\030\002 \001(\t\022,\n\007benches\030\003 \003(" +
-      "\0132\033.org.simplity.apiscdb.Bench\022\025\n\rbpCont" +
-      "ractNum\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001" +
-      "(\t\022\027\n\017contractEndDate\030\006 \001(\003\022\024\n\014contractL" +
-      "ink\030\007 \001(\t\022\033\n\023contractRenewalDate\030\010 \001(\003\022\030" +
-      "\n\020contractSignDate\030\t \001(\003\022\031\n\021contractStar" +
-      "tDate\030\n \001(\003\022\021\n\tcreatedBy\030\013 \001(\t\022\023\n\013create",
-      "dDate\030\014 \001(\003\022\017\n\007cschdPk\030\r \001(\003\022\030\n\020dealCoun" +
-      "terParty\030\016 \001(\t\022\020\n\010dealName\030\017 \001(\t\022\023\n\013desc" +
-      "ription\030\020 \001(\t\022\026\n\016durationMonths\030\021 \001(\005\022\r\n" +
-      "\005econs\030\022 \001(\005\022N\n\010econsUom\030\023 \001(\0162<.org.sim" +
-      "plity.apiscdb.ContractHeader.ContractHea" +
-      "der_EconsUom\022\034\n\024excessThroughputRate\030\024 \001" +
-      "(\005\022l\n\027excessThroughputRateUom\030\025 \001(\0162K.or" +
-      "g.simplity.apiscdb.ContractHeader.Contra" +
-      "ctHeader_ExcessThroughputRateUom\022\033\n\023exte" +
-      "rnalContractNum\030\026 \001(\t\022\021\n\tisDeleted\030\027 \001(\t",
-      "\022\025\n\rlastUpdatedBy\030\030 \001(\t\022\027\n\017lastUpdatedDa" +
-      "te\030\031 \001(\003\022\027\n\017leasePercentage\030\032 \001(\005\022P\n\tlea" +
-      "seType\030\033 \001(\0162=.org.simplity.apiscdb.Cont" +
-      "ractHeader.ContractHeader_LeaseType\0221\n\tl" +
-      "ocations\030\034 \003(\0132\036.org.simplity.apiscdb.Lo" +
-      "cation\022\017\n\007lockNum\030\035 \001(\005\022\r\n\005notes\030\036 \001(\t\022\031" +
-      "\n\021otherReferenceNum\030\037 \001(\t\022\016\n\006region\030  \001(" +
-      "\005\022/\n\013roleDetails\030! \003(\0132\032.org.simplity.ap" +
-      "iscdb.Role\022I\n\006status\030\" \001(\01629.org.simplit" +
-      "y.apiscdb.ContractHeader.ContractHeader_",
-      "Statu\022/\n\010storages\030# \003(\0132\035.org.simplity.a" +
-      "piscdb.Storage\022\020\n\010terminal\030$ \001(\t\022\030\n\020thro" +
-      "ugputPerYear\030% \001(\005\"*\n\027ContractHeader_Eco" +
-      "nsUom\022\007\n\003NPV\020\000\022\006\n\002GM\020\001\"B\n&ContractHeader" +
-      "_ExcessThroughputRateUom\022\006\n\002M3\020\000\022\007\n\003BBL\020" +
-      "\001\022\007\n\003USG\020\002\"@\n\030ContractHeader_LeaseType\022\r" +
-      "\n\tOPERATING\020\000\022\013\n\007CAPITAL\020\001\022\010\n\004LTCC\020\002\",\n\024" +
-      "ContractHeader_Statu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED" +
-      "\020\001\"P\n\017ContractHeaders\022=\n\017contractHeaders" +
-      "\030\001 \003(\0132$.org.simplity.apiscdb.ContractHe",
-      "ader\" \n\rErrorResponse\022\017\n\007message\030\001 \001(\t\"\356" +
-      "\001\n\010Location\022\014\n\004city\030\001 \001(\t\022\027\n\017contractCsc" +
-      "hdFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\005\022\016\n\006county\030\004 " +
-      "\001(\t\022\021\n\tcreatedBy\030\005 \001(\t\022\023\n\013createdDate\030\006 " +
-      "\001(\t\022\017\n\007csclsPk\030\007 \001(\005\022\021\n\tisDeleted\030\010 \001(\t\022" +
-      "\025\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDat" +
-      "e\030\n \001(\t\022\017\n\007lockNum\030\013 \001(\005\022\r\n\005state\030\014 \001(\t\"" +
-      "\371\001\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcre" +
-      "atedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n\007csc" +
-      "rdPk\030\004 \001(\005\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpd",
-      "atedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\t\022\017\n" +
-      "\007lockNum\030\010 \001(\005\022\031\n\021primaryIndividual\030\t \001(" +
-      "\t\022\023\n\013roleCscrtFk\030\n \001(\005\022\033\n\023secondaryIndiv" +
-      "idual\030\013 \001(\t\"$\n\010RoleType\022\n\n\002id\030\001 \001(\005\022\014\n\004n" +
-      "ame\030\002 \001(\t\">\n\tRoleTypes\0221\n\troleTypes\030\001 \003(" +
-      "\0132\036.org.simplity.apiscdb.RoleType\"\274\003\n\016Se" +
-      "archCriteria\022\021\n\tassetName\030\001 \001(\t\022\022\n\nasset" +
-      "Owner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContract" +
-      "Num\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014" +
-      "\n\004city\030\006 \001(\t\022Y\n\016contractStatus\030\007 \001(\0162A.o",
-      "rg.simplity.apiscdb.SearchCriteria.Searc" +
-      "hCriteria_ContractStatu\022\017\n\007country\030\010 \001(\005" +
-      "\022\016\n\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001" +
-      "(\t\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005" +
-      "\022\016\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005sta" +
-      "te\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034SearchCrit" +
-      "eria_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001" +
-      "\"\215\004\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n" +
-      "\tcreatedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n" +
-      "\007cscsgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(\005\022\023\n\013desc",
-      "ription\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org." +
-      "simplity.apiscdb.Storage.Storage_GradeGr" +
-      "oup\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030" +
-      "\t \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\t\022\017\n\007lockNu" +
-      "m\030\013 \001(\005\022\020\n\010quantity\030\014 \001(\005\022\023\n\013quantityUom" +
-      "\030\r \001(\t\022\026\n\016storageEndDate\030\016 \001(\t\022\023\n\013storag" +
-      "eRate\030\017 \001(\005\022\030\n\020storageStartDate\030\020 \001(\t\022\016\n" +
-      "\006tankId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007E" +
-      "THANOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIES" +
-      "EL\020\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n",
-      "\005CURDE\020\007b\006proto3"
+      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\032\033" +
+      "google/protobuf/empty.proto\"M\n\023PostContr" +
+      "actRequest\0226\n\010contract\030\001 \001(\0132$.org.simpl" +
+      "ity.apiscdb.ContractHeader\",\n\031GetContrac" +
+      "tCschdPkRequest\022\017\n\007cschdPk\030\001 \001(\005\"d\n\031PutC" +
+      "ontractCschdPkRequest\0226\n\010contract\030\001 \001(\0132" +
+      "$.org.simplity.apiscdb.ContractHeader\022\017\n" +
+      "\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\005\022" +
+      "\027\n\017contractCschdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003 " +
+      "\001(\t\022\023\n\013createdDate\030\004 \001(\t\022\017\n\007cscbsPk\030\005 \001(",
+      "\005\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 " +
+      "\001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\t\022\017\n\007lockNum\030" +
+      "\t \001(\005\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001 " +
+      "\001(\t\022\022\n\nassetOwner\030\002 \001(\t\022,\n\007benches\030\003 \003(\013" +
+      "2\033.org.simplity.apiscdb.Bench\022\025\n\rbpContr" +
+      "actNum\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(" +
+      "\t\022\027\n\017contractEndDate\030\006 \001(\003\022\024\n\014contractLi" +
+      "nk\030\007 \001(\t\022\033\n\023contractRenewalDate\030\010 \001(\003\022\030\n" +
+      "\020contractSignDate\030\t \001(\003\022\031\n\021contractStart" +
+      "Date\030\n \001(\003\022\021\n\tcreatedBy\030\013 \001(\t\022\023\n\013created",
+      "Date\030\014 \001(\003\022\017\n\007cschdPk\030\r \001(\003\022\030\n\020dealCount" +
+      "erParty\030\016 \001(\t\022\020\n\010dealName\030\017 \001(\t\022\023\n\013descr" +
+      "iption\030\020 \001(\t\022\026\n\016durationMonths\030\021 \001(\001\022\r\n\005" +
+      "econs\030\022 \001(\001\022N\n\010econsUom\030\023 \001(\0162<.org.simp" +
+      "lity.apiscdb.ContractHeader.ContractHead" +
+      "er_EconsUom\022\034\n\024excessThroughputRate\030\024 \001(" +
+      "\001\022l\n\027excessThroughputRateUom\030\025 \001(\0162K.org" +
+      ".simplity.apiscdb.ContractHeader.Contrac" +
+      "tHeader_ExcessThroughputRateUom\022\033\n\023exter" +
+      "nalContractNum\030\026 \001(\t\022\021\n\tisDeleted\030\027 \001(\t\022",
+      "\025\n\rlastUpdatedBy\030\030 \001(\t\022\027\n\017lastUpdatedDat" +
+      "e\030\031 \001(\003\022\027\n\017leasePercentage\030\032 \001(\001\022P\n\tleas" +
+      "eType\030\033 \001(\0162=.org.simplity.apiscdb.Contr" +
+      "actHeader.ContractHeader_LeaseType\0221\n\tlo" +
+      "cations\030\034 \003(\0132\036.org.simplity.apiscdb.Loc" +
+      "ation\022\017\n\007lockNum\030\035 \001(\005\022\r\n\005notes\030\036 \001(\t\022\031\n" +
+      "\021otherReferenceNum\030\037 \001(\t\022\016\n\006region\030  \001(\005" +
+      "\022/\n\013roleDetails\030! \003(\0132\032.org.simplity.api" +
+      "scdb.Role\022I\n\006status\030\" \001(\01629.org.simplity" +
+      ".apiscdb.ContractHeader.ContractHeader_S",
+      "tatu\022/\n\010storages\030# \003(\0132\035.org.simplity.ap" +
+      "iscdb.Storage\022\020\n\010terminal\030$ \001(\t\022\030\n\020throu" +
+      "gputPerYear\030% \001(\001\"*\n\027ContractHeader_Econ" +
+      "sUom\022\007\n\003NPV\020\000\022\006\n\002GM\020\001\"B\n&ContractHeader_" +
+      "ExcessThroughputRateUom\022\006\n\002M3\020\000\022\007\n\003BBL\020\001" +
+      "\022\007\n\003USG\020\002\"@\n\030ContractHeader_LeaseType\022\r\n" +
+      "\tOPERATING\020\000\022\013\n\007CAPITAL\020\001\022\010\n\004LTCC\020\002\",\n\024C" +
+      "ontractHeader_Statu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020" +
+      "\001\"P\n\017ContractHeaders\022=\n\017contractHeaders\030" +
+      "\001 \003(\0132$.org.simplity.apiscdb.ContractHea",
+      "der\" \n\rErrorResponse\022\017\n\007message\030\001 \001(\t\"\356\001" +
+      "\n\010Location\022\014\n\004city\030\001 \001(\t\022\027\n\017contractCsch" +
+      "dFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\005\022\016\n\006county\030\004 \001" +
+      "(\t\022\021\n\tcreatedBy\030\005 \001(\t\022\023\n\013createdDate\030\006 \001" +
+      "(\t\022\017\n\007csclsPk\030\007 \001(\005\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
+      "\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate" +
+      "\030\n \001(\t\022\017\n\007lockNum\030\013 \001(\005\022\r\n\005state\030\014 \001(\t\"\371" +
+      "\001\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcrea" +
+      "tedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n\007cscr" +
+      "dPk\030\004 \001(\005\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpda",
+      "tedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\t\022\017\n\007" +
+      "lockNum\030\010 \001(\005\022\031\n\021primaryIndividual\030\t \001(\t" +
+      "\022\023\n\013roleCscrtFk\030\n \001(\005\022\033\n\023secondaryIndivi" +
+      "dual\030\013 \001(\t\"$\n\010RoleType\022\n\n\002id\030\001 \001(\005\022\014\n\004na" +
+      "me\030\002 \001(\t\">\n\tRoleTypes\0221\n\troleTypes\030\001 \003(\013" +
+      "2\036.org.simplity.apiscdb.RoleType\"\274\003\n\016Sea" +
+      "rchCriteria\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetO" +
+      "wner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContractN" +
+      "um\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014\n" +
+      "\004city\030\006 \001(\t\022Y\n\016contractStatus\030\007 \001(\0162A.or",
+      "g.simplity.apiscdb.SearchCriteria.Search" +
+      "Criteria_ContractStatu\022\017\n\007country\030\010 \001(\005\022" +
+      "\016\n\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001(" +
+      "\t\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022" +
+      "\016\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005stat" +
+      "e\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034SearchCrite" +
+      "ria_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"" +
+      "\215\004\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\t" +
+      "createdBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n\007" +
+      "cscsgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(\005\022\023\n\013descr",
+      "iption\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org.s" +
+      "implity.apiscdb.Storage.Storage_GradeGro" +
+      "up\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030\t" +
+      " \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\t\022\017\n\007lockNum" +
+      "\030\013 \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030" +
+      "\r \001(\t\022\026\n\016storageEndDate\030\016 \001(\t\022\023\n\013storage" +
+      "Rate\030\017 \001(\001\022\030\n\020storageStartDate\030\020 \001(\t\022\016\n\006" +
+      "tankId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007ET" +
+      "HANOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIESE" +
+      "L\020\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n\005",
+      "CURDE\020\007b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19471,7 +19418,7 @@ public final class ScdbApi {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.StructProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
     internal_static_org_simplity_apiscdb_PostContractRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -19551,7 +19498,7 @@ public final class ScdbApi {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Storage_descriptor,
         new java.lang.String[] { "ContractCschdFk", "CreatedBy", "CreatedDate", "CscsgPk", "Currency", "Description", "GradeGroup", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "Quantity", "QuantityUom", "StorageEndDate", "StorageRate", "StorageStartDate", "TankId", });
-    com.google.protobuf.StructProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
 
 package org.simplity.apiscdb;
 
@@ -9,7 +9,7 @@ message PostContractRequest {
 }
 
 message GetContractCschdPkRequest {
-    string cschdPk = 1;
+    int32 cschdPk = 1;
 }
 
 message PutContractCschdPkRequest {
@@ -46,14 +46,14 @@ message ContractHeader {
     string dealCounterParty = 14;
     string dealName = 15;
     string description = 16;
-    int32 durationMonths = 17;
-    int32 econs = 18;
+    double durationMonths = 17;
+    double econs = 18;
     enum ContractHeader_EconsUom {
         NPV = 0;
         GM = 1;
     }
     ContractHeader_EconsUom econsUom = 19;
-    int32 excessThroughputRate = 20;
+    double excessThroughputRate = 20;
     enum ContractHeader_ExcessThroughputRateUom {
         M3 = 0;
         BBL = 1;
@@ -64,7 +64,7 @@ message ContractHeader {
     string isDeleted = 23;
     string lastUpdatedBy = 24;
     int64 lastUpdatedDate = 25;
-    int32 leasePercentage = 26;
+    double leasePercentage = 26;
     enum ContractHeader_LeaseType {
         OPERATING = 0;
         CAPITAL = 1;
@@ -84,7 +84,7 @@ message ContractHeader {
     ContractHeader_Statu status = 34;
     repeated Storage storages = 35;
     string terminal = 36;
-    int32 througputPerYear = 37;
+    double througputPerYear = 37;
 }
 
 message ContractHeaders {
@@ -141,8 +141,8 @@ message SearchCriteria {
     string bpContractingEntity = 5;
     string city = 6;
     enum SearchCriteria_ContractStatu {
-        LIVE = 0;
-        CLOSED = 1;
+       LIVE = 0;
+       CLOSED = 1;
     }
     SearchCriteria_ContractStatu contractStatus = 7;
     int32 country = 8;
@@ -164,24 +164,24 @@ message Storage {
     int32 currency = 5;
     string description = 6;
     enum Storage_GradeGroup {
-        ETHANOL = 0;
-        CRUDE = 1;
-        ULSD = 2;
-        BIODIESEL = 3;
-        MTBE = 4;
-        FAME = 5;
-        DILUENT = 6;
-        CURDE = 7;
+       ETHANOL = 0;
+       CRUDE = 1;
+       ULSD = 2;
+       BIODIESEL = 3;
+       MTBE = 4;
+       FAME = 5;
+       DILUENT = 6;
+       CURDE = 7;
     }
     Storage_GradeGroup gradeGroup = 7;
     string isDeleted = 8;
     string lastUpdatedBy = 9;
     string lastUpdatedDate = 10;
     int32 lockNum = 11;
-    int32 quantity = 12;
+    double quantity = 12;
     string quantityUom = 13;
     string storageEndDate = 14;
-    int32 storageRate = 15;
+    double storageRate = 15;
     string storageStartDate = 16;
     string tankId = 17;
 }

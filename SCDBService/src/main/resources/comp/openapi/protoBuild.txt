@@ -1,4 +1,5 @@
-openapi2proto -spec scdb_api.json -yaml=false > scdb_api.proto
-protoc scdb_api.proto --java_out=.
+openapi2proto -spec scdb_api.json > scdb_api.proto
+protoc scdb_api.proto --java_out=../../../java
 
-protoc scdb_api.proto --js_out=.
+
+CONTRACTHEADER_ECONSUOM_ | CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_ | CONTRACTHEADER_EXCESSTHROUGHPUTRATEUOM_ | CONTRACTHEADER_STATU_ | SEARCHCRITERIA_CONTRACTSTATU_ | STORAGE_GRADEGROUP_ 
