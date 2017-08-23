@@ -78,7 +78,7 @@
             "name": "cschdPk",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -159,7 +159,7 @@
           "format": "int64"
         },
         "contractLink": {
-            "type": "null"
+            "type": "string"
         },
         "contractRenewalDate": {
           "type": "integer",
@@ -181,7 +181,8 @@
           "format": "int64"
         },
         "cschdPk": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
         },
         "dealCounterParty": {
             "type": "string"
@@ -234,11 +235,11 @@
         },
         "leaseType": {
             "type": "string",
-      "enum": [
-            "Operating",
-            "Capital",
-            "LTCC"
-          ]
+            "enum": [
+		            "Operating",
+		            "Capital",
+		            "LTCC"
+		          ]
         },
  
         "lockNum": {
@@ -299,7 +300,8 @@
             "type": "integer"
           },
           "contractCschdFk": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "createdBy": {
             "type": "string"
@@ -331,7 +333,8 @@
             "type": "string"
           },
           "contractCschdFk": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "country": {
             "type": "integer"
@@ -383,18 +386,19 @@
         "gradeGroup": {
           "type": "string",
           "enum": [
-            "Ethanol",
-            "Crude",      
-      "ULSD",       
-      "Biodiesel",           
-      "MTBE",       
-      "FAME",           
-      "Diluent",   
-      "Curde"
+              "Ethanol",
+	          "Crude",      
+		      "ULSD",       
+		      "Biodiesel",           
+		      "MTBE",       
+		      "FAME",           
+		      "Diluent",   
+		      "Curde"
           ]
         },
         "contractCschdFk": {
-          "type": "integer"
+          "type": "integer",
+            "format": "int64"
         },
         "createdBy": {
           "type": "string"
@@ -435,7 +439,8 @@
       "type": "object",
       "properties": {
         "contractCschdFk": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "createdBy": {
           "type": "string"
