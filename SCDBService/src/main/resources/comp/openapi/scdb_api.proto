@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/struct.proto";
+
 import "google/protobuf/empty.proto";
 
 package org.simplity.apiscdb;
@@ -8,13 +10,13 @@ message PostContractRequest {
     ContractHeader contract = 1;
 }
 
-message GetContractContractIdRequest {
-    string contractId = 1;
+message GetContractCschdPkRequest {
+    string cschdPk = 1;
 }
 
-message PutContractContractIdRequest {
+message PutContractCschdPkRequest {
     ContractHeader contract = 1;
-    string contractId = 2;
+    string cschdPk = 2;
 }
 
 message Bench {
@@ -33,43 +35,58 @@ message ContractHeader {
     string assetName = 1;
     string assetOwner = 2;
     repeated Bench benches = 3;
-    int64 contractEndDate = 4;
-    string contractLink = 5;
-    int64 contractSignDate = 6;
-    int64 contractStartDate = 7;
-    string dealCounterParty = 8;
-    string dealName = 9;
-    int32 econs = 10;
-    enum ContractHeader_EconsUOM {
+    string bpContractNum = 4;
+    string bpContractingEntity = 5;
+    int64 contractEndDate = 6;
+    google.protobuf.NullValue contractLink = 7;
+    int64 contractRenewalDate = 8;
+    int64 contractSignDate = 9;
+    int64 contractStartDate = 10;
+    string createdBy = 11;
+    int64 createdDate = 12;
+    int32 cschdPk = 13;
+    string dealCounterParty = 14;
+    string dealName = 15;
+    string description = 16;
+    int32 durationMonths = 17;
+    int32 econs = 18;
+    enum ContractHeader_EconsUom {
         NPV = 0;
         GM = 1;
     }
-    ContractHeader_EconsUOM econsUOM = 11;
-    int32 excessThroughputRate = 12;
-    enum ContractHeader_ExcessThroughputRateUOM {
+    ContractHeader_EconsUom econsUom = 19;
+    int32 excessThroughputRate = 20;
+    enum ContractHeader_ExcessThroughputRateUom {
         M3 = 0;
         BBL = 1;
         USG = 2;
     }
-    ContractHeader_ExcessThroughputRateUOM excessThroughputRateUOM = 13;
-    string externalContractNum = 14;
+    ContractHeader_ExcessThroughputRateUom excessThroughputRateUom = 21;
+    string externalContractNum = 22;
+    string isDeleted = 23;
+    string lastUpdatedBy = 24;
+    int64 lastUpdatedDate = 25;
+    int32 leasePercentage = 26;
     enum ContractHeader_LeaseType {
         OPERATING = 0;
         CAPITAL = 1;
         LTCC = 2;
     }
-    ContractHeader_LeaseType leaseType = 15;
-    repeated Location locations = 16;
-    string notes = 17;
-    int32 region = 18;
-    repeated Role roleDetails = 19;
+    ContractHeader_LeaseType leaseType = 27;
+    repeated Location locations = 28;
+    int32 lockNum = 29;
+    string notes = 30;
+    string otherReferenceNum = 31;
+    int32 region = 32;
+    repeated Role roleDetails = 33;
     enum ContractHeader_Statu {
         LIVE = 0;
         CLOSED = 1;
     }
-    ContractHeader_Statu status = 20;
-    repeated Storage storages = 21;
-    string terminal = 22;
+    ContractHeader_Statu status = 34;
+    repeated Storage storages = 35;
+    string terminal = 36;
+    int32 througputPerYear = 37;
 }
 
 message ContractHeaders {
@@ -149,14 +166,14 @@ message Storage {
     int32 currency = 5;
     string description = 6;
     enum Storage_GradeGroup {
-       ETHANOL = 0;
-       CRUDE = 1;
-       ULSD = 2;
-       BIODIESEL = 3;
-       MTBE = 4;
-       FAME = 5;
-       DILUENT = 6;
-       CURDE = 7;
+        ETHANOL = 0;
+        CRUDE = 1;
+        ULSD = 2;
+        BIODIESEL = 3;
+        MTBE = 4;
+        FAME = 5;
+        DILUENT = 6;
+        CURDE = 7;
     }
     Storage_GradeGroup gradeGroup = 7;
     string isDeleted = 8;
@@ -177,7 +194,7 @@ service APISCDBService {
     // contractCreate
     rpc PostContract(PostContractRequest) returns (ContractHeader) {}
     // contractGet
-    rpc GetContractContractId(GetContractContractIdRequest) returns (ContractHeader) {}
+    rpc GetContractCschdPk(GetContractCschdPkRequest) returns (ContractHeader) {}
     // contractUpdate
-    rpc PutContractContractId(PutContractContractIdRequest) returns (ContractHeader) {}
+    rpc PutContractCschdPk(PutContractCschdPkRequest) returns (ContractHeader) {}
 }
