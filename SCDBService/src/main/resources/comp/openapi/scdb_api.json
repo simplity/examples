@@ -3,7 +3,7 @@
   "info": {
     "description": "",
     "version": "2.0",
-    "title": "API SCDB"
+    "title": "org.simplity.apiscdb"
   },
   "host": "localhost:8070",
   "basePath": "/scdb/storagecontracts",
@@ -64,7 +64,7 @@
         }
       }
     },
-    "/contract/{contractId}": {
+    "/contract/{cschdPk}": {
       "get": {
         "tags": [
           "contract"
@@ -75,7 +75,7 @@
         "deprecated": false,
         "parameters": [
           {
-            "name": "contractId",
+            "name": "cschdPk",
             "in": "path",
             "required": true,
             "type": "string"
@@ -100,7 +100,7 @@
         "deprecated": false,
         "parameters": [
           {
-            "name": "contractId",
+            "name": "cschdPk",
             "in": "path",
             "required": true,
             "type": "string"
@@ -142,41 +142,28 @@
       "x-fieldName": "ContractHeader",
       "type": "object",
       "properties": {
-        "terminal": {
-          "type": "string"
-        },
-        "region": {
-          "type": "integer"
-        },
-        "assetName": {
-          "type": "string"
+  "assetName": {
+            "type": "string"
         },
         "assetOwner": {
-          "type": "string"
+            "type": "string"
         },
-        "dealName": {
-          "type": "string"
+        "bpContractNum": {
+            "type": "string"
         },
-        "dealCounterParty": {
-          "type": "string"
+        "bpContractingEntity": {
+            "type": "string"
         },
-        "externalContractNum": {
-          "type": "string"
+        "contractEndDate": {
+          "type": "integer",
+          "format": "int64"
         },
-        "leaseType": {
-          "type": "string",
-          "enum": [
-            "Operating",
-            "Capital",
-            "LTCC"
-          ]
+        "contractLink": {
+            "type": "null"
         },
-        "status": {
-          "type": "string",
-          "enum": [
-            "Live",
-            "Closed"
-          ]
+        "contractRenewalDate": {
+          "type": "integer",
+          "format": "int64"
         },
         "contractSignDate": {
           "type": "integer",
@@ -186,36 +173,98 @@
           "type": "integer",
           "format": "int64"
         },
-        "contractEndDate": {
+        "createdBy": {
+            "type": "string"
+        },
+        "createdDate": {
           "type": "integer",
           "format": "int64"
         },
-        "excessThroughputRate": {
-          "type": "number"
+        "cschdPk": {
+            "type": "integer"
         },
-        "excessThroughputRateUOM": {
-          "type": "string",
-          "enum": [
-            "M3",
-            "BBL",
-            "USG"
-          ]
+        "dealCounterParty": {
+            "type": "string"
+        },
+        "dealName": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "durationMonths": {
+            "type": "number"
         },
         "econs": {
-          "type": "number"
+            "type": "integer"
         },
-        "econsUOM": {
-          "type": "string",
-          "enum": [
-            "NPV",
-            "GM"
+        "econsUom": {
+            "type": "string",
+      "enum": [
+          "NPV",
+          "GM"
+          ]      
+        },
+        "excessThroughputRate": {
+            "type": "number"
+        },
+        "excessThroughputRateUom": {
+            "type": "string",
+      "enum": [
+          "M3",
+          "BBL",
+          "USG"
+          ]      
+        },
+        "externalContractNum": {
+            "type": "string"
+        },
+        "isDeleted": {
+            "type": "string"
+        },
+        "lastUpdatedBy": {
+            "type": "string"
+        },
+        "lastUpdatedDate": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "leasePercentage": {
+            "type": "integer"
+        },
+        "leaseType": {
+            "type": "string",
+      "enum": [
+            "Operating",
+            "Capital",
+            "LTCC"
           ]
         },
-        "notes": {
-          "type": "string"
+ 
+        "lockNum": {
+            "type": "integer"
         },
-        "contractLink": {
-          "type": "string"
+        "notes": {
+            "type": "string"
+        },
+        "otherReferenceNum": {
+            "type": "string"
+        },
+        "region": {
+            "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Live",
+            "Closed"
+          ]
+        },
+        "terminal": {
+            "type": "string"
+        },
+        "througputPerYear": {
+            "type": "integer"
         },
         "benches": {
          "type": "array",
@@ -336,12 +385,12 @@
           "enum": [
             "Ethanol",
             "Crude",      
-			"ULSD",       
-			"Biodiesel",           
-			"MTBE",       
-			"FAME",           
-			"Diluent",   
-			"Curde"
+      "ULSD",       
+      "Biodiesel",           
+      "MTBE",       
+      "FAME",           
+      "Diluent",   
+      "Curde"
           ]
         },
         "contractCschdFk": {

@@ -38,17 +38,19 @@ public class App {
 			
 			WebappContext wContext = new WebappContext("SCDB Context");
 			
-			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
-			rRegistration.addMapping("/scdb/*");
-	
+//			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
+//			rRegistration.addMapping("/scdb/*");
+
+			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.http.Serve.class);
+			rRegistration.addMapping("/scdb/a.s");
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8070"));
 			wContext.deploy(server);
 
 			server.getServerConfiguration().addHttpHandler(new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "./webapp/"),"/webapp/*");
 			
-			Serve.startUsingProto();
-			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
+//			Serve.startUsingProto();
+//			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
 
 			server.start();
 			Thread.currentThread().join();
