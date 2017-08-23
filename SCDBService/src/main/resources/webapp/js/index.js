@@ -53,36 +53,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	
 	$scope.createContract = function(){
 	    $scope.contracts = [];
-	    var newContract = {
-	    	    "country": 1010002001001400,
-	    	    "notes": "Notes",
-	    	    "city": "Cushing",	    	    
-	    	    "county": "Payne",
-	    	    "throughputsPerYear": "100",
-	    	    "econsUOM": "GM",
-	    	    "leaseType": "CAPITAL", 
-	    	    "segment": "Midcon",	    	
-	    	    "state": "OKLAHOMA",
-	    	    "contractingEntity": "BPPNA",
-	    	    "dealCounterParty": "Magellan Midstream, LLC",
-	    	    "durationInMonths": 181,
-	    	    "bench": 1010003073000004,
-	    	    "otherRefNum": "na",
-	    	    "contractStartDate": 1501439400000,
-	    	    "contractEndDate": 1501439400000,
-	    	    "excessThroughputRateUOM": "BBL",
-	    	    "terminal": "MAGELLAN,TUL",
-	    	    "econs": 77000000,
-	    	    "dealName": "Cushing Magellan",
-	    	    "assetOwner": "Magellan",
-	    	    "contractSignDate": 1501439400000,
-	    	    "assetName": "wewqe",
-	    	    "contractNum": "TestCopy1",
-	    	    "region": 1010003098000000,
-	    	    "excessThroughputRate": 31, 
-	    	    "desc": "Cushing Storage",
-	    	    "status": "CLOSED"
-	    	};
+	       var newContract = {"benches":[],"locations":[],"roleDetails":[{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:05.000Z","cscrdPk":2237409277,"isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:05.000Z","lockNum":1,"primaryIndividual":"Pederson","roleCscrtFk":0,"secondaryIndividual":"Recktenwall"}],"storages":[{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":2237409284,"currency":-1480327336,"description":"Segregated","gradeGroup":"ETHANOL","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-1"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409285,"currency":-1480327336,"description":"Segregated","gradeGroup":"MTBE","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-2"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409286,"currency":-1480327336,"description":"Segregated","gradeGroup":"BIODIESEL","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-3"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409287,"currency":-1480327336,"description":"Segregated","gradeGroup":"FAME","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-4"}],"assetName":"","assetOwner":"","bpContractNum":"","bpContractingEntity":"","contractEndDate":"0","contractLink":"","contractRenewalDate":"0","contractSignDate":"0","contractStartDate":"0","createdBy":"","createdDate":"0","cschdPk":"2100000003431923","dealCounterParty":"","dealName":"","description":"","durationMonths":0,"econs":0,"econsUom":"NPV","excessThroughputRate":0,"excessThroughputRateUom":"M3","externalContractNum":"","isDeleted":"","lastUpdatedBy":"","lastUpdatedDate":"0","leasePercentage":0,"leaseType":"OPERATING","lockNum":0,"notes":"","otherReferenceNum":"","region":0,"status":"LIVE","terminal":"","througputPerYear":0};
 	    
 	 // Create a new message
 	    var message = ContractHeader.fromObject(newContract);
@@ -105,37 +76,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	
 	$scope.updateContract = function(){
 	    $scope.contracts = [];
-	    var updateContract = {
-	    		"id": 1,
-	    	    "country": 1010002001001400,
-	    	    "notes": "Notes",
-	    	    "city": "Changed",	    	    
-	    	    "county": "Changed",
-	    	    "throughputsPerYear": "100",
-	    	    "econsUOM": "GM",
-	    	    "leaseType": "CAPITAL", 
-	    	    "segment": "Midcon",	    	
-	    	    "state": "OKLAHOMA",
-	    	    "contractingEntity": "Changed",
-	    	    "dealCounterParty": "Changed",
-	    	    "durationInMonths": 181,
-	    	    "bench": 1010003073000004,
-	    	    "otherRefNum": "na",
-	    	    "contractStartDate": 1501439400000,
-	    	    "contractEndDate": 1501439400000,
-	    	    "excessThroughputRateUOM": "BBL",
-	    	    "terminal": "Changed",
-	    	    "econs": 77000000,
-	    	    "dealName": "Changed",
-	    	    "assetOwner": "Changed",
-	    	    "contractSignDate": 1501439400000,
-	    	    "assetName": "Changed",
-	    	    "contractNum": "Changed",
-	    	    "region": 1010003098000000,
-	    	    "excessThroughputRate": 31, 
-	    	    "desc": "Changed Storage",
-	    	    "status": "CLOSED"
-	    	};
+	    var updateContract = {"benches":[],"locations":[],"roleDetails":[{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:05.000Z","cscrdPk":2237409277,"isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:05.000Z","lockNum":1,"primaryIndividual":"Pederson","roleCscrtFk":0,"secondaryIndividual":"Recktenwall"}],"storages":[{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":2237409284,"currency":-1480327336,"description":"Segregated","gradeGroup":"ETHANOL","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-1"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409285,"currency":-1480327336,"description":"Segregated","gradeGroup":"MTBE","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-2"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409286,"currency":-1480327336,"description":"Segregated","gradeGroup":"BIODIESEL","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-3"},{"contractCschdFk":"2100000003431923","createdBy":"SYSTEM","createdDate":"2017-08-21T12:18:24.000Z","cscsgPk":1237409287,"currency":-1480327336,"description":"Segregated","gradeGroup":"FAME","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2017-08-21T12:18:24.000Z","lockNum":1,"quantity":390000,"quantityUom":"BBL","storageEndDate":"2013-10-01","storageRate":1,"storageStartDate":"2013-10-01","tankId":"390-4"}],"assetName":"","assetOwner":"","bpContractNum":"","bpContractingEntity":"","contractEndDate":"0","contractLink":"","contractRenewalDate":"0","contractSignDate":"0","contractStartDate":"0","createdBy":"","createdDate":"0","cschdPk":"2100000003431923","dealCounterParty":"","dealName":"","description":"","durationMonths":0,"econs":0,"econsUom":"NPV","excessThroughputRate":0,"excessThroughputRateUom":"M3","externalContractNum":"","isDeleted":"","lastUpdatedBy":"","lastUpdatedDate":"0","leasePercentage":0,"leaseType":"OPERATING","lockNum":0,"notes":"","otherReferenceNum":"","region":0,"status":"LIVE","terminal":"","througputPerYear":0};
 	    
 	 // Create a new message
 	    var message = ContractHeader.fromObject(updateContract);

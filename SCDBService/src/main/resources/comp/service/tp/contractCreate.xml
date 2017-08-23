@@ -4,24 +4,30 @@
 		 dbAccessType="readWrite">
 	<inputData>
 		<inputRecords>
-			<inputRecord recordName="Contract"/>
-			<inputRecord recordName="Storage" sheetName="storage" />
-			<inputRecord recordName="Role" sheetName="roles"/>
+			<inputRecord recordName="cschdContractHeaders"/>
+			<inputRecord recordName="cscsgContractStorages" sheetName="storages" />
+			<inputRecord recordName="cscbsContractBenchs" sheetName="benches"/>
+			<inputRecord recordName="csclsContractLocations" sheetName="locations" />
+			<inputRecord recordName="cscrdContractRoleDetails" sheetName="roleDetails" />
 		</inputRecords>
 	</inputData>
 	<actions>
 	
-		<save saveAction="save" recordName="Contract">
+		<save saveAction="add" recordName="cschdContractHeaders">
 			<childRecords>
-			 	<relatedRecord sheetName="storage" recordName="Storage"/>
-			 	<relatedRecord sheetName="roles" recordName="Role"/>
-			 	<relatedRecord sheetName="roleTypes" recordName="RoleType"/>
+			 	<relatedRecord sheetName="storages" recordName="cscsgContractStorages"/>
+			 	<relatedRecord sheetName="benches" recordName="cscbsContractBenchs"/>
+			 	<relatedRecord sheetName="locations" recordName="csclsContractLocations"/>
+			 	<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails"/>
 			</childRecords>
 		</save>
 	</actions>
-	<outputData fieldNames="country,city,county,throughputsPerYear,econsUOM,leaseType,segment,id,state,contractingEntity,dealCounterParty,durationInMonths,bench,otherRefNum,contractStartDate,contractEndDate,excessThroughputRateUOM,terminal,econs,dealName,assetOwner,contractSignDate,assetName,contractNum,region,excessThroughputRate,desc,status">
+	<outputData justOutputEveryThing="true" fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
 		<outputRecords>
-			<outputRecord sheetName="storage" />
+			<outputRecord sheetName="storages"/>
+			<outputRecord sheetName="benches"/>
+			<outputRecord sheetName="locations"/>
+			<outputRecord sheetName="roleDetails"/>
 		</outputRecords>
-	</outputData>	
+	</outputData>
 </service>

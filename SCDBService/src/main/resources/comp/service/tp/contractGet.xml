@@ -12,7 +12,7 @@
 	<log names="contractId"/>
 		<createSheet sheetName="filterSheet" data="cschdPk;$cschdPk" />
 		<filter filterRecordName="cschdContractHeaders"
-			outputSheetName="contractHeaders" inputSheetName="filterSheet">
+			inputSheetName="filterSheet">
 			<childRecords>
 				<relatedRecord sheetName="benches" recordName="cscbsContractBenchs" />
 				<relatedRecord sheetName="locations" recordName="csclsContractLocations" />
@@ -20,7 +20,6 @@
 				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>
-		<log names="contractHeaders,benches,locations,roleDetails,storages" />
 	</actions>
 	<outputData justOutputEveryThing="true" fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
 		<outputRecords>

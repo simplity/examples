@@ -156,7 +156,7 @@
         },
         "contractEndDate": {
           "type": "integer",
-          "format": "int64"
+          "format": "date-time"
         },
         "contractLink": {
             "type": "string"
