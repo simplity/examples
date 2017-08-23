@@ -19,7 +19,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 		    $scope.contracts = [];
 		    var req = {
 		      method: 'GET',
-		      url: 'http://localhost:8070/scdb/storagecontracts/contract', 
+		      url: 'http://localhost:8080/SCDBWeb/scdb/storagecontracts/contract', 
 		      responseType: 'arraybuffer'
 		    };
 
@@ -33,7 +33,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    $scope.contracts = [];
 	    var req = {
 			      method: 'GET',
-			      url: 'http://localhost:8070/scdb/storagecontracts/contract/'+$scope.contractId, 
+			      url: 'http://localhost:8080/SCDBWeb/scdb/storagecontracts/contract/'+$scope.contractId, 
 			      responseType: 'arraybuffer'
 			    };
 	    $http(req).success(function(data) {
@@ -60,7 +60,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	     
 	    var req = {
 			      method: 'POST',
-			      url: 'http://localhost:8070/scdb/storagecontracts/contract',
+			      url: 'http://localhost:8080/SCDBWeb/scdb/storagecontracts/contract',
 			      transformRequest: function(r) { return r;},
 			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',
@@ -83,7 +83,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    
 	    var req = {
 			      method: 'POST',
-			      url: 'http://localhost:8070/scdb/storagecontracts/contract',
+			      url: 'http://localhost:8080/SCDBWeb/scdb/storagecontracts/contract',
 			      transformRequest: function(r) { return r;},
 			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',

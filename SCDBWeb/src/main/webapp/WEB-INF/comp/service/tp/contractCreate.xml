@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" 
+		 name="contractCreate"
+		 dbAccessType="readWrite">
+	<inputData>
+		<inputRecords>
+			<inputRecord recordName="cschdContractHeaders"/>
+			<inputRecord recordName="cscsgContractStorages" sheetName="storages" />
+			<inputRecord recordName="cscbsContractBenchs" sheetName="benches"/>
+			<inputRecord recordName="csclsContractLocations" sheetName="locations" />
+			<inputRecord recordName="cscrdContractRoleDetails" sheetName="roleDetails" />
+		</inputRecords>
+	</inputData>
+	<actions>
+	
+		<save saveAction="add" recordName="cschdContractHeaders">
+			<childRecords>
+			 	<relatedRecord sheetName="storages" recordName="cscsgContractStorages"/>
+			 	<relatedRecord sheetName="benches" recordName="cscbsContractBenchs"/>
+			 	<relatedRecord sheetName="locations" recordName="csclsContractLocations"/>
+			 	<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails"/>
+			</childRecords>
+		</save>
+	</actions>
+	<outputData justOutputEveryThing="true" fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
+		<outputRecords>
+			<outputRecord sheetName="storages"/>
+			<outputRecord sheetName="benches"/>
+			<outputRecord sheetName="locations"/>
+			<outputRecord sheetName="roleDetails"/>
+		</outputRecords>
+	</outputData>
+</service>

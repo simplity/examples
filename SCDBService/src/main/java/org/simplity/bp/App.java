@@ -40,7 +40,7 @@ public class App {
 			
 			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
 			rRegistration.addMapping("/scdb/*");
-//
+
 //			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.http.Serve.class);
 //			rRegistration.addMapping("/scdb/a.s");
 
@@ -49,8 +49,8 @@ public class App {
 
 			server.getServerConfiguration().addHttpHandler(new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "./webapp/"),"/webapp/*");
 			
-			Serve.startUsingProto();
-			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
+//			Serve.startUsingProto();
+//			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
 
 			server.start();
 			Thread.currentThread().join();

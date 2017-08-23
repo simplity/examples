@@ -141,8 +141,8 @@ message SearchCriteria {
     string bpContractingEntity = 5;
     string city = 6;
     enum SearchCriteria_ContractStatu {
-       LIVE = 0;
-       CLOSED = 1;
+        LIVE = 0;
+        CLOSED = 1;
     }
     SearchCriteria_ContractStatu contractStatus = 7;
     int32 country = 8;
