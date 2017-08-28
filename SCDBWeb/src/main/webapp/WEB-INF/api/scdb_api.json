@@ -500,12 +500,16 @@
       "x-fieldName": "RoleType",
       "type": "object",
       "properties": {
-        "id": {
-          "type": "integer"
+        "cscrtPk": {
+            "type": "integer",
+            "format": "int64"
         },
-        "name": {
+        "roleName": {
           "type": "string"
-        }
+        },
+        "isDeleted": {
+          "type": "string"
+        }        
       }
     },
     "RoleTypes": {

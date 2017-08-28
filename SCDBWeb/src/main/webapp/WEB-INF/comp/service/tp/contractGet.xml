@@ -28,8 +28,8 @@
 			<outputRecord sheetName="storages"/>
 			<outputRecord sheetName="benches"/> 
 			<outputRecord sheetName="locations"/>
-			<outputRecord sheetName="roleType"/>
-			<outputRecord sheetName="roleDetails"/>
+			<outputRecord sheetName="roleDetails"/>			
+			<outputRecord sheetName="roleType" parentSheetName="roleDetails" linkColumnInThisSheet="cscrtPk" linkColumnInParentSheet="roleCscrtFk"/>
 		</outputRecords>
 	</outputData>
 </service>

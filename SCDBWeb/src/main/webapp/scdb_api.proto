@@ -126,8 +126,9 @@ message Role {
 }
 
 message RoleType {
-    int32 id = 1;
-    string name = 2;
+    int64 cscrtPk = 1;
+    string isDeleted = 2;
+    string roleName = 3;
 }
 
 message RoleTypes {

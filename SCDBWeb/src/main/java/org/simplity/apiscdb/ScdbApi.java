@@ -13155,19 +13155,29 @@ public final class ScdbApi {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 cscrtPk = 1;</code>
      */
-    int getId();
+    long getCscrtPk();
 
     /**
-     * <code>string name = 2;</code>
+     * <code>string isDeleted = 2;</code>
      */
-    java.lang.String getName();
+    java.lang.String getIsDeleted();
     /**
-     * <code>string name = 2;</code>
+     * <code>string isDeleted = 2;</code>
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getIsDeletedBytes();
+
+    /**
+     * <code>string roleName = 3;</code>
+     */
+    java.lang.String getRoleName();
+    /**
+     * <code>string roleName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoleNameBytes();
   }
   /**
    * Protobuf type {@code org.simplity.apiscdb.RoleType}
@@ -13181,8 +13191,9 @@ public final class ScdbApi {
       super(builder);
     }
     private RoleType() {
-      id_ = 0;
-      name_ = "";
+      cscrtPk_ = 0L;
+      isDeleted_ = "";
+      roleName_ = "";
     }
 
     @java.lang.Override
@@ -13212,13 +13223,19 @@ public final class ScdbApi {
             }
             case 8: {
 
-              id_ = input.readInt32();
+              cscrtPk_ = input.readInt64();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              isDeleted_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              roleName_ = s;
               break;
             }
           }
@@ -13244,43 +13261,77 @@ public final class ScdbApi {
               org.simplity.apiscdb.ScdbApi.RoleType.class, org.simplity.apiscdb.ScdbApi.RoleType.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    public static final int CSCRTPK_FIELD_NUMBER = 1;
+    private long cscrtPk_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>int64 cscrtPk = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public long getCscrtPk() {
+      return cscrtPk_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    public static final int ISDELETED_FIELD_NUMBER = 2;
+    private volatile java.lang.Object isDeleted_;
     /**
-     * <code>string name = 2;</code>
+     * <code>string isDeleted = 2;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getIsDeleted() {
+      java.lang.Object ref = isDeleted_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        isDeleted_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string isDeleted = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getIsDeletedBytes() {
+      java.lang.Object ref = isDeleted_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        isDeleted_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ROLENAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object roleName_;
+    /**
+     * <code>string roleName = 3;</code>
+     */
+    public java.lang.String getRoleName() {
+      java.lang.Object ref = roleName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        roleName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string roleName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoleNameBytes() {
+      java.lang.Object ref = roleName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roleName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -13299,11 +13350,14 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (cscrtPk_ != 0L) {
+        output.writeInt64(1, cscrtPk_);
       }
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      if (!getIsDeletedBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, isDeleted_);
+      }
+      if (!getRoleNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, roleName_);
       }
     }
 
@@ -13312,12 +13366,15 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
+      if (cscrtPk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+          .computeInt64Size(1, cscrtPk_);
       }
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      if (!getIsDeletedBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, isDeleted_);
+      }
+      if (!getRoleNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, roleName_);
       }
       memoizedSize = size;
       return size;
@@ -13335,10 +13392,12 @@ public final class ScdbApi {
       org.simplity.apiscdb.ScdbApi.RoleType other = (org.simplity.apiscdb.ScdbApi.RoleType) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getName()
-          .equals(other.getName());
+      result = result && (getCscrtPk()
+          == other.getCscrtPk());
+      result = result && getIsDeleted()
+          .equals(other.getIsDeleted());
+      result = result && getRoleName()
+          .equals(other.getRoleName());
       return result;
     }
 
@@ -13349,10 +13408,13 @@ public final class ScdbApi {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + CSCRTPK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCscrtPk());
+      hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
+      hash = (53 * hash) + getIsDeleted().hashCode();
+      hash = (37 * hash) + ROLENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getRoleName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13482,9 +13544,11 @@ public final class ScdbApi {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        cscrtPk_ = 0L;
 
-        name_ = "";
+        isDeleted_ = "";
+
+        roleName_ = "";
 
         return this;
       }
@@ -13508,8 +13572,9 @@ public final class ScdbApi {
 
       public org.simplity.apiscdb.ScdbApi.RoleType buildPartial() {
         org.simplity.apiscdb.ScdbApi.RoleType result = new org.simplity.apiscdb.ScdbApi.RoleType(this);
-        result.id_ = id_;
-        result.name_ = name_;
+        result.cscrtPk_ = cscrtPk_;
+        result.isDeleted_ = isDeleted_;
+        result.roleName_ = roleName_;
         onBuilt();
         return result;
       }
@@ -13551,11 +13616,15 @@ public final class ScdbApi {
 
       public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.RoleType other) {
         if (other == org.simplity.apiscdb.ScdbApi.RoleType.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (other.getCscrtPk() != 0L) {
+          setCscrtPk(other.getCscrtPk());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getIsDeleted().isEmpty()) {
+          isDeleted_ = other.isDeleted_;
+          onChanged();
+        }
+        if (!other.getRoleName().isEmpty()) {
+          roleName_ = other.roleName_;
           onChanged();
         }
         onChanged();
@@ -13584,97 +13653,166 @@ public final class ScdbApi {
         return this;
       }
 
-      private int id_ ;
+      private long cscrtPk_ ;
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 cscrtPk = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public long getCscrtPk() {
+        return cscrtPk_;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 cscrtPk = 1;</code>
        */
-      public Builder setId(int value) {
+      public Builder setCscrtPk(long value) {
         
-        id_ = value;
+        cscrtPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>int64 cscrtPk = 1;</code>
        */
-      public Builder clearId() {
+      public Builder clearCscrtPk() {
         
-        id_ = 0;
+        cscrtPk_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object isDeleted_ = "";
       /**
-       * <code>string name = 2;</code>
+       * <code>string isDeleted = 2;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getIsDeleted() {
+        java.lang.Object ref = isDeleted_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          isDeleted_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string isDeleted = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getIsDeletedBytes() {
+        java.lang.Object ref = isDeleted_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          isDeleted_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string isDeleted = 2;</code>
        */
-      public Builder setName(
+      public Builder setIsDeleted(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        isDeleted_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string isDeleted = 2;</code>
        */
-      public Builder clearName() {
+      public Builder clearIsDeleted() {
         
-        name_ = getDefaultInstance().getName();
+        isDeleted_ = getDefaultInstance().getIsDeleted();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string isDeleted = 2;</code>
        */
-      public Builder setNameBytes(
+      public Builder setIsDeletedBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        isDeleted_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object roleName_ = "";
+      /**
+       * <code>string roleName = 3;</code>
+       */
+      public java.lang.String getRoleName() {
+        java.lang.Object ref = roleName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          roleName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string roleName = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoleNameBytes() {
+        java.lang.Object ref = roleName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roleName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string roleName = 3;</code>
+       */
+      public Builder setRoleName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        roleName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roleName = 3;</code>
+       */
+      public Builder clearRoleName() {
+        
+        roleName_ = getDefaultInstance().getRoleName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string roleName = 3;</code>
+       */
+      public Builder setRoleNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        roleName_ = value;
         onChanged();
         return this;
       }
@@ -19021,34 +19159,35 @@ public final class ScdbApi {
       "lockNum\030\010 \001(\005\022\031\n\021primaryIndividual\030\t \001(\t" +
       "\022\023\n\013roleCscrtFk\030\n \001(\005\0220\n\010roleType\030\013 \003(\0132" +
       "\036.org.simplity.apiscdb.RoleType\022\033\n\023secon" +
-      "daryIndividual\030\014 \001(\t\"$\n\010RoleType\022\n\n\002id\030\001" +
-      " \001(\005\022\014\n\004name\030\002 \001(\t\">\n\tRoleTypes\0221\n\troleT" +
-      "ypes\030\001 \003(\0132\036.org.simplity.apiscdb.RoleTy" +
-      "pe\"\274\003\n\016SearchCriteria\022\021\n\tassetName\030\001 \001(\t" +
-      "\022\022\n\nassetOwner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rb" +
-      "pContractNum\030\004 \001(\t\022\033\n\023bpContractingEntit",
-      "y\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022Y\n\016contractStatus\030" +
-      "\007 \001(\0162A.org.simplity.apiscdb.SearchCrite" +
-      "ria.SearchCriteria_ContractStatu\022\017\n\007coun" +
-      "try\030\010 \001(\005\022\016\n\006county\030\t \001(\t\022\030\n\020dealCounter" +
-      "Party\030\n \001(\t\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGr" +
-      "oup\030\014 \001(\005\022\016\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001" +
-      "(\t\022\r\n\005state\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034S" +
-      "earchCriteria_ContractStatu\022\010\n\004LIVE\020\000\022\n\n" +
-      "\006CLOSED\020\001\"\215\004\n\007Storage\022\027\n\017contractCschdFk" +
-      "\030\001 \001(\003\022\021\n\tcreatedBy\030\002 \001(\t\022\023\n\013createdDate",
-      "\030\003 \001(\003\022\017\n\007cscsgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(" +
-      "\005\022\023\n\013description\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001" +
-      "(\01620.org.simplity.apiscdb.Storage.Storag" +
-      "e_GradeGroup\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastU" +
-      "pdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022" +
-      "\017\n\007lockNum\030\013 \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013qu" +
-      "antityUom\030\r \001(\t\022\026\n\016storageEndDate\030\016 \001(\003\022" +
-      "\023\n\013storageRate\030\017 \001(\001\022\030\n\020storageStartDate" +
-      "\030\020 \001(\003\022\016\n\006tankId\030\021 \001(\t\"q\n\022Storage_GradeG" +
-      "roup\022\013\n\007ETHANOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r",
-      "\n\tBIODIESEL\020\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DIL" +
-      "UENT\020\006\022\t\n\005CURDE\020\007b\006proto3"
+      "daryIndividual\030\014 \001(\t\"@\n\010RoleType\022\017\n\007cscr" +
+      "tPk\030\001 \001(\003\022\021\n\tisDeleted\030\002 \001(\t\022\020\n\010roleName" +
+      "\030\003 \001(\t\">\n\tRoleTypes\0221\n\troleTypes\030\001 \003(\0132\036" +
+      ".org.simplity.apiscdb.RoleType\"\274\003\n\016Searc" +
+      "hCriteria\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetOwn" +
+      "er\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContractNum",
+      "\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014\n\004c" +
+      "ity\030\006 \001(\t\022Y\n\016contractStatus\030\007 \001(\0162A.org." +
+      "simplity.apiscdb.SearchCriteria.SearchCr" +
+      "iteria_ContractStatu\022\017\n\007country\030\010 \001(\005\022\016\n" +
+      "\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001(\t\022" +
+      "\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022\016\n" +
+      "\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005state\030" +
+      "\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034SearchCriteri" +
+      "a_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"\215\004" +
+      "\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcr",
+      "eatedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cs" +
+      "csgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(\005\022\023\n\013descrip" +
+      "tion\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org.sim" +
+      "plity.apiscdb.Storage.Storage_GradeGroup" +
+      "\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030\t \001" +
+      "(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022\017\n\007lockNum\030\013" +
+      " \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030\r " +
+      "\001(\t\022\026\n\016storageEndDate\030\016 \001(\003\022\023\n\013storageRa" +
+      "te\030\017 \001(\001\022\030\n\020storageStartDate\030\020 \001(\003\022\016\n\006ta" +
+      "nkId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007ETHA",
+      "NOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIESEL\020" +
+      "\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n\005CU" +
+      "RDE\020\007b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19122,7 +19261,7 @@ public final class ScdbApi {
     internal_static_org_simplity_apiscdb_RoleType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_RoleType_descriptor,
-        new java.lang.String[] { "Id", "Name", });
+        new java.lang.String[] { "CscrtPk", "IsDeleted", "RoleName", });
     internal_static_org_simplity_apiscdb_RoleTypes_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_org_simplity_apiscdb_RoleTypes_fieldAccessorTable = new
