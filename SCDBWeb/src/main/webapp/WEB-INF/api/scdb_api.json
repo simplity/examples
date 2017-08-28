@@ -311,7 +311,7 @@
             "type": "string"
           },
           "createdDate": {
-            "type": "string",
+            "type": "integer",
             "format": "int64"
           },
           "cscbsPk": {
@@ -324,7 +324,7 @@
             "type": "string"
           },
           "lastUpdatedDate": {
-            "type": "string",
+            "type": "integer",
             "format": "int64"
           },
           "lockNum": {
@@ -352,7 +352,7 @@
             "type": "string"
           },
           "createdDate": {
-            "type": "string",
+            "type": "integer",
             "format": "int64"
           },
           "csclsPk": {
@@ -365,7 +365,7 @@
             "type": "string"
           },
           "lastUpdatedDate": {
-            "type": "string",
+            "type": "integer",
             "format": "int64"
           },
           "lockNum": {
@@ -414,7 +414,7 @@
           "type": "string"
         },
         "createdDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         },
         "cscsgPk": {
@@ -430,7 +430,7 @@
           "type": "string"
         },
         "lastUpdatedDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         },
         "lockNum": {
@@ -440,11 +440,11 @@
           "type": "string"
         },
         "storageEndDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         },
         "storageStartDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         }
       }
@@ -460,7 +460,7 @@
           "type": "string"
         },
         "createdDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         },
         "cscrdPk": {
@@ -473,7 +473,7 @@
           "type": "string"
         },
         "lastUpdatedDate": {
-          "type": "string",
+          "type": "integer",
           "format": "int64"
         },
         "lockNum": {
@@ -485,6 +485,12 @@
         "roleCscrtFk": {
           "type": "integer"
         },
+        "roleType": {
+         "type": "array",
+         "items": {
+            "$ref": "#/definitions/RoleType"
+          }
+        },   
         "secondaryIndividual": {
           "type": "string"
         }

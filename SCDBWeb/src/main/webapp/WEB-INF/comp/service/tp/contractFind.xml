@@ -14,6 +14,7 @@
 				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>	
+		<log names="contractHeaders"/>
 	</actions>
 	<outputData>
 		<outputRecords>

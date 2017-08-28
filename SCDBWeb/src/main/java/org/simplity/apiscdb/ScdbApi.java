@@ -1758,14 +1758,9 @@ public final class ScdbApi {
         getCreatedByBytes();
 
     /**
-     * <code>string createdDate = 4;</code>
+     * <code>int64 createdDate = 4;</code>
      */
-    java.lang.String getCreatedDate();
-    /**
-     * <code>string createdDate = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getCreatedDateBytes();
+    long getCreatedDate();
 
     /**
      * <code>int32 cscbsPk = 5;</code>
@@ -1793,14 +1788,9 @@ public final class ScdbApi {
         getLastUpdatedByBytes();
 
     /**
-     * <code>string lastUpdatedDate = 8;</code>
+     * <code>int64 lastUpdatedDate = 8;</code>
      */
-    java.lang.String getLastUpdatedDate();
-    /**
-     * <code>string lastUpdatedDate = 8;</code>
-     */
-    com.google.protobuf.ByteString
-        getLastUpdatedDateBytes();
+    long getLastUpdatedDate();
 
     /**
      * <code>int32 lockNum = 9;</code>
@@ -1822,11 +1812,11 @@ public final class ScdbApi {
       bench_ = 0;
       contractCschdFk_ = 0L;
       createdBy_ = "";
-      createdDate_ = "";
+      createdDate_ = 0L;
       cscbsPk_ = 0;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
-      lastUpdatedDate_ = "";
+      lastUpdatedDate_ = 0L;
       lockNum_ = 0;
     }
 
@@ -1871,10 +1861,9 @@ public final class ScdbApi {
               createdBy_ = s;
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 32: {
 
-              createdDate_ = s;
+              createdDate_ = input.readInt64();
               break;
             }
             case 40: {
@@ -1894,10 +1883,9 @@ public final class ScdbApi {
               lastUpdatedBy_ = s;
               break;
             }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 64: {
 
-              lastUpdatedDate_ = s;
+              lastUpdatedDate_ = input.readInt64();
               break;
             }
             case 72: {
@@ -1981,37 +1969,12 @@ public final class ScdbApi {
     }
 
     public static final int CREATEDDATE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object createdDate_;
+    private long createdDate_;
     /**
-     * <code>string createdDate = 4;</code>
+     * <code>int64 createdDate = 4;</code>
      */
-    public java.lang.String getCreatedDate() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createdDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string createdDate = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCreatedDateBytes() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createdDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreatedDate() {
+      return createdDate_;
     }
 
     public static final int CSCBSPK_FIELD_NUMBER = 5;
@@ -2092,37 +2055,12 @@ public final class ScdbApi {
     }
 
     public static final int LASTUPDATEDDATE_FIELD_NUMBER = 8;
-    private volatile java.lang.Object lastUpdatedDate_;
+    private long lastUpdatedDate_;
     /**
-     * <code>string lastUpdatedDate = 8;</code>
+     * <code>int64 lastUpdatedDate = 8;</code>
      */
-    public java.lang.String getLastUpdatedDate() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastUpdatedDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string lastUpdatedDate = 8;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLastUpdatedDateBytes() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastUpdatedDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getLastUpdatedDate() {
+      return lastUpdatedDate_;
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 9;
@@ -2155,8 +2093,8 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, createdDate_);
+      if (createdDate_ != 0L) {
+        output.writeInt64(4, createdDate_);
       }
       if (cscbsPk_ != 0) {
         output.writeInt32(5, cscbsPk_);
@@ -2167,8 +2105,8 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        output.writeInt64(8, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         output.writeInt32(9, lockNum_);
@@ -2191,8 +2129,9 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, createdDate_);
+      if (createdDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, createdDate_);
       }
       if (cscbsPk_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -2204,8 +2143,9 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -2233,16 +2173,16 @@ public final class ScdbApi {
           == other.getContractCschdFk());
       result = result && getCreatedBy()
           .equals(other.getCreatedBy());
-      result = result && getCreatedDate()
-          .equals(other.getCreatedDate());
+      result = result && (getCreatedDate()
+          == other.getCreatedDate());
       result = result && (getCscbsPk()
           == other.getCscbsPk());
       result = result && getIsDeleted()
           .equals(other.getIsDeleted());
       result = result && getLastUpdatedBy()
           .equals(other.getLastUpdatedBy());
-      result = result && getLastUpdatedDate()
-          .equals(other.getLastUpdatedDate());
+      result = result && (getLastUpdatedDate()
+          == other.getLastUpdatedDate());
       result = result && (getLockNum()
           == other.getLockNum());
       return result;
@@ -2263,7 +2203,8 @@ public final class ScdbApi {
       hash = (37 * hash) + CREATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedBy().hashCode();
       hash = (37 * hash) + CREATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreatedDate());
       hash = (37 * hash) + CSCBSPK_FIELD_NUMBER;
       hash = (53 * hash) + getCscbsPk();
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
@@ -2271,7 +2212,8 @@ public final class ScdbApi {
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdatedBy().hashCode();
       hash = (37 * hash) + LASTUPDATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getLastUpdatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
       hash = (53 * hash) + getLockNum();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -2409,7 +2351,7 @@ public final class ScdbApi {
 
         createdBy_ = "";
 
-        createdDate_ = "";
+        createdDate_ = 0L;
 
         cscbsPk_ = 0;
 
@@ -2417,7 +2359,7 @@ public final class ScdbApi {
 
         lastUpdatedBy_ = "";
 
-        lastUpdatedDate_ = "";
+        lastUpdatedDate_ = 0L;
 
         lockNum_ = 0;
 
@@ -2503,9 +2445,8 @@ public final class ScdbApi {
           createdBy_ = other.createdBy_;
           onChanged();
         }
-        if (!other.getCreatedDate().isEmpty()) {
-          createdDate_ = other.createdDate_;
-          onChanged();
+        if (other.getCreatedDate() != 0L) {
+          setCreatedDate(other.getCreatedDate());
         }
         if (other.getCscbsPk() != 0) {
           setCscbsPk(other.getCscbsPk());
@@ -2518,9 +2459,8 @@ public final class ScdbApi {
           lastUpdatedBy_ = other.lastUpdatedBy_;
           onChanged();
         }
-        if (!other.getLastUpdatedDate().isEmpty()) {
-          lastUpdatedDate_ = other.lastUpdatedDate_;
-          onChanged();
+        if (other.getLastUpdatedDate() != 0L) {
+          setLastUpdatedDate(other.getLastUpdatedDate());
         }
         if (other.getLockNum() != 0) {
           setLockNum(other.getLockNum());
@@ -2672,71 +2612,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object createdDate_ = "";
+      private long createdDate_ ;
       /**
-       * <code>string createdDate = 4;</code>
+       * <code>int64 createdDate = 4;</code>
        */
-      public java.lang.String getCreatedDate() {
-        java.lang.Object ref = createdDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createdDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getCreatedDate() {
+        return createdDate_;
       }
       /**
-       * <code>string createdDate = 4;</code>
+       * <code>int64 createdDate = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getCreatedDateBytes() {
-        java.lang.Object ref = createdDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createdDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string createdDate = 4;</code>
-       */
-      public Builder setCreatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCreatedDate(long value) {
+        
         createdDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string createdDate = 4;</code>
+       * <code>int64 createdDate = 4;</code>
        */
       public Builder clearCreatedDate() {
         
-        createdDate_ = getDefaultInstance().getCreatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string createdDate = 4;</code>
-       */
-      public Builder setCreatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createdDate_ = value;
+        createdDate_ = 0L;
         onChanged();
         return this;
       }
@@ -2905,71 +2802,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object lastUpdatedDate_ = "";
+      private long lastUpdatedDate_ ;
       /**
-       * <code>string lastUpdatedDate = 8;</code>
+       * <code>int64 lastUpdatedDate = 8;</code>
        */
-      public java.lang.String getLastUpdatedDate() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastUpdatedDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getLastUpdatedDate() {
+        return lastUpdatedDate_;
       }
       /**
-       * <code>string lastUpdatedDate = 8;</code>
+       * <code>int64 lastUpdatedDate = 8;</code>
        */
-      public com.google.protobuf.ByteString
-          getLastUpdatedDateBytes() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastUpdatedDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string lastUpdatedDate = 8;</code>
-       */
-      public Builder setLastUpdatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setLastUpdatedDate(long value) {
+        
         lastUpdatedDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string lastUpdatedDate = 8;</code>
+       * <code>int64 lastUpdatedDate = 8;</code>
        */
       public Builder clearLastUpdatedDate() {
         
-        lastUpdatedDate_ = getDefaultInstance().getLastUpdatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastUpdatedDate = 8;</code>
-       */
-      public Builder setLastUpdatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastUpdatedDate_ = value;
+        lastUpdatedDate_ = 0L;
         onChanged();
         return this;
       }
@@ -9946,14 +9800,9 @@ public final class ScdbApi {
         getCreatedByBytes();
 
     /**
-     * <code>string createdDate = 6;</code>
+     * <code>int64 createdDate = 6;</code>
      */
-    java.lang.String getCreatedDate();
-    /**
-     * <code>string createdDate = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getCreatedDateBytes();
+    long getCreatedDate();
 
     /**
      * <code>int32 csclsPk = 7;</code>
@@ -9981,14 +9830,9 @@ public final class ScdbApi {
         getLastUpdatedByBytes();
 
     /**
-     * <code>string lastUpdatedDate = 10;</code>
+     * <code>int64 lastUpdatedDate = 10;</code>
      */
-    java.lang.String getLastUpdatedDate();
-    /**
-     * <code>string lastUpdatedDate = 10;</code>
-     */
-    com.google.protobuf.ByteString
-        getLastUpdatedDateBytes();
+    long getLastUpdatedDate();
 
     /**
      * <code>int32 lockNum = 11;</code>
@@ -10022,11 +9866,11 @@ public final class ScdbApi {
       country_ = 0;
       county_ = "";
       createdBy_ = "";
-      createdDate_ = "";
+      createdDate_ = 0L;
       csclsPk_ = 0;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
-      lastUpdatedDate_ = "";
+      lastUpdatedDate_ = 0L;
       lockNum_ = 0;
       state_ = "";
     }
@@ -10084,10 +9928,9 @@ public final class ScdbApi {
               createdBy_ = s;
               break;
             }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 48: {
 
-              createdDate_ = s;
+              createdDate_ = input.readInt64();
               break;
             }
             case 56: {
@@ -10107,10 +9950,9 @@ public final class ScdbApi {
               lastUpdatedBy_ = s;
               break;
             }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 80: {
 
-              lastUpdatedDate_ = s;
+              lastUpdatedDate_ = input.readInt64();
               break;
             }
             case 88: {
@@ -10268,37 +10110,12 @@ public final class ScdbApi {
     }
 
     public static final int CREATEDDATE_FIELD_NUMBER = 6;
-    private volatile java.lang.Object createdDate_;
+    private long createdDate_;
     /**
-     * <code>string createdDate = 6;</code>
+     * <code>int64 createdDate = 6;</code>
      */
-    public java.lang.String getCreatedDate() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createdDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string createdDate = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCreatedDateBytes() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createdDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreatedDate() {
+      return createdDate_;
     }
 
     public static final int CSCLSPK_FIELD_NUMBER = 7;
@@ -10379,37 +10196,12 @@ public final class ScdbApi {
     }
 
     public static final int LASTUPDATEDDATE_FIELD_NUMBER = 10;
-    private volatile java.lang.Object lastUpdatedDate_;
+    private long lastUpdatedDate_;
     /**
-     * <code>string lastUpdatedDate = 10;</code>
+     * <code>int64 lastUpdatedDate = 10;</code>
      */
-    public java.lang.String getLastUpdatedDate() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastUpdatedDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string lastUpdatedDate = 10;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLastUpdatedDateBytes() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastUpdatedDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getLastUpdatedDate() {
+      return lastUpdatedDate_;
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 11;
@@ -10482,8 +10274,8 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, createdDate_);
+      if (createdDate_ != 0L) {
+        output.writeInt64(6, createdDate_);
       }
       if (csclsPk_ != 0) {
         output.writeInt32(7, csclsPk_);
@@ -10494,8 +10286,8 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        output.writeInt64(10, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         output.writeInt32(11, lockNum_);
@@ -10527,8 +10319,9 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, createdDate_);
+      if (createdDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, createdDate_);
       }
       if (csclsPk_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -10540,8 +10333,9 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -10576,16 +10370,16 @@ public final class ScdbApi {
           .equals(other.getCounty());
       result = result && getCreatedBy()
           .equals(other.getCreatedBy());
-      result = result && getCreatedDate()
-          .equals(other.getCreatedDate());
+      result = result && (getCreatedDate()
+          == other.getCreatedDate());
       result = result && (getCsclsPk()
           == other.getCsclsPk());
       result = result && getIsDeleted()
           .equals(other.getIsDeleted());
       result = result && getLastUpdatedBy()
           .equals(other.getLastUpdatedBy());
-      result = result && getLastUpdatedDate()
-          .equals(other.getLastUpdatedDate());
+      result = result && (getLastUpdatedDate()
+          == other.getLastUpdatedDate());
       result = result && (getLockNum()
           == other.getLockNum());
       result = result && getState()
@@ -10612,7 +10406,8 @@ public final class ScdbApi {
       hash = (37 * hash) + CREATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedBy().hashCode();
       hash = (37 * hash) + CREATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreatedDate());
       hash = (37 * hash) + CSCLSPK_FIELD_NUMBER;
       hash = (53 * hash) + getCsclsPk();
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
@@ -10620,7 +10415,8 @@ public final class ScdbApi {
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdatedBy().hashCode();
       hash = (37 * hash) + LASTUPDATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getLastUpdatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
       hash = (53 * hash) + getLockNum();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
@@ -10764,7 +10560,7 @@ public final class ScdbApi {
 
         createdBy_ = "";
 
-        createdDate_ = "";
+        createdDate_ = 0L;
 
         csclsPk_ = 0;
 
@@ -10772,7 +10568,7 @@ public final class ScdbApi {
 
         lastUpdatedBy_ = "";
 
-        lastUpdatedDate_ = "";
+        lastUpdatedDate_ = 0L;
 
         lockNum_ = 0;
 
@@ -10871,9 +10667,8 @@ public final class ScdbApi {
           createdBy_ = other.createdBy_;
           onChanged();
         }
-        if (!other.getCreatedDate().isEmpty()) {
-          createdDate_ = other.createdDate_;
-          onChanged();
+        if (other.getCreatedDate() != 0L) {
+          setCreatedDate(other.getCreatedDate());
         }
         if (other.getCsclsPk() != 0) {
           setCsclsPk(other.getCsclsPk());
@@ -10886,9 +10681,8 @@ public final class ScdbApi {
           lastUpdatedBy_ = other.lastUpdatedBy_;
           onChanged();
         }
-        if (!other.getLastUpdatedDate().isEmpty()) {
-          lastUpdatedDate_ = other.lastUpdatedDate_;
-          onChanged();
+        if (other.getLastUpdatedDate() != 0L) {
+          setLastUpdatedDate(other.getLastUpdatedDate());
         }
         if (other.getLockNum() != 0) {
           setLockNum(other.getLockNum());
@@ -11182,71 +10976,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object createdDate_ = "";
+      private long createdDate_ ;
       /**
-       * <code>string createdDate = 6;</code>
+       * <code>int64 createdDate = 6;</code>
        */
-      public java.lang.String getCreatedDate() {
-        java.lang.Object ref = createdDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createdDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getCreatedDate() {
+        return createdDate_;
       }
       /**
-       * <code>string createdDate = 6;</code>
+       * <code>int64 createdDate = 6;</code>
        */
-      public com.google.protobuf.ByteString
-          getCreatedDateBytes() {
-        java.lang.Object ref = createdDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createdDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string createdDate = 6;</code>
-       */
-      public Builder setCreatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCreatedDate(long value) {
+        
         createdDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string createdDate = 6;</code>
+       * <code>int64 createdDate = 6;</code>
        */
       public Builder clearCreatedDate() {
         
-        createdDate_ = getDefaultInstance().getCreatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string createdDate = 6;</code>
-       */
-      public Builder setCreatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createdDate_ = value;
+        createdDate_ = 0L;
         onChanged();
         return this;
       }
@@ -11415,71 +11166,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object lastUpdatedDate_ = "";
+      private long lastUpdatedDate_ ;
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
-      public java.lang.String getLastUpdatedDate() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastUpdatedDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getLastUpdatedDate() {
+        return lastUpdatedDate_;
       }
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
-      public com.google.protobuf.ByteString
-          getLastUpdatedDateBytes() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastUpdatedDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string lastUpdatedDate = 10;</code>
-       */
-      public Builder setLastUpdatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setLastUpdatedDate(long value) {
+        
         lastUpdatedDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
       public Builder clearLastUpdatedDate() {
         
-        lastUpdatedDate_ = getDefaultInstance().getLastUpdatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastUpdatedDate = 10;</code>
-       */
-      public Builder setLastUpdatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastUpdatedDate_ = value;
+        lastUpdatedDate_ = 0L;
         onChanged();
         return this;
       }
@@ -11647,14 +11355,9 @@ public final class ScdbApi {
         getCreatedByBytes();
 
     /**
-     * <code>string createdDate = 3;</code>
+     * <code>int64 createdDate = 3;</code>
      */
-    java.lang.String getCreatedDate();
-    /**
-     * <code>string createdDate = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getCreatedDateBytes();
+    long getCreatedDate();
 
     /**
      * <code>int32 cscrdPk = 4;</code>
@@ -11682,14 +11385,9 @@ public final class ScdbApi {
         getLastUpdatedByBytes();
 
     /**
-     * <code>string lastUpdatedDate = 7;</code>
+     * <code>int64 lastUpdatedDate = 7;</code>
      */
-    java.lang.String getLastUpdatedDate();
-    /**
-     * <code>string lastUpdatedDate = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getLastUpdatedDateBytes();
+    long getLastUpdatedDate();
 
     /**
      * <code>int32 lockNum = 8;</code>
@@ -11712,11 +11410,35 @@ public final class ScdbApi {
     int getRoleCscrtFk();
 
     /**
-     * <code>string secondaryIndividual = 11;</code>
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    java.util.List<org.simplity.apiscdb.ScdbApi.RoleType> 
+        getRoleTypeList();
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    org.simplity.apiscdb.ScdbApi.RoleType getRoleType(int index);
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    int getRoleTypeCount();
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    java.util.List<? extends org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder> 
+        getRoleTypeOrBuilderList();
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder getRoleTypeOrBuilder(
+        int index);
+
+    /**
+     * <code>string secondaryIndividual = 12;</code>
      */
     java.lang.String getSecondaryIndividual();
     /**
-     * <code>string secondaryIndividual = 11;</code>
+     * <code>string secondaryIndividual = 12;</code>
      */
     com.google.protobuf.ByteString
         getSecondaryIndividualBytes();
@@ -11735,14 +11457,15 @@ public final class ScdbApi {
     private Role() {
       contractCschdFk_ = 0L;
       createdBy_ = "";
-      createdDate_ = "";
+      createdDate_ = 0L;
       cscrdPk_ = 0;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
-      lastUpdatedDate_ = "";
+      lastUpdatedDate_ = 0L;
       lockNum_ = 0;
       primaryIndividual_ = "";
       roleCscrtFk_ = 0;
+      roleType_ = java.util.Collections.emptyList();
       secondaryIndividual_ = "";
     }
 
@@ -11782,10 +11505,9 @@ public final class ScdbApi {
               createdBy_ = s;
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              createdDate_ = s;
+              createdDate_ = input.readInt64();
               break;
             }
             case 32: {
@@ -11805,10 +11527,9 @@ public final class ScdbApi {
               lastUpdatedBy_ = s;
               break;
             }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 56: {
 
-              lastUpdatedDate_ = s;
+              lastUpdatedDate_ = input.readInt64();
               break;
             }
             case 64: {
@@ -11828,6 +11549,15 @@ public final class ScdbApi {
               break;
             }
             case 90: {
+              if (!((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+                roleType_ = new java.util.ArrayList<org.simplity.apiscdb.ScdbApi.RoleType>();
+                mutable_bitField0_ |= 0x00000400;
+              }
+              roleType_.add(
+                  input.readMessage(org.simplity.apiscdb.ScdbApi.RoleType.parser(), extensionRegistry));
+              break;
+            }
+            case 98: {
               java.lang.String s = input.readStringRequireUtf8();
 
               secondaryIndividual_ = s;
@@ -11841,6 +11571,9 @@ public final class ScdbApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000400) == 0x00000400)) {
+          roleType_ = java.util.Collections.unmodifiableList(roleType_);
+        }
         makeExtensionsImmutable();
       }
     }
@@ -11856,6 +11589,7 @@ public final class ScdbApi {
               org.simplity.apiscdb.ScdbApi.Role.class, org.simplity.apiscdb.ScdbApi.Role.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CONTRACTCSCHDFK_FIELD_NUMBER = 1;
     private long contractCschdFk_;
     /**
@@ -11900,37 +11634,12 @@ public final class ScdbApi {
     }
 
     public static final int CREATEDDATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object createdDate_;
+    private long createdDate_;
     /**
-     * <code>string createdDate = 3;</code>
+     * <code>int64 createdDate = 3;</code>
      */
-    public java.lang.String getCreatedDate() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createdDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string createdDate = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCreatedDateBytes() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createdDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreatedDate() {
+      return createdDate_;
     }
 
     public static final int CSCRDPK_FIELD_NUMBER = 4;
@@ -12011,37 +11720,12 @@ public final class ScdbApi {
     }
 
     public static final int LASTUPDATEDDATE_FIELD_NUMBER = 7;
-    private volatile java.lang.Object lastUpdatedDate_;
+    private long lastUpdatedDate_;
     /**
-     * <code>string lastUpdatedDate = 7;</code>
+     * <code>int64 lastUpdatedDate = 7;</code>
      */
-    public java.lang.String getLastUpdatedDate() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastUpdatedDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string lastUpdatedDate = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLastUpdatedDateBytes() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastUpdatedDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getLastUpdatedDate() {
+      return lastUpdatedDate_;
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 8;
@@ -12096,10 +11780,45 @@ public final class ScdbApi {
       return roleCscrtFk_;
     }
 
-    public static final int SECONDARYINDIVIDUAL_FIELD_NUMBER = 11;
+    public static final int ROLETYPE_FIELD_NUMBER = 11;
+    private java.util.List<org.simplity.apiscdb.ScdbApi.RoleType> roleType_;
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    public java.util.List<org.simplity.apiscdb.ScdbApi.RoleType> getRoleTypeList() {
+      return roleType_;
+    }
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    public java.util.List<? extends org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder> 
+        getRoleTypeOrBuilderList() {
+      return roleType_;
+    }
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    public int getRoleTypeCount() {
+      return roleType_.size();
+    }
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    public org.simplity.apiscdb.ScdbApi.RoleType getRoleType(int index) {
+      return roleType_.get(index);
+    }
+    /**
+     * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+     */
+    public org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder getRoleTypeOrBuilder(
+        int index) {
+      return roleType_.get(index);
+    }
+
+    public static final int SECONDARYINDIVIDUAL_FIELD_NUMBER = 12;
     private volatile java.lang.Object secondaryIndividual_;
     /**
-     * <code>string secondaryIndividual = 11;</code>
+     * <code>string secondaryIndividual = 12;</code>
      */
     public java.lang.String getSecondaryIndividual() {
       java.lang.Object ref = secondaryIndividual_;
@@ -12114,7 +11833,7 @@ public final class ScdbApi {
       }
     }
     /**
-     * <code>string secondaryIndividual = 11;</code>
+     * <code>string secondaryIndividual = 12;</code>
      */
     public com.google.protobuf.ByteString
         getSecondaryIndividualBytes() {
@@ -12148,8 +11867,8 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, createdDate_);
+      if (createdDate_ != 0L) {
+        output.writeInt64(3, createdDate_);
       }
       if (cscrdPk_ != 0) {
         output.writeInt32(4, cscrdPk_);
@@ -12160,8 +11879,8 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        output.writeInt64(7, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         output.writeInt32(8, lockNum_);
@@ -12172,8 +11891,11 @@ public final class ScdbApi {
       if (roleCscrtFk_ != 0) {
         output.writeInt32(10, roleCscrtFk_);
       }
+      for (int i = 0; i < roleType_.size(); i++) {
+        output.writeMessage(11, roleType_.get(i));
+      }
       if (!getSecondaryIndividualBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, secondaryIndividual_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, secondaryIndividual_);
       }
     }
 
@@ -12189,8 +11911,9 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, createdDate_);
+      if (createdDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, createdDate_);
       }
       if (cscrdPk_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -12202,8 +11925,9 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -12216,8 +11940,12 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, roleCscrtFk_);
       }
+      for (int i = 0; i < roleType_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, roleType_.get(i));
+      }
       if (!getSecondaryIndividualBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, secondaryIndividual_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, secondaryIndividual_);
       }
       memoizedSize = size;
       return size;
@@ -12239,22 +11967,24 @@ public final class ScdbApi {
           == other.getContractCschdFk());
       result = result && getCreatedBy()
           .equals(other.getCreatedBy());
-      result = result && getCreatedDate()
-          .equals(other.getCreatedDate());
+      result = result && (getCreatedDate()
+          == other.getCreatedDate());
       result = result && (getCscrdPk()
           == other.getCscrdPk());
       result = result && getIsDeleted()
           .equals(other.getIsDeleted());
       result = result && getLastUpdatedBy()
           .equals(other.getLastUpdatedBy());
-      result = result && getLastUpdatedDate()
-          .equals(other.getLastUpdatedDate());
+      result = result && (getLastUpdatedDate()
+          == other.getLastUpdatedDate());
       result = result && (getLockNum()
           == other.getLockNum());
       result = result && getPrimaryIndividual()
           .equals(other.getPrimaryIndividual());
       result = result && (getRoleCscrtFk()
           == other.getRoleCscrtFk());
+      result = result && getRoleTypeList()
+          .equals(other.getRoleTypeList());
       result = result && getSecondaryIndividual()
           .equals(other.getSecondaryIndividual());
       return result;
@@ -12273,7 +12003,8 @@ public final class ScdbApi {
       hash = (37 * hash) + CREATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedBy().hashCode();
       hash = (37 * hash) + CREATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreatedDate());
       hash = (37 * hash) + CSCRDPK_FIELD_NUMBER;
       hash = (53 * hash) + getCscrdPk();
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
@@ -12281,13 +12012,18 @@ public final class ScdbApi {
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdatedBy().hashCode();
       hash = (37 * hash) + LASTUPDATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getLastUpdatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
       hash = (53 * hash) + getLockNum();
       hash = (37 * hash) + PRIMARYINDIVIDUAL_FIELD_NUMBER;
       hash = (53 * hash) + getPrimaryIndividual().hashCode();
       hash = (37 * hash) + ROLECSCRTFK_FIELD_NUMBER;
       hash = (53 * hash) + getRoleCscrtFk();
+      if (getRoleTypeCount() > 0) {
+        hash = (37 * hash) + ROLETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getRoleTypeList().hashCode();
+      }
       hash = (37 * hash) + SECONDARYINDIVIDUAL_FIELD_NUMBER;
       hash = (53 * hash) + getSecondaryIndividual().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -12415,6 +12151,7 @@ public final class ScdbApi {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getRoleTypeFieldBuilder();
         }
       }
       public Builder clear() {
@@ -12423,7 +12160,7 @@ public final class ScdbApi {
 
         createdBy_ = "";
 
-        createdDate_ = "";
+        createdDate_ = 0L;
 
         cscrdPk_ = 0;
 
@@ -12431,7 +12168,7 @@ public final class ScdbApi {
 
         lastUpdatedBy_ = "";
 
-        lastUpdatedDate_ = "";
+        lastUpdatedDate_ = 0L;
 
         lockNum_ = 0;
 
@@ -12439,6 +12176,12 @@ public final class ScdbApi {
 
         roleCscrtFk_ = 0;
 
+        if (roleTypeBuilder_ == null) {
+          roleType_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000400);
+        } else {
+          roleTypeBuilder_.clear();
+        }
         secondaryIndividual_ = "";
 
         return this;
@@ -12463,6 +12206,8 @@ public final class ScdbApi {
 
       public org.simplity.apiscdb.ScdbApi.Role buildPartial() {
         org.simplity.apiscdb.ScdbApi.Role result = new org.simplity.apiscdb.ScdbApi.Role(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.contractCschdFk_ = contractCschdFk_;
         result.createdBy_ = createdBy_;
         result.createdDate_ = createdDate_;
@@ -12473,7 +12218,17 @@ public final class ScdbApi {
         result.lockNum_ = lockNum_;
         result.primaryIndividual_ = primaryIndividual_;
         result.roleCscrtFk_ = roleCscrtFk_;
+        if (roleTypeBuilder_ == null) {
+          if (((bitField0_ & 0x00000400) == 0x00000400)) {
+            roleType_ = java.util.Collections.unmodifiableList(roleType_);
+            bitField0_ = (bitField0_ & ~0x00000400);
+          }
+          result.roleType_ = roleType_;
+        } else {
+          result.roleType_ = roleTypeBuilder_.build();
+        }
         result.secondaryIndividual_ = secondaryIndividual_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -12522,9 +12277,8 @@ public final class ScdbApi {
           createdBy_ = other.createdBy_;
           onChanged();
         }
-        if (!other.getCreatedDate().isEmpty()) {
-          createdDate_ = other.createdDate_;
-          onChanged();
+        if (other.getCreatedDate() != 0L) {
+          setCreatedDate(other.getCreatedDate());
         }
         if (other.getCscrdPk() != 0) {
           setCscrdPk(other.getCscrdPk());
@@ -12537,9 +12291,8 @@ public final class ScdbApi {
           lastUpdatedBy_ = other.lastUpdatedBy_;
           onChanged();
         }
-        if (!other.getLastUpdatedDate().isEmpty()) {
-          lastUpdatedDate_ = other.lastUpdatedDate_;
-          onChanged();
+        if (other.getLastUpdatedDate() != 0L) {
+          setLastUpdatedDate(other.getLastUpdatedDate());
         }
         if (other.getLockNum() != 0) {
           setLockNum(other.getLockNum());
@@ -12550,6 +12303,32 @@ public final class ScdbApi {
         }
         if (other.getRoleCscrtFk() != 0) {
           setRoleCscrtFk(other.getRoleCscrtFk());
+        }
+        if (roleTypeBuilder_ == null) {
+          if (!other.roleType_.isEmpty()) {
+            if (roleType_.isEmpty()) {
+              roleType_ = other.roleType_;
+              bitField0_ = (bitField0_ & ~0x00000400);
+            } else {
+              ensureRoleTypeIsMutable();
+              roleType_.addAll(other.roleType_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.roleType_.isEmpty()) {
+            if (roleTypeBuilder_.isEmpty()) {
+              roleTypeBuilder_.dispose();
+              roleTypeBuilder_ = null;
+              roleType_ = other.roleType_;
+              bitField0_ = (bitField0_ & ~0x00000400);
+              roleTypeBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRoleTypeFieldBuilder() : null;
+            } else {
+              roleTypeBuilder_.addAllMessages(other.roleType_);
+            }
+          }
         }
         if (!other.getSecondaryIndividual().isEmpty()) {
           secondaryIndividual_ = other.secondaryIndividual_;
@@ -12580,6 +12359,7 @@ public final class ScdbApi {
         }
         return this;
       }
+      private int bitField0_;
 
       private long contractCschdFk_ ;
       /**
@@ -12676,71 +12456,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object createdDate_ = "";
+      private long createdDate_ ;
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
-      public java.lang.String getCreatedDate() {
-        java.lang.Object ref = createdDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createdDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getCreatedDate() {
+        return createdDate_;
       }
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getCreatedDateBytes() {
-        java.lang.Object ref = createdDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createdDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string createdDate = 3;</code>
-       */
-      public Builder setCreatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCreatedDate(long value) {
+        
         createdDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
       public Builder clearCreatedDate() {
         
-        createdDate_ = getDefaultInstance().getCreatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string createdDate = 3;</code>
-       */
-      public Builder setCreatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createdDate_ = value;
+        createdDate_ = 0L;
         onChanged();
         return this;
       }
@@ -12909,71 +12646,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object lastUpdatedDate_ = "";
+      private long lastUpdatedDate_ ;
       /**
-       * <code>string lastUpdatedDate = 7;</code>
+       * <code>int64 lastUpdatedDate = 7;</code>
        */
-      public java.lang.String getLastUpdatedDate() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastUpdatedDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getLastUpdatedDate() {
+        return lastUpdatedDate_;
       }
       /**
-       * <code>string lastUpdatedDate = 7;</code>
+       * <code>int64 lastUpdatedDate = 7;</code>
        */
-      public com.google.protobuf.ByteString
-          getLastUpdatedDateBytes() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastUpdatedDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string lastUpdatedDate = 7;</code>
-       */
-      public Builder setLastUpdatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setLastUpdatedDate(long value) {
+        
         lastUpdatedDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string lastUpdatedDate = 7;</code>
+       * <code>int64 lastUpdatedDate = 7;</code>
        */
       public Builder clearLastUpdatedDate() {
         
-        lastUpdatedDate_ = getDefaultInstance().getLastUpdatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastUpdatedDate = 7;</code>
-       */
-      public Builder setLastUpdatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastUpdatedDate_ = value;
+        lastUpdatedDate_ = 0L;
         onChanged();
         return this;
       }
@@ -13099,9 +12793,249 @@ public final class ScdbApi {
         return this;
       }
 
+      private java.util.List<org.simplity.apiscdb.ScdbApi.RoleType> roleType_ =
+        java.util.Collections.emptyList();
+      private void ensureRoleTypeIsMutable() {
+        if (!((bitField0_ & 0x00000400) == 0x00000400)) {
+          roleType_ = new java.util.ArrayList<org.simplity.apiscdb.ScdbApi.RoleType>(roleType_);
+          bitField0_ |= 0x00000400;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.simplity.apiscdb.ScdbApi.RoleType, org.simplity.apiscdb.ScdbApi.RoleType.Builder, org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder> roleTypeBuilder_;
+
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public java.util.List<org.simplity.apiscdb.ScdbApi.RoleType> getRoleTypeList() {
+        if (roleTypeBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(roleType_);
+        } else {
+          return roleTypeBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public int getRoleTypeCount() {
+        if (roleTypeBuilder_ == null) {
+          return roleType_.size();
+        } else {
+          return roleTypeBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.RoleType getRoleType(int index) {
+        if (roleTypeBuilder_ == null) {
+          return roleType_.get(index);
+        } else {
+          return roleTypeBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder setRoleType(
+          int index, org.simplity.apiscdb.ScdbApi.RoleType value) {
+        if (roleTypeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoleTypeIsMutable();
+          roleType_.set(index, value);
+          onChanged();
+        } else {
+          roleTypeBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder setRoleType(
+          int index, org.simplity.apiscdb.ScdbApi.RoleType.Builder builderForValue) {
+        if (roleTypeBuilder_ == null) {
+          ensureRoleTypeIsMutable();
+          roleType_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          roleTypeBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder addRoleType(org.simplity.apiscdb.ScdbApi.RoleType value) {
+        if (roleTypeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoleTypeIsMutable();
+          roleType_.add(value);
+          onChanged();
+        } else {
+          roleTypeBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder addRoleType(
+          int index, org.simplity.apiscdb.ScdbApi.RoleType value) {
+        if (roleTypeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRoleTypeIsMutable();
+          roleType_.add(index, value);
+          onChanged();
+        } else {
+          roleTypeBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder addRoleType(
+          org.simplity.apiscdb.ScdbApi.RoleType.Builder builderForValue) {
+        if (roleTypeBuilder_ == null) {
+          ensureRoleTypeIsMutable();
+          roleType_.add(builderForValue.build());
+          onChanged();
+        } else {
+          roleTypeBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder addRoleType(
+          int index, org.simplity.apiscdb.ScdbApi.RoleType.Builder builderForValue) {
+        if (roleTypeBuilder_ == null) {
+          ensureRoleTypeIsMutable();
+          roleType_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          roleTypeBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder addAllRoleType(
+          java.lang.Iterable<? extends org.simplity.apiscdb.ScdbApi.RoleType> values) {
+        if (roleTypeBuilder_ == null) {
+          ensureRoleTypeIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, roleType_);
+          onChanged();
+        } else {
+          roleTypeBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder clearRoleType() {
+        if (roleTypeBuilder_ == null) {
+          roleType_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000400);
+          onChanged();
+        } else {
+          roleTypeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public Builder removeRoleType(int index) {
+        if (roleTypeBuilder_ == null) {
+          ensureRoleTypeIsMutable();
+          roleType_.remove(index);
+          onChanged();
+        } else {
+          roleTypeBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.RoleType.Builder getRoleTypeBuilder(
+          int index) {
+        return getRoleTypeFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder getRoleTypeOrBuilder(
+          int index) {
+        if (roleTypeBuilder_ == null) {
+          return roleType_.get(index);  } else {
+          return roleTypeBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public java.util.List<? extends org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder> 
+           getRoleTypeOrBuilderList() {
+        if (roleTypeBuilder_ != null) {
+          return roleTypeBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(roleType_);
+        }
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.RoleType.Builder addRoleTypeBuilder() {
+        return getRoleTypeFieldBuilder().addBuilder(
+            org.simplity.apiscdb.ScdbApi.RoleType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.RoleType.Builder addRoleTypeBuilder(
+          int index) {
+        return getRoleTypeFieldBuilder().addBuilder(
+            index, org.simplity.apiscdb.ScdbApi.RoleType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
+       */
+      public java.util.List<org.simplity.apiscdb.ScdbApi.RoleType.Builder> 
+           getRoleTypeBuilderList() {
+        return getRoleTypeFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.simplity.apiscdb.ScdbApi.RoleType, org.simplity.apiscdb.ScdbApi.RoleType.Builder, org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder> 
+          getRoleTypeFieldBuilder() {
+        if (roleTypeBuilder_ == null) {
+          roleTypeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.simplity.apiscdb.ScdbApi.RoleType, org.simplity.apiscdb.ScdbApi.RoleType.Builder, org.simplity.apiscdb.ScdbApi.RoleTypeOrBuilder>(
+                  roleType_,
+                  ((bitField0_ & 0x00000400) == 0x00000400),
+                  getParentForChildren(),
+                  isClean());
+          roleType_ = null;
+        }
+        return roleTypeBuilder_;
+      }
+
       private java.lang.Object secondaryIndividual_ = "";
       /**
-       * <code>string secondaryIndividual = 11;</code>
+       * <code>string secondaryIndividual = 12;</code>
        */
       public java.lang.String getSecondaryIndividual() {
         java.lang.Object ref = secondaryIndividual_;
@@ -13116,7 +13050,7 @@ public final class ScdbApi {
         }
       }
       /**
-       * <code>string secondaryIndividual = 11;</code>
+       * <code>string secondaryIndividual = 12;</code>
        */
       public com.google.protobuf.ByteString
           getSecondaryIndividualBytes() {
@@ -13132,7 +13066,7 @@ public final class ScdbApi {
         }
       }
       /**
-       * <code>string secondaryIndividual = 11;</code>
+       * <code>string secondaryIndividual = 12;</code>
        */
       public Builder setSecondaryIndividual(
           java.lang.String value) {
@@ -13145,7 +13079,7 @@ public final class ScdbApi {
         return this;
       }
       /**
-       * <code>string secondaryIndividual = 11;</code>
+       * <code>string secondaryIndividual = 12;</code>
        */
       public Builder clearSecondaryIndividual() {
         
@@ -13154,7 +13088,7 @@ public final class ScdbApi {
         return this;
       }
       /**
-       * <code>string secondaryIndividual = 11;</code>
+       * <code>string secondaryIndividual = 12;</code>
        */
       public Builder setSecondaryIndividualBytes(
           com.google.protobuf.ByteString value) {
@@ -16885,14 +16819,9 @@ public final class ScdbApi {
         getCreatedByBytes();
 
     /**
-     * <code>string createdDate = 3;</code>
+     * <code>int64 createdDate = 3;</code>
      */
-    java.lang.String getCreatedDate();
-    /**
-     * <code>string createdDate = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getCreatedDateBytes();
+    long getCreatedDate();
 
     /**
      * <code>int32 cscsgPk = 4;</code>
@@ -16944,14 +16873,9 @@ public final class ScdbApi {
         getLastUpdatedByBytes();
 
     /**
-     * <code>string lastUpdatedDate = 10;</code>
+     * <code>int64 lastUpdatedDate = 10;</code>
      */
-    java.lang.String getLastUpdatedDate();
-    /**
-     * <code>string lastUpdatedDate = 10;</code>
-     */
-    com.google.protobuf.ByteString
-        getLastUpdatedDateBytes();
+    long getLastUpdatedDate();
 
     /**
      * <code>int32 lockNum = 11;</code>
@@ -16974,14 +16898,9 @@ public final class ScdbApi {
         getQuantityUomBytes();
 
     /**
-     * <code>string storageEndDate = 14;</code>
+     * <code>int64 storageEndDate = 14;</code>
      */
-    java.lang.String getStorageEndDate();
-    /**
-     * <code>string storageEndDate = 14;</code>
-     */
-    com.google.protobuf.ByteString
-        getStorageEndDateBytes();
+    long getStorageEndDate();
 
     /**
      * <code>double storageRate = 15;</code>
@@ -16989,14 +16908,9 @@ public final class ScdbApi {
     double getStorageRate();
 
     /**
-     * <code>string storageStartDate = 16;</code>
+     * <code>int64 storageStartDate = 16;</code>
      */
-    java.lang.String getStorageStartDate();
-    /**
-     * <code>string storageStartDate = 16;</code>
-     */
-    com.google.protobuf.ByteString
-        getStorageStartDateBytes();
+    long getStorageStartDate();
 
     /**
      * <code>string tankId = 17;</code>
@@ -17022,20 +16936,20 @@ public final class ScdbApi {
     private Storage() {
       contractCschdFk_ = 0L;
       createdBy_ = "";
-      createdDate_ = "";
+      createdDate_ = 0L;
       cscsgPk_ = 0;
       currency_ = 0;
       description_ = "";
       gradeGroup_ = 0;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
-      lastUpdatedDate_ = "";
+      lastUpdatedDate_ = 0L;
       lockNum_ = 0;
       quantity_ = 0D;
       quantityUom_ = "";
-      storageEndDate_ = "";
+      storageEndDate_ = 0L;
       storageRate_ = 0D;
-      storageStartDate_ = "";
+      storageStartDate_ = 0L;
       tankId_ = "";
     }
 
@@ -17075,10 +16989,9 @@ public final class ScdbApi {
               createdBy_ = s;
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 24: {
 
-              createdDate_ = s;
+              createdDate_ = input.readInt64();
               break;
             }
             case 32: {
@@ -17115,10 +17028,9 @@ public final class ScdbApi {
               lastUpdatedBy_ = s;
               break;
             }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 80: {
 
-              lastUpdatedDate_ = s;
+              lastUpdatedDate_ = input.readInt64();
               break;
             }
             case 88: {
@@ -17137,10 +17049,9 @@ public final class ScdbApi {
               quantityUom_ = s;
               break;
             }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 112: {
 
-              storageEndDate_ = s;
+              storageEndDate_ = input.readInt64();
               break;
             }
             case 121: {
@@ -17148,10 +17059,9 @@ public final class ScdbApi {
               storageRate_ = input.readDouble();
               break;
             }
-            case 130: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 128: {
 
-              storageStartDate_ = s;
+              storageStartDate_ = input.readInt64();
               break;
             }
             case 138: {
@@ -17379,37 +17289,12 @@ public final class ScdbApi {
     }
 
     public static final int CREATEDDATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object createdDate_;
+    private long createdDate_;
     /**
-     * <code>string createdDate = 3;</code>
+     * <code>int64 createdDate = 3;</code>
      */
-    public java.lang.String getCreatedDate() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        createdDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string createdDate = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCreatedDateBytes() {
-      java.lang.Object ref = createdDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        createdDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreatedDate() {
+      return createdDate_;
     }
 
     public static final int CSCSGPK_FIELD_NUMBER = 4;
@@ -17549,37 +17434,12 @@ public final class ScdbApi {
     }
 
     public static final int LASTUPDATEDDATE_FIELD_NUMBER = 10;
-    private volatile java.lang.Object lastUpdatedDate_;
+    private long lastUpdatedDate_;
     /**
-     * <code>string lastUpdatedDate = 10;</code>
+     * <code>int64 lastUpdatedDate = 10;</code>
      */
-    public java.lang.String getLastUpdatedDate() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastUpdatedDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string lastUpdatedDate = 10;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLastUpdatedDateBytes() {
-      java.lang.Object ref = lastUpdatedDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastUpdatedDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getLastUpdatedDate() {
+      return lastUpdatedDate_;
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 11;
@@ -17635,37 +17495,12 @@ public final class ScdbApi {
     }
 
     public static final int STORAGEENDDATE_FIELD_NUMBER = 14;
-    private volatile java.lang.Object storageEndDate_;
+    private long storageEndDate_;
     /**
-     * <code>string storageEndDate = 14;</code>
+     * <code>int64 storageEndDate = 14;</code>
      */
-    public java.lang.String getStorageEndDate() {
-      java.lang.Object ref = storageEndDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        storageEndDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string storageEndDate = 14;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStorageEndDateBytes() {
-      java.lang.Object ref = storageEndDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        storageEndDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getStorageEndDate() {
+      return storageEndDate_;
     }
 
     public static final int STORAGERATE_FIELD_NUMBER = 15;
@@ -17678,37 +17513,12 @@ public final class ScdbApi {
     }
 
     public static final int STORAGESTARTDATE_FIELD_NUMBER = 16;
-    private volatile java.lang.Object storageStartDate_;
+    private long storageStartDate_;
     /**
-     * <code>string storageStartDate = 16;</code>
+     * <code>int64 storageStartDate = 16;</code>
      */
-    public java.lang.String getStorageStartDate() {
-      java.lang.Object ref = storageStartDate_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        storageStartDate_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string storageStartDate = 16;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStorageStartDateBytes() {
-      java.lang.Object ref = storageStartDate_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        storageStartDate_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getStorageStartDate() {
+      return storageStartDate_;
     }
 
     public static final int TANKID_FIELD_NUMBER = 17;
@@ -17763,8 +17573,8 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, createdDate_);
+      if (createdDate_ != 0L) {
+        output.writeInt64(3, createdDate_);
       }
       if (cscsgPk_ != 0) {
         output.writeInt32(4, cscsgPk_);
@@ -17784,8 +17594,8 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        output.writeInt64(10, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         output.writeInt32(11, lockNum_);
@@ -17796,14 +17606,14 @@ public final class ScdbApi {
       if (!getQuantityUomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 13, quantityUom_);
       }
-      if (!getStorageEndDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, storageEndDate_);
+      if (storageEndDate_ != 0L) {
+        output.writeInt64(14, storageEndDate_);
       }
       if (storageRate_ != 0D) {
         output.writeDouble(15, storageRate_);
       }
-      if (!getStorageStartDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, storageStartDate_);
+      if (storageStartDate_ != 0L) {
+        output.writeInt64(16, storageStartDate_);
       }
       if (!getTankIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 17, tankId_);
@@ -17822,8 +17632,9 @@ public final class ScdbApi {
       if (!getCreatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, createdBy_);
       }
-      if (!getCreatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, createdDate_);
+      if (createdDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, createdDate_);
       }
       if (cscsgPk_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -17846,8 +17657,9 @@ public final class ScdbApi {
       if (!getLastUpdatedByBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, lastUpdatedBy_);
       }
-      if (!getLastUpdatedDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, lastUpdatedDate_);
+      if (lastUpdatedDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, lastUpdatedDate_);
       }
       if (lockNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -17860,15 +17672,17 @@ public final class ScdbApi {
       if (!getQuantityUomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, quantityUom_);
       }
-      if (!getStorageEndDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, storageEndDate_);
+      if (storageEndDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(14, storageEndDate_);
       }
       if (storageRate_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(15, storageRate_);
       }
-      if (!getStorageStartDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, storageStartDate_);
+      if (storageStartDate_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(16, storageStartDate_);
       }
       if (!getTankIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, tankId_);
@@ -17893,8 +17707,8 @@ public final class ScdbApi {
           == other.getContractCschdFk());
       result = result && getCreatedBy()
           .equals(other.getCreatedBy());
-      result = result && getCreatedDate()
-          .equals(other.getCreatedDate());
+      result = result && (getCreatedDate()
+          == other.getCreatedDate());
       result = result && (getCscsgPk()
           == other.getCscsgPk());
       result = result && (getCurrency()
@@ -17906,8 +17720,8 @@ public final class ScdbApi {
           .equals(other.getIsDeleted());
       result = result && getLastUpdatedBy()
           .equals(other.getLastUpdatedBy());
-      result = result && getLastUpdatedDate()
-          .equals(other.getLastUpdatedDate());
+      result = result && (getLastUpdatedDate()
+          == other.getLastUpdatedDate());
       result = result && (getLockNum()
           == other.getLockNum());
       result = result && (
@@ -17916,14 +17730,14 @@ public final class ScdbApi {
               other.getQuantity()));
       result = result && getQuantityUom()
           .equals(other.getQuantityUom());
-      result = result && getStorageEndDate()
-          .equals(other.getStorageEndDate());
+      result = result && (getStorageEndDate()
+          == other.getStorageEndDate());
       result = result && (
           java.lang.Double.doubleToLongBits(getStorageRate())
           == java.lang.Double.doubleToLongBits(
               other.getStorageRate()));
-      result = result && getStorageStartDate()
-          .equals(other.getStorageStartDate());
+      result = result && (getStorageStartDate()
+          == other.getStorageStartDate());
       result = result && getTankId()
           .equals(other.getTankId());
       return result;
@@ -17942,7 +17756,8 @@ public final class ScdbApi {
       hash = (37 * hash) + CREATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getCreatedBy().hashCode();
       hash = (37 * hash) + CREATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getCreatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCreatedDate());
       hash = (37 * hash) + CSCSGPK_FIELD_NUMBER;
       hash = (53 * hash) + getCscsgPk();
       hash = (37 * hash) + CURRENCY_FIELD_NUMBER;
@@ -17956,7 +17771,8 @@ public final class ScdbApi {
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdatedBy().hashCode();
       hash = (37 * hash) + LASTUPDATEDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getLastUpdatedDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
       hash = (53 * hash) + getLockNum();
       hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
@@ -17965,12 +17781,14 @@ public final class ScdbApi {
       hash = (37 * hash) + QUANTITYUOM_FIELD_NUMBER;
       hash = (53 * hash) + getQuantityUom().hashCode();
       hash = (37 * hash) + STORAGEENDDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStorageEndDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStorageEndDate());
       hash = (37 * hash) + STORAGERATE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getStorageRate()));
       hash = (37 * hash) + STORAGESTARTDATE_FIELD_NUMBER;
-      hash = (53 * hash) + getStorageStartDate().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStorageStartDate());
       hash = (37 * hash) + TANKID_FIELD_NUMBER;
       hash = (53 * hash) + getTankId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -18106,7 +17924,7 @@ public final class ScdbApi {
 
         createdBy_ = "";
 
-        createdDate_ = "";
+        createdDate_ = 0L;
 
         cscsgPk_ = 0;
 
@@ -18120,7 +17938,7 @@ public final class ScdbApi {
 
         lastUpdatedBy_ = "";
 
-        lastUpdatedDate_ = "";
+        lastUpdatedDate_ = 0L;
 
         lockNum_ = 0;
 
@@ -18128,11 +17946,11 @@ public final class ScdbApi {
 
         quantityUom_ = "";
 
-        storageEndDate_ = "";
+        storageEndDate_ = 0L;
 
         storageRate_ = 0D;
 
-        storageStartDate_ = "";
+        storageStartDate_ = 0L;
 
         tankId_ = "";
 
@@ -18223,9 +18041,8 @@ public final class ScdbApi {
           createdBy_ = other.createdBy_;
           onChanged();
         }
-        if (!other.getCreatedDate().isEmpty()) {
-          createdDate_ = other.createdDate_;
-          onChanged();
+        if (other.getCreatedDate() != 0L) {
+          setCreatedDate(other.getCreatedDate());
         }
         if (other.getCscsgPk() != 0) {
           setCscsgPk(other.getCscsgPk());
@@ -18248,9 +18065,8 @@ public final class ScdbApi {
           lastUpdatedBy_ = other.lastUpdatedBy_;
           onChanged();
         }
-        if (!other.getLastUpdatedDate().isEmpty()) {
-          lastUpdatedDate_ = other.lastUpdatedDate_;
-          onChanged();
+        if (other.getLastUpdatedDate() != 0L) {
+          setLastUpdatedDate(other.getLastUpdatedDate());
         }
         if (other.getLockNum() != 0) {
           setLockNum(other.getLockNum());
@@ -18262,16 +18078,14 @@ public final class ScdbApi {
           quantityUom_ = other.quantityUom_;
           onChanged();
         }
-        if (!other.getStorageEndDate().isEmpty()) {
-          storageEndDate_ = other.storageEndDate_;
-          onChanged();
+        if (other.getStorageEndDate() != 0L) {
+          setStorageEndDate(other.getStorageEndDate());
         }
         if (other.getStorageRate() != 0D) {
           setStorageRate(other.getStorageRate());
         }
-        if (!other.getStorageStartDate().isEmpty()) {
-          storageStartDate_ = other.storageStartDate_;
-          onChanged();
+        if (other.getStorageStartDate() != 0L) {
+          setStorageStartDate(other.getStorageStartDate());
         }
         if (!other.getTankId().isEmpty()) {
           tankId_ = other.tankId_;
@@ -18398,71 +18212,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object createdDate_ = "";
+      private long createdDate_ ;
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
-      public java.lang.String getCreatedDate() {
-        java.lang.Object ref = createdDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          createdDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getCreatedDate() {
+        return createdDate_;
       }
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getCreatedDateBytes() {
-        java.lang.Object ref = createdDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          createdDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string createdDate = 3;</code>
-       */
-      public Builder setCreatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setCreatedDate(long value) {
+        
         createdDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string createdDate = 3;</code>
+       * <code>int64 createdDate = 3;</code>
        */
       public Builder clearCreatedDate() {
         
-        createdDate_ = getDefaultInstance().getCreatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string createdDate = 3;</code>
-       */
-      public Builder setCreatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        createdDate_ = value;
+        createdDate_ = 0L;
         onChanged();
         return this;
       }
@@ -18770,71 +18541,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object lastUpdatedDate_ = "";
+      private long lastUpdatedDate_ ;
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
-      public java.lang.String getLastUpdatedDate() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastUpdatedDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getLastUpdatedDate() {
+        return lastUpdatedDate_;
       }
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
-      public com.google.protobuf.ByteString
-          getLastUpdatedDateBytes() {
-        java.lang.Object ref = lastUpdatedDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastUpdatedDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string lastUpdatedDate = 10;</code>
-       */
-      public Builder setLastUpdatedDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setLastUpdatedDate(long value) {
+        
         lastUpdatedDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string lastUpdatedDate = 10;</code>
+       * <code>int64 lastUpdatedDate = 10;</code>
        */
       public Builder clearLastUpdatedDate() {
         
-        lastUpdatedDate_ = getDefaultInstance().getLastUpdatedDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastUpdatedDate = 10;</code>
-       */
-      public Builder setLastUpdatedDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastUpdatedDate_ = value;
+        lastUpdatedDate_ = 0L;
         onChanged();
         return this;
       }
@@ -18960,71 +18688,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object storageEndDate_ = "";
+      private long storageEndDate_ ;
       /**
-       * <code>string storageEndDate = 14;</code>
+       * <code>int64 storageEndDate = 14;</code>
        */
-      public java.lang.String getStorageEndDate() {
-        java.lang.Object ref = storageEndDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          storageEndDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getStorageEndDate() {
+        return storageEndDate_;
       }
       /**
-       * <code>string storageEndDate = 14;</code>
+       * <code>int64 storageEndDate = 14;</code>
        */
-      public com.google.protobuf.ByteString
-          getStorageEndDateBytes() {
-        java.lang.Object ref = storageEndDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          storageEndDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string storageEndDate = 14;</code>
-       */
-      public Builder setStorageEndDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setStorageEndDate(long value) {
+        
         storageEndDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string storageEndDate = 14;</code>
+       * <code>int64 storageEndDate = 14;</code>
        */
       public Builder clearStorageEndDate() {
         
-        storageEndDate_ = getDefaultInstance().getStorageEndDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string storageEndDate = 14;</code>
-       */
-      public Builder setStorageEndDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        storageEndDate_ = value;
+        storageEndDate_ = 0L;
         onChanged();
         return this;
       }
@@ -19055,71 +18740,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private java.lang.Object storageStartDate_ = "";
+      private long storageStartDate_ ;
       /**
-       * <code>string storageStartDate = 16;</code>
+       * <code>int64 storageStartDate = 16;</code>
        */
-      public java.lang.String getStorageStartDate() {
-        java.lang.Object ref = storageStartDate_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          storageStartDate_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getStorageStartDate() {
+        return storageStartDate_;
       }
       /**
-       * <code>string storageStartDate = 16;</code>
+       * <code>int64 storageStartDate = 16;</code>
        */
-      public com.google.protobuf.ByteString
-          getStorageStartDateBytes() {
-        java.lang.Object ref = storageStartDate_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          storageStartDate_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string storageStartDate = 16;</code>
-       */
-      public Builder setStorageStartDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setStorageStartDate(long value) {
+        
         storageStartDate_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string storageStartDate = 16;</code>
+       * <code>int64 storageStartDate = 16;</code>
        */
       public Builder clearStorageStartDate() {
         
-        storageStartDate_ = getDefaultInstance().getStorageStartDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string storageStartDate = 16;</code>
-       */
-      public Builder setStorageStartDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        storageStartDate_ = value;
+        storageStartDate_ = 0L;
         onChanged();
         return this;
       }
@@ -19324,9 +18966,9 @@ public final class ScdbApi {
       "$.org.simplity.apiscdb.ContractHeader\022\017\n" +
       "\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\005\022" +
       "\027\n\017contractCschdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003 " +
-      "\001(\t\022\023\n\013createdDate\030\004 \001(\t\022\017\n\007cscbsPk\030\005 \001(",
+      "\001(\t\022\023\n\013createdDate\030\004 \001(\003\022\017\n\007cscbsPk\030\005 \001(",
       "\005\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 " +
-      "\001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\t\022\017\n\007lockNum\030" +
+      "\001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\003\022\017\n\007lockNum\030" +
       "\t \001(\005\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001 " +
       "\001(\t\022\022\n\nassetOwner\030\002 \001(\t\022,\n\007benches\030\003 \003(\013" +
       "2\033.org.simplity.apiscdb.Bench\022\025\n\rbpContr" +
@@ -19369,43 +19011,44 @@ public final class ScdbApi {
       "\n\010Location\022\014\n\004city\030\001 \001(\t\022\027\n\017contractCsch" +
       "dFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\005\022\016\n\006county\030\004 \001" +
       "(\t\022\021\n\tcreatedBy\030\005 \001(\t\022\023\n\013createdDate\030\006 \001" +
-      "(\t\022\017\n\007csclsPk\030\007 \001(\005\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
+      "(\003\022\017\n\007csclsPk\030\007 \001(\005\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
       "\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate" +
-      "\030\n \001(\t\022\017\n\007lockNum\030\013 \001(\005\022\r\n\005state\030\014 \001(\t\"\371" +
-      "\001\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcrea" +
-      "tedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n\007cscr" +
+      "\030\n \001(\003\022\017\n\007lockNum\030\013 \001(\005\022\r\n\005state\030\014 \001(\t\"\253" +
+      "\002\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcrea" +
+      "tedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cscr" +
       "dPk\030\004 \001(\005\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpda",
-      "tedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\t\022\017\n\007" +
+      "tedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\003\022\017\n\007" +
       "lockNum\030\010 \001(\005\022\031\n\021primaryIndividual\030\t \001(\t" +
-      "\022\023\n\013roleCscrtFk\030\n \001(\005\022\033\n\023secondaryIndivi" +
-      "dual\030\013 \001(\t\"$\n\010RoleType\022\n\n\002id\030\001 \001(\005\022\014\n\004na" +
-      "me\030\002 \001(\t\">\n\tRoleTypes\0221\n\troleTypes\030\001 \003(\013" +
-      "2\036.org.simplity.apiscdb.RoleType\"\274\003\n\016Sea" +
-      "rchCriteria\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetO" +
-      "wner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContractN" +
-      "um\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014\n" +
-      "\004city\030\006 \001(\t\022Y\n\016contractStatus\030\007 \001(\0162A.or",
-      "g.simplity.apiscdb.SearchCriteria.Search" +
-      "Criteria_ContractStatu\022\017\n\007country\030\010 \001(\005\022" +
-      "\016\n\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001(" +
-      "\t\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022" +
-      "\016\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005stat" +
-      "e\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034SearchCrite" +
-      "ria_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"" +
-      "\215\004\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\t" +
-      "createdBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\t\022\017\n\007" +
-      "cscsgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(\005\022\023\n\013descr",
-      "iption\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org.s" +
-      "implity.apiscdb.Storage.Storage_GradeGro" +
-      "up\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030\t" +
-      " \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\t\022\017\n\007lockNum" +
-      "\030\013 \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030" +
-      "\r \001(\t\022\026\n\016storageEndDate\030\016 \001(\t\022\023\n\013storage" +
-      "Rate\030\017 \001(\001\022\030\n\020storageStartDate\030\020 \001(\t\022\016\n\006" +
-      "tankId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007ET" +
-      "HANOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIESE" +
-      "L\020\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n\005",
-      "CURDE\020\007b\006proto3"
+      "\022\023\n\013roleCscrtFk\030\n \001(\005\0220\n\010roleType\030\013 \003(\0132" +
+      "\036.org.simplity.apiscdb.RoleType\022\033\n\023secon" +
+      "daryIndividual\030\014 \001(\t\"$\n\010RoleType\022\n\n\002id\030\001" +
+      " \001(\005\022\014\n\004name\030\002 \001(\t\">\n\tRoleTypes\0221\n\troleT" +
+      "ypes\030\001 \003(\0132\036.org.simplity.apiscdb.RoleTy" +
+      "pe\"\274\003\n\016SearchCriteria\022\021\n\tassetName\030\001 \001(\t" +
+      "\022\022\n\nassetOwner\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rb" +
+      "pContractNum\030\004 \001(\t\022\033\n\023bpContractingEntit",
+      "y\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022Y\n\016contractStatus\030" +
+      "\007 \001(\0162A.org.simplity.apiscdb.SearchCrite" +
+      "ria.SearchCriteria_ContractStatu\022\017\n\007coun" +
+      "try\030\010 \001(\005\022\016\n\006county\030\t \001(\t\022\030\n\020dealCounter" +
+      "Party\030\n \001(\t\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGr" +
+      "oup\030\014 \001(\005\022\016\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001" +
+      "(\t\022\r\n\005state\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034S" +
+      "earchCriteria_ContractStatu\022\010\n\004LIVE\020\000\022\n\n" +
+      "\006CLOSED\020\001\"\215\004\n\007Storage\022\027\n\017contractCschdFk" +
+      "\030\001 \001(\003\022\021\n\tcreatedBy\030\002 \001(\t\022\023\n\013createdDate",
+      "\030\003 \001(\003\022\017\n\007cscsgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(" +
+      "\005\022\023\n\013description\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001" +
+      "(\01620.org.simplity.apiscdb.Storage.Storag" +
+      "e_GradeGroup\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastU" +
+      "pdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022" +
+      "\017\n\007lockNum\030\013 \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013qu" +
+      "antityUom\030\r \001(\t\022\026\n\016storageEndDate\030\016 \001(\003\022" +
+      "\023\n\013storageRate\030\017 \001(\001\022\030\n\020storageStartDate" +
+      "\030\020 \001(\003\022\016\n\006tankId\030\021 \001(\t\"q\n\022Storage_GradeG" +
+      "roup\022\013\n\007ETHANOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r",
+      "\n\tBIODIESEL\020\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DIL" +
+      "UENT\020\006\022\t\n\005CURDE\020\007b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19473,7 +19116,7 @@ public final class ScdbApi {
     internal_static_org_simplity_apiscdb_Role_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Role_descriptor,
-        new java.lang.String[] { "ContractCschdFk", "CreatedBy", "CreatedDate", "CscrdPk", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "PrimaryIndividual", "RoleCscrtFk", "SecondaryIndividual", });
+        new java.lang.String[] { "ContractCschdFk", "CreatedBy", "CreatedDate", "CscrdPk", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "PrimaryIndividual", "RoleCscrtFk", "RoleType", "SecondaryIndividual", });
     internal_static_org_simplity_apiscdb_RoleType_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_org_simplity_apiscdb_RoleType_fieldAccessorTable = new
