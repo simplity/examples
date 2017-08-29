@@ -19,8 +19,16 @@
 		<servlet-name>RestSimplity</servlet-name>
 		<servlet-class>org.simplity.rest.Serve</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>SimpleHttp</servlet-name>
+		<servlet-class>org.simplity.http.Serve</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RestSimplity</servlet-name>
 		<url-pattern>/scdb/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SimpleHttp</servlet-name>
+		<url-pattern>/a.s</url-pattern>
 	</servlet-mapping>
 </web-app>
