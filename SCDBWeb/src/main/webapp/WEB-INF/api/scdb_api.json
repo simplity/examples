@@ -246,7 +246,8 @@
         },
  
         "lockNum": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
         },
         "notes": {
             "type": "string"
@@ -255,7 +256,8 @@
             "type": "string"
         },
         "region": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
         },
         "status": {
           "type": "string",
@@ -301,7 +303,8 @@
           "type": "object",
           "properties": {
            "bench": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "contractCschdFk": {
             "type": "integer",
@@ -315,7 +318,8 @@
             "format": "int64"
           },
           "cscbsPk": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "isDeleted": {
             "type": "string"
@@ -328,7 +332,8 @@
             "format": "int64"
           },
           "lockNum": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           }
        }
     },
@@ -343,7 +348,8 @@
             "format": "int64"
           },
           "country": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "county": {
             "type": "string"
@@ -356,7 +362,8 @@
             "format": "int64"
           },
           "csclsPk": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "isDeleted": {
             "type": "string"
@@ -369,7 +376,8 @@
             "format": "int64"
           },
           "lockNum": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "state": {
             "type": "string"
@@ -391,7 +399,8 @@
           "format": "double"
         },
         "currency": {
-          "type": "integer"
+          "type": "integer",
+            "format": "int64"
         },
         "gradeGroup": {
           "type": "string",
@@ -418,7 +427,8 @@
           "format": "int64"
         },
         "cscsgPk": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "description": {
           "type": "string"
@@ -434,7 +444,8 @@
           "format": "int64"
         },
         "lockNum": {
-          "type": "integer"
+          "type": "integer",
+            "format": "int64"
         },
         "quantityUom": {
           "type": "string"
@@ -464,7 +475,8 @@
           "format": "int64"
         },
         "cscrdPk": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"          
         },
         "isDeleted": {
           "type": "string"
@@ -477,13 +489,15 @@
           "format": "int64"
         },
         "lockNum": {
-          "type": "integer"
+          "type": "integer",
+            "format": "int64"
         },
         "primaryIndividual": {
           "type": "string"
         },
         "roleCscrtFk": {
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "roleType": {
          "type": "array",

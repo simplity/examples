@@ -194,17 +194,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.PostContractRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.PostContractRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.PostContractRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -733,17 +722,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.GetContractCschdPkRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -1266,17 +1244,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.PutContractCschdPkRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.PutContractCschdPkRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.PutContractCschdPkRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -1738,9 +1705,9 @@ public final class ScdbApi {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 bench = 1;</code>
+     * <code>int64 bench = 1;</code>
      */
-    int getBench();
+    long getBench();
 
     /**
      * <code>int64 contractCschdFk = 2;</code>
@@ -1763,9 +1730,9 @@ public final class ScdbApi {
     long getCreatedDate();
 
     /**
-     * <code>int32 cscbsPk = 5;</code>
+     * <code>int64 cscbsPk = 5;</code>
      */
-    int getCscbsPk();
+    long getCscbsPk();
 
     /**
      * <code>string isDeleted = 6;</code>
@@ -1793,9 +1760,9 @@ public final class ScdbApi {
     long getLastUpdatedDate();
 
     /**
-     * <code>int32 lockNum = 9;</code>
+     * <code>int64 lockNum = 9;</code>
      */
-    int getLockNum();
+    long getLockNum();
   }
   /**
    * Protobuf type {@code org.simplity.apiscdb.Bench}
@@ -1809,15 +1776,15 @@ public final class ScdbApi {
       super(builder);
     }
     private Bench() {
-      bench_ = 0;
+      bench_ = 0L;
       contractCschdFk_ = 0L;
       createdBy_ = "";
       createdDate_ = 0L;
-      cscbsPk_ = 0;
+      cscbsPk_ = 0L;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = 0L;
-      lockNum_ = 0;
+      lockNum_ = 0L;
     }
 
     @java.lang.Override
@@ -1847,7 +1814,7 @@ public final class ScdbApi {
             }
             case 8: {
 
-              bench_ = input.readInt32();
+              bench_ = input.readInt64();
               break;
             }
             case 16: {
@@ -1868,7 +1835,7 @@ public final class ScdbApi {
             }
             case 40: {
 
-              cscbsPk_ = input.readInt32();
+              cscbsPk_ = input.readInt64();
               break;
             }
             case 50: {
@@ -1890,7 +1857,7 @@ public final class ScdbApi {
             }
             case 72: {
 
-              lockNum_ = input.readInt32();
+              lockNum_ = input.readInt64();
               break;
             }
           }
@@ -1917,11 +1884,11 @@ public final class ScdbApi {
     }
 
     public static final int BENCH_FIELD_NUMBER = 1;
-    private int bench_;
+    private long bench_;
     /**
-     * <code>int32 bench = 1;</code>
+     * <code>int64 bench = 1;</code>
      */
-    public int getBench() {
+    public long getBench() {
       return bench_;
     }
 
@@ -1978,11 +1945,11 @@ public final class ScdbApi {
     }
 
     public static final int CSCBSPK_FIELD_NUMBER = 5;
-    private int cscbsPk_;
+    private long cscbsPk_;
     /**
-     * <code>int32 cscbsPk = 5;</code>
+     * <code>int64 cscbsPk = 5;</code>
      */
-    public int getCscbsPk() {
+    public long getCscbsPk() {
       return cscbsPk_;
     }
 
@@ -2064,11 +2031,11 @@ public final class ScdbApi {
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 9;
-    private int lockNum_;
+    private long lockNum_;
     /**
-     * <code>int32 lockNum = 9;</code>
+     * <code>int64 lockNum = 9;</code>
      */
-    public int getLockNum() {
+    public long getLockNum() {
       return lockNum_;
     }
 
@@ -2084,8 +2051,8 @@ public final class ScdbApi {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (bench_ != 0) {
-        output.writeInt32(1, bench_);
+      if (bench_ != 0L) {
+        output.writeInt64(1, bench_);
       }
       if (contractCschdFk_ != 0L) {
         output.writeInt64(2, contractCschdFk_);
@@ -2096,8 +2063,8 @@ public final class ScdbApi {
       if (createdDate_ != 0L) {
         output.writeInt64(4, createdDate_);
       }
-      if (cscbsPk_ != 0) {
-        output.writeInt32(5, cscbsPk_);
+      if (cscbsPk_ != 0L) {
+        output.writeInt64(5, cscbsPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, isDeleted_);
@@ -2108,8 +2075,8 @@ public final class ScdbApi {
       if (lastUpdatedDate_ != 0L) {
         output.writeInt64(8, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
-        output.writeInt32(9, lockNum_);
+      if (lockNum_ != 0L) {
+        output.writeInt64(9, lockNum_);
       }
     }
 
@@ -2118,9 +2085,9 @@ public final class ScdbApi {
       if (size != -1) return size;
 
       size = 0;
-      if (bench_ != 0) {
+      if (bench_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, bench_);
+          .computeInt64Size(1, bench_);
       }
       if (contractCschdFk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -2133,9 +2100,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, createdDate_);
       }
-      if (cscbsPk_ != 0) {
+      if (cscbsPk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, cscbsPk_);
+          .computeInt64Size(5, cscbsPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, isDeleted_);
@@ -2147,9 +2114,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(8, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
+      if (lockNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, lockNum_);
+          .computeInt64Size(9, lockNum_);
       }
       memoizedSize = size;
       return size;
@@ -2196,7 +2163,8 @@ public final class ScdbApi {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + BENCH_FIELD_NUMBER;
-      hash = (53 * hash) + getBench();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBench());
       hash = (37 * hash) + CONTRACTCSCHDFK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getContractCschdFk());
@@ -2206,7 +2174,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedDate());
       hash = (37 * hash) + CSCBSPK_FIELD_NUMBER;
-      hash = (53 * hash) + getCscbsPk();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCscbsPk());
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
       hash = (53 * hash) + getIsDeleted().hashCode();
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
@@ -2215,23 +2184,13 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
-      hash = (53 * hash) + getLockNum();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLockNum());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.Bench parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.Bench parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.Bench parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2345,7 +2304,7 @@ public final class ScdbApi {
       }
       public Builder clear() {
         super.clear();
-        bench_ = 0;
+        bench_ = 0L;
 
         contractCschdFk_ = 0L;
 
@@ -2353,7 +2312,7 @@ public final class ScdbApi {
 
         createdDate_ = 0L;
 
-        cscbsPk_ = 0;
+        cscbsPk_ = 0L;
 
         isDeleted_ = "";
 
@@ -2361,7 +2320,7 @@ public final class ScdbApi {
 
         lastUpdatedDate_ = 0L;
 
-        lockNum_ = 0;
+        lockNum_ = 0L;
 
         return this;
       }
@@ -2435,7 +2394,7 @@ public final class ScdbApi {
 
       public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.Bench other) {
         if (other == org.simplity.apiscdb.ScdbApi.Bench.getDefaultInstance()) return this;
-        if (other.getBench() != 0) {
+        if (other.getBench() != 0L) {
           setBench(other.getBench());
         }
         if (other.getContractCschdFk() != 0L) {
@@ -2448,7 +2407,7 @@ public final class ScdbApi {
         if (other.getCreatedDate() != 0L) {
           setCreatedDate(other.getCreatedDate());
         }
-        if (other.getCscbsPk() != 0) {
+        if (other.getCscbsPk() != 0L) {
           setCscbsPk(other.getCscbsPk());
         }
         if (!other.getIsDeleted().isEmpty()) {
@@ -2462,7 +2421,7 @@ public final class ScdbApi {
         if (other.getLastUpdatedDate() != 0L) {
           setLastUpdatedDate(other.getLastUpdatedDate());
         }
-        if (other.getLockNum() != 0) {
+        if (other.getLockNum() != 0L) {
           setLockNum(other.getLockNum());
         }
         onChanged();
@@ -2491,28 +2450,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int bench_ ;
+      private long bench_ ;
       /**
-       * <code>int32 bench = 1;</code>
+       * <code>int64 bench = 1;</code>
        */
-      public int getBench() {
+      public long getBench() {
         return bench_;
       }
       /**
-       * <code>int32 bench = 1;</code>
+       * <code>int64 bench = 1;</code>
        */
-      public Builder setBench(int value) {
+      public Builder setBench(long value) {
         
         bench_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 bench = 1;</code>
+       * <code>int64 bench = 1;</code>
        */
       public Builder clearBench() {
         
-        bench_ = 0;
+        bench_ = 0L;
         onChanged();
         return this;
       }
@@ -2638,28 +2597,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int cscbsPk_ ;
+      private long cscbsPk_ ;
       /**
-       * <code>int32 cscbsPk = 5;</code>
+       * <code>int64 cscbsPk = 5;</code>
        */
-      public int getCscbsPk() {
+      public long getCscbsPk() {
         return cscbsPk_;
       }
       /**
-       * <code>int32 cscbsPk = 5;</code>
+       * <code>int64 cscbsPk = 5;</code>
        */
-      public Builder setCscbsPk(int value) {
+      public Builder setCscbsPk(long value) {
         
         cscbsPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cscbsPk = 5;</code>
+       * <code>int64 cscbsPk = 5;</code>
        */
       public Builder clearCscbsPk() {
         
-        cscbsPk_ = 0;
+        cscbsPk_ = 0L;
         onChanged();
         return this;
       }
@@ -2828,28 +2787,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int lockNum_ ;
+      private long lockNum_ ;
       /**
-       * <code>int32 lockNum = 9;</code>
+       * <code>int64 lockNum = 9;</code>
        */
-      public int getLockNum() {
+      public long getLockNum() {
         return lockNum_;
       }
       /**
-       * <code>int32 lockNum = 9;</code>
+       * <code>int64 lockNum = 9;</code>
        */
-      public Builder setLockNum(int value) {
+      public Builder setLockNum(long value) {
         
         lockNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 lockNum = 9;</code>
+       * <code>int64 lockNum = 9;</code>
        */
       public Builder clearLockNum() {
         
-        lockNum_ = 0;
+        lockNum_ = 0L;
         onChanged();
         return this;
       }
@@ -3157,9 +3116,9 @@ public final class ScdbApi {
         int index);
 
     /**
-     * <code>int32 lockNum = 29;</code>
+     * <code>int64 lockNum = 29;</code>
      */
-    int getLockNum();
+    long getLockNum();
 
     /**
      * <code>string notes = 30;</code>
@@ -3182,9 +3141,9 @@ public final class ScdbApi {
         getOtherReferenceNumBytes();
 
     /**
-     * <code>int32 region = 32;</code>
+     * <code>int64 region = 32;</code>
      */
-    int getRegion();
+    long getRegion();
 
     /**
      * <code>repeated .org.simplity.apiscdb.Role roleDetails = 33;</code>
@@ -3298,10 +3257,10 @@ public final class ScdbApi {
       leasePercentage_ = 0D;
       leaseType_ = 0;
       locations_ = java.util.Collections.emptyList();
-      lockNum_ = 0;
+      lockNum_ = 0L;
       notes_ = "";
       otherReferenceNum_ = "";
-      region_ = 0;
+      region_ = 0L;
       roleDetails_ = java.util.Collections.emptyList();
       status_ = 0;
       storages_ = java.util.Collections.emptyList();
@@ -3500,7 +3459,7 @@ public final class ScdbApi {
             }
             case 232: {
 
-              lockNum_ = input.readInt32();
+              lockNum_ = input.readInt64();
               break;
             }
             case 242: {
@@ -3517,7 +3476,7 @@ public final class ScdbApi {
             }
             case 256: {
 
-              region_ = input.readInt32();
+              region_ = input.readInt64();
               break;
             }
             case 266: {
@@ -4628,11 +4587,11 @@ public final class ScdbApi {
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 29;
-    private int lockNum_;
+    private long lockNum_;
     /**
-     * <code>int32 lockNum = 29;</code>
+     * <code>int64 lockNum = 29;</code>
      */
-    public int getLockNum() {
+    public long getLockNum() {
       return lockNum_;
     }
 
@@ -4705,11 +4664,11 @@ public final class ScdbApi {
     }
 
     public static final int REGION_FIELD_NUMBER = 32;
-    private int region_;
+    private long region_;
     /**
-     * <code>int32 region = 32;</code>
+     * <code>int64 region = 32;</code>
      */
-    public int getRegion() {
+    public long getRegion() {
       return region_;
     }
 
@@ -4938,8 +4897,8 @@ public final class ScdbApi {
       for (int i = 0; i < locations_.size(); i++) {
         output.writeMessage(28, locations_.get(i));
       }
-      if (lockNum_ != 0) {
-        output.writeInt32(29, lockNum_);
+      if (lockNum_ != 0L) {
+        output.writeInt64(29, lockNum_);
       }
       if (!getNotesBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 30, notes_);
@@ -4947,8 +4906,8 @@ public final class ScdbApi {
       if (!getOtherReferenceNumBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 31, otherReferenceNum_);
       }
-      if (region_ != 0) {
-        output.writeInt32(32, region_);
+      if (region_ != 0L) {
+        output.writeInt64(32, region_);
       }
       for (int i = 0; i < roleDetails_.size(); i++) {
         output.writeMessage(33, roleDetails_.get(i));
@@ -5072,9 +5031,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(28, locations_.get(i));
       }
-      if (lockNum_ != 0) {
+      if (lockNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(29, lockNum_);
+          .computeInt64Size(29, lockNum_);
       }
       if (!getNotesBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30, notes_);
@@ -5082,9 +5041,9 @@ public final class ScdbApi {
       if (!getOtherReferenceNumBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(31, otherReferenceNum_);
       }
-      if (region_ != 0) {
+      if (region_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(32, region_);
+          .computeInt64Size(32, region_);
       }
       for (int i = 0; i < roleDetails_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -5283,13 +5242,15 @@ public final class ScdbApi {
         hash = (53 * hash) + getLocationsList().hashCode();
       }
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
-      hash = (53 * hash) + getLockNum();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLockNum());
       hash = (37 * hash) + NOTES_FIELD_NUMBER;
       hash = (53 * hash) + getNotes().hashCode();
       hash = (37 * hash) + OTHERREFERENCENUM_FIELD_NUMBER;
       hash = (53 * hash) + getOtherReferenceNum().hashCode();
       hash = (37 * hash) + REGION_FIELD_NUMBER;
-      hash = (53 * hash) + getRegion();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegion());
       if (getRoleDetailsCount() > 0) {
         hash = (37 * hash) + ROLEDETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getRoleDetailsList().hashCode();
@@ -5310,17 +5271,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.ContractHeader parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.ContractHeader parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.ContractHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5502,13 +5452,13 @@ public final class ScdbApi {
         } else {
           locationsBuilder_.clear();
         }
-        lockNum_ = 0;
+        lockNum_ = 0L;
 
         notes_ = "";
 
         otherReferenceNum_ = "";
 
-        region_ = 0;
+        region_ = 0L;
 
         if (roleDetailsBuilder_ == null) {
           roleDetails_ = java.util.Collections.emptyList();
@@ -5808,7 +5758,7 @@ public final class ScdbApi {
             }
           }
         }
-        if (other.getLockNum() != 0) {
+        if (other.getLockNum() != 0L) {
           setLockNum(other.getLockNum());
         }
         if (!other.getNotes().isEmpty()) {
@@ -5819,7 +5769,7 @@ public final class ScdbApi {
           otherReferenceNum_ = other.otherReferenceNum_;
           onChanged();
         }
-        if (other.getRegion() != 0) {
+        if (other.getRegion() != 0L) {
           setRegion(other.getRegion());
         }
         if (roleDetailsBuilder_ == null) {
@@ -7638,28 +7588,28 @@ public final class ScdbApi {
         return locationsBuilder_;
       }
 
-      private int lockNum_ ;
+      private long lockNum_ ;
       /**
-       * <code>int32 lockNum = 29;</code>
+       * <code>int64 lockNum = 29;</code>
        */
-      public int getLockNum() {
+      public long getLockNum() {
         return lockNum_;
       }
       /**
-       * <code>int32 lockNum = 29;</code>
+       * <code>int64 lockNum = 29;</code>
        */
-      public Builder setLockNum(int value) {
+      public Builder setLockNum(long value) {
         
         lockNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 lockNum = 29;</code>
+       * <code>int64 lockNum = 29;</code>
        */
       public Builder clearLockNum() {
         
-        lockNum_ = 0;
+        lockNum_ = 0L;
         onChanged();
         return this;
       }
@@ -7802,28 +7752,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int region_ ;
+      private long region_ ;
       /**
-       * <code>int32 region = 32;</code>
+       * <code>int64 region = 32;</code>
        */
-      public int getRegion() {
+      public long getRegion() {
         return region_;
       }
       /**
-       * <code>int32 region = 32;</code>
+       * <code>int64 region = 32;</code>
        */
-      public Builder setRegion(int value) {
+      public Builder setRegion(long value) {
         
         region_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 region = 32;</code>
+       * <code>int64 region = 32;</code>
        */
       public Builder clearRegion() {
         
-        region_ = 0;
+        region_ = 0L;
         onChanged();
         return this;
       }
@@ -8697,17 +8647,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.ContractHeaders parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.ContractHeaders parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.ContractHeaders parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -9419,17 +9358,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.ErrorResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.ErrorResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.ErrorResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -9775,9 +9703,9 @@ public final class ScdbApi {
     long getContractCschdFk();
 
     /**
-     * <code>int32 country = 3;</code>
+     * <code>int64 country = 3;</code>
      */
-    int getCountry();
+    long getCountry();
 
     /**
      * <code>string county = 4;</code>
@@ -9805,9 +9733,9 @@ public final class ScdbApi {
     long getCreatedDate();
 
     /**
-     * <code>int32 csclsPk = 7;</code>
+     * <code>int64 csclsPk = 7;</code>
      */
-    int getCsclsPk();
+    long getCsclsPk();
 
     /**
      * <code>string isDeleted = 8;</code>
@@ -9835,9 +9763,9 @@ public final class ScdbApi {
     long getLastUpdatedDate();
 
     /**
-     * <code>int32 lockNum = 11;</code>
+     * <code>int64 lockNum = 11;</code>
      */
-    int getLockNum();
+    long getLockNum();
 
     /**
      * <code>string state = 12;</code>
@@ -9863,15 +9791,15 @@ public final class ScdbApi {
     private Location() {
       city_ = "";
       contractCschdFk_ = 0L;
-      country_ = 0;
+      country_ = 0L;
       county_ = "";
       createdBy_ = "";
       createdDate_ = 0L;
-      csclsPk_ = 0;
+      csclsPk_ = 0L;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = 0L;
-      lockNum_ = 0;
+      lockNum_ = 0L;
       state_ = "";
     }
 
@@ -9913,7 +9841,7 @@ public final class ScdbApi {
             }
             case 24: {
 
-              country_ = input.readInt32();
+              country_ = input.readInt64();
               break;
             }
             case 34: {
@@ -9935,7 +9863,7 @@ public final class ScdbApi {
             }
             case 56: {
 
-              csclsPk_ = input.readInt32();
+              csclsPk_ = input.readInt64();
               break;
             }
             case 66: {
@@ -9957,7 +9885,7 @@ public final class ScdbApi {
             }
             case 88: {
 
-              lockNum_ = input.readInt32();
+              lockNum_ = input.readInt64();
               break;
             }
             case 98: {
@@ -10033,11 +9961,11 @@ public final class ScdbApi {
     }
 
     public static final int COUNTRY_FIELD_NUMBER = 3;
-    private int country_;
+    private long country_;
     /**
-     * <code>int32 country = 3;</code>
+     * <code>int64 country = 3;</code>
      */
-    public int getCountry() {
+    public long getCountry() {
       return country_;
     }
 
@@ -10119,11 +10047,11 @@ public final class ScdbApi {
     }
 
     public static final int CSCLSPK_FIELD_NUMBER = 7;
-    private int csclsPk_;
+    private long csclsPk_;
     /**
-     * <code>int32 csclsPk = 7;</code>
+     * <code>int64 csclsPk = 7;</code>
      */
-    public int getCsclsPk() {
+    public long getCsclsPk() {
       return csclsPk_;
     }
 
@@ -10205,11 +10133,11 @@ public final class ScdbApi {
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 11;
-    private int lockNum_;
+    private long lockNum_;
     /**
-     * <code>int32 lockNum = 11;</code>
+     * <code>int64 lockNum = 11;</code>
      */
-    public int getLockNum() {
+    public long getLockNum() {
       return lockNum_;
     }
 
@@ -10265,8 +10193,8 @@ public final class ScdbApi {
       if (contractCschdFk_ != 0L) {
         output.writeInt64(2, contractCschdFk_);
       }
-      if (country_ != 0) {
-        output.writeInt32(3, country_);
+      if (country_ != 0L) {
+        output.writeInt64(3, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, county_);
@@ -10277,8 +10205,8 @@ public final class ScdbApi {
       if (createdDate_ != 0L) {
         output.writeInt64(6, createdDate_);
       }
-      if (csclsPk_ != 0) {
-        output.writeInt32(7, csclsPk_);
+      if (csclsPk_ != 0L) {
+        output.writeInt64(7, csclsPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, isDeleted_);
@@ -10289,8 +10217,8 @@ public final class ScdbApi {
       if (lastUpdatedDate_ != 0L) {
         output.writeInt64(10, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
-        output.writeInt32(11, lockNum_);
+      if (lockNum_ != 0L) {
+        output.writeInt64(11, lockNum_);
       }
       if (!getStateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, state_);
@@ -10309,9 +10237,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, contractCschdFk_);
       }
-      if (country_ != 0) {
+      if (country_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, country_);
+          .computeInt64Size(3, country_);
       }
       if (!getCountyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, county_);
@@ -10323,9 +10251,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, createdDate_);
       }
-      if (csclsPk_ != 0) {
+      if (csclsPk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, csclsPk_);
+          .computeInt64Size(7, csclsPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, isDeleted_);
@@ -10337,9 +10265,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
+      if (lockNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, lockNum_);
+          .computeInt64Size(11, lockNum_);
       }
       if (!getStateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, state_);
@@ -10400,7 +10328,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getContractCschdFk());
       hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
-      hash = (53 * hash) + getCountry();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCountry());
       hash = (37 * hash) + COUNTY_FIELD_NUMBER;
       hash = (53 * hash) + getCounty().hashCode();
       hash = (37 * hash) + CREATEDBY_FIELD_NUMBER;
@@ -10409,7 +10338,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedDate());
       hash = (37 * hash) + CSCLSPK_FIELD_NUMBER;
-      hash = (53 * hash) + getCsclsPk();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCsclsPk());
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
       hash = (53 * hash) + getIsDeleted().hashCode();
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
@@ -10418,7 +10348,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
-      hash = (53 * hash) + getLockNum();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLockNum());
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + getState().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -10426,17 +10357,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.Location parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.Location parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.Location parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10554,7 +10474,7 @@ public final class ScdbApi {
 
         contractCschdFk_ = 0L;
 
-        country_ = 0;
+        country_ = 0L;
 
         county_ = "";
 
@@ -10562,7 +10482,7 @@ public final class ScdbApi {
 
         createdDate_ = 0L;
 
-        csclsPk_ = 0;
+        csclsPk_ = 0L;
 
         isDeleted_ = "";
 
@@ -10570,7 +10490,7 @@ public final class ScdbApi {
 
         lastUpdatedDate_ = 0L;
 
-        lockNum_ = 0;
+        lockNum_ = 0L;
 
         state_ = "";
 
@@ -10656,7 +10576,7 @@ public final class ScdbApi {
         if (other.getContractCschdFk() != 0L) {
           setContractCschdFk(other.getContractCschdFk());
         }
-        if (other.getCountry() != 0) {
+        if (other.getCountry() != 0L) {
           setCountry(other.getCountry());
         }
         if (!other.getCounty().isEmpty()) {
@@ -10670,7 +10590,7 @@ public final class ScdbApi {
         if (other.getCreatedDate() != 0L) {
           setCreatedDate(other.getCreatedDate());
         }
-        if (other.getCsclsPk() != 0) {
+        if (other.getCsclsPk() != 0L) {
           setCsclsPk(other.getCsclsPk());
         }
         if (!other.getIsDeleted().isEmpty()) {
@@ -10684,7 +10604,7 @@ public final class ScdbApi {
         if (other.getLastUpdatedDate() != 0L) {
           setLastUpdatedDate(other.getLastUpdatedDate());
         }
-        if (other.getLockNum() != 0) {
+        if (other.getLockNum() != 0L) {
           setLockNum(other.getLockNum());
         }
         if (!other.getState().isEmpty()) {
@@ -10812,28 +10732,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int country_ ;
+      private long country_ ;
       /**
-       * <code>int32 country = 3;</code>
+       * <code>int64 country = 3;</code>
        */
-      public int getCountry() {
+      public long getCountry() {
         return country_;
       }
       /**
-       * <code>int32 country = 3;</code>
+       * <code>int64 country = 3;</code>
        */
-      public Builder setCountry(int value) {
+      public Builder setCountry(long value) {
         
         country_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 country = 3;</code>
+       * <code>int64 country = 3;</code>
        */
       public Builder clearCountry() {
         
-        country_ = 0;
+        country_ = 0L;
         onChanged();
         return this;
       }
@@ -11002,28 +10922,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int csclsPk_ ;
+      private long csclsPk_ ;
       /**
-       * <code>int32 csclsPk = 7;</code>
+       * <code>int64 csclsPk = 7;</code>
        */
-      public int getCsclsPk() {
+      public long getCsclsPk() {
         return csclsPk_;
       }
       /**
-       * <code>int32 csclsPk = 7;</code>
+       * <code>int64 csclsPk = 7;</code>
        */
-      public Builder setCsclsPk(int value) {
+      public Builder setCsclsPk(long value) {
         
         csclsPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 csclsPk = 7;</code>
+       * <code>int64 csclsPk = 7;</code>
        */
       public Builder clearCsclsPk() {
         
-        csclsPk_ = 0;
+        csclsPk_ = 0L;
         onChanged();
         return this;
       }
@@ -11192,28 +11112,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int lockNum_ ;
+      private long lockNum_ ;
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
-      public int getLockNum() {
+      public long getLockNum() {
         return lockNum_;
       }
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
-      public Builder setLockNum(int value) {
+      public Builder setLockNum(long value) {
         
         lockNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
       public Builder clearLockNum() {
         
-        lockNum_ = 0;
+        lockNum_ = 0L;
         onChanged();
         return this;
       }
@@ -11360,9 +11280,9 @@ public final class ScdbApi {
     long getCreatedDate();
 
     /**
-     * <code>int32 cscrdPk = 4;</code>
+     * <code>int64 cscrdPk = 4;</code>
      */
-    int getCscrdPk();
+    long getCscrdPk();
 
     /**
      * <code>string isDeleted = 5;</code>
@@ -11390,9 +11310,9 @@ public final class ScdbApi {
     long getLastUpdatedDate();
 
     /**
-     * <code>int32 lockNum = 8;</code>
+     * <code>int64 lockNum = 8;</code>
      */
-    int getLockNum();
+    long getLockNum();
 
     /**
      * <code>string primaryIndividual = 9;</code>
@@ -11405,9 +11325,9 @@ public final class ScdbApi {
         getPrimaryIndividualBytes();
 
     /**
-     * <code>int32 roleCscrtFk = 10;</code>
+     * <code>int64 roleCscrtFk = 10;</code>
      */
-    int getRoleCscrtFk();
+    long getRoleCscrtFk();
 
     /**
      * <code>repeated .org.simplity.apiscdb.RoleType roleType = 11;</code>
@@ -11458,13 +11378,13 @@ public final class ScdbApi {
       contractCschdFk_ = 0L;
       createdBy_ = "";
       createdDate_ = 0L;
-      cscrdPk_ = 0;
+      cscrdPk_ = 0L;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = 0L;
-      lockNum_ = 0;
+      lockNum_ = 0L;
       primaryIndividual_ = "";
-      roleCscrtFk_ = 0;
+      roleCscrtFk_ = 0L;
       roleType_ = java.util.Collections.emptyList();
       secondaryIndividual_ = "";
     }
@@ -11512,7 +11432,7 @@ public final class ScdbApi {
             }
             case 32: {
 
-              cscrdPk_ = input.readInt32();
+              cscrdPk_ = input.readInt64();
               break;
             }
             case 42: {
@@ -11534,7 +11454,7 @@ public final class ScdbApi {
             }
             case 64: {
 
-              lockNum_ = input.readInt32();
+              lockNum_ = input.readInt64();
               break;
             }
             case 74: {
@@ -11545,7 +11465,7 @@ public final class ScdbApi {
             }
             case 80: {
 
-              roleCscrtFk_ = input.readInt32();
+              roleCscrtFk_ = input.readInt64();
               break;
             }
             case 90: {
@@ -11643,11 +11563,11 @@ public final class ScdbApi {
     }
 
     public static final int CSCRDPK_FIELD_NUMBER = 4;
-    private int cscrdPk_;
+    private long cscrdPk_;
     /**
-     * <code>int32 cscrdPk = 4;</code>
+     * <code>int64 cscrdPk = 4;</code>
      */
-    public int getCscrdPk() {
+    public long getCscrdPk() {
       return cscrdPk_;
     }
 
@@ -11729,11 +11649,11 @@ public final class ScdbApi {
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 8;
-    private int lockNum_;
+    private long lockNum_;
     /**
-     * <code>int32 lockNum = 8;</code>
+     * <code>int64 lockNum = 8;</code>
      */
-    public int getLockNum() {
+    public long getLockNum() {
       return lockNum_;
     }
 
@@ -11772,11 +11692,11 @@ public final class ScdbApi {
     }
 
     public static final int ROLECSCRTFK_FIELD_NUMBER = 10;
-    private int roleCscrtFk_;
+    private long roleCscrtFk_;
     /**
-     * <code>int32 roleCscrtFk = 10;</code>
+     * <code>int64 roleCscrtFk = 10;</code>
      */
-    public int getRoleCscrtFk() {
+    public long getRoleCscrtFk() {
       return roleCscrtFk_;
     }
 
@@ -11870,8 +11790,8 @@ public final class ScdbApi {
       if (createdDate_ != 0L) {
         output.writeInt64(3, createdDate_);
       }
-      if (cscrdPk_ != 0) {
-        output.writeInt32(4, cscrdPk_);
+      if (cscrdPk_ != 0L) {
+        output.writeInt64(4, cscrdPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, isDeleted_);
@@ -11882,14 +11802,14 @@ public final class ScdbApi {
       if (lastUpdatedDate_ != 0L) {
         output.writeInt64(7, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
-        output.writeInt32(8, lockNum_);
+      if (lockNum_ != 0L) {
+        output.writeInt64(8, lockNum_);
       }
       if (!getPrimaryIndividualBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, primaryIndividual_);
       }
-      if (roleCscrtFk_ != 0) {
-        output.writeInt32(10, roleCscrtFk_);
+      if (roleCscrtFk_ != 0L) {
+        output.writeInt64(10, roleCscrtFk_);
       }
       for (int i = 0; i < roleType_.size(); i++) {
         output.writeMessage(11, roleType_.get(i));
@@ -11915,9 +11835,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, createdDate_);
       }
-      if (cscrdPk_ != 0) {
+      if (cscrdPk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cscrdPk_);
+          .computeInt64Size(4, cscrdPk_);
       }
       if (!getIsDeletedBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, isDeleted_);
@@ -11929,16 +11849,16 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(7, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
+      if (lockNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, lockNum_);
+          .computeInt64Size(8, lockNum_);
       }
       if (!getPrimaryIndividualBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, primaryIndividual_);
       }
-      if (roleCscrtFk_ != 0) {
+      if (roleCscrtFk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, roleCscrtFk_);
+          .computeInt64Size(10, roleCscrtFk_);
       }
       for (int i = 0; i < roleType_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -12006,7 +11926,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedDate());
       hash = (37 * hash) + CSCRDPK_FIELD_NUMBER;
-      hash = (53 * hash) + getCscrdPk();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCscrdPk());
       hash = (37 * hash) + ISDELETED_FIELD_NUMBER;
       hash = (53 * hash) + getIsDeleted().hashCode();
       hash = (37 * hash) + LASTUPDATEDBY_FIELD_NUMBER;
@@ -12015,11 +11936,13 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
-      hash = (53 * hash) + getLockNum();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLockNum());
       hash = (37 * hash) + PRIMARYINDIVIDUAL_FIELD_NUMBER;
       hash = (53 * hash) + getPrimaryIndividual().hashCode();
       hash = (37 * hash) + ROLECSCRTFK_FIELD_NUMBER;
-      hash = (53 * hash) + getRoleCscrtFk();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRoleCscrtFk());
       if (getRoleTypeCount() > 0) {
         hash = (37 * hash) + ROLETYPE_FIELD_NUMBER;
         hash = (53 * hash) + getRoleTypeList().hashCode();
@@ -12031,17 +11954,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.Role parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.Role parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.Role parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12162,7 +12074,7 @@ public final class ScdbApi {
 
         createdDate_ = 0L;
 
-        cscrdPk_ = 0;
+        cscrdPk_ = 0L;
 
         isDeleted_ = "";
 
@@ -12170,11 +12082,11 @@ public final class ScdbApi {
 
         lastUpdatedDate_ = 0L;
 
-        lockNum_ = 0;
+        lockNum_ = 0L;
 
         primaryIndividual_ = "";
 
-        roleCscrtFk_ = 0;
+        roleCscrtFk_ = 0L;
 
         if (roleTypeBuilder_ == null) {
           roleType_ = java.util.Collections.emptyList();
@@ -12280,7 +12192,7 @@ public final class ScdbApi {
         if (other.getCreatedDate() != 0L) {
           setCreatedDate(other.getCreatedDate());
         }
-        if (other.getCscrdPk() != 0) {
+        if (other.getCscrdPk() != 0L) {
           setCscrdPk(other.getCscrdPk());
         }
         if (!other.getIsDeleted().isEmpty()) {
@@ -12294,14 +12206,14 @@ public final class ScdbApi {
         if (other.getLastUpdatedDate() != 0L) {
           setLastUpdatedDate(other.getLastUpdatedDate());
         }
-        if (other.getLockNum() != 0) {
+        if (other.getLockNum() != 0L) {
           setLockNum(other.getLockNum());
         }
         if (!other.getPrimaryIndividual().isEmpty()) {
           primaryIndividual_ = other.primaryIndividual_;
           onChanged();
         }
-        if (other.getRoleCscrtFk() != 0) {
+        if (other.getRoleCscrtFk() != 0L) {
           setRoleCscrtFk(other.getRoleCscrtFk());
         }
         if (roleTypeBuilder_ == null) {
@@ -12482,28 +12394,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int cscrdPk_ ;
+      private long cscrdPk_ ;
       /**
-       * <code>int32 cscrdPk = 4;</code>
+       * <code>int64 cscrdPk = 4;</code>
        */
-      public int getCscrdPk() {
+      public long getCscrdPk() {
         return cscrdPk_;
       }
       /**
-       * <code>int32 cscrdPk = 4;</code>
+       * <code>int64 cscrdPk = 4;</code>
        */
-      public Builder setCscrdPk(int value) {
+      public Builder setCscrdPk(long value) {
         
         cscrdPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cscrdPk = 4;</code>
+       * <code>int64 cscrdPk = 4;</code>
        */
       public Builder clearCscrdPk() {
         
-        cscrdPk_ = 0;
+        cscrdPk_ = 0L;
         onChanged();
         return this;
       }
@@ -12672,28 +12584,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int lockNum_ ;
+      private long lockNum_ ;
       /**
-       * <code>int32 lockNum = 8;</code>
+       * <code>int64 lockNum = 8;</code>
        */
-      public int getLockNum() {
+      public long getLockNum() {
         return lockNum_;
       }
       /**
-       * <code>int32 lockNum = 8;</code>
+       * <code>int64 lockNum = 8;</code>
        */
-      public Builder setLockNum(int value) {
+      public Builder setLockNum(long value) {
         
         lockNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 lockNum = 8;</code>
+       * <code>int64 lockNum = 8;</code>
        */
       public Builder clearLockNum() {
         
-        lockNum_ = 0;
+        lockNum_ = 0L;
         onChanged();
         return this;
       }
@@ -12767,28 +12679,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int roleCscrtFk_ ;
+      private long roleCscrtFk_ ;
       /**
-       * <code>int32 roleCscrtFk = 10;</code>
+       * <code>int64 roleCscrtFk = 10;</code>
        */
-      public int getRoleCscrtFk() {
+      public long getRoleCscrtFk() {
         return roleCscrtFk_;
       }
       /**
-       * <code>int32 roleCscrtFk = 10;</code>
+       * <code>int64 roleCscrtFk = 10;</code>
        */
-      public Builder setRoleCscrtFk(int value) {
+      public Builder setRoleCscrtFk(long value) {
         
         roleCscrtFk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 roleCscrtFk = 10;</code>
+       * <code>int64 roleCscrtFk = 10;</code>
        */
       public Builder clearRoleCscrtFk() {
         
-        roleCscrtFk_ = 0;
+        roleCscrtFk_ = 0L;
         onChanged();
         return this;
       }
@@ -13420,17 +13332,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.RoleType parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.RoleType parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.RoleType parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -14066,17 +13967,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.RoleTypes parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.RoleTypes parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.RoleTypes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15663,17 +15553,6 @@ public final class ScdbApi {
     }
 
     public static org.simplity.apiscdb.ScdbApi.SearchCriteria parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.SearchCriteria parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.simplity.apiscdb.ScdbApi.SearchCriteria parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -16962,14 +16841,14 @@ public final class ScdbApi {
     long getCreatedDate();
 
     /**
-     * <code>int32 cscsgPk = 4;</code>
+     * <code>int64 cscsgPk = 4;</code>
      */
-    int getCscsgPk();
+    long getCscsgPk();
 
     /**
-     * <code>int32 currency = 5;</code>
+     * <code>int64 currency = 5;</code>
      */
-    int getCurrency();
+    long getCurrency();
 
     /**
      * <code>string description = 6;</code>
@@ -17016,9 +16895,9 @@ public final class ScdbApi {
     long getLastUpdatedDate();
 
     /**
-     * <code>int32 lockNum = 11;</code>
+     * <code>int64 lockNum = 11;</code>
      */
-    int getLockNum();
+    long getLockNum();
 
     /**
      * <code>double quantity = 12;</code>
@@ -17075,14 +16954,14 @@ public final class ScdbApi {
       contractCschdFk_ = 0L;
       createdBy_ = "";
       createdDate_ = 0L;
-      cscsgPk_ = 0;
-      currency_ = 0;
+      cscsgPk_ = 0L;
+      currency_ = 0L;
       description_ = "";
       gradeGroup_ = 0;
       isDeleted_ = "";
       lastUpdatedBy_ = "";
       lastUpdatedDate_ = 0L;
-      lockNum_ = 0;
+      lockNum_ = 0L;
       quantity_ = 0D;
       quantityUom_ = "";
       storageEndDate_ = 0L;
@@ -17134,12 +17013,12 @@ public final class ScdbApi {
             }
             case 32: {
 
-              cscsgPk_ = input.readInt32();
+              cscsgPk_ = input.readInt64();
               break;
             }
             case 40: {
 
-              currency_ = input.readInt32();
+              currency_ = input.readInt64();
               break;
             }
             case 50: {
@@ -17173,7 +17052,7 @@ public final class ScdbApi {
             }
             case 88: {
 
-              lockNum_ = input.readInt32();
+              lockNum_ = input.readInt64();
               break;
             }
             case 97: {
@@ -17436,20 +17315,20 @@ public final class ScdbApi {
     }
 
     public static final int CSCSGPK_FIELD_NUMBER = 4;
-    private int cscsgPk_;
+    private long cscsgPk_;
     /**
-     * <code>int32 cscsgPk = 4;</code>
+     * <code>int64 cscsgPk = 4;</code>
      */
-    public int getCscsgPk() {
+    public long getCscsgPk() {
       return cscsgPk_;
     }
 
     public static final int CURRENCY_FIELD_NUMBER = 5;
-    private int currency_;
+    private long currency_;
     /**
-     * <code>int32 currency = 5;</code>
+     * <code>int64 currency = 5;</code>
      */
-    public int getCurrency() {
+    public long getCurrency() {
       return currency_;
     }
 
@@ -17581,11 +17460,11 @@ public final class ScdbApi {
     }
 
     public static final int LOCKNUM_FIELD_NUMBER = 11;
-    private int lockNum_;
+    private long lockNum_;
     /**
-     * <code>int32 lockNum = 11;</code>
+     * <code>int64 lockNum = 11;</code>
      */
-    public int getLockNum() {
+    public long getLockNum() {
       return lockNum_;
     }
 
@@ -17714,11 +17593,11 @@ public final class ScdbApi {
       if (createdDate_ != 0L) {
         output.writeInt64(3, createdDate_);
       }
-      if (cscsgPk_ != 0) {
-        output.writeInt32(4, cscsgPk_);
+      if (cscsgPk_ != 0L) {
+        output.writeInt64(4, cscsgPk_);
       }
-      if (currency_ != 0) {
-        output.writeInt32(5, currency_);
+      if (currency_ != 0L) {
+        output.writeInt64(5, currency_);
       }
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
@@ -17735,8 +17614,8 @@ public final class ScdbApi {
       if (lastUpdatedDate_ != 0L) {
         output.writeInt64(10, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
-        output.writeInt32(11, lockNum_);
+      if (lockNum_ != 0L) {
+        output.writeInt64(11, lockNum_);
       }
       if (quantity_ != 0D) {
         output.writeDouble(12, quantity_);
@@ -17774,13 +17653,13 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, createdDate_);
       }
-      if (cscsgPk_ != 0) {
+      if (cscsgPk_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, cscsgPk_);
+          .computeInt64Size(4, cscsgPk_);
       }
-      if (currency_ != 0) {
+      if (currency_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, currency_);
+          .computeInt64Size(5, currency_);
       }
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
@@ -17799,9 +17678,9 @@ public final class ScdbApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, lastUpdatedDate_);
       }
-      if (lockNum_ != 0) {
+      if (lockNum_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, lockNum_);
+          .computeInt64Size(11, lockNum_);
       }
       if (quantity_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
@@ -17897,9 +17776,11 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedDate());
       hash = (37 * hash) + CSCSGPK_FIELD_NUMBER;
-      hash = (53 * hash) + getCscsgPk();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCscsgPk());
       hash = (37 * hash) + CURRENCY_FIELD_NUMBER;
-      hash = (53 * hash) + getCurrency();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCurrency());
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + GRADEGROUP_FIELD_NUMBER;
@@ -17912,7 +17793,8 @@ public final class ScdbApi {
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastUpdatedDate());
       hash = (37 * hash) + LOCKNUM_FIELD_NUMBER;
-      hash = (53 * hash) + getLockNum();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLockNum());
       hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getQuantity()));
@@ -17934,17 +17816,6 @@ public final class ScdbApi {
       return hash;
     }
 
-    public static org.simplity.apiscdb.ScdbApi.Storage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.simplity.apiscdb.ScdbApi.Storage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static org.simplity.apiscdb.ScdbApi.Storage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18064,9 +17935,9 @@ public final class ScdbApi {
 
         createdDate_ = 0L;
 
-        cscsgPk_ = 0;
+        cscsgPk_ = 0L;
 
-        currency_ = 0;
+        currency_ = 0L;
 
         description_ = "";
 
@@ -18078,7 +17949,7 @@ public final class ScdbApi {
 
         lastUpdatedDate_ = 0L;
 
-        lockNum_ = 0;
+        lockNum_ = 0L;
 
         quantity_ = 0D;
 
@@ -18182,10 +18053,10 @@ public final class ScdbApi {
         if (other.getCreatedDate() != 0L) {
           setCreatedDate(other.getCreatedDate());
         }
-        if (other.getCscsgPk() != 0) {
+        if (other.getCscsgPk() != 0L) {
           setCscsgPk(other.getCscsgPk());
         }
-        if (other.getCurrency() != 0) {
+        if (other.getCurrency() != 0L) {
           setCurrency(other.getCurrency());
         }
         if (!other.getDescription().isEmpty()) {
@@ -18206,7 +18077,7 @@ public final class ScdbApi {
         if (other.getLastUpdatedDate() != 0L) {
           setLastUpdatedDate(other.getLastUpdatedDate());
         }
-        if (other.getLockNum() != 0) {
+        if (other.getLockNum() != 0L) {
           setLockNum(other.getLockNum());
         }
         if (other.getQuantity() != 0D) {
@@ -18376,54 +18247,54 @@ public final class ScdbApi {
         return this;
       }
 
-      private int cscsgPk_ ;
+      private long cscsgPk_ ;
       /**
-       * <code>int32 cscsgPk = 4;</code>
+       * <code>int64 cscsgPk = 4;</code>
        */
-      public int getCscsgPk() {
+      public long getCscsgPk() {
         return cscsgPk_;
       }
       /**
-       * <code>int32 cscsgPk = 4;</code>
+       * <code>int64 cscsgPk = 4;</code>
        */
-      public Builder setCscsgPk(int value) {
+      public Builder setCscsgPk(long value) {
         
         cscsgPk_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 cscsgPk = 4;</code>
+       * <code>int64 cscsgPk = 4;</code>
        */
       public Builder clearCscsgPk() {
         
-        cscsgPk_ = 0;
+        cscsgPk_ = 0L;
         onChanged();
         return this;
       }
 
-      private int currency_ ;
+      private long currency_ ;
       /**
-       * <code>int32 currency = 5;</code>
+       * <code>int64 currency = 5;</code>
        */
-      public int getCurrency() {
+      public long getCurrency() {
         return currency_;
       }
       /**
-       * <code>int32 currency = 5;</code>
+       * <code>int64 currency = 5;</code>
        */
-      public Builder setCurrency(int value) {
+      public Builder setCurrency(long value) {
         
         currency_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 currency = 5;</code>
+       * <code>int64 currency = 5;</code>
        */
       public Builder clearCurrency() {
         
-        currency_ = 0;
+        currency_ = 0L;
         onChanged();
         return this;
       }
@@ -18705,28 +18576,28 @@ public final class ScdbApi {
         return this;
       }
 
-      private int lockNum_ ;
+      private long lockNum_ ;
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
-      public int getLockNum() {
+      public long getLockNum() {
         return lockNum_;
       }
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
-      public Builder setLockNum(int value) {
+      public Builder setLockNum(long value) {
         
         lockNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 lockNum = 11;</code>
+       * <code>int64 lockNum = 11;</code>
        */
       public Builder clearLockNum() {
         
-        lockNum_ = 0;
+        lockNum_ = 0L;
         onChanged();
         return this;
       }
@@ -19102,12 +18973,12 @@ public final class ScdbApi {
       "tCschdPkRequest\022\017\n\007cschdPk\030\001 \001(\005\"d\n\031PutC" +
       "ontractCschdPkRequest\0226\n\010contract\030\001 \001(\0132" +
       "$.org.simplity.apiscdb.ContractHeader\022\017\n" +
-      "\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\005\022" +
+      "\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\003\022" +
       "\027\n\017contractCschdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003 " +
       "\001(\t\022\023\n\013createdDate\030\004 \001(\003\022\017\n\007cscbsPk\030\005 \001(",
-      "\005\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 " +
+      "\003\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 " +
       "\001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\003\022\017\n\007lockNum\030" +
-      "\t \001(\005\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001 " +
+      "\t \001(\003\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001 " +
       "\001(\t\022\022\n\nassetOwner\030\002 \001(\t\022,\n\007benches\030\003 \003(\013" +
       "2\033.org.simplity.apiscdb.Bench\022\025\n\rbpContr" +
       "actNum\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(" +
@@ -19130,8 +19001,8 @@ public final class ScdbApi {
       "eType\030\033 \001(\0162=.org.simplity.apiscdb.Contr" +
       "actHeader.ContractHeader_LeaseType\0221\n\tlo" +
       "cations\030\034 \003(\0132\036.org.simplity.apiscdb.Loc" +
-      "ation\022\017\n\007lockNum\030\035 \001(\005\022\r\n\005notes\030\036 \001(\t\022\031\n" +
-      "\021otherReferenceNum\030\037 \001(\t\022\016\n\006region\030  \001(\005" +
+      "ation\022\017\n\007lockNum\030\035 \001(\003\022\r\n\005notes\030\036 \001(\t\022\031\n" +
+      "\021otherReferenceNum\030\037 \001(\t\022\016\n\006region\030  \001(\003" +
       "\022/\n\013roleDetails\030! \003(\0132\032.org.simplity.api" +
       "scdb.Role\022I\n\006status\030\" \001(\01629.org.simplity" +
       ".apiscdb.ContractHeader.ContractHeader_S",
@@ -19147,17 +19018,17 @@ public final class ScdbApi {
       "\001 \003(\0132$.org.simplity.apiscdb.ContractHea",
       "der\" \n\rErrorResponse\022\017\n\007message\030\001 \001(\t\"\356\001" +
       "\n\010Location\022\014\n\004city\030\001 \001(\t\022\027\n\017contractCsch" +
-      "dFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\005\022\016\n\006county\030\004 \001" +
+      "dFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\003\022\016\n\006county\030\004 \001" +
       "(\t\022\021\n\tcreatedBy\030\005 \001(\t\022\023\n\013createdDate\030\006 \001" +
-      "(\003\022\017\n\007csclsPk\030\007 \001(\005\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
+      "(\003\022\017\n\007csclsPk\030\007 \001(\003\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
       "\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate" +
-      "\030\n \001(\003\022\017\n\007lockNum\030\013 \001(\005\022\r\n\005state\030\014 \001(\t\"\253" +
+      "\030\n \001(\003\022\017\n\007lockNum\030\013 \001(\003\022\r\n\005state\030\014 \001(\t\"\253" +
       "\002\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcrea" +
       "tedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cscr" +
-      "dPk\030\004 \001(\005\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpda",
+      "dPk\030\004 \001(\003\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpda",
       "tedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\003\022\017\n\007" +
-      "lockNum\030\010 \001(\005\022\031\n\021primaryIndividual\030\t \001(\t" +
-      "\022\023\n\013roleCscrtFk\030\n \001(\005\0220\n\010roleType\030\013 \003(\0132" +
+      "lockNum\030\010 \001(\003\022\031\n\021primaryIndividual\030\t \001(\t" +
+      "\022\023\n\013roleCscrtFk\030\n \001(\003\0220\n\010roleType\030\013 \003(\0132" +
       "\036.org.simplity.apiscdb.RoleType\022\033\n\023secon" +
       "daryIndividual\030\014 \001(\t\"@\n\010RoleType\022\017\n\007cscr" +
       "tPk\030\001 \001(\003\022\021\n\tisDeleted\030\002 \001(\t\022\020\n\010roleName" +
@@ -19176,12 +19047,12 @@ public final class ScdbApi {
       "a_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"\215\004" +
       "\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcr",
       "eatedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cs" +
-      "csgPk\030\004 \001(\005\022\020\n\010currency\030\005 \001(\005\022\023\n\013descrip" +
+      "csgPk\030\004 \001(\003\022\020\n\010currency\030\005 \001(\003\022\023\n\013descrip" +
       "tion\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org.sim" +
       "plity.apiscdb.Storage.Storage_GradeGroup" +
       "\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030\t \001" +
       "(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022\017\n\007lockNum\030\013" +
-      " \001(\005\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030\r " +
+      " \001(\003\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030\r " +
       "\001(\t\022\026\n\016storageEndDate\030\016 \001(\003\022\023\n\013storageRa" +
       "te\030\017 \001(\001\022\030\n\020storageStartDate\030\020 \001(\003\022\016\n\006ta" +
       "nkId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007ETHA",

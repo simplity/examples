@@ -13,7 +13,7 @@
 	</inputData>
 	<actions>
 	
-		<save saveAction="add" recordName="cschdContractHeaders">
+		<save saveAction="save" recordName="cschdContractHeaders">
 			<childRecords>
 			 	<relatedRecord sheetName="storages" recordName="cscsgContractStorages"/>
 			 	<relatedRecord sheetName="benches" recordName="cscbsContractBenchs"/>

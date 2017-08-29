@@ -18,15 +18,15 @@ message PutContractCschdPkRequest {
 }
 
 message Bench {
-    int32 bench = 1;
+    int64 bench = 1;
     int64 contractCschdFk = 2;
     string createdBy = 3;
     int64 createdDate = 4;
-    int32 cscbsPk = 5;
+    int64 cscbsPk = 5;
     string isDeleted = 6;
     string lastUpdatedBy = 7;
     int64 lastUpdatedDate = 8;
-    int32 lockNum = 9;
+    int64 lockNum = 9;
 }
 
 message ContractHeader {
@@ -72,10 +72,10 @@ message ContractHeader {
     }
     ContractHeader_LeaseType leaseType = 27;
     repeated Location locations = 28;
-    int32 lockNum = 29;
+    int64 lockNum = 29;
     string notes = 30;
     string otherReferenceNum = 31;
-    int32 region = 32;
+    int64 region = 32;
     repeated Role roleDetails = 33;
     enum ContractHeader_Statu {
         LIVE = 0;
@@ -98,15 +98,15 @@ message ErrorResponse {
 message Location {
     string city = 1;
     int64 contractCschdFk = 2;
-    int32 country = 3;
+    int64 country = 3;
     string county = 4;
     string createdBy = 5;
     int64 createdDate = 6;
-    int32 csclsPk = 7;
+    int64 csclsPk = 7;
     string isDeleted = 8;
     string lastUpdatedBy = 9;
     int64 lastUpdatedDate = 10;
-    int32 lockNum = 11;
+    int64 lockNum = 11;
     string state = 12;
 }
 
@@ -114,13 +114,13 @@ message Role {
     int64 contractCschdFk = 1;
     string createdBy = 2;
     int64 createdDate = 3;
-    int32 cscrdPk = 4;
+    int64 cscrdPk = 4;
     string isDeleted = 5;
     string lastUpdatedBy = 6;
     int64 lastUpdatedDate = 7;
-    int32 lockNum = 8;
+    int64 lockNum = 8;
     string primaryIndividual = 9;
-    int32 roleCscrtFk = 10;
+    int64 roleCscrtFk = 10;
     repeated RoleType roleType = 11;
     string secondaryIndividual = 12;
 }
@@ -162,8 +162,8 @@ message Storage {
     int64 contractCschdFk = 1;
     string createdBy = 2;
     int64 createdDate = 3;
-    int32 cscsgPk = 4;
-    int32 currency = 5;
+    int64 cscsgPk = 4;
+    int64 currency = 5;
     string description = 6;
     enum Storage_GradeGroup {
        ETHANOL = 0;
@@ -179,7 +179,7 @@ message Storage {
     string isDeleted = 8;
     string lastUpdatedBy = 9;
     int64 lastUpdatedDate = 10;
-    int32 lockNum = 11;
+    int64 lockNum = 11;
     double quantity = 12;
     string quantityUom = 13;
     int64 storageEndDate = 14;

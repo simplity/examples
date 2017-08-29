@@ -13,8 +13,9 @@
 				<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails" />
 				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
-		</filter>	
-		<log names="contractHeaders"/>
+		</filter>
+		<readWithSql sqlName="queryRoleDetailsRoleTypes" outputSheetName="roleType"></readWithSql>	
+		<log actionName="ROLETYPELOGGING" names="roleType"/>
 	</actions>
 	<outputData>
 		<outputRecords>
@@ -27,6 +28,8 @@
 				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
 			<outputRecord sheetName="roleDetails" parentSheetName="contractHeaders"
 				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleType" parentSheetName="roleDetails" 
+				listOfLinkColumnsInParentSheet="cscrdPk,roleCscrtFk" listOfLinkColumnsInThisSheet="cscrdPk,cscrtPk"/>
 		</outputRecords>
 	</outputData>
 </service>

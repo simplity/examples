@@ -15,19 +15,19 @@
 <field columnName="BP_CONTRACTING_ENTITY" dataType="_text" fieldType="data" name="bpContractingEntity" sqlTypeName="VARCHAR"/>
 <field columnName="LEASE_TYPE" dataType="_text" fieldType="data" name="leaseType" sqlTypeName="VARCHAR"/>
 <field columnName="LEASE_PERCENTAGE" dataType="_decimal" fieldType="data" name="leasePercentage" sqlTypeName="DECIMAL"/>
-<field columnName="STATUS" dataType="_text" fieldType="data" name="status" sqlTypeName="VARCHAR"/>
+<field columnName="STATUS" dataType="_text" fieldType="data" name="status" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="CONTRACT_SIGN_DATE" dataType="_dateTime" fieldType="data" name="contractSignDate" sqlTypeName="DATE"/>
 <field columnName="CONTRACT_START_DATE" dataType="_dateTime" fieldType="data" name="contractStartDate" sqlTypeName="DATE"/>
 <field columnName="CONTRACT_END_DATE" dataType="_dateTime" fieldType="data" name="contractEndDate" sqlTypeName="DATE"/>
-<field columnName="CONTRACT_RENEWAL_DATE" dataType="_dateTime" fieldType="data" name="contractRenewalDate" sqlTypeName="DATE"/>
+<field columnName="CONTRACT_RENEWAL_DATE" dataType="_dateTime" fieldType="data" name="contractRenewalDate" sqlTypeName="DATE" isNullable="true"/>
 <field columnName="DURATION_MONTHS" dataType="_decimal" fieldType="data" name="durationMonths" sqlTypeName="DECIMAL"/>
 <field columnName="EXCESS_THROUGHPUT_RATE" dataType="_decimal" fieldType="data" name="excessThroughputRate" sqlTypeName="DECIMAL"/>
-<field columnName="EXCESS_THROUGHPUT_RATE_UOM" dataType="_text" fieldType="data" name="excessThroughputRateUom" sqlTypeName="VARCHAR"/>
+<field columnName="EXCESS_THROUGHPUT_RATE_UOM" dataType="_text" fieldType="data" name="excessThroughputRateUom" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="THROUGPUT_PER_YEAR" dataType="_decimal" fieldType="data" name="througputPerYear" sqlTypeName="DECIMAL"/>
 <field columnName="ECONS" dataType="_decimal" fieldType="data" name="econs" sqlTypeName="DECIMAL"/>
-<field columnName="ECONS_UOM" dataType="_text" fieldType="data" name="econsUom" sqlTypeName="VARCHAR"/>
+<field columnName="ECONS_UOM" dataType="_text" fieldType="data" name="econsUom" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="NOTES" dataType="_text" fieldType="data" name="notes" sqlTypeName="VARCHAR"/>
-<field columnName="CONTRACT_LINK" dataType="_text" fieldType="data" name="contractLink" sqlTypeName="VARCHAR"/>
+<field columnName="CONTRACT_LINK" dataType="_text" fieldType="data" name="contractLink" sqlTypeName="VARCHAR" isNullable="true"/>
 <field columnName="LOCK_NUM" dataType="_decimal" fieldType="data" name="lockNum" sqlTypeName="DECIMAL"/>
 <field columnName="IS_DELETED" dataType="_text" fieldType="data" name="isDeleted" sqlTypeName="CHAR"/>
 <field columnName="CREATED_BY" dataType="_text" fieldType="data" name="createdBy" sqlTypeName="VARCHAR"/>
