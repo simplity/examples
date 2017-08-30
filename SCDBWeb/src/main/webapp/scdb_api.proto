@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 package org.simplity.apiscdb;
 
 message PostContractRequest {
@@ -15,6 +13,29 @@ message GetContractCschdPkRequest {
 message PutContractCschdPkRequest {
     ContractHeader contract = 1;
     string cschdPk = 2;
+}
+
+message GetFilterRequest {
+    string assetName = 1;
+    string assetOwner = 2;
+    int32 bench = 3;
+    string bpContractNum = 4;
+    string bpContractingEntity = 5;
+    string city = 6;
+    enum GetFilterRequest_ContractStatu {
+        LIVE = 0;
+        CLOSED = 1;
+    }
+    GetFilterRequest_ContractStatu contractStatus = 7;
+    int32 country = 8;
+    string county = 9;
+    string dealCounterParty = 10;
+    string dealName = 11;
+    int32 gradeGroup = 12;
+    int32 region = 13;
+    string segment = 14;
+    string state = 15;
+    string terminal = 16;
 }
 
 message Bench {

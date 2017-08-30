@@ -28,6 +28,20 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 		      $scope.contracts = msg.contractHeaders;
 		    });
 		  };
+
+		  $scope.getFilteredContracts = function() {
+			    $scope.contracts = [];
+			    var req = {
+			      method: 'GET',
+			      url: 'http://localhost:8080/SCDBWeb/scdb/storagecontracts/filter?'+$scope.contractId, 
+			      responseType: 'arraybuffer'
+			    };
+
+			    $http(req).success(function(data) {
+			      var msg = ContractHeaders.decode(new Uint8Array(data));
+			      $scope.contracts = msg.contractHeaders;
+			    });
+			  };
 		  
 	$scope.getOneContract = function(){
 	    $scope.contracts = [];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="cscsgContractStorages" recordType="storage" tableName="CSCSG_CONTRACT_STORAGES" xmlns="http://www.simplity.org/schema">
+<record name="cscsgContractStorages" recordType="storage" okToSelectAll="true" tableName="CSCSG_CONTRACT_STORAGES" xmlns="http://www.simplity.org/schema">
 <fields>
 <field columnName="CSCSG_PK" dataType="_decimal" fieldType="primaryKey" name="cscsgPk" sqlTypeName="DECIMAL"/>
 <field columnName="CONTRACT_CSCHD_FK" dataType="_decimal" fieldType="parentKey" name="contractCschdFk" referredField="cschdPk" referredRecord="cschdContractHeaders" sqlTypeName="DECIMAL"/>

@@ -1700,6 +1700,2321 @@ public final class ScdbApi {
 
   }
 
+  public interface GetFilterRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.simplity.apiscdb.GetFilterRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string assetName = 1;</code>
+     */
+    java.lang.String getAssetName();
+    /**
+     * <code>string assetName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getAssetNameBytes();
+
+    /**
+     * <code>string assetOwner = 2;</code>
+     */
+    java.lang.String getAssetOwner();
+    /**
+     * <code>string assetOwner = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAssetOwnerBytes();
+
+    /**
+     * <code>int32 bench = 3;</code>
+     */
+    int getBench();
+
+    /**
+     * <code>string bpContractNum = 4;</code>
+     */
+    java.lang.String getBpContractNum();
+    /**
+     * <code>string bpContractNum = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getBpContractNumBytes();
+
+    /**
+     * <code>string bpContractingEntity = 5;</code>
+     */
+    java.lang.String getBpContractingEntity();
+    /**
+     * <code>string bpContractingEntity = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getBpContractingEntityBytes();
+
+    /**
+     * <code>string city = 6;</code>
+     */
+    java.lang.String getCity();
+    /**
+     * <code>string city = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityBytes();
+
+    /**
+     * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+     */
+    int getContractStatusValue();
+    /**
+     * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+     */
+    org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu getContractStatus();
+
+    /**
+     * <code>int32 country = 8;</code>
+     */
+    int getCountry();
+
+    /**
+     * <code>string county = 9;</code>
+     */
+    java.lang.String getCounty();
+    /**
+     * <code>string county = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getCountyBytes();
+
+    /**
+     * <code>string dealCounterParty = 10;</code>
+     */
+    java.lang.String getDealCounterParty();
+    /**
+     * <code>string dealCounterParty = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getDealCounterPartyBytes();
+
+    /**
+     * <code>string dealName = 11;</code>
+     */
+    java.lang.String getDealName();
+    /**
+     * <code>string dealName = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getDealNameBytes();
+
+    /**
+     * <code>int32 gradeGroup = 12;</code>
+     */
+    int getGradeGroup();
+
+    /**
+     * <code>int32 region = 13;</code>
+     */
+    int getRegion();
+
+    /**
+     * <code>string segment = 14;</code>
+     */
+    java.lang.String getSegment();
+    /**
+     * <code>string segment = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getSegmentBytes();
+
+    /**
+     * <code>string state = 15;</code>
+     */
+    java.lang.String getState();
+    /**
+     * <code>string state = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getStateBytes();
+
+    /**
+     * <code>string terminal = 16;</code>
+     */
+    java.lang.String getTerminal();
+    /**
+     * <code>string terminal = 16;</code>
+     */
+    com.google.protobuf.ByteString
+        getTerminalBytes();
+  }
+  /**
+   * Protobuf type {@code org.simplity.apiscdb.GetFilterRequest}
+   */
+  public  static final class GetFilterRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.simplity.apiscdb.GetFilterRequest)
+      GetFilterRequestOrBuilder {
+    // Use GetFilterRequest.newBuilder() to construct.
+    private GetFilterRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFilterRequest() {
+      assetName_ = "";
+      assetOwner_ = "";
+      bench_ = 0;
+      bpContractNum_ = "";
+      bpContractingEntity_ = "";
+      city_ = "";
+      contractStatus_ = 0;
+      country_ = 0;
+      county_ = "";
+      dealCounterParty_ = "";
+      dealName_ = "";
+      gradeGroup_ = 0;
+      region_ = 0;
+      segment_ = "";
+      state_ = "";
+      terminal_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetFilterRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              assetName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              assetOwner_ = s;
+              break;
+            }
+            case 24: {
+
+              bench_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              bpContractNum_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              bpContractingEntity_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              city_ = s;
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+
+              contractStatus_ = rawValue;
+              break;
+            }
+            case 64: {
+
+              country_ = input.readInt32();
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              county_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dealCounterParty_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dealName_ = s;
+              break;
+            }
+            case 96: {
+
+              gradeGroup_ = input.readInt32();
+              break;
+            }
+            case 104: {
+
+              region_ = input.readInt32();
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              segment_ = s;
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              state_ = s;
+              break;
+            }
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              terminal_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.simplity.apiscdb.ScdbApi.internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.simplity.apiscdb.ScdbApi.internal_static_org_simplity_apiscdb_GetFilterRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.simplity.apiscdb.ScdbApi.GetFilterRequest.class, org.simplity.apiscdb.ScdbApi.GetFilterRequest.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu}
+     */
+    public enum GetFilterRequest_ContractStatu
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>LIVE = 0;</code>
+       */
+      LIVE(0),
+      /**
+       * <code>CLOSED = 1;</code>
+       */
+      CLOSED(1),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>LIVE = 0;</code>
+       */
+      public static final int LIVE_VALUE = 0;
+      /**
+       * <code>CLOSED = 1;</code>
+       */
+      public static final int CLOSED_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static GetFilterRequest_ContractStatu valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static GetFilterRequest_ContractStatu forNumber(int value) {
+        switch (value) {
+          case 0: return LIVE;
+          case 1: return CLOSED;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<GetFilterRequest_ContractStatu>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          GetFilterRequest_ContractStatu> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<GetFilterRequest_ContractStatu>() {
+              public GetFilterRequest_ContractStatu findValueByNumber(int number) {
+                return GetFilterRequest_ContractStatu.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return org.simplity.apiscdb.ScdbApi.GetFilterRequest.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final GetFilterRequest_ContractStatu[] VALUES = values();
+
+      public static GetFilterRequest_ContractStatu valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private GetFilterRequest_ContractStatu(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu)
+    }
+
+    public static final int ASSETNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object assetName_;
+    /**
+     * <code>string assetName = 1;</code>
+     */
+    public java.lang.String getAssetName() {
+      java.lang.Object ref = assetName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        assetName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string assetName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAssetNameBytes() {
+      java.lang.Object ref = assetName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        assetName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ASSETOWNER_FIELD_NUMBER = 2;
+    private volatile java.lang.Object assetOwner_;
+    /**
+     * <code>string assetOwner = 2;</code>
+     */
+    public java.lang.String getAssetOwner() {
+      java.lang.Object ref = assetOwner_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        assetOwner_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string assetOwner = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAssetOwnerBytes() {
+      java.lang.Object ref = assetOwner_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        assetOwner_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BENCH_FIELD_NUMBER = 3;
+    private int bench_;
+    /**
+     * <code>int32 bench = 3;</code>
+     */
+    public int getBench() {
+      return bench_;
+    }
+
+    public static final int BPCONTRACTNUM_FIELD_NUMBER = 4;
+    private volatile java.lang.Object bpContractNum_;
+    /**
+     * <code>string bpContractNum = 4;</code>
+     */
+    public java.lang.String getBpContractNum() {
+      java.lang.Object ref = bpContractNum_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        bpContractNum_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string bpContractNum = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBpContractNumBytes() {
+      java.lang.Object ref = bpContractNum_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bpContractNum_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BPCONTRACTINGENTITY_FIELD_NUMBER = 5;
+    private volatile java.lang.Object bpContractingEntity_;
+    /**
+     * <code>string bpContractingEntity = 5;</code>
+     */
+    public java.lang.String getBpContractingEntity() {
+      java.lang.Object ref = bpContractingEntity_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        bpContractingEntity_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string bpContractingEntity = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBpContractingEntityBytes() {
+      java.lang.Object ref = bpContractingEntity_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bpContractingEntity_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CITY_FIELD_NUMBER = 6;
+    private volatile java.lang.Object city_;
+    /**
+     * <code>string city = 6;</code>
+     */
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string city = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONTRACTSTATUS_FIELD_NUMBER = 7;
+    private int contractStatus_;
+    /**
+     * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+     */
+    public int getContractStatusValue() {
+      return contractStatus_;
+    }
+    /**
+     * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+     */
+    public org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu getContractStatus() {
+      org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu result = org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.valueOf(contractStatus_);
+      return result == null ? org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.UNRECOGNIZED : result;
+    }
+
+    public static final int COUNTRY_FIELD_NUMBER = 8;
+    private int country_;
+    /**
+     * <code>int32 country = 8;</code>
+     */
+    public int getCountry() {
+      return country_;
+    }
+
+    public static final int COUNTY_FIELD_NUMBER = 9;
+    private volatile java.lang.Object county_;
+    /**
+     * <code>string county = 9;</code>
+     */
+    public java.lang.String getCounty() {
+      java.lang.Object ref = county_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        county_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string county = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCountyBytes() {
+      java.lang.Object ref = county_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        county_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DEALCOUNTERPARTY_FIELD_NUMBER = 10;
+    private volatile java.lang.Object dealCounterParty_;
+    /**
+     * <code>string dealCounterParty = 10;</code>
+     */
+    public java.lang.String getDealCounterParty() {
+      java.lang.Object ref = dealCounterParty_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dealCounterParty_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string dealCounterParty = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDealCounterPartyBytes() {
+      java.lang.Object ref = dealCounterParty_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dealCounterParty_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DEALNAME_FIELD_NUMBER = 11;
+    private volatile java.lang.Object dealName_;
+    /**
+     * <code>string dealName = 11;</code>
+     */
+    public java.lang.String getDealName() {
+      java.lang.Object ref = dealName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dealName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string dealName = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDealNameBytes() {
+      java.lang.Object ref = dealName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dealName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int GRADEGROUP_FIELD_NUMBER = 12;
+    private int gradeGroup_;
+    /**
+     * <code>int32 gradeGroup = 12;</code>
+     */
+    public int getGradeGroup() {
+      return gradeGroup_;
+    }
+
+    public static final int REGION_FIELD_NUMBER = 13;
+    private int region_;
+    /**
+     * <code>int32 region = 13;</code>
+     */
+    public int getRegion() {
+      return region_;
+    }
+
+    public static final int SEGMENT_FIELD_NUMBER = 14;
+    private volatile java.lang.Object segment_;
+    /**
+     * <code>string segment = 14;</code>
+     */
+    public java.lang.String getSegment() {
+      java.lang.Object ref = segment_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        segment_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string segment = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSegmentBytes() {
+      java.lang.Object ref = segment_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        segment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATE_FIELD_NUMBER = 15;
+    private volatile java.lang.Object state_;
+    /**
+     * <code>string state = 15;</code>
+     */
+    public java.lang.String getState() {
+      java.lang.Object ref = state_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        state_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string state = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStateBytes() {
+      java.lang.Object ref = state_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        state_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TERMINAL_FIELD_NUMBER = 16;
+    private volatile java.lang.Object terminal_;
+    /**
+     * <code>string terminal = 16;</code>
+     */
+    public java.lang.String getTerminal() {
+      java.lang.Object ref = terminal_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        terminal_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string terminal = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTerminalBytes() {
+      java.lang.Object ref = terminal_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        terminal_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getAssetNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, assetName_);
+      }
+      if (!getAssetOwnerBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, assetOwner_);
+      }
+      if (bench_ != 0) {
+        output.writeInt32(3, bench_);
+      }
+      if (!getBpContractNumBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bpContractNum_);
+      }
+      if (!getBpContractingEntityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bpContractingEntity_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
+      }
+      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.LIVE.getNumber()) {
+        output.writeEnum(7, contractStatus_);
+      }
+      if (country_ != 0) {
+        output.writeInt32(8, country_);
+      }
+      if (!getCountyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, county_);
+      }
+      if (!getDealCounterPartyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, dealCounterParty_);
+      }
+      if (!getDealNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, dealName_);
+      }
+      if (gradeGroup_ != 0) {
+        output.writeInt32(12, gradeGroup_);
+      }
+      if (region_ != 0) {
+        output.writeInt32(13, region_);
+      }
+      if (!getSegmentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, segment_);
+      }
+      if (!getStateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, state_);
+      }
+      if (!getTerminalBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, terminal_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getAssetNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, assetName_);
+      }
+      if (!getAssetOwnerBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, assetOwner_);
+      }
+      if (bench_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, bench_);
+      }
+      if (!getBpContractNumBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bpContractNum_);
+      }
+      if (!getBpContractingEntityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bpContractingEntity_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, city_);
+      }
+      if (contractStatus_ != org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.LIVE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, contractStatus_);
+      }
+      if (country_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, country_);
+      }
+      if (!getCountyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, county_);
+      }
+      if (!getDealCounterPartyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, dealCounterParty_);
+      }
+      if (!getDealNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, dealName_);
+      }
+      if (gradeGroup_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, gradeGroup_);
+      }
+      if (region_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, region_);
+      }
+      if (!getSegmentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, segment_);
+      }
+      if (!getStateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, state_);
+      }
+      if (!getTerminalBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, terminal_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.simplity.apiscdb.ScdbApi.GetFilterRequest)) {
+        return super.equals(obj);
+      }
+      org.simplity.apiscdb.ScdbApi.GetFilterRequest other = (org.simplity.apiscdb.ScdbApi.GetFilterRequest) obj;
+
+      boolean result = true;
+      result = result && getAssetName()
+          .equals(other.getAssetName());
+      result = result && getAssetOwner()
+          .equals(other.getAssetOwner());
+      result = result && (getBench()
+          == other.getBench());
+      result = result && getBpContractNum()
+          .equals(other.getBpContractNum());
+      result = result && getBpContractingEntity()
+          .equals(other.getBpContractingEntity());
+      result = result && getCity()
+          .equals(other.getCity());
+      result = result && contractStatus_ == other.contractStatus_;
+      result = result && (getCountry()
+          == other.getCountry());
+      result = result && getCounty()
+          .equals(other.getCounty());
+      result = result && getDealCounterParty()
+          .equals(other.getDealCounterParty());
+      result = result && getDealName()
+          .equals(other.getDealName());
+      result = result && (getGradeGroup()
+          == other.getGradeGroup());
+      result = result && (getRegion()
+          == other.getRegion());
+      result = result && getSegment()
+          .equals(other.getSegment());
+      result = result && getState()
+          .equals(other.getState());
+      result = result && getTerminal()
+          .equals(other.getTerminal());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ASSETNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getAssetName().hashCode();
+      hash = (37 * hash) + ASSETOWNER_FIELD_NUMBER;
+      hash = (53 * hash) + getAssetOwner().hashCode();
+      hash = (37 * hash) + BENCH_FIELD_NUMBER;
+      hash = (53 * hash) + getBench();
+      hash = (37 * hash) + BPCONTRACTNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getBpContractNum().hashCode();
+      hash = (37 * hash) + BPCONTRACTINGENTITY_FIELD_NUMBER;
+      hash = (53 * hash) + getBpContractingEntity().hashCode();
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
+      hash = (37 * hash) + CONTRACTSTATUS_FIELD_NUMBER;
+      hash = (53 * hash) + contractStatus_;
+      hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getCountry();
+      hash = (37 * hash) + COUNTY_FIELD_NUMBER;
+      hash = (53 * hash) + getCounty().hashCode();
+      hash = (37 * hash) + DEALCOUNTERPARTY_FIELD_NUMBER;
+      hash = (53 * hash) + getDealCounterParty().hashCode();
+      hash = (37 * hash) + DEALNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDealName().hashCode();
+      hash = (37 * hash) + GRADEGROUP_FIELD_NUMBER;
+      hash = (53 * hash) + getGradeGroup();
+      hash = (37 * hash) + REGION_FIELD_NUMBER;
+      hash = (53 * hash) + getRegion();
+      hash = (37 * hash) + SEGMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getSegment().hashCode();
+      hash = (37 * hash) + STATE_FIELD_NUMBER;
+      hash = (53 * hash) + getState().hashCode();
+      hash = (37 * hash) + TERMINAL_FIELD_NUMBER;
+      hash = (53 * hash) + getTerminal().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.simplity.apiscdb.ScdbApi.GetFilterRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.simplity.apiscdb.GetFilterRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.simplity.apiscdb.GetFilterRequest)
+        org.simplity.apiscdb.ScdbApi.GetFilterRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.simplity.apiscdb.ScdbApi.internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.simplity.apiscdb.ScdbApi.internal_static_org_simplity_apiscdb_GetFilterRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.simplity.apiscdb.ScdbApi.GetFilterRequest.class, org.simplity.apiscdb.ScdbApi.GetFilterRequest.Builder.class);
+      }
+
+      // Construct using org.simplity.apiscdb.ScdbApi.GetFilterRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        assetName_ = "";
+
+        assetOwner_ = "";
+
+        bench_ = 0;
+
+        bpContractNum_ = "";
+
+        bpContractingEntity_ = "";
+
+        city_ = "";
+
+        contractStatus_ = 0;
+
+        country_ = 0;
+
+        county_ = "";
+
+        dealCounterParty_ = "";
+
+        dealName_ = "";
+
+        gradeGroup_ = 0;
+
+        region_ = 0;
+
+        segment_ = "";
+
+        state_ = "";
+
+        terminal_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.simplity.apiscdb.ScdbApi.internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor;
+      }
+
+      public org.simplity.apiscdb.ScdbApi.GetFilterRequest getDefaultInstanceForType() {
+        return org.simplity.apiscdb.ScdbApi.GetFilterRequest.getDefaultInstance();
+      }
+
+      public org.simplity.apiscdb.ScdbApi.GetFilterRequest build() {
+        org.simplity.apiscdb.ScdbApi.GetFilterRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.simplity.apiscdb.ScdbApi.GetFilterRequest buildPartial() {
+        org.simplity.apiscdb.ScdbApi.GetFilterRequest result = new org.simplity.apiscdb.ScdbApi.GetFilterRequest(this);
+        result.assetName_ = assetName_;
+        result.assetOwner_ = assetOwner_;
+        result.bench_ = bench_;
+        result.bpContractNum_ = bpContractNum_;
+        result.bpContractingEntity_ = bpContractingEntity_;
+        result.city_ = city_;
+        result.contractStatus_ = contractStatus_;
+        result.country_ = country_;
+        result.county_ = county_;
+        result.dealCounterParty_ = dealCounterParty_;
+        result.dealName_ = dealName_;
+        result.gradeGroup_ = gradeGroup_;
+        result.region_ = region_;
+        result.segment_ = segment_;
+        result.state_ = state_;
+        result.terminal_ = terminal_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.simplity.apiscdb.ScdbApi.GetFilterRequest) {
+          return mergeFrom((org.simplity.apiscdb.ScdbApi.GetFilterRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.simplity.apiscdb.ScdbApi.GetFilterRequest other) {
+        if (other == org.simplity.apiscdb.ScdbApi.GetFilterRequest.getDefaultInstance()) return this;
+        if (!other.getAssetName().isEmpty()) {
+          assetName_ = other.assetName_;
+          onChanged();
+        }
+        if (!other.getAssetOwner().isEmpty()) {
+          assetOwner_ = other.assetOwner_;
+          onChanged();
+        }
+        if (other.getBench() != 0) {
+          setBench(other.getBench());
+        }
+        if (!other.getBpContractNum().isEmpty()) {
+          bpContractNum_ = other.bpContractNum_;
+          onChanged();
+        }
+        if (!other.getBpContractingEntity().isEmpty()) {
+          bpContractingEntity_ = other.bpContractingEntity_;
+          onChanged();
+        }
+        if (!other.getCity().isEmpty()) {
+          city_ = other.city_;
+          onChanged();
+        }
+        if (other.contractStatus_ != 0) {
+          setContractStatusValue(other.getContractStatusValue());
+        }
+        if (other.getCountry() != 0) {
+          setCountry(other.getCountry());
+        }
+        if (!other.getCounty().isEmpty()) {
+          county_ = other.county_;
+          onChanged();
+        }
+        if (!other.getDealCounterParty().isEmpty()) {
+          dealCounterParty_ = other.dealCounterParty_;
+          onChanged();
+        }
+        if (!other.getDealName().isEmpty()) {
+          dealName_ = other.dealName_;
+          onChanged();
+        }
+        if (other.getGradeGroup() != 0) {
+          setGradeGroup(other.getGradeGroup());
+        }
+        if (other.getRegion() != 0) {
+          setRegion(other.getRegion());
+        }
+        if (!other.getSegment().isEmpty()) {
+          segment_ = other.segment_;
+          onChanged();
+        }
+        if (!other.getState().isEmpty()) {
+          state_ = other.state_;
+          onChanged();
+        }
+        if (!other.getTerminal().isEmpty()) {
+          terminal_ = other.terminal_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.simplity.apiscdb.ScdbApi.GetFilterRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.simplity.apiscdb.ScdbApi.GetFilterRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object assetName_ = "";
+      /**
+       * <code>string assetName = 1;</code>
+       */
+      public java.lang.String getAssetName() {
+        java.lang.Object ref = assetName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          assetName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string assetName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetNameBytes() {
+        java.lang.Object ref = assetName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string assetName = 1;</code>
+       */
+      public Builder setAssetName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        assetName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string assetName = 1;</code>
+       */
+      public Builder clearAssetName() {
+        
+        assetName_ = getDefaultInstance().getAssetName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string assetName = 1;</code>
+       */
+      public Builder setAssetNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        assetName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object assetOwner_ = "";
+      /**
+       * <code>string assetOwner = 2;</code>
+       */
+      public java.lang.String getAssetOwner() {
+        java.lang.Object ref = assetOwner_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          assetOwner_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string assetOwner = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetOwnerBytes() {
+        java.lang.Object ref = assetOwner_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetOwner_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string assetOwner = 2;</code>
+       */
+      public Builder setAssetOwner(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        assetOwner_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string assetOwner = 2;</code>
+       */
+      public Builder clearAssetOwner() {
+        
+        assetOwner_ = getDefaultInstance().getAssetOwner();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string assetOwner = 2;</code>
+       */
+      public Builder setAssetOwnerBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        assetOwner_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int bench_ ;
+      /**
+       * <code>int32 bench = 3;</code>
+       */
+      public int getBench() {
+        return bench_;
+      }
+      /**
+       * <code>int32 bench = 3;</code>
+       */
+      public Builder setBench(int value) {
+        
+        bench_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 bench = 3;</code>
+       */
+      public Builder clearBench() {
+        
+        bench_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object bpContractNum_ = "";
+      /**
+       * <code>string bpContractNum = 4;</code>
+       */
+      public java.lang.String getBpContractNum() {
+        java.lang.Object ref = bpContractNum_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          bpContractNum_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string bpContractNum = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBpContractNumBytes() {
+        java.lang.Object ref = bpContractNum_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bpContractNum_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string bpContractNum = 4;</code>
+       */
+      public Builder setBpContractNum(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        bpContractNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string bpContractNum = 4;</code>
+       */
+      public Builder clearBpContractNum() {
+        
+        bpContractNum_ = getDefaultInstance().getBpContractNum();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string bpContractNum = 4;</code>
+       */
+      public Builder setBpContractNumBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        bpContractNum_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object bpContractingEntity_ = "";
+      /**
+       * <code>string bpContractingEntity = 5;</code>
+       */
+      public java.lang.String getBpContractingEntity() {
+        java.lang.Object ref = bpContractingEntity_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          bpContractingEntity_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string bpContractingEntity = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBpContractingEntityBytes() {
+        java.lang.Object ref = bpContractingEntity_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bpContractingEntity_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string bpContractingEntity = 5;</code>
+       */
+      public Builder setBpContractingEntity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        bpContractingEntity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string bpContractingEntity = 5;</code>
+       */
+      public Builder clearBpContractingEntity() {
+        
+        bpContractingEntity_ = getDefaultInstance().getBpContractingEntity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string bpContractingEntity = 5;</code>
+       */
+      public Builder setBpContractingEntityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        bpContractingEntity_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object city_ = "";
+      /**
+       * <code>string city = 6;</code>
+       */
+      public java.lang.String getCity() {
+        java.lang.Object ref = city_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          city_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string city = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityBytes() {
+        java.lang.Object ref = city_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          city_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string city = 6;</code>
+       */
+      public Builder setCity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 6;</code>
+       */
+      public Builder clearCity() {
+        
+        city_ = getDefaultInstance().getCity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string city = 6;</code>
+       */
+      public Builder setCityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        city_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int contractStatus_ = 0;
+      /**
+       * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+       */
+      public int getContractStatusValue() {
+        return contractStatus_;
+      }
+      /**
+       * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+       */
+      public Builder setContractStatusValue(int value) {
+        contractStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+       */
+      public org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu getContractStatus() {
+        org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu result = org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.valueOf(contractStatus_);
+        return result == null ? org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+       */
+      public Builder setContractStatus(org.simplity.apiscdb.ScdbApi.GetFilterRequest.GetFilterRequest_ContractStatu value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        contractStatus_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.org.simplity.apiscdb.GetFilterRequest.GetFilterRequest_ContractStatu contractStatus = 7;</code>
+       */
+      public Builder clearContractStatus() {
+        
+        contractStatus_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int country_ ;
+      /**
+       * <code>int32 country = 8;</code>
+       */
+      public int getCountry() {
+        return country_;
+      }
+      /**
+       * <code>int32 country = 8;</code>
+       */
+      public Builder setCountry(int value) {
+        
+        country_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 country = 8;</code>
+       */
+      public Builder clearCountry() {
+        
+        country_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object county_ = "";
+      /**
+       * <code>string county = 9;</code>
+       */
+      public java.lang.String getCounty() {
+        java.lang.Object ref = county_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          county_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string county = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCountyBytes() {
+        java.lang.Object ref = county_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          county_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string county = 9;</code>
+       */
+      public Builder setCounty(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        county_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string county = 9;</code>
+       */
+      public Builder clearCounty() {
+        
+        county_ = getDefaultInstance().getCounty();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string county = 9;</code>
+       */
+      public Builder setCountyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        county_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dealCounterParty_ = "";
+      /**
+       * <code>string dealCounterParty = 10;</code>
+       */
+      public java.lang.String getDealCounterParty() {
+        java.lang.Object ref = dealCounterParty_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dealCounterParty_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string dealCounterParty = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDealCounterPartyBytes() {
+        java.lang.Object ref = dealCounterParty_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dealCounterParty_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string dealCounterParty = 10;</code>
+       */
+      public Builder setDealCounterParty(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dealCounterParty_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dealCounterParty = 10;</code>
+       */
+      public Builder clearDealCounterParty() {
+        
+        dealCounterParty_ = getDefaultInstance().getDealCounterParty();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dealCounterParty = 10;</code>
+       */
+      public Builder setDealCounterPartyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dealCounterParty_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dealName_ = "";
+      /**
+       * <code>string dealName = 11;</code>
+       */
+      public java.lang.String getDealName() {
+        java.lang.Object ref = dealName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dealName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string dealName = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDealNameBytes() {
+        java.lang.Object ref = dealName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dealName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string dealName = 11;</code>
+       */
+      public Builder setDealName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dealName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dealName = 11;</code>
+       */
+      public Builder clearDealName() {
+        
+        dealName_ = getDefaultInstance().getDealName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dealName = 11;</code>
+       */
+      public Builder setDealNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dealName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int gradeGroup_ ;
+      /**
+       * <code>int32 gradeGroup = 12;</code>
+       */
+      public int getGradeGroup() {
+        return gradeGroup_;
+      }
+      /**
+       * <code>int32 gradeGroup = 12;</code>
+       */
+      public Builder setGradeGroup(int value) {
+        
+        gradeGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 gradeGroup = 12;</code>
+       */
+      public Builder clearGradeGroup() {
+        
+        gradeGroup_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int region_ ;
+      /**
+       * <code>int32 region = 13;</code>
+       */
+      public int getRegion() {
+        return region_;
+      }
+      /**
+       * <code>int32 region = 13;</code>
+       */
+      public Builder setRegion(int value) {
+        
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 region = 13;</code>
+       */
+      public Builder clearRegion() {
+        
+        region_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object segment_ = "";
+      /**
+       * <code>string segment = 14;</code>
+       */
+      public java.lang.String getSegment() {
+        java.lang.Object ref = segment_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          segment_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string segment = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSegmentBytes() {
+        java.lang.Object ref = segment_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          segment_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string segment = 14;</code>
+       */
+      public Builder setSegment(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        segment_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string segment = 14;</code>
+       */
+      public Builder clearSegment() {
+        
+        segment_ = getDefaultInstance().getSegment();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string segment = 14;</code>
+       */
+      public Builder setSegmentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        segment_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object state_ = "";
+      /**
+       * <code>string state = 15;</code>
+       */
+      public java.lang.String getState() {
+        java.lang.Object ref = state_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          state_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string state = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStateBytes() {
+        java.lang.Object ref = state_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          state_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string state = 15;</code>
+       */
+      public Builder setState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string state = 15;</code>
+       */
+      public Builder clearState() {
+        
+        state_ = getDefaultInstance().getState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string state = 15;</code>
+       */
+      public Builder setStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        state_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object terminal_ = "";
+      /**
+       * <code>string terminal = 16;</code>
+       */
+      public java.lang.String getTerminal() {
+        java.lang.Object ref = terminal_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          terminal_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string terminal = 16;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTerminalBytes() {
+        java.lang.Object ref = terminal_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          terminal_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string terminal = 16;</code>
+       */
+      public Builder setTerminal(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        terminal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string terminal = 16;</code>
+       */
+      public Builder clearTerminal() {
+        
+        terminal_ = getDefaultInstance().getTerminal();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string terminal = 16;</code>
+       */
+      public Builder setTerminalBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        terminal_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.simplity.apiscdb.GetFilterRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.simplity.apiscdb.GetFilterRequest)
+    private static final org.simplity.apiscdb.ScdbApi.GetFilterRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.simplity.apiscdb.ScdbApi.GetFilterRequest();
+    }
+
+    public static org.simplity.apiscdb.ScdbApi.GetFilterRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFilterRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetFilterRequest>() {
+      public GetFilterRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetFilterRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFilterRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFilterRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public org.simplity.apiscdb.ScdbApi.GetFilterRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface BenchOrBuilder extends
       // @@protoc_insertion_point(interface_extends:org.simplity.apiscdb.Bench)
       com.google.protobuf.MessageOrBuilder {
@@ -18908,6 +21223,11 @@ public final class ScdbApi {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_simplity_apiscdb_PutContractCschdPkRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_simplity_apiscdb_GetFilterRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_simplity_apiscdb_Bench_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18966,99 +21286,109 @@ public final class ScdbApi {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\032\033" +
-      "google/protobuf/empty.proto\"M\n\023PostContr" +
-      "actRequest\0226\n\010contract\030\001 \001(\0132$.org.simpl" +
-      "ity.apiscdb.ContractHeader\",\n\031GetContrac" +
-      "tCschdPkRequest\022\017\n\007cschdPk\030\001 \001(\005\"d\n\031PutC" +
-      "ontractCschdPkRequest\0226\n\010contract\030\001 \001(\0132" +
-      "$.org.simplity.apiscdb.ContractHeader\022\017\n" +
-      "\007cschdPk\030\002 \001(\t\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\003\022" +
-      "\027\n\017contractCschdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003 " +
-      "\001(\t\022\023\n\013createdDate\030\004 \001(\003\022\017\n\007cscbsPk\030\005 \001(",
-      "\003\022\021\n\tisDeleted\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 " +
-      "\001(\t\022\027\n\017lastUpdatedDate\030\010 \001(\003\022\017\n\007lockNum\030" +
-      "\t \001(\003\"\231\013\n\016ContractHeader\022\021\n\tassetName\030\001 " +
-      "\001(\t\022\022\n\nassetOwner\030\002 \001(\t\022,\n\007benches\030\003 \003(\013" +
-      "2\033.org.simplity.apiscdb.Bench\022\025\n\rbpContr" +
-      "actNum\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(" +
-      "\t\022\027\n\017contractEndDate\030\006 \001(\003\022\024\n\014contractLi" +
-      "nk\030\007 \001(\t\022\033\n\023contractRenewalDate\030\010 \001(\003\022\030\n" +
-      "\020contractSignDate\030\t \001(\003\022\031\n\021contractStart" +
-      "Date\030\n \001(\003\022\021\n\tcreatedBy\030\013 \001(\t\022\023\n\013created",
-      "Date\030\014 \001(\003\022\017\n\007cschdPk\030\r \001(\003\022\030\n\020dealCount" +
-      "erParty\030\016 \001(\t\022\020\n\010dealName\030\017 \001(\t\022\023\n\013descr" +
-      "iption\030\020 \001(\t\022\026\n\016durationMonths\030\021 \001(\001\022\r\n\005" +
-      "econs\030\022 \001(\001\022N\n\010econsUom\030\023 \001(\0162<.org.simp" +
-      "lity.apiscdb.ContractHeader.ContractHead" +
-      "er_EconsUom\022\034\n\024excessThroughputRate\030\024 \001(" +
-      "\001\022l\n\027excessThroughputRateUom\030\025 \001(\0162K.org" +
-      ".simplity.apiscdb.ContractHeader.Contrac" +
-      "tHeader_ExcessThroughputRateUom\022\033\n\023exter" +
-      "nalContractNum\030\026 \001(\t\022\021\n\tisDeleted\030\027 \001(\t\022",
-      "\025\n\rlastUpdatedBy\030\030 \001(\t\022\027\n\017lastUpdatedDat" +
-      "e\030\031 \001(\003\022\027\n\017leasePercentage\030\032 \001(\001\022P\n\tleas" +
-      "eType\030\033 \001(\0162=.org.simplity.apiscdb.Contr" +
-      "actHeader.ContractHeader_LeaseType\0221\n\tlo" +
-      "cations\030\034 \003(\0132\036.org.simplity.apiscdb.Loc" +
-      "ation\022\017\n\007lockNum\030\035 \001(\003\022\r\n\005notes\030\036 \001(\t\022\031\n" +
-      "\021otherReferenceNum\030\037 \001(\t\022\016\n\006region\030  \001(\003" +
-      "\022/\n\013roleDetails\030! \003(\0132\032.org.simplity.api" +
-      "scdb.Role\022I\n\006status\030\" \001(\01629.org.simplity" +
-      ".apiscdb.ContractHeader.ContractHeader_S",
-      "tatu\022/\n\010storages\030# \003(\0132\035.org.simplity.ap" +
-      "iscdb.Storage\022\020\n\010terminal\030$ \001(\t\022\030\n\020throu" +
-      "gputPerYear\030% \001(\001\"*\n\027ContractHeader_Econ" +
-      "sUom\022\007\n\003NPV\020\000\022\006\n\002GM\020\001\"B\n&ContractHeader_" +
-      "ExcessThroughputRateUom\022\006\n\002M3\020\000\022\007\n\003BBL\020\001" +
-      "\022\007\n\003USG\020\002\"@\n\030ContractHeader_LeaseType\022\r\n" +
-      "\tOPERATING\020\000\022\013\n\007CAPITAL\020\001\022\010\n\004LTCC\020\002\",\n\024C" +
-      "ontractHeader_Statu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020" +
-      "\001\"P\n\017ContractHeaders\022=\n\017contractHeaders\030" +
-      "\001 \003(\0132$.org.simplity.apiscdb.ContractHea",
-      "der\" \n\rErrorResponse\022\017\n\007message\030\001 \001(\t\"\356\001" +
-      "\n\010Location\022\014\n\004city\030\001 \001(\t\022\027\n\017contractCsch" +
-      "dFk\030\002 \001(\003\022\017\n\007country\030\003 \001(\003\022\016\n\006county\030\004 \001" +
-      "(\t\022\021\n\tcreatedBy\030\005 \001(\t\022\023\n\013createdDate\030\006 \001" +
-      "(\003\022\017\n\007csclsPk\030\007 \001(\003\022\021\n\tisDeleted\030\010 \001(\t\022\025" +
-      "\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpdatedDate" +
-      "\030\n \001(\003\022\017\n\007lockNum\030\013 \001(\003\022\r\n\005state\030\014 \001(\t\"\253" +
-      "\002\n\004Role\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcrea" +
-      "tedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cscr" +
-      "dPk\030\004 \001(\003\022\021\n\tisDeleted\030\005 \001(\t\022\025\n\rlastUpda",
-      "tedBy\030\006 \001(\t\022\027\n\017lastUpdatedDate\030\007 \001(\003\022\017\n\007" +
-      "lockNum\030\010 \001(\003\022\031\n\021primaryIndividual\030\t \001(\t" +
-      "\022\023\n\013roleCscrtFk\030\n \001(\003\0220\n\010roleType\030\013 \003(\0132" +
-      "\036.org.simplity.apiscdb.RoleType\022\033\n\023secon" +
-      "daryIndividual\030\014 \001(\t\"@\n\010RoleType\022\017\n\007cscr" +
-      "tPk\030\001 \001(\003\022\021\n\tisDeleted\030\002 \001(\t\022\020\n\010roleName" +
-      "\030\003 \001(\t\">\n\tRoleTypes\0221\n\troleTypes\030\001 \003(\0132\036" +
-      ".org.simplity.apiscdb.RoleType\"\274\003\n\016Searc" +
-      "hCriteria\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetOwn" +
-      "er\030\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContractNum",
-      "\030\004 \001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014\n\004c" +
-      "ity\030\006 \001(\t\022Y\n\016contractStatus\030\007 \001(\0162A.org." +
-      "simplity.apiscdb.SearchCriteria.SearchCr" +
-      "iteria_ContractStatu\022\017\n\007country\030\010 \001(\005\022\016\n" +
-      "\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001(\t\022" +
-      "\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022\016\n" +
-      "\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005state\030" +
-      "\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"4\n\034SearchCriteri" +
-      "a_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"\215\004" +
-      "\n\007Storage\022\027\n\017contractCschdFk\030\001 \001(\003\022\021\n\tcr",
-      "eatedBy\030\002 \001(\t\022\023\n\013createdDate\030\003 \001(\003\022\017\n\007cs" +
-      "csgPk\030\004 \001(\003\022\020\n\010currency\030\005 \001(\003\022\023\n\013descrip" +
-      "tion\030\006 \001(\t\022D\n\ngradeGroup\030\007 \001(\01620.org.sim" +
-      "plity.apiscdb.Storage.Storage_GradeGroup" +
-      "\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedBy\030\t \001" +
-      "(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022\017\n\007lockNum\030\013" +
-      " \001(\003\022\020\n\010quantity\030\014 \001(\001\022\023\n\013quantityUom\030\r " +
-      "\001(\t\022\026\n\016storageEndDate\030\016 \001(\003\022\023\n\013storageRa" +
-      "te\030\017 \001(\001\022\030\n\020storageStartDate\030\020 \001(\003\022\016\n\006ta" +
-      "nkId\030\021 \001(\t\"q\n\022Storage_GradeGroup\022\013\n\007ETHA",
-      "NOL\020\000\022\t\n\005CRUDE\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIESEL\020" +
-      "\003\022\010\n\004MTBE\020\004\022\010\n\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n\005CU" +
-      "RDE\020\007b\006proto3"
+      "\n\016scdb_api.proto\022\024org.simplity.apiscdb\"M" +
+      "\n\023PostContractRequest\0226\n\010contract\030\001 \001(\0132" +
+      "$.org.simplity.apiscdb.ContractHeader\",\n" +
+      "\031GetContractCschdPkRequest\022\017\n\007cschdPk\030\001 " +
+      "\001(\005\"d\n\031PutContractCschdPkRequest\0226\n\010cont" +
+      "ract\030\001 \001(\0132$.org.simplity.apiscdb.Contra" +
+      "ctHeader\022\017\n\007cschdPk\030\002 \001(\t\"\304\003\n\020GetFilterR" +
+      "equest\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetOwner\030" +
+      "\002 \001(\t\022\r\n\005bench\030\003 \001(\005\022\025\n\rbpContractNum\030\004 " +
+      "\001(\t\022\033\n\023bpContractingEntity\030\005 \001(\t\022\014\n\004city",
+      "\030\006 \001(\t\022]\n\016contractStatus\030\007 \001(\0162E.org.sim" +
+      "plity.apiscdb.GetFilterRequest.GetFilter" +
+      "Request_ContractStatu\022\017\n\007country\030\010 \001(\005\022\016" +
+      "\n\006county\030\t \001(\t\022\030\n\020dealCounterParty\030\n \001(\t" +
+      "\022\020\n\010dealName\030\013 \001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022\016" +
+      "\n\006region\030\r \001(\005\022\017\n\007segment\030\016 \001(\t\022\r\n\005state" +
+      "\030\017 \001(\t\022\020\n\010terminal\030\020 \001(\t\"6\n\036GetFilterReq" +
+      "uest_ContractStatu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001" +
+      "\"\274\001\n\005Bench\022\r\n\005bench\030\001 \001(\003\022\027\n\017contractCsc" +
+      "hdFk\030\002 \001(\003\022\021\n\tcreatedBy\030\003 \001(\t\022\023\n\013created",
+      "Date\030\004 \001(\003\022\017\n\007cscbsPk\030\005 \001(\003\022\021\n\tisDeleted" +
+      "\030\006 \001(\t\022\025\n\rlastUpdatedBy\030\007 \001(\t\022\027\n\017lastUpd" +
+      "atedDate\030\010 \001(\003\022\017\n\007lockNum\030\t \001(\003\"\231\013\n\016Cont" +
+      "ractHeader\022\021\n\tassetName\030\001 \001(\t\022\022\n\nassetOw" +
+      "ner\030\002 \001(\t\022,\n\007benches\030\003 \003(\0132\033.org.simplit" +
+      "y.apiscdb.Bench\022\025\n\rbpContractNum\030\004 \001(\t\022\033" +
+      "\n\023bpContractingEntity\030\005 \001(\t\022\027\n\017contractE" +
+      "ndDate\030\006 \001(\003\022\024\n\014contractLink\030\007 \001(\t\022\033\n\023co" +
+      "ntractRenewalDate\030\010 \001(\003\022\030\n\020contractSignD" +
+      "ate\030\t \001(\003\022\031\n\021contractStartDate\030\n \001(\003\022\021\n\t",
+      "createdBy\030\013 \001(\t\022\023\n\013createdDate\030\014 \001(\003\022\017\n\007" +
+      "cschdPk\030\r \001(\003\022\030\n\020dealCounterParty\030\016 \001(\t\022" +
+      "\020\n\010dealName\030\017 \001(\t\022\023\n\013description\030\020 \001(\t\022\026" +
+      "\n\016durationMonths\030\021 \001(\001\022\r\n\005econs\030\022 \001(\001\022N\n" +
+      "\010econsUom\030\023 \001(\0162<.org.simplity.apiscdb.C" +
+      "ontractHeader.ContractHeader_EconsUom\022\034\n" +
+      "\024excessThroughputRate\030\024 \001(\001\022l\n\027excessThr" +
+      "oughputRateUom\030\025 \001(\0162K.org.simplity.apis" +
+      "cdb.ContractHeader.ContractHeader_Excess" +
+      "ThroughputRateUom\022\033\n\023externalContractNum",
+      "\030\026 \001(\t\022\021\n\tisDeleted\030\027 \001(\t\022\025\n\rlastUpdated" +
+      "By\030\030 \001(\t\022\027\n\017lastUpdatedDate\030\031 \001(\003\022\027\n\017lea" +
+      "sePercentage\030\032 \001(\001\022P\n\tleaseType\030\033 \001(\0162=." +
+      "org.simplity.apiscdb.ContractHeader.Cont" +
+      "ractHeader_LeaseType\0221\n\tlocations\030\034 \003(\0132" +
+      "\036.org.simplity.apiscdb.Location\022\017\n\007lockN" +
+      "um\030\035 \001(\003\022\r\n\005notes\030\036 \001(\t\022\031\n\021otherReferenc" +
+      "eNum\030\037 \001(\t\022\016\n\006region\030  \001(\003\022/\n\013roleDetail" +
+      "s\030! \003(\0132\032.org.simplity.apiscdb.Role\022I\n\006s" +
+      "tatus\030\" \001(\01629.org.simplity.apiscdb.Contr",
+      "actHeader.ContractHeader_Statu\022/\n\010storag" +
+      "es\030# \003(\0132\035.org.simplity.apiscdb.Storage\022" +
+      "\020\n\010terminal\030$ \001(\t\022\030\n\020througputPerYear\030% " +
+      "\001(\001\"*\n\027ContractHeader_EconsUom\022\007\n\003NPV\020\000\022" +
+      "\006\n\002GM\020\001\"B\n&ContractHeader_ExcessThroughp" +
+      "utRateUom\022\006\n\002M3\020\000\022\007\n\003BBL\020\001\022\007\n\003USG\020\002\"@\n\030C" +
+      "ontractHeader_LeaseType\022\r\n\tOPERATING\020\000\022\013" +
+      "\n\007CAPITAL\020\001\022\010\n\004LTCC\020\002\",\n\024ContractHeader_" +
+      "Statu\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"P\n\017ContractH" +
+      "eaders\022=\n\017contractHeaders\030\001 \003(\0132$.org.si",
+      "mplity.apiscdb.ContractHeader\" \n\rErrorRe" +
+      "sponse\022\017\n\007message\030\001 \001(\t\"\356\001\n\010Location\022\014\n\004" +
+      "city\030\001 \001(\t\022\027\n\017contractCschdFk\030\002 \001(\003\022\017\n\007c" +
+      "ountry\030\003 \001(\003\022\016\n\006county\030\004 \001(\t\022\021\n\tcreatedB" +
+      "y\030\005 \001(\t\022\023\n\013createdDate\030\006 \001(\003\022\017\n\007csclsPk\030" +
+      "\007 \001(\003\022\021\n\tisDeleted\030\010 \001(\t\022\025\n\rlastUpdatedB" +
+      "y\030\t \001(\t\022\027\n\017lastUpdatedDate\030\n \001(\003\022\017\n\007lock" +
+      "Num\030\013 \001(\003\022\r\n\005state\030\014 \001(\t\"\253\002\n\004Role\022\027\n\017con" +
+      "tractCschdFk\030\001 \001(\003\022\021\n\tcreatedBy\030\002 \001(\t\022\023\n" +
+      "\013createdDate\030\003 \001(\003\022\017\n\007cscrdPk\030\004 \001(\003\022\021\n\ti",
+      "sDeleted\030\005 \001(\t\022\025\n\rlastUpdatedBy\030\006 \001(\t\022\027\n" +
+      "\017lastUpdatedDate\030\007 \001(\003\022\017\n\007lockNum\030\010 \001(\003\022" +
+      "\031\n\021primaryIndividual\030\t \001(\t\022\023\n\013roleCscrtF" +
+      "k\030\n \001(\003\0220\n\010roleType\030\013 \003(\0132\036.org.simplity" +
+      ".apiscdb.RoleType\022\033\n\023secondaryIndividual" +
+      "\030\014 \001(\t\"@\n\010RoleType\022\017\n\007cscrtPk\030\001 \001(\003\022\021\n\ti" +
+      "sDeleted\030\002 \001(\t\022\020\n\010roleName\030\003 \001(\t\">\n\tRole" +
+      "Types\0221\n\troleTypes\030\001 \003(\0132\036.org.simplity." +
+      "apiscdb.RoleType\"\274\003\n\016SearchCriteria\022\021\n\ta" +
+      "ssetName\030\001 \001(\t\022\022\n\nassetOwner\030\002 \001(\t\022\r\n\005be",
+      "nch\030\003 \001(\005\022\025\n\rbpContractNum\030\004 \001(\t\022\033\n\023bpCo" +
+      "ntractingEntity\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022Y\n\016c" +
+      "ontractStatus\030\007 \001(\0162A.org.simplity.apisc" +
+      "db.SearchCriteria.SearchCriteria_Contrac" +
+      "tStatu\022\017\n\007country\030\010 \001(\005\022\016\n\006county\030\t \001(\t\022" +
+      "\030\n\020dealCounterParty\030\n \001(\t\022\020\n\010dealName\030\013 " +
+      "\001(\t\022\022\n\ngradeGroup\030\014 \001(\005\022\016\n\006region\030\r \001(\005\022" +
+      "\017\n\007segment\030\016 \001(\t\022\r\n\005state\030\017 \001(\t\022\020\n\010termi" +
+      "nal\030\020 \001(\t\"4\n\034SearchCriteria_ContractStat" +
+      "u\022\010\n\004LIVE\020\000\022\n\n\006CLOSED\020\001\"\215\004\n\007Storage\022\027\n\017c",
+      "ontractCschdFk\030\001 \001(\003\022\021\n\tcreatedBy\030\002 \001(\t\022" +
+      "\023\n\013createdDate\030\003 \001(\003\022\017\n\007cscsgPk\030\004 \001(\003\022\020\n" +
+      "\010currency\030\005 \001(\003\022\023\n\013description\030\006 \001(\t\022D\n\n" +
+      "gradeGroup\030\007 \001(\01620.org.simplity.apiscdb." +
+      "Storage.Storage_GradeGroup\022\021\n\tisDeleted\030" +
+      "\010 \001(\t\022\025\n\rlastUpdatedBy\030\t \001(\t\022\027\n\017lastUpda" +
+      "tedDate\030\n \001(\003\022\017\n\007lockNum\030\013 \001(\003\022\020\n\010quanti" +
+      "ty\030\014 \001(\001\022\023\n\013quantityUom\030\r \001(\t\022\026\n\016storage" +
+      "EndDate\030\016 \001(\003\022\023\n\013storageRate\030\017 \001(\001\022\030\n\020st" +
+      "orageStartDate\030\020 \001(\003\022\016\n\006tankId\030\021 \001(\t\"q\n\022",
+      "Storage_GradeGroup\022\013\n\007ETHANOL\020\000\022\t\n\005CRUDE" +
+      "\020\001\022\010\n\004ULSD\020\002\022\r\n\tBIODIESEL\020\003\022\010\n\004MTBE\020\004\022\010\n" +
+      "\004FAME\020\005\022\013\n\007DILUENT\020\006\022\t\n\005CURDE\020\007b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19071,7 +21401,6 @@ public final class ScdbApi {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
     internal_static_org_simplity_apiscdb_PostContractRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -19091,67 +21420,72 @@ public final class ScdbApi {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_PutContractCschdPkRequest_descriptor,
         new java.lang.String[] { "Contract", "CschdPk", });
-    internal_static_org_simplity_apiscdb_Bench_descriptor =
+    internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_org_simplity_apiscdb_GetFilterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_simplity_apiscdb_GetFilterRequest_descriptor,
+        new java.lang.String[] { "AssetName", "AssetOwner", "Bench", "BpContractNum", "BpContractingEntity", "City", "ContractStatus", "Country", "County", "DealCounterParty", "DealName", "GradeGroup", "Region", "Segment", "State", "Terminal", });
+    internal_static_org_simplity_apiscdb_Bench_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_org_simplity_apiscdb_Bench_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Bench_descriptor,
         new java.lang.String[] { "Bench", "ContractCschdFk", "CreatedBy", "CreatedDate", "CscbsPk", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", });
     internal_static_org_simplity_apiscdb_ContractHeader_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_org_simplity_apiscdb_ContractHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_ContractHeader_descriptor,
         new java.lang.String[] { "AssetName", "AssetOwner", "Benches", "BpContractNum", "BpContractingEntity", "ContractEndDate", "ContractLink", "ContractRenewalDate", "ContractSignDate", "ContractStartDate", "CreatedBy", "CreatedDate", "CschdPk", "DealCounterParty", "DealName", "Description", "DurationMonths", "Econs", "EconsUom", "ExcessThroughputRate", "ExcessThroughputRateUom", "ExternalContractNum", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LeasePercentage", "LeaseType", "Locations", "LockNum", "Notes", "OtherReferenceNum", "Region", "RoleDetails", "Status", "Storages", "Terminal", "ThrougputPerYear", });
     internal_static_org_simplity_apiscdb_ContractHeaders_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_org_simplity_apiscdb_ContractHeaders_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_ContractHeaders_descriptor,
         new java.lang.String[] { "ContractHeaders", });
     internal_static_org_simplity_apiscdb_ErrorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_org_simplity_apiscdb_ErrorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_ErrorResponse_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_org_simplity_apiscdb_Location_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_org_simplity_apiscdb_Location_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Location_descriptor,
         new java.lang.String[] { "City", "ContractCschdFk", "Country", "County", "CreatedBy", "CreatedDate", "CsclsPk", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "State", });
     internal_static_org_simplity_apiscdb_Role_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_org_simplity_apiscdb_Role_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Role_descriptor,
         new java.lang.String[] { "ContractCschdFk", "CreatedBy", "CreatedDate", "CscrdPk", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "PrimaryIndividual", "RoleCscrtFk", "RoleType", "SecondaryIndividual", });
     internal_static_org_simplity_apiscdb_RoleType_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_org_simplity_apiscdb_RoleType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_RoleType_descriptor,
         new java.lang.String[] { "CscrtPk", "IsDeleted", "RoleName", });
     internal_static_org_simplity_apiscdb_RoleTypes_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_org_simplity_apiscdb_RoleTypes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_RoleTypes_descriptor,
         new java.lang.String[] { "RoleTypes", });
     internal_static_org_simplity_apiscdb_SearchCriteria_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_org_simplity_apiscdb_SearchCriteria_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_SearchCriteria_descriptor,
         new java.lang.String[] { "AssetName", "AssetOwner", "Bench", "BpContractNum", "BpContractingEntity", "City", "ContractStatus", "Country", "County", "DealCounterParty", "DealName", "GradeGroup", "Region", "Segment", "State", "Terminal", });
     internal_static_org_simplity_apiscdb_Storage_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_org_simplity_apiscdb_Storage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_simplity_apiscdb_Storage_descriptor,
         new java.lang.String[] { "ContractCschdFk", "CreatedBy", "CreatedDate", "CscsgPk", "Currency", "Description", "GradeGroup", "IsDeleted", "LastUpdatedBy", "LastUpdatedDate", "LockNum", "Quantity", "QuantityUom", "StorageEndDate", "StorageRate", "StorageStartDate", "TankId", });
-    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

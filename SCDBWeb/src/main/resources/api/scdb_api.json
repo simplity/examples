@@ -5,7 +5,7 @@
     "version": "2.0",
     "title": "org.simplity.apiscdb"
   },
-  "host": "localhost:8070",
+  "host": "localhost:8080",
   "basePath": "/scdb/storagecontracts",
   "schemes": [
     "http"
@@ -17,6 +17,106 @@
     "application/json"
   ],
   "paths": {
+    "/filter":{
+      "get":{
+        "operationId": "contractFilter",
+        "consumes": [],
+        "parameters":[
+        {
+          "name":"region",
+          "in":"query",
+          "type":"integer"
+        },
+        {
+          "name":"bench",
+          "in":"query",
+          "type":"integer"
+        },
+        {
+          "name":"country",
+          "in":"query",
+          "type":"integer"
+        },
+        {
+          "name":"state",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"county",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"city",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"terminal",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"assetName",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"assetOwner",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"dealName",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"dealCounterParty",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"bpContractNum",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"segment",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"bpContractingEntity",
+          "in":"query",
+          "type":"string"
+        },
+        {
+          "name":"contractStatus",
+          "in":"query",
+          "type":"string",
+          "enum":[
+            "Live",
+            "Closed"
+          ]
+        },
+        {
+          "name":"gradeGroup",
+          "in":"query",
+          "type":"integer"
+        }
+      ],
+        "responses":{
+          "200":{
+            "description": "",
+            "schema":{
+              $ref: '#/definitions/ContractHeader'
+            }
+          }
+        }
+      }
+    },
     "/contract": {
       "post": {
         "tags": [
@@ -46,6 +146,7 @@
           }
         }
       },
+
       "get": {
         "tags": [
           "contract"
@@ -239,10 +340,10 @@
         "leaseType": {
             "type": "string",
             "enum": [
-		            "Operating",
-		            "Capital",
-		            "LTCC"
-		          ]
+                "Operating",
+                "Capital",
+                "LTCC"
+            ]
         },
  
         "lockNum": {
@@ -406,13 +507,13 @@
           "type": "string",
           "enum": [
               "Ethanol",
-	          "Crude",      
-		      "ULSD",       
-		      "Biodiesel",           
-		      "MTBE",       
-		      "FAME",           
-		      "Diluent",   
-		      "Curde"
+            "Crude",      
+          "ULSD",       
+          "Biodiesel",           
+          "MTBE",       
+          "FAME",           
+          "Diluent",   
+          "Curde"
           ]
         },
         "contractCschdFk": {
