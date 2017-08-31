@@ -14,16 +14,16 @@
 			outputSheetName="contractHeaders" />
 		<filter filterRecordName="cscbsContractBenchs" inputSheetName="search"
 			outputSheetName="benches" />
-		<filter filterRecordName="csclsContractLocations" inputSheetName="search"
-			outputSheetName="locations" />
-		<filter filterRecordName="cscrdContractRoleDetails" inputSheetName="search"
-			outputSheetName="roleDetails" />
-		<filter filterRecordName="cscsgContractStorages" inputSheetName="search"
-			outputSheetName="storages" />
+		<filter filterRecordName="csclsContractLocations"
+			inputSheetName="search" outputSheetName="locations" />
+		<filter filterRecordName="cscrdContractRoleDetails"
+			inputSheetName="search" outputSheetName="roleDetails" />
+		<filter filterRecordName="cscsgContractStorages"
+			inputSheetName="search" outputSheetName="storages" />
 		<readWithSql sqlName="queryRoleDetailsRoleTypes"
-			outputSheetName="roleType"></readWithSql>		
-			<log names="contractHeaders,benches,locations,storages"/>
-			
+			outputSheetName="roleType"></readWithSql>
+		<log names="contractHeaders,benches,locations,storages" />
+
 	</actions>
 	<outputData>
 		<outputRecords>
