@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="cscrtContractRoleTypes" recordType="storage" tableName="CSCRT_CONTRACT_ROLE_TYPES" xmlns="http://www.simplity.org/schema">
-<fields>
-<field columnName="CSCRT_PK" dataType="_decimal" fieldType="primaryKey" name="cscrtPk" sqlTypeName="DECIMAL"/>
-<field columnName="ROLE_NAME" dataType="_text" fieldType="data" name="roleName" sqlTypeName="VARCHAR"/>
-<field columnName="IS_DELETED" dataType="_text" fieldType="data" name="isDeleted" sqlTypeName="CHAR"/>
-</fields>
-</record>

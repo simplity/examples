@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="cscbsContractBenchs" recordType="storage" tableName="CSCBS_CONTRACT_BENCHS"
+		okToSelectAll="true"
+		xmlns="http://www.simplity.org/schema">
+<fields>
+<field columnName="CSCBS_PK" dataType="_decimal" fieldType="primaryKey" name="cscbsPk" sqlTypeName="DECIMAL"/>
+<field columnName="CONTRACT_CSCHD_FK" dataType="_decimal" fieldType="parentKey" name="contractCschdFk" referredField="cschdPk" referredRecord="cschdContractHeaders" sqlTypeName="DECIMAL"/>
+<field columnName="BENCH" dataType="_decimal" fieldType="data" name="bench" sqlTypeName="DECIMAL"/>
+<field columnName="LOCK_NUM" dataType="_decimal" fieldType="data" name="lockNum" sqlTypeName="DECIMAL"/>
+<field columnName="IS_DELETED" dataType="_text" fieldType="data" name="isDeleted" sqlTypeName="CHAR"/>
+<field columnName="CREATED_BY" dataType="_text" fieldType="data" name="createdBy" sqlTypeName="VARCHAR"/>
+<field columnName="CREATED_DATE" dataType="_dateTime" fieldType="data" name="createdDate" sqlTypeName="DATE"/>
+<field columnName="LAST_UPDATED_BY" dataType="_text" fieldType="data" name="lastUpdatedBy" sqlTypeName="VARCHAR"/>
+<field columnName="LAST_UPDATED_DATE" dataType="_dateTime" fieldType="data" name="lastUpdatedDate" sqlTypeName="DATE"/>
+</fields>
+</record>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service xmlns="http://www.simplity.org/schema" name="contractFilter"
+	dbAccessType="readOnly">
+	<inputData>
+		<inputRecords>
+			<inputRecord recordName="struct.searchCriteria" />
+		</inputRecords>
+	</inputData>
+	<actions>
+		<createSheet sheetName="search" recordName="struct.searchCriteria" />
+		<addRow sheetName="search" />
+		<log names="search" />
+		<filter filterRecordName="cschdContractHeaders" inputSheetName="search"
+			outputSheetName="contractHeaders" />
+		<filter filterRecordName="cscbsContractBenchs" inputSheetName="search"
+			outputSheetName="benches" />
+		<filter filterRecordName="csclsContractLocations"
+			inputSheetName="search" outputSheetName="locations" />
+		<filter filterRecordName="cscrdContractRoleDetails"
+			inputSheetName="search" outputSheetName="roleDetails" />
+		<filter filterRecordName="cscsgContractStorages"
+			inputSheetName="search" outputSheetName="storages" />
+		<readWithSql sqlName="queryRoleDetailsRoleTypes"
+			outputSheetName="roleType"></readWithSql>
+		<log names="contractHeaders,benches,locations,storages" />
+
+	</actions>
+	<outputData>
+		<outputRecords>
+			<outputRecord sheetName="contractHeaders" />
+			<outputRecord sheetName="storages" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="benches" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="locations" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleDetails" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleType" parentSheetName="roleDetails"
+				listOfLinkColumnsInParentSheet="cscrdPk,roleCscrtFk"
+				listOfLinkColumnsInThisSheet="cscrdPk,cscrtPk" />
+		</outputRecords>
+	</outputData>
+</service>

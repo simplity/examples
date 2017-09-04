@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<record name="searchCriteria" moduleName="struct" recordType="structure"
+	xmlns="http://www.simplity.org/schema">
+	<fields>
+		<field dataType="_number" name="region" />
+		<field dataType="_number" name="bench" />
+		<field dataType="_number" name="country" />
+		<field dataType="_text" name="state" />
+		<field dataType="_text" name="county" />
+		<field dataType="_text" name="city" />
+		<field dataType="_text" name="terminal" />
+		<field dataType="_text" name="assetName" />
+		<field dataType="_text" name="assetOwner" />
+		<field dataType="_text" name="dealName" />
+		<field dataType="_text" name="dealCounterParty" />
+		<field dataType="_text" name="bpContractNum" />
+		<field dataType="_text" name="segment" />
+		<field dataType="_text" name="bpContractingEntity" />
+		<field dataType="_text" name="contractStatus" />
+		<field dataType="_number" name="gradeGroup" />
+	</fields>
+</record>

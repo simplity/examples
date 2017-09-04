@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace">
+    <Properties>
+       <Property name="application">SCDB</Property>
+    </Properties>
+    <Appenders>
+        <File name="file" fileName="logs/scdbService.log">
+            <PatternLayout
+                pattern="${application} [%-5level] %X{correlationId} %d{yyyy HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </File>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="[%-5level] %X{correlationId} %d{yyyy HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        <Async name="Async">
+            <AppenderRef ref="file"/>
+        </Async>                
+    </Appenders>
+    <Loggers>
+        <Root level="trace" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="Aync" />
+        </Root>
+    </Loggers>
+</Configuration>

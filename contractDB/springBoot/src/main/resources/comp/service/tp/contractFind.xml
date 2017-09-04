@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service
+	xmlns="http://www.simplity.org/schema"
+	name="contractFind"
+	dbAccessType="readOnly">
+
+	<actions>
+		<filter filterRecordName="cschdContractHeaders"
+			outputSheetName="contractHeaders">
+			<childRecords>
+				<relatedRecord sheetName="benches" recordName="cscbsContractBenchs" />
+				<relatedRecord sheetName="locations" recordName="csclsContractLocations" />
+				<relatedRecord sheetName="roleDetails" recordName="cscrdContractRoleDetails" />
+				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
+			</childRecords>
+		</filter>
+		<readWithSql sqlName="queryRoleDetailsRoleTypes" outputSheetName="roleType"></readWithSql>	
+		<log actionName="ROLETYPELOGGING" names="roleType"/>
+	</actions>
+	<outputData>
+		<outputRecords>
+			<outputRecord sheetName="contractHeaders" />
+			<outputRecord sheetName="storages" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="benches" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="locations" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleDetails" parentSheetName="contractHeaders"
+				linkColumnInParentSheet="cschdPk" linkColumnInThisSheet="contractCschdFk" />
+			<outputRecord sheetName="roleType" parentSheetName="roleDetails" 
+				listOfLinkColumnsInParentSheet="cscrdPk,roleCscrtFk" listOfLinkColumnsInThisSheet="cscrdPk,cscrtPk"/>
+		</outputRecords>
+	</outputData>
+</service>
