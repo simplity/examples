@@ -20,10 +20,15 @@
 				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>
+		<readWithSql sqlName="">
+			<childRecords>
+				<relatedRecord sheetName="" recordName=""/>
+			</childRecords>
+		</readWithSql>
 		<filter actionName="getRoleType" filterRecordName="cscrtContractRoleTypes" 
 										 outputSheetName="roleType"></filter>
 	</actions>
-	<outputData justOutputEveryThing="true" fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
+	<outputData fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
 		<outputRecords>
 			<outputRecord sheetName="storages"/>
 			<outputRecord sheetName="benches"/> 
