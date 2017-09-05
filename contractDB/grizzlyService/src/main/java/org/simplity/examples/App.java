@@ -26,37 +26,32 @@ public class App {
 
 			try {
 				Application.bootStrap(folder);
-				Operations.loadAll(folder + "/openapi/");				
+				Operations.loadAll(folder + "/openapi/");
 			} catch (Exception e) {
 				logger.error("error while bootstrapping with compFolder=" + folder, e);
 				return;
 			}
 
-			
 			WebappContext wContext = new WebappContext("SCDB Context");
-			
+
 			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.rest.Serve.class);
 			rRegistration.addMapping("/scdb/*");
-
-//			ServletRegistration rRegistration = wContext.addServlet("RestSimplity", org.simplity.http.Serve.class);
-//			rRegistration.addMapping("/scdb/a.s");
 
 			server = GrizzlyHttpServerFactory.createHttpServer(new URI("http://localhost:8070"));
 			wContext.deploy(server);
 
-			server.getServerConfiguration().addHttpHandler(new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "./webapp/"),"/webapp/*");
-			
-			Serve.startUsingProto();
+			server.getServerConfiguration().addHttpHandler(
+					new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "./webapp/"), "/webapp/*");
+
 			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
 
 			server.start();
 			Thread.currentThread().join();
-			
 
 		} catch (Exception e) {
 			logger.error("Error in Service", e);
 			server.shutdown();
 		}
 	}
-	
+
 }
