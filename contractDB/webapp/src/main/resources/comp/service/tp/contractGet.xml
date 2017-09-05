@@ -20,11 +20,6 @@
 				<relatedRecord sheetName="storages" recordName="cscsgContractStorages" />
 			</childRecords>
 		</filter>
-		<readWithSql sqlName="">
-			<childRecords>
-				<relatedRecord sheetName="" recordName=""/>
-			</childRecords>
-		</readWithSql>
 		<filter actionName="getRoleType" filterRecordName="cscrtContractRoleTypes" 
 										 outputSheetName="roleType"></filter>
 	</actions>
