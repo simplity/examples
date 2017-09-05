@@ -17,6 +17,6 @@
 		<field dataType="_text" name="segment" />
 		<field dataType="_text" name="bpContractingEntity" />
 		<field dataType="_text" name="contractStatus" />
-		<field dataType="_number" name="gradeGroup" />
+		<field dataType="_text" name="gradeGroup" />
 	</fields>
 </record>

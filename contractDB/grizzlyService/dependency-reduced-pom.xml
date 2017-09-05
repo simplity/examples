@@ -51,10 +51,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>org.simplity.examples.TTServiceMain</mainClass>
-                </transformer>
-                <transformer>
-                  <resource>/comp</resource>
+                  <mainClass>org.simplity.examples.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>

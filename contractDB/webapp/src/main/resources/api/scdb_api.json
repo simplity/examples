@@ -104,7 +104,7 @@
         {
           "name":"gradeGroup",
           "in":"query",
-          "type":"integer"
+          "type":"string"
         }
       ],
         "responses":{
@@ -645,64 +645,6 @@
       "properties": {
         "message": {
           "type": "string"
-        }
-      }
-    },
-    "SearchCriteria": {
-      "x-fieldName": "SearchCriteria",
-      "type": "object",
-      "properties": {
-        "region": {
-          "type": "integer"
-        },
-        "bench": {
-          "type": "integer"
-        },
-        "country": {
-          "type": "integer"
-        },
-        "state": {
-          "type": "string"
-        },
-        "county": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "terminal": {
-          "type": "string"
-        },
-        "assetName": {
-          "type": "string"
-        },
-        "assetOwner": {
-          "type": "string"
-        },
-        "dealName": {
-          "type": "string"
-        },
-        "dealCounterParty": {
-          "type": "string"
-        },
-        "bpContractNum": {
-          "type": "string"
-        },
-        "segment": {
-          "type": "string"
-        },
-        "bpContractingEntity": {
-          "type": "string"
-        },
-        "contractStatus": {
-          "type": "string",
-          "enum": [
-            "Live",
-            "Closed"
-          ]
-        },
-        "gradeGroup": {
-          "type": "integer"
         }
       }
     }

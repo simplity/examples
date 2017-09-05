@@ -10,8 +10,7 @@
 		<createSheet sheetName="search" recordName="struct.searchCriteria" />
 		<addRow sheetName="search" />
 		<log names="search" />
-		<filter filterRecordName="cschdContractHeaders" inputSheetName="search"
-			outputSheetName="contractHeaders" />
+		<complexLogic className="org.simplity.filter.SearchCriteria" />
 		<filter filterRecordName="cscbsContractBenchs" inputSheetName="search"
 			outputSheetName="benches" />
 		<filter filterRecordName="csclsContractLocations"

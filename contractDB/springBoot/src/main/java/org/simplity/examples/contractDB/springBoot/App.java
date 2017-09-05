@@ -53,7 +53,7 @@ public class App {
 			return;
 		}
 		
-		Serve.startUsingProto();
+		//Serve.startUsingProto();
 		Operations.setProtoClassPrefix("org.simplity.examples.contractDB.apiscdb.ScdbApi$");		
 
 		SpringApplication.run(App.class, args);

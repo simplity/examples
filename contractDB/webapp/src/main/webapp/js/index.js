@@ -22,7 +22,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 		      headers: {
 		    	  'Accept':'application/octet-stream'
 		      },
-		      url: '/scdb/storagecontracts/contract', 
+		      url: 'scdb/storagecontracts/contract', 
 		      responseType: 'arraybuffer'
 		    };
 
@@ -39,7 +39,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 			      headers: {
 			    	  'Accept':'application/octet-stream'
 			      },			      
-			      url: '/scdb/storagecontracts/filter?'+$scope.contractId, 
+			      url: 'scdb/storagecontracts/filter?'+$scope.contractId, 
 			      responseType: 'arraybuffer'
 			    };
 
@@ -56,7 +56,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 			      headers: {
 			    	  'Accept':'application/octet-stream'
 			      },			      
-			      url: '/scdb/storagecontracts/contract/'+$scope.contractId, 
+			      url: 'scdb/storagecontracts/contract/'+$scope.contractId, 
 			      responseType: 'arraybuffer'
 			    };
 	    $http(req).success(function(data) {
@@ -83,7 +83,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	     
 	    var req = {
 			      method: 'POST',	      
-			      url: '/scdb/storagecontracts/contract',
+			      url: 'scdb/storagecontracts/contract',
 			      transformRequest: function(r) { return r;},
 			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',
@@ -107,7 +107,7 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	    
 	    var req = {
 			      method: 'PUT',
-			      url: '/scdb/storagecontracts/contract/'+updateContract.cschdPk,
+			      url: 'scdb/storagecontracts/contract/'+updateContract.cschdPk,
 			      transformRequest: function(r) { return r;},
 			      data: ContractHeader.encode(message).finish(),
 			      responseType: 'arraybuffer',
