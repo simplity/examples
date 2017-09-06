@@ -12,7 +12,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
-	
+	<log names="cschdPk"/>
 		<save saveAction="save" recordName="cschdContractHeaders">
 			<childRecords>
 			 	<relatedRecord sheetName="storages" recordName="cscsgContractStorages"/>
