@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testRun
+	testName="contractCreateTest"
+	xmlns="http://www.simplity.org/schema">
+	<testCases>	
+		<testCase serviceName="contractCreate" testCaseName="contractCreateTest">
+	    	<inputJson>
+	    		{
+					"assetName":"Enterprise Houston Terminal-Changes",
+					"assetOwner":"Enterprise",
+					"bpContractNum":"Ent Houston OTI_Create_Test04",
+					"bpContractingEntity":"BPPNA",
+					"contractEndDate":"2025-08-31",
+					"contractSignDate":"2016-01-01",
+					"contractStartDate":"2018-09-01",
+					"createdBy":"SYSTEM",
+					"createdDate":"2017-08-21",
+					"cschdPk":2400000003431923,
+					"dealCounterParty":"Enterprise Partners, LLC",
+					"dealName":"Enterprise Houston Crude",
+					"description":"Enterprise Houston Storage",
+					"durationMonths":85,
+					"leaseType":"LTCC",
+					"econs":4.0E7,
+					"excessThroughputRate":1,
+					"externalContractNum":"1-hou-gcrude-12",
+					"isDeleted":"N",
+					"lastUpdatedBy":"SYSTEM",
+					"lastUpdatedDate":"2017-08-21",
+					"leasePercentage":20,
+					"lockNum":1,
+					"notes":"Note",
+					"otherReferenceNum":"na",
+					"region":1010003098,
+					"benches":null,
+					"locations":null,
+					"roleDetails":[{
+						"contractCschdFk":2200000003431923,
+						"createdBy":"SYSTEM",
+						"createdDate":"2017-08-21",
+						"cscrdPk":2400000003431933,
+						"isDeleted":"N",
+						"lastUpdatedBy":"SYSTEM",
+						"lastUpdatedDate":"2017-08-21",
+						"lockNum":1,
+						"primaryIndividual":"Pederson",
+						"roleCscrtFk":2000000003431929,
+						"roleType":[{
+							"cscrtPk":2000000003431929,
+							"isDeleted":"N",
+							"roleName":"Bench Owner"
+						}],
+						"secondaryIndividual":"Recktenwall"
+					}],
+					"storages":[{
+						"contractCschdFk":2200000003431923,
+						"createdBy":"SYSTEM",
+						"createdDate":"2017-08-21",
+						"cscsgPk":2400000003431941,
+						"currency":1010003029000024,
+						"description":"Segregated",
+						"gradeGroup":"MTBE",
+						"isDeleted":"N",
+						"lastUpdatedBy":"SYSTEM",
+						"lastUpdatedDate":"2017-08-21",
+						"lockNum":1,
+						"quantity":390000,
+						"quantityUom":"BBL",
+						"storageEndDate":"2013-10-01",
+						"storageRate":1,
+						"storageStartDate":"2013-10-01",
+						"tankId":"390-2"
+					}, {
+						"contractCschdFk":2200000003431923,
+						"createdBy":"SYSTEM",
+						"createdDate":"2017-08-21",
+						"cscsgPk":2400000003431942,
+						"currency":1010003029000024,
+						"description":"Segregated",
+						"gradeGroup":"BIODIESEL",
+						"isDeleted":"N",
+						"lastUpdatedBy":"SYSTEM",
+						"lastUpdatedDate":"2017-08-21",
+						"lockNum":1,
+						"quantity":390000,
+						"quantityUom":"BBL",
+						"storageEndDate":"2013-10-01",
+						"storageRate":1,
+						"storageStartDate":"2013-10-01",
+						"tankId":"390-3"
+					}, {
+						"contractCschdFk":2200000003431923,
+						"createdBy":"SYSTEM",
+						"createdDate":"2017-08-21",
+						"cscsgPk":2400000003431943,
+						"currency":1010003029000024,
+						"description":"Segregated",
+						"gradeGroup":"FAME",
+						"isDeleted":"N",
+						"lastUpdatedBy":"SYSTEM",
+						"lastUpdatedDate":"2017-08-21",
+						"lockNum":1,
+						"quantity":390000,
+						"quantityUom":"BBL",
+						"storageEndDate":"2013-10-01",
+						"storageRate":1,
+						"storageStartDate":"2013-10-01",
+						"tankId":"390-4"
+					}],
+					"terminal":"Enterprise ",
+					"througputPerYear":12
+				}
+	    	</inputJson>
+	    	<outputFields>
+	    		<outputField fieldSelector="cschdPk" fieldValue="2.400000003431923E15"/>
+	    		<outputField fieldSelector="bpContractingEntity" fieldValue="BPPNA"/>
+	    		<outputField fieldSelector="leaseType" fieldValue="LTCC"/>
+	    	</outputFields>    	
+	    </testCase>
+	    
+	</testCases>
+</testRun>

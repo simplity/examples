@@ -12,9 +12,21 @@ public class ScdbTest extends SimpliTestCase {
 		skipValidation=true;
 		super.setUp();
 	}
-
-	public void testHello() {
-		servicetest = "contractTestRun";
+	public void testcontractFind() {
+		servicetest = "contractFindTest";
 	}
+	public void testcontractFilter() {
+		servicetest = "contractFilterTest";
+	}
+	public void testcontractGet() {
+		servicetest = "contractGetTest";
+	}
+	public void testcontractCreate() {
+		servicetest = "contractCreateTest";
+	}
+	public void testcontractUpdate() {
+		servicetest = "contractUpdateTest";
+	}
+	
 
 }

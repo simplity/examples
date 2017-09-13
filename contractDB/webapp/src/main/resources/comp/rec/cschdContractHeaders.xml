@@ -32,7 +32,7 @@
 <field columnName="IS_DELETED" dataType="_text" fieldType="data" name="isDeleted" sqlTypeName="CHAR"/>
 <field columnName="CREATED_BY" dataType="_text" fieldType="data" name="createdBy" sqlTypeName="VARCHAR"/>
 <field columnName="CREATED_DATE" dataType="_dateTime" fieldType="data" name="createdDate" sqlTypeName="DATE"/>
-<field columnName="LAST_UPDATED_BY" dataType="_text" fieldType="data" name="lastUpdatedBy" sqlTypeName="VARCHAR"/>
-<field columnName="LAST_UPDATED_DATE" dataType="_dateTime" fieldType="data" name="lastUpdatedDate" sqlTypeName="DATE"/>
+<field columnName="LAST_UPDATED_BY" dataType="_text" fieldType="modifiedByUser" name="lastUpdatedBy" sqlTypeName="VARCHAR"/>
+<field columnName="LAST_UPDATED_DATE" dataType="_dateTime" fieldType="modifiedTimeStamp" name="lastUpdatedDate" sqlTypeName="DATE"/>
 </fields>
 </record>
