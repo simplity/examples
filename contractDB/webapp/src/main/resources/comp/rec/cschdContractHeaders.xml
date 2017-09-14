@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<record name="cschdContractHeaders" recordType="storage" okToSelectAll="true" tableName="CSCHD_CONTRACT_HEADERS" xmlns="http://www.simplity.org/schema">
+<record name="cschdContractHeaders" recordType="storage" okToSelectAll="true" tableName="CSCHD_CONTRACT_HEADERS" xmlns="http://www.simplity.org/schema" useTimestampForConcurrency="true">
 <fields>
 <field columnName="CSCHD_PK" dataType="_decimal" fieldType="primaryKey" name="cschdPk" sqlTypeName="DECIMAL"/>
 <field columnName="TERMINAL" dataType="_text" fieldType="data" name="terminal" sqlTypeName="VARCHAR"/>
@@ -33,6 +33,6 @@
 <field columnName="CREATED_BY" dataType="_text" fieldType="data" name="createdBy" sqlTypeName="VARCHAR"/>
 <field columnName="CREATED_DATE" dataType="_dateTime" fieldType="data" name="createdDate" sqlTypeName="DATE"/>
 <field columnName="LAST_UPDATED_BY" dataType="_text" fieldType="modifiedByUser" name="lastUpdatedBy" sqlTypeName="VARCHAR"/>
-<field columnName="LAST_UPDATED_DATE" dataType="_dateTime" fieldType="modifiedTimeStamp" name="lastUpdatedDate" sqlTypeName="DATE"/>
+<field columnName="LAST_UPDATED_DATE" dataType="_timestamp" fieldType="modifiedTimeStamp" name="lastUpdatedDate" sqlTypeName="DATE"/>
 </fields>
 </record>

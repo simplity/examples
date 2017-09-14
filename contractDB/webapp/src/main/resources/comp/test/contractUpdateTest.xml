@@ -5,12 +5,142 @@
 	<testCases>
 		<testCase
 			serviceName="contractUpdate"
-			testCaseName="testContractUpdate">
-			<inputJson>  {"assetName":"Enterprise Houston Terminal-Changes","assetOwner":"Enterprise","bpContractNum":"Ent Houston OTI-update-123","bpContractingEntity":"BPPNA","contractEndDate":"2025-08-31","contractSignDate":"2025-08-31","contractStartDate":"2025-08-31","createdBy":"SYSTEM","createdDate":"2025-08-31","cschdPk":"2000000003431923","dealCounterParty":"Enterprise Partners, LLC","dealName":"Enterprise Houston Crude","description":"Enterprise Houston Storage","durationMonths":85.2,"econs":40000000,"excessThroughputRate":0.5,"externalContractNum":"1-hou-gcrude-12","isDeleted":"N","leasePercentage":20,"lockNum":"1","notes":"Note","otherReferenceNum":"na","region":"1010003098000000","roleDetails":[{"contractCschdFk":"2000000003431923","createdBy":"SYSTEM","createdDate":"2025-08-31","cscrdPk":"2000000003431933","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2025-08-31","lockNum":"1","primaryIndividual":"Pederson","roleCscrtFk":"2000000003431929","roleType":[{"cscrtPk":"2000000003431929","isDeleted":"N","roleName":"Bench Owner"}],"secondaryIndividual":"Recktenwall"}],"storages":[{"contractCschdFk":"2000000003431923","createdBy":"SYSTEM","createdDate":"2025-08-31","cscsgPk":"2000000003431940","currency":"1010003029000024","description":"Segregated","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2025-08-31","lockNum":"1","quantity":390000,"quantityUom":"BBL","storageEndDate":"2025-08-31","storageRate":0.55,"storageStartDate":"2025-08-31","tankId":"390-1"},{"contractCschdFk":"2000000003431923","createdBy":"SYSTEM","createdDate":"2025-08-31","cscsgPk":"2000000003431941","currency":"1010003029000024","description":"Segregated","gradeGroup":"MTBE","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2025-08-31","lockNum":"1","quantity":390000,"quantityUom":"BBL","storageEndDate":"2025-08-31","storageRate":0.55,"storageStartDate":"2025-08-31","tankId":"390-2"},{"contractCschdFk":"2000000003431923","createdBy":"SYSTEM","createdDate":"2025-08-31","cscsgPk":"2000000003431942","currency":"1010003029000024","description":"Segregated","gradeGroup":"BIODIESEL","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2025-08-31","lockNum":"1","quantity":390000,"quantityUom":"BBL","storageEndDate":"2025-08-31","storageRate":0.55,"storageStartDate":"2025-08-31","tankId":"390-3"},{"contractCschdFk":"2000000003431923","createdBy":"SYSTEM","createdDate":"2025-08-31","cscsgPk":"2000000003431943","currency":"1010003029000024","description":"Segregated","gradeGroup":"FAME","isDeleted":"N","lastUpdatedBy":"SYSTEM","lastUpdatedDate":"2025-08-31","lockNum":"1","quantity":390000,"quantityUom":"BBL","storageEndDate":"2025-08-31","storageRate":0.65,"storageStartDate":"2025-08-31","tankId":"390-4"}],"terminal":"Enterprise ","througputPerYear":12} </inputJson>
-			<outputFields>
-				<outputField fieldSelector="cschdPk" fieldValue="2.000000003431923E15"/>
-				<outputField fieldSelector="assetName" fieldValue="Enterprise Houston Terminal-Changes"/>
-			</outputFields>
+			testCaseName="testContractUpdate" testForFailure="true">
+			<inputJson>  
+			{  
+   "lastUpdatedDate":"1756578600000",			
+   "assetName":"Enterprise Houston Terminal-Changes",
+   "assetOwner":"Enterprise",
+   "bpContractNum":"Ent Houston OTI-update-123",
+   "bpContractingEntity":"BPPNA",
+   "contractEndDate":"2025-08-31",
+   "contractSignDate":"2025-08-31",
+   "contractStartDate":"2025-08-31",
+   "createdBy":"SYSTEM",
+   "createdDate":"2025-08-31",
+   "cschdPk":"2000000003431923",
+   "dealCounterParty":"Enterprise Partners, LLC",
+   "dealName":"Enterprise Houston Crude",
+   "description":"Enterprise Houston Storage",
+   "durationMonths":85.2,
+   "econs":40000000,
+   "excessThroughputRate":0.5,
+   "externalContractNum":"1-hou-gcrude-12",
+   "isDeleted":"N",
+   "leasePercentage":20,
+   "lockNum":"1",
+   "notes":"Note",
+   "otherReferenceNum":"na",
+   "region":"1010003098000000",
+   "roleDetails":[  
+      {  
+         "contractCschdFk":"2000000003431923",
+         "createdBy":"SYSTEM",
+         "createdDate":"2025-08-31",
+         "cscrdPk":"2000000003431933",
+         "isDeleted":"N",
+         "lastUpdatedBy":"SYSTEM",
+         "lastUpdatedDate":"2025-08-31",
+         "lockNum":"1",
+         "primaryIndividual":"Pederson",
+         "roleCscrtFk":"2000000003431929",
+         "roleType":[  
+            {  
+               "cscrtPk":"2000000003431929",
+               "isDeleted":"N",
+               "roleName":"Bench Owner"
+            }
+         ],
+         "secondaryIndividual":"Recktenwall"
+      }
+   ],
+   "storages":[  
+      {  
+         "contractCschdFk":"2000000003431923",
+         "createdBy":"SYSTEM",
+         "createdDate":"2025-08-31",
+         "cscsgPk":"2000000003431940",
+         "currency":"1010003029000024",
+         "description":"Segregated",
+         "isDeleted":"N",
+         "lastUpdatedBy":"SYSTEM",
+         "lastUpdatedDate":"2025-08-31",
+         "lockNum":"1",
+         "quantity":390000,
+         "quantityUom":"BBL",
+         "storageEndDate":"2025-08-31",
+         "storageRate":0.55,
+         "storageStartDate":"2025-08-31",
+         "tankId":"390-1"
+      },
+      {  
+         "contractCschdFk":"2000000003431923",
+         "createdBy":"SYSTEM",
+         "createdDate":"2025-08-31",
+         "cscsgPk":"2000000003431941",
+         "currency":"1010003029000024",
+         "description":"Segregated",
+         "gradeGroup":"MTBE",
+         "isDeleted":"N",
+         "lastUpdatedBy":"SYSTEM",
+         "lastUpdatedDate":"2025-08-31",
+         "lockNum":"1",
+         "quantity":390000,
+         "quantityUom":"BBL",
+         "storageEndDate":"2025-08-31",
+         "storageRate":0.55,
+         "storageStartDate":"2025-08-31",
+         "tankId":"390-2"
+      },
+      {  
+         "contractCschdFk":"2000000003431923",
+         "createdBy":"SYSTEM",
+         "createdDate":"2025-08-31",
+         "cscsgPk":"2000000003431942",
+         "currency":"1010003029000024",
+         "description":"Segregated",
+         "gradeGroup":"BIODIESEL",
+         "isDeleted":"N",
+         "lastUpdatedBy":"SYSTEM",
+         "lastUpdatedDate":"2025-08-31",
+         "lockNum":"1",
+         "quantity":390000,
+         "quantityUom":"BBL",
+         "storageEndDate":"2025-08-31",
+         "storageRate":0.55,
+         "storageStartDate":"2025-08-31",
+         "tankId":"390-3"
+      },
+      {  
+         "contractCschdFk":"2000000003431923",
+         "createdBy":"SYSTEM",
+         "createdDate":"2025-08-31",
+         "cscsgPk":"2000000003431943",
+         "currency":"1010003029000024",
+         "description":"Segregated",
+         "gradeGroup":"FAME",
+         "isDeleted":"N",
+         "lastUpdatedBy":"SYSTEM",
+         "lastUpdatedDate":"2025-08-31",
+         "lockNum":"1",
+         "quantity":390000,
+         "quantityUom":"BBL",
+         "storageEndDate":"2025-08-31",
+         "storageRate":0.65,
+         "storageStartDate":"2025-08-31",
+         "tankId":"390-4"
+      }
+   ],
+   "locations":[],
+   "benches":[],
+   "terminal":"Enterprise ",
+   "througputPerYear":12
+}
+ </inputJson>
+<!-- 			<outputFields> -->
+<!-- 				<outputField fieldSelector="cschdPk" fieldValue="2.000000003431923E15"/> -->
+<!-- 				<outputField fieldSelector="assetName" fieldValue="Enterprise Houston Terminal-Changes"/> -->
+<!-- 			</outputFields> -->
 		</testCase>
 	</testCases>
 </testRun>

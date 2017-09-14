@@ -8,14 +8,14 @@
 	    		{
 					"assetName":"Enterprise Houston Terminal-Changes",
 					"assetOwner":"Enterprise",
-					"bpContractNum":"Ent Houston OTI_Create_Test04",
+					"bpContractNum":"Ent Houston OTI_Create_Test05",
 					"bpContractingEntity":"BPPNA",
 					"contractEndDate":"2025-08-31",
 					"contractSignDate":"2016-01-01",
 					"contractStartDate":"2018-09-01",
 					"createdBy":"SYSTEM",
 					"createdDate":"2017-08-21",
-					"cschdPk":2400000003431923,
+					"cschdPk":2600000003431923,
 					"dealCounterParty":"Enterprise Partners, LLC",
 					"dealName":"Enterprise Houston Crude",
 					"description":"Enterprise Houston Storage",
@@ -25,8 +25,6 @@
 					"excessThroughputRate":1,
 					"externalContractNum":"1-hou-gcrude-12",
 					"isDeleted":"N",
-					"lastUpdatedBy":"SYSTEM",
-					"lastUpdatedDate":"2017-08-21",
 					"leasePercentage":20,
 					"lockNum":1,
 					"notes":"Note",
@@ -38,7 +36,7 @@
 						"contractCschdFk":2200000003431923,
 						"createdBy":"SYSTEM",
 						"createdDate":"2017-08-21",
-						"cscrdPk":2400000003431933,
+						"cscrdPk":2600000003431933,
 						"isDeleted":"N",
 						"lastUpdatedBy":"SYSTEM",
 						"lastUpdatedDate":"2017-08-21",
@@ -56,7 +54,7 @@
 						"contractCschdFk":2200000003431923,
 						"createdBy":"SYSTEM",
 						"createdDate":"2017-08-21",
-						"cscsgPk":2400000003431941,
+						"cscsgPk":2600000003431941,
 						"currency":1010003029000024,
 						"description":"Segregated",
 						"gradeGroup":"MTBE",
@@ -74,7 +72,7 @@
 						"contractCschdFk":2200000003431923,
 						"createdBy":"SYSTEM",
 						"createdDate":"2017-08-21",
-						"cscsgPk":2400000003431942,
+						"cscsgPk":2600000003431942,
 						"currency":1010003029000024,
 						"description":"Segregated",
 						"gradeGroup":"BIODIESEL",
@@ -92,7 +90,7 @@
 						"contractCschdFk":2200000003431923,
 						"createdBy":"SYSTEM",
 						"createdDate":"2017-08-21",
-						"cscsgPk":2400000003431943,
+						"cscsgPk":2600000003431943,
 						"currency":1010003029000024,
 						"description":"Segregated",
 						"gradeGroup":"FAME",
@@ -112,7 +110,7 @@
 				}
 	    	</inputJson>
 	    	<outputFields>
-	    		<outputField fieldSelector="cschdPk" fieldValue="2.400000003431923E15"/>
+	    		<outputField fieldSelector="cschdPk" fieldValue="2.600000003431923E15"/>
 	    		<outputField fieldSelector="bpContractingEntity" fieldValue="BPPNA"/>
 	    		<outputField fieldSelector="leaseType" fieldValue="LTCC"/>
 	    	</outputFields>    	
