@@ -2,7 +2,7 @@
 <testRun
 	testName="contractUpdateTest"
 	xmlns="http://www.simplity.org/schema">
-	<testCases>
+	<testCases> 
 		<testCase
 			serviceName="contractUpdate"
 			testCaseName="testContractUpdate" testForFailure="true">

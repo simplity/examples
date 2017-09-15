@@ -11,7 +11,7 @@
 		</inputRecords>
 	</inputData>
 	<actions>
-	<log names="status"/>
+	<log names="lastUpdatedDate"/>
 		<save saveAction="save" recordName="cschdContractHeaders">
 			<childRecords>
 			 	<relatedRecord sheetName="storages" recordName="cscsgContractStorages"/>

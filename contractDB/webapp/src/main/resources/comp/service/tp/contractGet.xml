@@ -22,6 +22,7 @@
 		</filter>
 		<filter actionName="getRoleType" filterRecordName="cscrtContractRoleTypes" 
 										 outputSheetName="roleType"></filter>
+        <log names="lastUpdatedDate"/>										 
 	</actions>
 	<outputData fieldNames="cschdPk,terminal,region,assetName,assetOwner,dealName,dealCounterParty,bpContractNum,externalContractNum,otherReferenceNum,description,bpContractingEntity,leaseType,leasePercentage,status,contractSignDate,contractStartDate,contractEndDate,contractRenewalDate,durationMonths,excessThroughputRate,excessThroughputRateUom,througputPerYear,econs,econsUom,notes,contractLink,lockNum,isDeleted,createdBy,createdDate,lastUpdatedBy,lastUpdatedDate">
 		<outputRecords>

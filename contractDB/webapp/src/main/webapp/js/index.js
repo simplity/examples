@@ -230,7 +230,8 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 	$scope.updateContract = function(){
 	    $scope.contracts = [];
 	    var updateContract =  
-	    {  
+	    { 
+	    		   "lastUpdatedDate":$scope.lastUpdatedDate,
 	    		   "assetName":"Enterprise Houston Terminal-Changes",
 	    		   "assetOwner":"Enterprise",
 	    		   "bpContractNum":"Ent Houston OTI-update-123",
