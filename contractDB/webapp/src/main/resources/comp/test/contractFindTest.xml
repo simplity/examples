@@ -5,44 +5,10 @@
 	<testCases>
 		<testCase
 			serviceName="contractFind"
-			testCaseName="testContractFind">
-			<outputItems>
-				<outputItem itemSelector="contractHeaders.0">
-					<outputFields>
-						<outputField
-							fieldSelector="cschdPk"
-							fieldValue="2.000000003431923E15" />
-					</outputFields>
-				</outputItem>
-				<outputItem itemSelector="contractHeaders.1">
-					<outputFields>
-						<outputField
-							fieldSelector="cschdPk"
-							fieldValue="2.000000003431924E15" />
-					</outputFields>
-				</outputItem>
-				<outputItem itemSelector="contractHeaders.2">
-					<outputFields>
-						<outputField
-							fieldSelector="cschdPk"
-							fieldValue="2.000000003431925E15" />
-					</outputFields>
-				</outputItem>
-				<outputItem itemSelector="contractHeaders.3">
-					<outputFields>
-						<outputField
-							fieldSelector="cschdPk"
-							fieldValue="2.000000003431926E15" />
-					</outputFields>
-				</outputItem>
-				<outputItem itemSelector="contractHeaders.4">
-					<outputFields>
-						<outputField
-							fieldSelector="cschdPk"
-							fieldValue="2.000000003431927E15" />
-					</outputFields>
-				</outputItem>
-			</outputItems>
+			testCaseName="testContractFind" >
+			<outputLists >
+				<outputList listSelector="contractHeaders" minRows="2"/>
+			</outputLists>			
 		</testCase>
 	</testCases>
 </testRun>

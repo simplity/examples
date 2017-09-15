@@ -3,7 +3,7 @@
 	dbAccessType="readWrite">
 	<inputData>
 		<inputRecords>
-			<inputRecord recordName="cschdContractHeaders"/>
+			<inputRecord recordName="cschdContractHeaders" sheetName="_rootSheet"/>
 			<inputRecord recordName="cscsgContractStorages" sheetName="storages" />
 			<inputRecord recordName="cscbsContractBenchs" sheetName="benches"/>
 			<inputRecord recordName="csclsContractLocations" sheetName="locations" />
