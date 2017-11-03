@@ -27,10 +27,11 @@ public class TodosViewServiceClientImpl implements TodosViewServiceClient {
 		boolean isJson = false;
 		boolean isXml = false;
 		
-		HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		//HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		HttpClient httpClient = new HttpClient();
 		ServiceContext ctx = new ServiceContext("unknown", Value.newTextValue("100"));
-		httpClient.doAct(ctx);
-		
+		//httpClient.doAct(ctx);
+		httpClient.act(ctx, null);
 		Response response =  Response.ok(ctx.getTextValue("outputData")).build();
 		return response;
 	}

@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn"><!-- use status="trace" for troubleshooting -->
+<Configuration status="trace">
+    <Properties>
+       <Property name="application">Spring Integration</Property>
+    </Properties>
     <Appenders>
-        <Console name="STDOUT" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
-        </Console>
-        <File name="FILE" fileName="target/helloworld.log">
-            <PatternLayout>
-                <pattern>%d %p [%t] %c{1.} %m%n</pattern>
-            </PatternLayout>
+        <File name="file" fileName="logs/spingInt.log">
+            <PatternLayout
+                pattern="${application} [%-5level] %d{yyyy HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
         </File>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="[%-5level] %d{yyyy HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+        <Async name="Async">
+            <AppenderRef ref="file"/>
+        </Async>                
     </Appenders>
     <Loggers>
-        <Root level="trace">
-            <AppenderRef ref="STDOUT" level="info" />
-            <AppenderRef ref="FILE" />
+        <Root level="trace" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="Aync" />
         </Root>
     </Loggers>
 </Configuration>

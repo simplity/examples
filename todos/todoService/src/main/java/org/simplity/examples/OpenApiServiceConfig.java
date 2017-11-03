@@ -22,7 +22,6 @@ import org.simplity.service.JavaAgent;
 import org.simplity.service.ServiceData;
 
 import io.swagger.models.HttpMethod;
-import io.swagger.models.Model;
 import io.swagger.models.Operation;
 import io.swagger.models.Path;
 import io.swagger.models.Swagger;

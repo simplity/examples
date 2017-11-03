@@ -23,7 +23,7 @@
 		<testCase
 			testCaseName="shouldFindNoOwnersByLastName"
 			serviceName="filter_owners"
-			description="no one wtith name daivss. no rows expected"
+			description="no one with name daivss. no rows expected"
 		>
 			<inputFields>
 				<inputField

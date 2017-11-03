@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<service xmlns="http://www.simplity.org/schema" name="memCacheRefresh"
-	dbAccessType="readWrite">
-	<actions>
-		<filter filterRecordName="memcacheKeysTable" outputSheetName="memcacheKeysSheet"></filter>
-		<logic className="org.simplity.examples.logic.MemCacheRefresh"/>
-		<save saveAction="save" inputSheetName="memcacheKeysSheet" recordName="memcacheKeysTable"></save>
-	</actions>
-</service>

@@ -32,7 +32,7 @@ public class App {
 
 			ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
 			context.setContextPath("/");
-			context.addServlet(servletHolder, "/*");
+			context.addServlet(servletHolder, "/helloworld");
 
 			server.setHandler(context);
 

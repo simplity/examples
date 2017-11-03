@@ -4,7 +4,7 @@
 	<groupId>mailDemo</groupId>
 	<artifactId>mailDemo</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.2.1-SNAPSHOT</version>
 	<name>mailDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.simplity</groupId>
 			<artifactId>kernel</artifactId>
-			<version>1.2-SNAPSHOT</version>
+			<version>1.2.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.simplity.utils</groupId>
@@ -50,7 +50,7 @@
 		<finalName>mailDemo</finalName>
 		<resources>
 			<resource>
-				<directory>src/main/resoures</directory>
+				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>

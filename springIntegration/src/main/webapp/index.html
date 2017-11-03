@@ -11,12 +11,15 @@
 		
 		for ( var index in response.userrecord) {
 			if (response.userrecord.hasOwnProperty(index)) {
-				var row = table.insertRow(index);
+				var row = table.insertRow(parseInt(index)+1);
 				var checkboxCell = row.insertCell(0);
-				checkboxCell.innerHTML = '<tr><td>' + response.userrecord[index].id + '</td><td>' 
-													+ response.userrecord[index].username + '</td><td>' 
-													+ response.userrecord[index].password + '</td><td>'
-													+ response.userrecord[index].email + '</td></tr>';
+				checkboxCell.innerHTML = '<tr><td>' + response.userrecord[index].id + '</td>' ;
+				checkboxCell = row.insertCell(1);
+				checkboxCell.innerHTML = '<td>'+ response.userrecord[index].username + '</td>'; 
+				checkboxCell = row.insertCell(2);
+				checkboxCell.innerHTML = '<td>'+ response.userrecord[index].password + '</td>';
+				checkboxCell = row.insertCell(3);
+				checkboxCell.innerHTML = '<td>'+ response.userrecord[index].email + '</td></tr>';
 			}
 		}
 	}
@@ -35,7 +38,7 @@ table, th, td {
 <body>
 	<h2>Hello World!</h2>
 	<br>
-	<button onclick="getUsers()">abc</button>
+	<button onclick="getUsers()">GetUsers</button>
 	<br>
 	<br>
 	<table id="userTable">

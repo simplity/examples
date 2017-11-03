@@ -43,7 +43,7 @@ public class App {
 			server.getServerConfiguration().addHttpHandler(
 					new CLStaticHttpHandler(HttpServer.class.getClassLoader(), "./webapp/"), "/webapp/*");
 
-			Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
+			//Operations.setProtoClassPrefix("org.simplity.apiscdb.ScdbApi$");
 
 			server.start();
 			Thread.currentThread().join();

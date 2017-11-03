@@ -2,10 +2,7 @@
 <sql
 	name="queryRoleDetailsRoleTypes"
 	sqlType="multiSelect"
-	xmlns="http://www.simplity.org/schema"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.simplity.org/schema http://www.simplity.org/schema "
->
+	xmlns="http://www.simplity.org/schema">
 	<preparedStatement>SELECT RD.CSCRD_PK, RT.CSCRT_PK, RT.ROLE_NAME, RT.IS_DELETED FROM CSCRD_CONTRACT_ROLE_DETAILS RD JOIN CSCRT_CONTRACT_ROLE_TYPES RT on RD.ROLE_CSCRT_FK=RT.CSCRT_PK</preparedStatement>
 	<outputParameters>
 		<sqlParameter
@@ -19,7 +16,6 @@
 			name="roleName" />
 		<sqlParameter
 			dataType="_text"
-			name="isDeleted" />
-			
+			name="isDeleted" />			
 	</outputParameters>
 </sql>

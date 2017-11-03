@@ -45,7 +45,7 @@ public class SearchCriteria implements ComplexLogicInterface {
 		
 		Value[] values;
 		if (hasNoFilter) {
-			parentSql.append(" 1 = 1 ");
+			parentSql.append(" WHERE 1 = 1 ");
 			values = new Value[0];
 		} else {
 			values = filterValues.toArray(new Value[0]);

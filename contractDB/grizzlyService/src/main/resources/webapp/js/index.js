@@ -122,3 +122,319 @@ protojson.controller('ProtoCtrl', function($scope, $http) {
 		    });	    
 	}		
 });
+
+
+
+
+
+
+protojson.controller('JsonCtrl', function($scope, $http) {
+	  
+	  $scope.getContracts = function() {
+		    $scope.contracts = [];
+		    var req = {
+		      method: 'GET',
+		      headers: {
+		    	  'Accept':'application/json'
+		      },
+		      url: '/scdb/storagecontracts/contract', 
+		      responseType: 'json'
+		    };
+
+		    $http(req).success(function(data) {
+		      $scope.contracts = data.contractHeaders;
+		    });
+		  };
+
+		  $scope.getFilteredContracts = function() {
+			    $scope.contracts = [];
+			    var req = {
+			      method: 'GET',
+			      headers: {
+			    	  'Accept':'application/json'
+			      },			      
+			      url: '/scdb/storagecontracts/filter?'+$scope.contractId, 
+			      responseType: 'json'
+			    };
+
+			    $http(req).success(function(data) {
+			      $scope.contracts = data.contractHeaders;
+			    });
+			  };
+		  
+	$scope.getOneContract = function(){
+	    $scope.contracts = [];
+	    var req = {
+			      method: 'GET',
+			      headers: {
+			    	  'Accept':'application/json'
+			      },			      
+			      url: '/scdb/storagecontracts/contract/'+$scope.contractId, 
+			      responseType: 'json'
+			    };
+	    $http(req).success(function(data) {
+		      $scope.contracts.push(data);
+		    });	    
+	}	  
+	
+	$scope.createContract = function(){
+	    $scope.contracts = [];
+	       var newContract = {
+	    			"assetName": "Enterprise Houston Terminal-Changes",
+	    			"assetOwner": "Enterprise",
+	    			"bpContractNum": "Ent Houston OTI-createnew-123",
+	    			"bpContractingEntity": "BPPNA",
+	    			"contractEndDate": "2016-01-01",
+	    			"contractSignDate": "2016-01-01",
+	    			"contractStartDate": "2016-01-01",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cschdPk": "2200000003431923",
+	    			"dealCounterParty": "Enterprise Partners, LLC",
+	    			"dealName": "Enterprise Houston Crude",
+	    			"description": "Enterprise Houston Storage",
+	    			"durationMonths": 85.2,
+	    			"econs": 40000000,
+	    			"excessThroughputRate": 0.5,
+	    			"externalContractNum": "1-hou-gcrude-12",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"leasePercentage": 20,
+	    			"leaseType": "CAPITAL",
+	    			"lockNum": "1",
+	    			"notes": "Note",
+	    			"otherReferenceNum": "na",
+	    			"region": "1010003098000000",
+	    			"status": "CLOSED",
+	    			"roleDetails": [{
+	    				"contractCschdFk": "2200000003431923",
+	    				"createdBy": "SYSTEM",
+	    				"createdDate": "2016-01-01",
+	    				"cscrdPk": "2200000003431933",
+	    				"isDeleted": "N",
+	    				"lastUpdatedBy": "SYSTEM",
+	    				"lastUpdatedDate": "2016-01-01",
+	    				"lockNum": "1",
+	    				"primaryIndividual": "Pederson",
+	    				"roleCscrtFk": "2000000003431929",
+	    				"roleType": [{
+	    					"cscrtPk": "2000000003431929",
+	    					"isDeleted": "N",
+	    					"roleName": "Bench Owner"
+	    				}],
+	    				"secondaryIndividual": "Recktenwall"
+	    			}],
+	    			"storages": [{
+	    				"contractCschdFk": "2200000003431923",
+	    				"createdBy": "SYSTEM",
+	    				"createdDate": "2016-01-01",
+	    				"cscsgPk": "2200000003431941",
+	    				"currency": "1010003029000024",
+	    				"description": "Segregated",
+	    				"gradeGroup": "MTBE",
+	    				"isDeleted": "N",
+	    				"lastUpdatedBy": "SYSTEM",
+	    				"lastUpdatedDate": "2016-01-01",
+	    				"lockNum": "1",
+	    				"quantity": 390000,
+	    				"quantityUom": "BBL",
+	    				"storageEndDate": "2016-01-01",
+	    				"storageRate": 0.55,
+	    				"storageStartDate": "2016-01-01",
+	    				"tankId": "390-2"
+	    			}, {
+	    				"contractCschdFk": "2200000003431923",
+	    				"createdBy": "SYSTEM",
+	    				"createdDate": "2016-01-01",
+	    				"cscsgPk": "2200000003431942",
+	    				"currency": "1010003029000024",
+	    				"description": "Segregated",
+	    				"gradeGroup": "BIODIESEL",
+	    				"isDeleted": "N",
+	    				"lastUpdatedBy": "SYSTEM",
+	    				"lastUpdatedDate": "2016-01-01",
+	    				"lockNum": "1",
+	    				"quantity": 390000,
+	    				"quantityUom": "BBL",
+	    				"storageEndDate": "2016-01-01",
+	    				"storageRate": 0.55,
+	    				"storageStartDate": "2016-01-01",
+	    				"tankId": "390-3"
+	    			}, {
+	    				"contractCschdFk": "2200000003431923",
+	    				"createdBy": "SYSTEM",
+	    				"createdDate": "2016-01-01",
+	    				"cscsgPk": "2200000003431943",
+	    				"currency": "1010003029000024",
+	    				"description": "Segregated",
+	    				"gradeGroup": "FAME",
+	    				"isDeleted": "N",
+	    				"lastUpdatedBy": "SYSTEM",
+	    				"lastUpdatedDate": "2016-01-01",
+	    				"lockNum": "1",
+	    				"quantity": 390000,
+	    				"quantityUom": "BBL",
+	    				"storageEndDate": "2016-01-01",
+	    				"storageRate": 0.65,
+	    				"storageStartDate": "2016-01-01",
+	    				"tankId": "390-4"
+	    			}],
+	    			"terminal": "Enterprise ",
+	    			"througputPerYear": 12
+	    		};
+	    
+	     
+	    var req = {
+			      method: 'POST',	      
+			      url: '/scdb/storagecontracts/contract',
+			      data: newContract,
+			      responseType: 'json',
+			      headers: {
+			          'Content-Type': 'application/json',
+			          'Accept':'application/json'
+			        }
+			    }; 
+	    $http(req).success(function(data) {
+		      $scope.contracts.push(data);
+		    });	    
+	}		
+	
+	$scope.updateContract = function(){
+	    $scope.contracts = [];
+	    var updateContract = {
+	    		"assetName": "Enterprise Houston Terminal-Changes",
+	    		"assetOwner": "Enterprise",
+	    		"bpContractNum": "Ent Houston OTI-update-123",
+	    		"bpContractingEntity": "BPPNA",
+	    		"contractEndDate": "2016-01-01",
+	    		"contractSignDate": "2016-01-01",
+	    		"contractStartDate": "2016-01-01",
+	    		"createdBy": "SYSTEM",
+	    		"createdDate": "2016-01-01",
+	    		"cschdPk": "2000000003431923",
+	    		"dealCounterParty": "Enterprise Partners, LLC",
+	    		"dealName": "Enterprise Houston Crude",
+	    		"description": "Enterprise Houston Storage",
+	    		"durationMonths": 85.2,
+	    		"econs": 40000000,
+	    		"excessThroughputRate": 0.5,
+	    		"externalContractNum": "1-hou-gcrude-12",
+	    		"isDeleted": "N",
+	    		"lastUpdatedBy": "SYSTEM",
+	    		"lastUpdatedDate": "2016-01-01",
+	    		"leasePercentage": 20,
+	    		"lockNum": "1",
+	    		"notes": "Note",
+	    		"otherReferenceNum": "na",
+	    		"region": "1010003098000000",
+	    		"roleDetails": [{
+	    			"contractCschdFk": "2000000003431923",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cscrdPk": "2000000003431933",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"lockNum": "1",
+	    			"primaryIndividual": "Pederson",
+	    			"roleCscrtFk": "2000000003431929",
+	    			"roleType": [{
+	    				"cscrtPk": "2000000003431929",
+	    				"isDeleted": "N",
+	    				"roleName": "Bench Owner"
+	    			}],
+	    			"secondaryIndividual": "Recktenwall"
+	    		}],
+	    		"storages": [{
+	    			"contractCschdFk": "2000000003431923",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cscsgPk": "2000000003431940",
+	    			"currency": "1010003029000024",
+	    			"description": "Segregated",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"lockNum": "1",
+	    			"quantity": 390000,
+	    			"quantityUom": "BBL",
+	    			"storageEndDate": "2016-01-01",
+	    			"storageRate": 0.55,
+	    			"storageStartDate": "2016-01-01",
+	    			"tankId": "390-1"
+	    		}, {
+	    			"contractCschdFk": "2000000003431923",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cscsgPk": "2000000003431941",
+	    			"currency": "1010003029000024",
+	    			"description": "Segregated",
+	    			"gradeGroup": "MTBE",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"lockNum": "1",
+	    			"quantity": 390000,
+	    			"quantityUom": "BBL",
+	    			"storageEndDate": "2016-01-01",
+	    			"storageRate": 0.55,
+	    			"storageStartDate": "2016-01-01",
+	    			"tankId": "390-2"
+	    		}, {
+	    			"contractCschdFk": "2000000003431923",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cscsgPk": "2000000003431942",
+	    			"currency": "1010003029000024",
+	    			"description": "Segregated",
+	    			"gradeGroup": "BIODIESEL",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"lockNum": "1",
+	    			"quantity": 390000,
+	    			"quantityUom": "BBL",
+	    			"storageEndDate": "2016-01-01",
+	    			"storageRate": 0.55,
+	    			"storageStartDate": "2016-01-01",
+	    			"tankId": "390-3"
+	    		}, {
+	    			"contractCschdFk": "2000000003431923",
+	    			"createdBy": "SYSTEM",
+	    			"createdDate": "2016-01-01",
+	    			"cscsgPk": "2000000003431943",
+	    			"currency": "1010003029000024",
+	    			"description": "Segregated",
+	    			"gradeGroup": "FAME",
+	    			"isDeleted": "N",
+	    			"lastUpdatedBy": "SYSTEM",
+	    			"lastUpdatedDate": "2016-01-01",
+	    			"lockNum": "1",
+	    			"quantity": 390000,
+	    			"quantityUom": "BBL",
+	    			"storageEndDate": "2016-01-01",
+	    			"storageRate": 0.65,
+	    			"storageStartDate": "2016-01-01",
+	    			"tankId": "390-4"
+	    		}],
+	    		"terminal": "Enterprise ",
+	    		"througputPerYear": 12
+	    	} 
+	    
+	    
+	    var req = {
+			      method: 'PUT',
+			      url: '/scdb/storagecontracts/contract/'+updateContract.cschdPk,
+			      data: updateContract,
+			      responseType: 'json',
+			      headers: {
+			          'Content-Type': 'application/json',
+			          'Accept':'application/json'
+			        }
+			    }; 
+	    $http(req).success(function(data) {
+		       $scope.contracts.push(data);
+		    });	    
+	}		
+});

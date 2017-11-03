@@ -27,10 +27,12 @@ public class TodosServiceClientImpl implements TodosServiceClient {
 		boolean isJson = true;
 		boolean isXml = false;
 		
-		HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		//HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		HttpClient httpClient = new HttpClient();
 		ServiceContext ctx = new ServiceContext("unknown", Value.newTextValue("100"));
 		ctx.setTextValue("data", data);
-		httpClient.doAct(ctx);
+		//httpClient.doAct(ctx);
+		httpClient.act(ctx, null);
 		Response response =  Response.ok(ctx.getTextValue("data")).build();
 		return response;
 	}
@@ -46,10 +48,11 @@ public class TodosServiceClientImpl implements TodosServiceClient {
 		boolean isJson = true;
 		boolean isXml = false;
 		
-		HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		//HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		HttpClient httpClient = new HttpClient();
 		ServiceContext ctx = new ServiceContext("unknown", Value.newTextValue("100"));
 		ctx.setTextValue("data", data);
-		httpClient.doAct(ctx);
+		httpClient.act(ctx, null);
 		Response response =  Response.ok(ctx.getTextValue("data")).build();
 		return response;
 		
@@ -73,9 +76,10 @@ public class TodosServiceClientImpl implements TodosServiceClient {
 		boolean isJson = true;
 		boolean isXml = false;
 		
-		HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		//HttpClient httpClient = new HttpClient(urlString, httpMethod, contentType, requestData, requestFieldName, responseData, responseFieldName, isJson, isXml);
+		HttpClient httpClient = new HttpClient();
 		ServiceContext ctx = new ServiceContext("unknown", Value.newTextValue("100"));
-		httpClient.doAct(ctx);
+		httpClient.act(ctx, null);
 		Response response =  Response.ok(ctx.getTextValue("data")).build();
 		return response;
 		

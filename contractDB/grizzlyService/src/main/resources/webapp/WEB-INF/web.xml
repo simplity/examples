@@ -13,10 +13,10 @@
 		<param-value>/api</param-value>
 	</context-param>
 
-	<context-param>
+	<!-- <context-param>
 		<param-name>proto-class-prefix</param-name>
 		<param-value>org.simplity.apiscdb.ScdbApi$</param-value>
-	</context-param> 
+	</context-param>  -->
 	<servlet>
 		<servlet-name>Startup</servlet-name>
 		<servlet-class>org.simplity.rest.Startup</servlet-class>

@@ -4,7 +4,6 @@ import java.io.File;
 
 import org.simplity.kernel.Application;
 import org.simplity.rest.Operations;
-import org.simplity.rest.Serve;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;

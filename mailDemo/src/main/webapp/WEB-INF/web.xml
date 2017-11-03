@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
-	<display-name>Simplity Hello World</display-name>
+	<display-name>Mail Demo</display-name>
 	<context-param>
 		<param-name>comp-folder</param-name>
 		<param-value>comp/</param-value>
@@ -15,35 +15,11 @@
 	<servlet>
 		<servlet-name>s</servlet-name>
 		<servlet-class>org.simplity.http.Serve</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>i</servlet-name>
-		<servlet-class>org.simplity.http.DefaultLogin</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>o</servlet-name>
-		<servlet-class>org.simplity.http.DefaultLogout</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>f</servlet-name>
-		<servlet-class>org.simplity.http.Stream</servlet-class>
-	</servlet>
+	</servlet>	
 	<servlet-mapping>
 		<servlet-name>s</servlet-name>
 		<url-pattern>*._s</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>i</servlet-name>
-		<url-pattern>*._i</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>o</servlet-name>
-		<url-pattern>*._o</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>f</servlet-name>
-		<url-pattern>*._f</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
